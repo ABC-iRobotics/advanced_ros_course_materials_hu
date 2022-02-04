@@ -1,0 +1,946 @@
+
+<!doctype html>
+<html lang="hu" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Robotprogramozás ROS környezetben">
+      
+      
+        <meta name="author" content="Tamas D. Nagy">
+      
+      
+        <link rel="canonical" href="https://example.com/12_robotics_principles/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.9">
+    
+    
+      
+        <title>Kinematika, inverz kienamtika - Robotprogramozás ROS környezetben</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.2b4465f4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#546d78">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#12-kinematika-inverz-kienamtika-szimulalt-robotkar-programozasa-csuklo-es-munkaterben" class="md-skip">
+          Kihagyás
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Élőfej">
+    <a href=".." title="Robotprogramozás ROS környezetben" class="md-header__button md-logo" aria-label="Robotprogramozás ROS környezetben" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Robotprogramozás ROS környezetben
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Kinematika, inverz kienamtika
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Keresés" placeholder="Keresés" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Törlés" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Keresés inicializálása
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Lapok" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href=".." class="md-tabs__link">
+      Kezdőlap
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../01_intro/" class="md-tabs__link md-tabs__link--active">
+        Tananyagok
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../kotprog/" class="md-tabs__link">
+      Kötelező program
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigáció" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Robotprogramozás ROS környezetben" class="md-nav__button md-logo" aria-label="Robotprogramozás ROS környezetben" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Robotprogramozás ROS környezetben
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Kezdőlap
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Tananyagok
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tananyagok" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Tananyagok
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_intro/" class="md-nav__link">
+        1. Bevezetés
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_linux_ros_principles/" class="md-nav__link">
+        2. Linux, ROS alapismeretek
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_python_principles/" class="md-nav__link">
+        3. Python alapismeretek,  ROS kommunikáció gyakorlása
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_git/" class="md-nav__link">
+        4. Verziókövetés, Git
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_da_vinci/" class="md-nav__link">
+        5. Robotikai alapismeretek, Sebészrobot programozása
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_roslaunch/" class="md-nav__link">
+        8. Roslaunch, saját üzenetek, action, service
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_sensory_data/" class="md-nav__link">
+        10. Szenzoros adatok feldolgozása
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          12. Kinematika, inverz kinematika
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        12. Kinematika, inverz kinematika
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tartalomjegyzék">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tartalomjegyzék
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ismetles" class="md-nav__link">
+    Ismétlés
+  </a>
+  
+    <nav class="md-nav" aria-label="Ismétlés">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3d-transzformaciok" class="md-nav__link">
+    3D transzformációk
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#robotikai-alapok" class="md-nav__link">
+    Robotikai alapok
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elmelet" class="md-nav__link">
+    Elmélet
+  </a>
+  
+    <nav class="md-nav" aria-label="Elmélet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kinematika-inverz-kinematika" class="md-nav__link">
+    Kinematika, inverz kinematika
+  </a>
+  
+    <nav class="md-nav" aria-label="Kinematika, inverz kinematika">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#differencialis-inverz-kinematika" class="md-nav__link">
+    Differenciális inverz kinematika
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inverz-kinematika-jacobi-inverz-felhasznalasaval" class="md-nav__link">
+    Inverz kinematika Jacobi inverz felhasználásával
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gyakorlat" class="md-nav__link">
+    Gyakorlat
+  </a>
+  
+    <nav class="md-nav" aria-label="Gyakorlat">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-install-rrr-arm" class="md-nav__link">
+    1: Install rrr-arm
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-robot-mozgatasa-csukloterben" class="md-nav__link">
+    2: Robot mozgatása csuklótérben
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-kinematika" class="md-nav__link">
+    3. Kinematika
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-kinpy-inverz-kinematika" class="md-nav__link">
+    4: Kinpy inverz kinematika
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-inverz-kinematika-jacobi-inverz-modszerrel" class="md-nav__link">
+    5: Inverz kinematika Jacobi inverz módszerrel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bonusz-inverz-kinematika-orientacioval" class="md-nav__link">
+    Bónusz: Inverz kinematika orientációval
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hasznos-linkek" class="md-nav__link">
+    Hasznos linkek
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kotprog/" class="md-nav__link">
+        Kötelező program
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+<h1 id="12-kinematika-inverz-kienamtika-szimulalt-robotkar-programozasa-csuklo-es-munkaterben">12. Kinematika, inverz kienamtika, Szimulált robotkar programozása csukló-, és munkatérben</h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>ZH2</strong> (Roslaunch, ROS paraméter szerver. ROS service. ROS action. Kinematika, inverz kinematika.) és a <strong>Kötelező program bemutatás</strong> <strong>május 9.</strong></p>
+</div>
+<hr />
+<h2 id="ismetles">Ismétlés</h2>
+<hr />
+<h3 id="3d-transzformaciok">3D transzformációk</h3>
+<hr />
+<ul>
+<li><strong>Pozíció:</strong> 3 elemű offszet vektor 
+<img align="right" alt="" src="https://d2t1xqejof9utc.cloudfront.net/pictures/files/19711/original.png?1367580819" style="width:250px" /></li>
+<li>
+<p><strong>Orientáció:</strong> 3 x 3 rotációs matrix</p>
+<ul>
+<li>további orientáció reprezentációk: Euler-szögek, RPY, angle axis, quaternion</li>
+</ul>
+</li>
+<li>
+<p><strong>Helyzet</strong> (pose): 4 × 4 transzformációs mártrix</p>
+</li>
+<li><strong>Koordináta rendszer</strong> (frame): null pont, 3 tengely, 3 bázis vektor, jobbkéz-szabály</li>
+<li><strong>Homogén transzformációk:</strong> rotáció és transzláció együtt<ul>
+<li>pl. <span class="arithmatex">\(\mathbf{R}\)</span> rotáció és <span class="arithmatex">\(\mathbf{v}\)</span> transzláció esetén:</li>
+</ul>
+</li>
+</ul>
+<div class="arithmatex">\[
+\mathbf{T} = \left[\matrix{\mathbf{R} &amp; \mathbf{v}\\\mathbf{0} &amp; 1 }\right] = \left[\matrix{r_{1,1} &amp; r_{1,2} &amp; r_{1,3} &amp; v_x\\r_{2,1} &amp; r_{2,2} &amp; r_{2,3} &amp; v_y\\r_{3,1} &amp; r_{3,2} &amp; r_{3,3} &amp; v_z\\\ 0 &amp; 0 &amp; 0 &amp; 1 }\right]
+\]</div>
+<ul>
+<li><strong>Homogén koordináták:</strong> <ul>
+<li><strong>Vektor:</strong> 0-val egészítjük ki, <span class="arithmatex">\(\mathbf{a_H}=\left[\matrix{\mathbf{a} \\ 0}\right]=\left[\matrix{a_x \\ a_y \\ a_z \\ 0}\right]\)</span></li>
+<li><strong>Pont:</strong> 1-gyel egészítjük ki, <span class="arithmatex">\(\mathbf{p_H}=\left[\matrix{\mathbf{p} \\ 1}\right]=\left[\matrix{p_x \\ p_y \\ p_z \\ 1}\right]\)</span></li>
+<li>Transzformációk alkalmazása egyszerűbb:</li>
+</ul>
+</li>
+</ul>
+<div class="arithmatex">\[
+\mathbf{q} = \mathbf{R}\mathbf{p} + \mathbf{v} \to \left[\matrix{\mathbf{q} \\ 1}\right] = \left[\matrix{\mathbf{R} &amp; \mathbf{v}\\\mathbf{0} &amp; 1 }\right]\left[\matrix{\mathbf{p} \\ 1}\right]
+\]</div>
+<ul>
+<li><strong>Szabadsági fok</strong> (DoF): egymástól független mennyiségek száma.</li>
+</ul>
+<hr />
+<h3 id="robotikai-alapok">Robotikai alapok</h3>
+<hr />
+<p><img align="right" alt="" src="../img/segments.png" style="width:400px" /></p>
+<ul>
+<li>Robotok felépítése: <strong>szegmensek</strong> (segment, link) és <strong>csuklók</strong> (joints)</li>
+<li><strong>Munkatér</strong> (task space, cartesian space):  <ul>
+<li>Háromdimenziós tér, ahol a feladat, trajektóriák, akadályok, stb. definiálásra kerülnek.</li>
+<li><strong>TCP</strong> (Tool Center Point): az end effektorhoz rögzített koordináta rendszer (frame)</li>
+<li><strong>Base/world frame</strong></li>
+</ul>
+</li>
+<li><strong>Csuklótér</strong> (joint space):<ul>
+<li>A robot csuklóihoz rendelt mennyiségek, melyeket a robot alacsony szintű irányító rendszere értelmezni képes.</li>
+<li>csukló koordináták, sebességek, gyorsulások, nyomatékok...</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="elmelet">Elmélet</h2>
+<hr />
+<h3 id="kinematika-inverz-kinematika">Kinematika, inverz kinematika</h3>
+<hr />
+<div class="admonition abstract">
+<p class="admonition-title">Def. Kinematika</p>
+<p>A TCP (vagy bármi más) helyzetének kiszámítása a csukló koordinátákból.</p>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title">Def. Inverz kinematika</p>
+<p>Csukló koordináták kiszámítása a (kívánt)  TCP (vagy bármi más) pose eléréséhez.</p>
+</div>
+<hr />
+<h4 id="differencialis-inverz-kinematika">Differenciális inverz kinematika</h4>
+<div class="admonition abstract">
+<p class="admonition-title">Def. Differenciális inverz kinematika</p>
+<p>A csukló koordináták mely változtatása éri el a kívánt, <strong>kis mértékű változást</strong> a TCP helyzetében (rotáció és transzláció).</p>
+</div>
+<ul>
+<li>
+<p><strong>Jacobi-mátrix</strong> (Jacobian): egy vektorértékű függvény elsőrendű parciális deriváltjait tartalmazó mátrix. </p>
+<div class="arithmatex">\[
+\mathbf{J} = \left[\matrix{\frac{\partial x_1}{\partial q_1} &amp; \frac{\partial x_1}{\partial q_2} &amp;\frac{\partial x_1}{\partial q_3} &amp; \dots &amp;\frac{\partial x_1}{\partial q_n} \\
+\frac{\partial x_2}{\partial q_1} &amp; \frac{\partial x_2}{\partial q_2} &amp;\frac{\partial x_2} {\partial q_3} &amp; \dots &amp;\frac{\partial x_2}{\partial q_n} \\
+\frac{\partial x_3}{\partial q_1} &amp; \frac{\partial x_3}{\partial q_2} &amp;\frac{\partial x_3}{\partial q_3} &amp; \dots &amp;\frac{\partial x_3}{\partial q_n} \\
+\vdots &amp;\vdots &amp;\vdots &amp;\ddots &amp;\vdots \\
+\frac{\partial x_m}{\partial q_1} &amp; \frac{\partial x_m}{\partial q_2} &amp;\frac{\partial x_m}{\partial q_3} &amp; \dots &amp;\frac{\partial x_m}{\partial q_n} \\}\right]
+\]</div>
+</li>
+<li>
+<p><strong>Jacobi-mátrix jelentősége robotikában</strong>: megadja az összefüggést a csuklósebességek és a TCP sebessége között.</p>
+<div class="arithmatex">\[
+\left[\matrix{\mathbf{v} \\ \mathbf{\omega}}\right] =\mathbf{J}(\mathbf{q})\cdot \mathbf{\dot{q}}
+\]</div>
+</li>
+</ul>
+<hr />
+<h4 id="inverz-kinematika-jacobi-inverz-felhasznalasaval">Inverz kinematika Jacobi inverz felhasználásával</h4>
+<ol>
+<li>Számítsuk ki a kívánt és az aktuális pozíció különbségét: <span class="arithmatex">\(\Delta\mathbf{r} = \mathbf{r}_{desired} - \mathbf{r}_0\)</span></li>
+<li>Számítsuk ki a rotációk különbségét: <span class="arithmatex">\(\Delta\mathbf{R} = \mathbf{R}_{desired}\mathbf{R}_{0}^{T}\)</span>, majd konvertáljuk át axis angle reprezentációba <span class="arithmatex">\((\mathbf{t},\phi)\)</span></li>
+<li>Számítsuk ki <span class="arithmatex">\(\Delta\mathbf{ q}=\mathbf{J}^{-1}(\mathbf{q_0})\cdot \left[\matrix{k_1 \cdot \Delta\mathbf{r} \\ k_2 \cdot \phi \cdot \mathbf{t}}\right]\)</span>, ahol az inverz lehet pszeudo-inverz, vagy transzponált</li>
+<li><span class="arithmatex">\(\mathbf{q}_{better} = \mathbf{q}_{0} + \Delta\mathbf{q}\)</span></li>
+</ol>
+<hr />
+<h2 id="gyakorlat">Gyakorlat</h2>
+<hr />
+<h3 id="1-install-rrr-arm">1: Install rrr-arm</h3>
+<hr />
+<ol>
+<li>
+<p>Telepítsük a dependency-ket.</p>
+<div class="highlight"><pre><span></span><code>sudo apt update
+sudo apt-get install ros-noetic-effort-controllers
+sudo apt-get install ros-noetic-position-controllers
+sudo apt-get install ros-noetic-gazebo-ros-pkgs 
+sudo apt-get install ros-noetic-gazebo-ros-control
+sudo apt-get install ros-noetic-gazebo-ros
+pip3 install kinpy 
+rosdep update
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>A <code>kinpy</code> csomag forrását is töltsük le, hasznos lehet az API megértése szempontjából: https://pypi.org/project/kinpy/  </p>
+</div>
+<hr />
+</li>
+<li>
+<p>Clone-ozzuk és build-eljük a repo-t.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/catkin_ws/src
+git clone https://github.com/Robotawi/rrr-arm.git
+<span class="nb">cd</span> ..
+catkin build
+</code></pre></div>
+<hr />
+</li>
+<li>
+<p>Teszteljük a szimulátort, új teminál ablakokban:</p>
+<div class="highlight"><pre><span></span><code>roslaunch rrr_arm view_arm_gazebo_control_empty_world.launch
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>rostopic pub /rrr_arm/joint1_position_controller/command  std_msgs/Float64 <span class="s2">&quot;data: 1.0&quot;</span> <span class="p">&amp;</span>    rostopic pub /rrr_arm/joint2_position_controller/command  std_msgs/Float64 <span class="s2">&quot;data: 1.0&quot;</span> <span class="p">&amp;</span> rostopic pub /rrr_arm/joint3_position_controller/command  std_msgs/Float64 <span class="s2">&quot;data: 1.5&quot;</span> <span class="p">&amp;</span> rostopic pub /rrr_arm/joint4_position_controller/command std_msgs/Float64 <span class="s2">&quot;data: 1.5&quot;</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>A szimulátor panaszkodni fog, hogy "No p gain specified for pid...", de ez nem okoz gondot a működésében.</p>
+</div>
+<hr />
+</li>
+<li>
+<p>Állítsuk elő a robotot leíró urdf fájlt:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/catkin_ws/src/rrr-arm/urdf
+rosrun xacro xacro rrr_arm.xacro &gt; rrr_arm.xacro.urdf
+</code></pre></div>
+<hr />
+</li>
+</ol>
+<h3 id="2-robot-mozgatasa-csukloterben">2: Robot mozgatása csuklótérben</h3>
+<hr />
+<ol>
+<li>
+<p>Iratkozzunk fel a robot csuklószögeit (konfigurációját) publikáló topicra. Hozzunk létre publisher-eket a csuklók szögeinek beállítására használható topic-okhoz.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>A Kinpy és a ROS nem mindig azonos sorrendben kezeli a csuklószögeket. Az alábbi két sorrend fordul elő:
+<strong>1. [gripper_joint_1, gripper_joint_2, joint_1, joint_2, joint_3, joint_4]</strong>
+- <code>/rrr_arm/joint_states</code> topic
+- <code>kp.jacobian.calc_jacobian(...)</code> függvény</p>
+<p><strong>2. [joint_1, joint_2, joint_3, joint_4, gripper_joint_1, gripper_joint_2]</strong>
+- <code>chain.forward_kinematics(...)</code> függvény
+- <code>chain.inverse_kinematics(...)</code> függvény</p>
+</div>
+<hr />
+</li>
+<li>
+<p>Mozgassuk a robotot [1.0, 1.0, 1.5, 1.5] konfigurációba.</p>
+<hr />
+</li>
+</ol>
+<h3 id="3-kinematika">3. Kinematika</h3>
+<hr />
+<ol>
+<li>
+<p>Importáljuk a <code>kinpy</code> csomagot és olvassuk be a robotot leíró urdf fájlt:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">kinpy</span> <span class="k">as</span> <span class="nn">kp</span>
+
+<span class="n">chain</span> <span class="o">=</span> <span class="n">kp</span><span class="o">.</span><span class="n">build_serial_chain_from_urdf</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;/home/&lt;USERNAME&gt;/catkin_ws/src/rrr-arm/urdf/rrr_arm.xacro.urdf&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span> <span class="s2">&quot;gripper_frame_cp&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">chain</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">chain</span><span class="o">.</span><span class="n">get_joint_parameter_names</span><span class="p">())</span>
+</code></pre></div>
+<hr />
+</li>
+<li>
+<p>Számítsuk ki, majd irassuk ki a TCP pozícióját az adott konfigurációban a <code>kinpy</code> csomag segítségével. A https://pypi.org/project/kinpy/ oldalon lévő példa hibás, érdemes az alábbi példa kódból kiindulni:
+    <div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="s1">&#39;&lt;robot name=&quot;test_robot&quot;&gt;&#39;</span>\
+    <span class="s1">&#39;&lt;link name=&quot;link1&quot; /&gt;&#39;</span>\
+    <span class="s1">&#39;&lt;link name=&quot;link2&quot; /&gt;&#39;</span>\
+    <span class="s1">&#39;&lt;link name=&quot;link3&quot; /&gt;&#39;</span>\
+    <span class="s1">&#39;&lt;joint name=&quot;joint1&quot; type=&quot;revolute&quot;&gt;&#39;</span>\
+    <span class="s1">&#39;&lt;origin xyz=&quot;1.0 0.0 0.0&quot;/&gt;&#39;</span>\
+    <span class="s1">&#39;&lt;parent link=&quot;link1&quot;/&gt;&#39;</span>\
+    <span class="s1">&#39;&lt;child link=&quot;link2&quot;/&gt;&#39;</span>\
+    <span class="s1">&#39;&lt;/joint&gt;&#39;</span>\
+    <span class="s1">&#39;&lt;joint name=&quot;joint2&quot; type=&quot;revolute&quot;&gt;&#39;</span>\
+    <span class="s1">&#39;&lt;origin xyz=&quot;1.0 0.0 0.0&quot;/&gt;&#39;</span>\
+    <span class="s1">&#39;&lt;parent link=&quot;link2&quot;/&gt;&#39;</span>\
+    <span class="s1">&#39;&lt;child link=&quot;link3&quot;/&gt;&#39;</span>\
+    <span class="s1">&#39;&lt;/joint&gt;&#39;</span>\
+    <span class="s1">&#39;&lt;/robot&gt;&#39;</span>
+    <span class="n">chain</span> <span class="o">=</span> <span class="n">kp</span><span class="o">.</span><span class="n">build_serial_chain_from_urdf</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;link3&#39;</span><span class="p">)</span>
+    <span class="n">th1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">tg</span> <span class="o">=</span> <span class="n">chain</span><span class="o">.</span><span class="n">forward_kinematics</span><span class="p">(</span><span class="n">th1</span><span class="p">)</span>
+    <span class="n">th2</span> <span class="o">=</span> <span class="n">chain</span><span class="o">.</span><span class="n">inverse_kinematics</span><span class="p">(</span><span class="n">tg</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">th1</span><span class="p">,</span> <span class="n">th2</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mf">1.0e-6</span><span class="p">))</span>
+</code></pre></div></p>
+<hr />
+</li>
+</ol>
+<h3 id="4-kinpy-inverz-kinematika">4: Kinpy inverz kinematika</h3>
+<hr />
+<ol>
+<li>
+<p>A <code>kinpy</code> csomag <code>chain.inverse_kinematics(...)</code> függvény segítségével mozgassuk a TCP-t a <code>kp.Transform(rot=[-0.08434791, -0.93360388,  0.23838817, -0.25385094], pos=[ 0.59840159, -0.21191189,  0.42244937])</code> helyzetbe.</p>
+<hr />
+</li>
+</ol>
+<h3 id="5-inverz-kinematika-jacobi-inverz-modszerrel">5: Inverz kinematika Jacobi inverz módszerrel</h3>
+<hr />
+<p>Írjunk metódust, amely az előadásban bemutatott Jakobi inverz módszerrel valósítja meg az inverz kinematikai feladatot a roboton. Az orientációt hagyjuk figyelmen kívül.</p>
+<ol>
+<li>
+<p>Írjunk egy ciklust, melynek megállási feltétele a <code>delta_r</code> megfelelő nagysága, vagy <code>rospy.is_shutdown()</code>.</p>
+<hr />
+</li>
+<li>
+<p>Számítsuk ki a kívánt és a pillanatnyi TCP pozíciók különbségét (<code>delta_r</code>). Skálázzuk <code>k_1</code> konstanssal.</p>
+<hr />
+</li>
+<li>
+<p><code>phi_dot_t</code> legyen <code>[0.0, 0.0, 0.0]</code> (ignoráljuk az orientációt).</p>
+<hr />
+</li>
+<li>
+<p>Konkatenáljuk <code>delta_r</code> és <code>phi_dot_t</code>-t.</p>
+<hr />
+</li>
+<li>
+<p>Számítsuk ki a Jacobi mátrixot az adott konfigurációban a <code>kp.jacobian.calc_jacobian(...)</code> függvény segítségével.</p>
+<hr />
+</li>
+<li>
+<p>Számítsuk ki Jacobi mátrix pszeudo-inverzét <code>np.linalg.pinv(...)</code>.</p>
+<hr />
+</li>
+<li>
+<p>A fenti képlet segítségével számítsük ki <code>delta_q</code>-t, majd növeljük a csuklószögeket a kapott értékekkel.</p>
+<hr />
+</li>
+</ol>
+<h3 id="bonusz-inverz-kinematika-orientacioval"><em>Bónusz:</em> Inverz kinematika orientációval</h3>
+<hr />
+<p>Egészítsük ki az előző feladat megoldását úgy, hogy az orientációt is figyelembe vesszük az inverz kinematikai számítás során.</p>
+<hr />
+<h2 id="hasznos-linkek">Hasznos linkek</h2>
+<p>-<a href="https://githubmemory.com/repo/Robotawi/rrr-arm">rrr-arm model</a>
+-<a href="">https://pypi.org/project/kinpy/</a>
+-<a href="">https://en.wikipedia.org/wiki/Axis%E2%80%93angle_representation</a>
+-<a href="">https://www.rosroboticslearning.com/jacobian</a></p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Élőláb">
+      
+        
+        <a href="../10_sensory_data/" class="md-footer__link md-footer__link--prev" aria-label="Előző: 10. Szenzoros adatok feldolgozása" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Előző
+              </span>
+              10. Szenzoros adatok feldolgozása
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../kotprog/" class="md-footer__link md-footer__link--next" aria-label="Következő: Kötelező program" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Következő
+              </span>
+              Kötelező program
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2022 <a href="mailto:tamas.daniel.nagy@irob.uni-obuda.hu">Tamas D. Nagy</a>.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "toc.integrate"], "translations": {"clipboard.copy": "M\u00e1sol\u00e1s v\u00e1g\u00f3lapra", "clipboard.copied": "V\u00e1g\u00f3lapra m\u00e1solva", "search.config.lang": "hu", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Keres\u00e9s", "search.result.placeholder": "Keres\u00e9shez \u00edrj ide valamit", "search.result.none": "Nincs tal\u00e1lat", "search.result.one": "1 egyez\u0151 dokumentum", "search.result.other": "# egyez\u0151 dokumentum", "search.result.more.one": "1 tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.more.other": "# tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.term.missing": "\u00dcres", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.960e086b.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/gh/rod2ik/cdn@main/mkdocs/javascripts/mkdocs-graphviz.js"></script>
+      
+    
+  </body>
+</html>

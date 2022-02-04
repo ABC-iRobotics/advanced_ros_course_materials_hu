@@ -1,0 +1,698 @@
+
+<!doctype html>
+<html lang="hu" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Robotprogramozás ROS környezetben">
+      
+      
+        <meta name="author" content="Tamas D. Nagy">
+      
+      
+        <link rel="canonical" href="https://example.com/01_intro/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.9">
+    
+    
+      
+        <title>01. Bevezetés - Robotprogramozás ROS környezetben</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.2b4465f4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#546d78">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#01-bevezetes" class="md-skip">
+          Kihagyás
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Élőfej">
+    <a href=".." title="Robotprogramozás ROS környezetben" class="md-header__button md-logo" aria-label="Robotprogramozás ROS környezetben" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Robotprogramozás ROS környezetben
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              01. Bevezetés
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Keresés" placeholder="Keresés" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Törlés" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Keresés inicializálása
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Lapok" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href=".." class="md-tabs__link">
+      Kezdőlap
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
+        Tananyagok
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../kotprog/" class="md-tabs__link">
+      Kötelező program
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigáció" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Robotprogramozás ROS környezetben" class="md-nav__button md-logo" aria-label="Robotprogramozás ROS környezetben" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Robotprogramozás ROS környezetben
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Kezdőlap
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Tananyagok
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tananyagok" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Tananyagok
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          1. Bevezetés
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        1. Bevezetés
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tartalomjegyzék">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tartalomjegyzék
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#robot-operating-system-ros-bevezetes" class="md-nav__link">
+    Robot Operating System (ROS) bevezetés
+  </a>
+  
+    <nav class="md-nav" aria-label="Robot Operating System (ROS) bevezetés">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-robot-fogalma" class="md-nav__link">
+    A robot fogalma
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mi-a-ros" class="md-nav__link">
+    Mi a ROS?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tortenet" class="md-nav__link">
+    Történet
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fejlesztokornyezet-felallitasa-hazi-feladat" class="md-nav__link">
+    Fejlesztőkörnyezet felállítása - Házi feladat
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hasznos-linkek" class="md-nav__link">
+    Hasznos linkek
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_linux_ros_principles/" class="md-nav__link">
+        2. Linux, ROS alapismeretek
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_python_principles/" class="md-nav__link">
+        3. Python alapismeretek,  ROS kommunikáció gyakorlása
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_git/" class="md-nav__link">
+        4. Verziókövetés, Git
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_da_vinci/" class="md-nav__link">
+        5. Robotikai alapismeretek, Sebészrobot programozása
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_roslaunch/" class="md-nav__link">
+        8. Roslaunch, saját üzenetek, action, service
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_sensory_data/" class="md-nav__link">
+        10. Szenzoros adatok feldolgozása
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_robotics_principles/" class="md-nav__link">
+        12. Kinematika, inverz kinematika
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kotprog/" class="md-nav__link">
+        Kötelező program
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+<h1 id="01-bevezetes">01. Bevezetés</h1>
+<hr />
+<h2 id="robot-operating-system-ros-bevezetes">Robot Operating System (ROS) bevezetés</h2>
+<hr />
+<h3 id="a-robot-fogalma">A robot fogalma</h3>
+<ul>
+<li><strong>Joseph Engelberger, pioneer in industrial robotics:</strong> <em>"I can't define a robot, but I know one when I see one."</em></li>
+<li><strong>Wikipedia:</strong> <em>"A robot is a machine—especially one programmable by a computer— capable of carrying out a complex series of actions automatically. Robots can be guided by an external control device or the control may be embedded within. Robots may be constructed on the lines of human form, but most robots are machines designed to perform a task with no regard to their aesthetics."</em></li>
+<li><strong>ISO 8373:2012 Robots and robotic devices – Vocabulary, FDIS 2012:</strong> <em>"A robot is an actuated mechanism programmable in two or more axes with a degree of autonomy, moving within its environment, to perform intended tasks."</em></li>
+<li><strong>Rodney Brooks, Founder and CTO, Rethink Robotics:</strong> <em>"A robot is some sort of device, wich has sensors those sensors the world, does some sort of computation, decides on an action, and then does that action based on the sensory input, which makes some change out in the world, outside its body. Comment: the part "make some change outside its body" discriminates a washing machine from e.g. a Roomba."</em></li>
+<li><strong>Tamás Haidegger, Encyclopedia of Robotics</strong>: <em>"A robot is a complex mechatronic system enabled with electronics, sensors, actuators and software, executing tasks with a certain degree of autonomy. It may be pre-programmed, teleoperated or carrying out computations to make decisions."</em></li>
+</ul>
+<hr />
+<h3 id="mi-a-ros">Mi a ROS?</h3>
+<p><img align="right" alt="" src="https://moveit.ros.org/assets/images/logo/ROS_logo.png" style="width:300px" /></p>
+<ul>
+<li>Open-source, robotikai célú middleware</li>
+<li>Modularitás, újra-felhasználhatóság (driverek, algoritmusok, library-k, ...)</li>
+<li>Hardware absztrakció, ROS API</li>
+<li>C++ és Python támogatás</li>
+<li>Ubuntu Linux (kivéve ROS 2)</li>
+<li>Népes közösség</li>
+</ul>
+<p><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/4/43/Ros_Equation.png" /></p>
+<hr />
+<h3 id="tortenet">Történet</h3>
+<ul>
+<li>2000-es évek közepe, Stanford: robotikai célú rugalmas, dinamikus szoftverrendszer prototípusok fejlesztése</li>
+<li>2007, Willow Garage: inkubáció, kialakult a ROS alapja BSD open-source licensz alatt</li>
+<li>Robotikai kutatások területén egyre inkább elterjedt, PR2</li>
+<li>2012: Ipari robotika, ROS-Industrial</li>
+<li>2017: ROS 2</li>
+</ul>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/mDwZ21Zia8s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<hr />
+<h2 id="fejlesztokornyezet-felallitasa-hazi-feladat">Fejlesztőkörnyezet felállítása - Házi feladat</h2>
+<hr />
+<p>Ajánlott környezet:</p>
+<ul>
+<li>Ubuntu 20.04</li>
+<li>ROS Noetic</li>
+<li><em>IDE: QtCreator</em></li>
+</ul>
+<hr />
+<ol>
+<li>
+<p>ROS</p>
+<div class="highlight"><pre><span></span><code>sudo sh -c <span class="s1">&#39;echo &quot;deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#39;</span>
+sudo apt-key adv --keyserver <span class="s1">&#39;hkp://keyserver.ubuntu.com:80&#39;</span> --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
+sudo apt update
+sudo apt install ros-noetic-desktop-full
+<span class="nb">source</span> /opt/ros/noetic/setup.bash
+    <span class="sb">```</span>
+
+
+A <span class="sb">`</span><span class="nb">source</span><span class="sb">`</span> parancs a környezeti változók beállításáért felelős, ezt minden új terminálablak megnyitásakor meg kell<span class="o">(</span>ene<span class="o">)</span> adni. Ez a parancs beilleszthető a <span class="sb">`</span>~/.bashrc<span class="sb">`</span> fájl végére, amely minden terminálablak megnyitásakor lefut, így nem kell mindig beírnunk:
+
+
+<span class="sb">```</span>bash
+<span class="nb">echo</span> <span class="s2">&quot;source /opt/ros/noetic/setup.bash&quot;</span> &gt;&gt; ~/.bashrc
+<span class="nb">source</span> ~/.bashrc
+</code></pre></div>
+<hr />
+</li>
+<li>
+<p>ROS dependencies</p>
+<div class="highlight"><pre><span></span><code>sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential
+sudo rosdep init
+rosdep update
+</code></pre></div>
+<p>Ha ezzel megvagyunk, a következő parancssal tesztelhetjük a ROS telepítésünket:</p>
+<div class="highlight"><pre><span></span><code>roscore
+</code></pre></div>
+<hr />
+</li>
+<li>
+<p>További csomagok</p>
+<p>Az alábbi csomagokra is szükség lesz a félév során, így ezeket is érdemes feltelepíteni:</p>
+<div class="highlight"><pre><span></span><code>sudo apt install libxml2-dev libraw1394-dev libncurses5-dev qtcreator swig sox espeak cmake-curses-gui cmake-qt-gui git subversion gfortran libcppunit-dev libqt5xmlpatterns5-dev python3-catkin-tools python3-osrf-pycommon libasound2-dev libgl1-mesa-dev xorg-dev
+</code></pre></div>
+<hr />
+</li>
+<li>
+<p>QtCreator</p>
+<p>ROS csomagok fejlesztéséhez jelenleg a leginkább használható IDE a QtCreator, melyhez ROS plugin is készült. Az installer az alábbi linken elérhető. A "18.04 online installer"-t érdemes használni, ez működik Ubunutu 20.04-en is.</p>
+<p><a href="https://ros-qtc-plugin.readthedocs.io/en/latest/_source/How-to-Install-Users.html">https://ros-qtc-plugin.readthedocs.io/en/latest/_source/How-to-Install-Users.html</a></p>
+<p>Ha letöltöttük, az IDE az alábbi paranccsal telepíthető (fontos, hogy <code>cd</code>zzünk be a lettöltés helyére):</p>
+<div class="highlight"><pre><span></span><code>sudo ./qtcreator-ros-bionic-latest-online-installer.run
+</code></pre></div>
+</li>
+</ol>
+<hr />
+<h2 id="hasznos-linkek">Hasznos linkek</h2>
+<ul>
+<li><a href="https://www.ros.org/">https://www.ros.org/</a></li>
+<li><a href="https://www.ros.org/install/">https://www.ros.org/install/</a></li>
+<li><a href="http://wiki.ros.org/ROS/Tutorials">http://wiki.ros.org/ROS/Tutorials</a></li>
+<li><a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Markdown Cheatsheet</a></li>
+<li><a href="https://hackmd.io/">Online MD editor: HackMD</a></li>
+<li><a href="https://ros-qtc-plugin.readthedocs.io/en/latest/_source/How-to-Install-Users.html">QtCreator + ROS plugin</a></li>
+<li><a href="https://www.youtube.com/watch?v=8XmKGWBV5Nw">IROB virtual tour</a></li>
+<li><a href="https://www.youtube.com/watch?v=mDwZ21Zia8s">ROS 10 years montage</a></li>
+</ul>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Élőláb">
+      
+        
+        <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Előző: Kezdőlap" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Előző
+              </span>
+              Kezdőlap
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../02_linux_ros_principles/" class="md-footer__link md-footer__link--next" aria-label="Következő: 2. Linux, ROS alapismeretek" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Következő
+              </span>
+              2. Linux, ROS alapismeretek
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2022 <a href="mailto:tamas.daniel.nagy@irob.uni-obuda.hu">Tamas D. Nagy</a>.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "toc.integrate"], "translations": {"clipboard.copy": "M\u00e1sol\u00e1s v\u00e1g\u00f3lapra", "clipboard.copied": "V\u00e1g\u00f3lapra m\u00e1solva", "search.config.lang": "hu", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Keres\u00e9s", "search.result.placeholder": "Keres\u00e9shez \u00edrj ide valamit", "search.result.none": "Nincs tal\u00e1lat", "search.result.one": "1 egyez\u0151 dokumentum", "search.result.other": "# egyez\u0151 dokumentum", "search.result.more.one": "1 tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.more.other": "# tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.term.missing": "\u00dcres", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.960e086b.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/gh/rod2ik/cdn@main/mkdocs/javascripts/mkdocs-graphviz.js"></script>
+      
+    
+  </body>
+</html>

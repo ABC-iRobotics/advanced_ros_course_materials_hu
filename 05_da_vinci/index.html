@@ -1,0 +1,858 @@
+
+<!doctype html>
+<html lang="hu" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Robotprogramozás ROS környezetben">
+      
+      
+        <meta name="author" content="Tamas D. Nagy">
+      
+      
+        <link rel="canonical" href="https://example.com/05_da_vinci/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.9">
+    
+    
+      
+        <title>Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben - Robotprogramozás ROS környezetben</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.2b4465f4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#546d78">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#05-robotikai-alapfogalmak-da-vinci-sebeszrobot-programozasa-szimulalt-kornyezetben" class="md-skip">
+          Kihagyás
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Élőfej">
+    <a href=".." title="Robotprogramozás ROS környezetben" class="md-header__button md-logo" aria-label="Robotprogramozás ROS környezetben" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Robotprogramozás ROS környezetben
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Keresés" placeholder="Keresés" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Törlés" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Keresés inicializálása
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Lapok" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href=".." class="md-tabs__link">
+      Kezdőlap
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../01_intro/" class="md-tabs__link md-tabs__link--active">
+        Tananyagok
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../kotprog/" class="md-tabs__link">
+      Kötelező program
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigáció" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Robotprogramozás ROS környezetben" class="md-nav__button md-logo" aria-label="Robotprogramozás ROS környezetben" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Robotprogramozás ROS környezetben
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Kezdőlap
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Tananyagok
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tananyagok" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Tananyagok
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_intro/" class="md-nav__link">
+        1. Bevezetés
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_linux_ros_principles/" class="md-nav__link">
+        2. Linux, ROS alapismeretek
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_python_principles/" class="md-nav__link">
+        3. Python alapismeretek,  ROS kommunikáció gyakorlása
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_git/" class="md-nav__link">
+        4. Verziókövetés, Git
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          5. Robotikai alapismeretek, Sebészrobot programozása
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        5. Robotikai alapismeretek, Sebészrobot programozása
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tartalomjegyzék">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tartalomjegyzék
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#elmelet" class="md-nav__link">
+    Elmélet
+  </a>
+  
+    <nav class="md-nav" aria-label="Elmélet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#merev-test-mozgasa" class="md-nav__link">
+    Merev test mozgása
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3d-transzformaciok" class="md-nav__link">
+    3D transzformációk
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#robotikai-alapok" class="md-nav__link">
+    Robotikai alapok
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gyakorlat" class="md-nav__link">
+    Gyakorlat
+  </a>
+  
+    <nav class="md-nav" aria-label="Gyakorlat">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-dvrk-install" class="md-nav__link">
+    1. dVRK install
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-psm-subscriber-implementalasa" class="md-nav__link">
+    2. PSM subscriber implementálása
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-psm-tcp-mozgatasa-linearis-trajektoria-menten" class="md-nav__link">
+    3. PSM TCP mozgatása lineáris trajektória mentén
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-dummy-marker-letrehozasa" class="md-nav__link">
+    4. Dummy marker létrehozása
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-marker-megfogasa" class="md-nav__link">
+    5. Marker megfogása
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hasznos-linkek" class="md-nav__link">
+    Hasznos linkek
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_roslaunch/" class="md-nav__link">
+        8. Roslaunch, saját üzenetek, action, service
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_sensory_data/" class="md-nav__link">
+        10. Szenzoros adatok feldolgozása
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_robotics_principles/" class="md-nav__link">
+        12. Kinematika, inverz kinematika
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kotprog/" class="md-nav__link">
+        Kötelező program
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+<h1 id="05-robotikai-alapfogalmak-da-vinci-sebeszrobot-programozasa-szimulalt-kornyezetben">05. Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben</h1>
+<hr />
+<h2 id="elmelet">Elmélet</h2>
+<hr />
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>ZH1</strong> (ROS alapok, publisher, subscriber. Python alapok. Robotikai alapfogalmak.) <strong>március 21.</strong></p>
+</div>
+<h3 id="merev-test-mozgasa">Merev test mozgása</h3>
+<hr />
+<p><img align="right" alt="" src="../img/merev_test_helyzete.png" style="width:200px" /></p>
+<div class="admonition abstract">
+<p class="admonition-title">Def. Merev test</p>
+<p>Merevnek tekinthető az a test, mely pontjainak távolsága mozgás során nem változik, vagyis bármely két pontjának távolsága időben állandó.</p>
+</div>
+<ul>
+<li>Merev test alakja, térfogata szintén állandó.</li>
+<li>Merev test térbeli helyzete megadható bármely 3 nem egy egyenesbe eső pontjának helyzetével.</li>
+</ul>
+<p><img align="right" alt="" src="../img/merev_test_transzlacio.png" style="width:200px" /></p>
+<ul>
+<li>
+<p>A test <strong>helyzetét</strong> szemléletesebben megadhatjuk egy tetszőleges pontjának 3 koordinátájával (pozíció) és a test orientációjával.</p>
+</li>
+<li>
+<p>Merev testek mozgásai két elemi mozgásfajtából tevődnek össze: <strong>haladó mozgás (transzláció)</strong> és <strong>tengely körüli forgás (rotáció)</strong></p>
+</li>
+<li>
+<p><strong>Transzlációs mozgás</strong> során a test minden pontja egymással párhuzamos, egybevágó pályát ír le, a test orientációja pedig nem változik.</p>
+</li>
+</ul>
+<p><img align="right" alt="" src="../img/merev_test_rotacio.png" style="width:200px" /></p>
+<ul>
+<li>
+<p><strong>Rotáció</strong>  során a forgástengelyen lévő pontok pozíciója nem változik, a test többi pontja pedig a forgástengelyre merőleges síkokban körpályán mozog.</p>
+</li>
+<li>
+<p>A <strong>merev test szabad mozgása</strong> is leírható mint egyidejűleg egy bizonyos <strong>tengely körüli forgás és egy haladó mozgás</strong>.</p>
+</li>
+</ul>
+<hr />
+<h3 id="3d-transzformaciok">3D transzformációk</h3>
+<hr />
+<ul>
+<li><strong>Pozíció:</strong> 3 elemű offszet vektor 
+<img align="right" alt="" src="https://d2t1xqejof9utc.cloudfront.net/pictures/files/19711/original.png?1367580819" style="width:250px" /></li>
+<li>
+<p><strong>Orientáció:</strong> 3 x 3 rotációs matrix</p>
+<ul>
+<li>további orientáció reprezentációk: Euler-szögek, RPY, angle axis, quaternion</li>
+</ul>
+</li>
+<li>
+<p><strong>Helyzet</strong> (pose): 4 × 4 transzformációs mártrix</p>
+</li>
+<li><strong>Koordináta rendszer</strong> (frame): null pont, 3 tengely, 3 bázis vektor, jobbkéz-szabály</li>
+<li><strong>Homogén transzformációk:</strong> rotáció és transzláció együtt<ul>
+<li>pl. <span class="arithmatex">\(\mathbf{R}\)</span> rotáció és <span class="arithmatex">\(\mathbf{v}\)</span> transzláció esetén:</li>
+</ul>
+</li>
+</ul>
+<div class="arithmatex">\[
+\mathbf{T} = \left[\matrix{\mathbf{R} &amp; \mathbf{v}\\\mathbf{0} &amp; 1 }\right] = \left[\matrix{r_{1,1} &amp; r_{1,2} &amp; r_{1,3} &amp; v_x\\r_{2,1} &amp; r_{2,2} &amp; r_{2,3} &amp; v_y\\r_{3,1} &amp; r_{3,2} &amp; r_{3,3} &amp; v_z\\\ 0 &amp; 0 &amp; 0 &amp; 1 }\right]
+\]</div>
+<ul>
+<li><strong>Homogén koordináták:</strong> <ul>
+<li><strong>Vektor:</strong> 0-val egészítjük ki, <span class="arithmatex">\(\mathbf{a_H}=\left[\matrix{\mathbf{a} \\ 0}\right]=\left[\matrix{a_x \\ a_y \\ a_z \\ 0}\right]\)</span></li>
+<li><strong>Pont:</strong> 1-gyel egészítjük ki, <span class="arithmatex">\(\mathbf{p_H}=\left[\matrix{\mathbf{p} \\ 1}\right]=\left[\matrix{p_x \\ p_y \\ p_z \\ 1}\right]\)</span></li>
+<li>Transzformációk alkalmazása egyszerűbb:</li>
+</ul>
+</li>
+</ul>
+<div class="arithmatex">\[
+\mathbf{q} = \mathbf{R}\mathbf{p} + \mathbf{v} \to \left[\matrix{\mathbf{q} \\ 1}\right] = \left[\matrix{\mathbf{R} &amp; \mathbf{v}\\\mathbf{0} &amp; 1 }\right]\left[\matrix{\mathbf{p} \\ 1}\right]
+\]</div>
+<ul>
+<li><strong>Szabadsági fok</strong> (DoF): egymástól független mennyiségek száma.</li>
+</ul>
+<hr />
+<h3 id="robotikai-alapok">Robotikai alapok</h3>
+<hr />
+<p><img align="right" alt="" src="../img/segments.png" style="width:400px" /></p>
+<ul>
+<li>Robotok felépítése: <strong>szegmensek</strong> (segment, link) és <strong>csuklók</strong> (joints)</li>
+<li><strong>Munkatér</strong> (task space, cartesian space):  <ul>
+<li>Háromdimenziós tér, ahol a feladat, trajektóriák, akadályok, stb. definiálásra kerülnek.</li>
+<li><strong>TCP</strong> (Tool Center Point): az end effektorhoz rögzített koordináta rendszer (frame)</li>
+<li><strong>Base/world frame</strong></li>
+</ul>
+</li>
+<li><strong>Csuklótér</strong> (joint space):<ul>
+<li>A robot csuklóihoz rendelt mennyiségek, melyeket a robot alacsony szintű irányító rendszere értelmezni képes.</li>
+<li>csukló koordináták, sebességek, gyorsulások, nyomatékok...</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="gyakorlat">Gyakorlat</h2>
+<hr />
+<h3 id="1-dvrk-install">1. dVRK install</h3>
+<hr />
+<ol>
+<li>
+<p>Ubuntu 20.04-en az alábbi csomagokra lesz sükség:</p>
+<div class="highlight"><pre><span></span><code>sudo apt install libxml2-dev libraw1394-dev libncurses5-dev qtcreator swig sox espeak cmake-curses-gui cmake-qt-gui git subversion gfortran libcppunit-dev libqt5xmlpatterns5-dev python3-wstool python3-catkin-tools python3-osrf-pycommon ros-noetic-rviz
+</code></pre></div>
+<hr />
+</li>
+<li>
+<p>Töltsük le és telepítsük a dVRK-t (da Vinci Reserach Kit):</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/catkin_ws                     <span class="c1"># go in the workspace</span>
+wstool init src                    <span class="c1"># we&#39;re going to use wstool to pull all the code from github</span>
+catkin config --cmake-args -DCMAKE_BUILD_TYPE<span class="o">=</span>Release <span class="c1"># all code should be compiled in release mode</span>
+<span class="nb">cd</span> src                             <span class="c1"># go in source directory to pull code</span>
+wstool merge https://raw.githubusercontent.com/jhu-dvrk/dvrk-ros/master/dvrk_ros.rosinstall <span class="c1"># or replace master by devel</span>
+wstool up                          <span class="c1"># now wstool knows which repositories to pull, let&#39;s get the code</span>
+<span class="nb">cd</span> ~/catkin_ws       
+catkin build --summary             <span class="c1"># ... and finally compile everything</span>
+</code></pre></div>
+<hr />
+</li>
+<li>
+<p>Indítsuk el a PSM1 (Patient Side Manipulator) RViz szimulációját:</p>
+<div class="highlight"><pre><span></span><code>roslaunch dvrk_robot dvrk_arm_rviz.launch arm:<span class="o">=</span>PSM1 config:<span class="o">=</span>/home/<span class="k">$(</span>whoami<span class="k">)</span>/catkin_ws/src/cisst-saw/sawIntuitiveResearchKit/share/console/console-PSM1_KIN_SIMULATED.json
+</code></pre></div>
+</li>
+</ol>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/QksAVT0YMEo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<pre><code>---
+</code></pre>
+<h3 id="2-psm-subscriber-implementalasa">2. PSM subscriber implementálása</h3>
+<hr />
+<ol>
+<li>
+<p>Nyissuk meg a workspace-t QtCreatorban, mint új ROS workspace.</p>
+<hr />
+</li>
+<li>
+<p>Hozzunk létre új python forrásfájlt <code>psm_grasp.py</code> névvel a  <code>~/catkin_ws/src/ros_course/scripts</code> mappában. Adjuk meg a fájl nevét a <code>CMakeLists.txt</code>-ben a megszokott módon.</p>
+<hr />
+</li>
+<li>
+<p>Vizsgáljuk a szimulátor működését a tanult prancsok (<code>rostopic list</code>, <code>rosrun rqt_graph rqt_graph</code>, stb.) használatával. A PSM a lenti topic-okban publikálja a TCP-t (Tool Center Point) és a csipesz pofái által bezárt szöget. Iratkozzunk fel ezekre a topic-okra, írassuk ki és tároljuk el a pillanatnyi állapotot egy-egy változóban.</p>
+<div class="highlight"><pre><span></span><code>/PSM1/measured_cp
+/PSM1/jaw/measured_js
+</code></pre></div>
+<hr />
+</li>
+<li>
+<p>Build-eljünk és futtassuk a node-ot:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/catkin_ws
+catkin build ros_course
+rosrun ros_course psm_grasp.py 
+</code></pre></div>
+<hr />
+</li>
+</ol>
+<h3 id="3-psm-tcp-mozgatasa-linearis-trajektoria-menten">3. PSM TCP mozgatása lineáris trajektória mentén</h3>
+<hr />
+<p><img align="right" alt="" src="../img/PSM_coordinates.png" style="width:400px" /></p>
+<ol>
+<li>
+<p>A PSM a lenti topicok-ban várja a kívánt TCP pozíciót és a csipesz pofái által bezárt szöget. Hozzunk létre publishereket a <code>psm_grasp.py</code> fájlban ezekhez a topicokhoz.</p>
+<div class="highlight"><pre><span></span><code>/PSM1/servo_cp
+/PSM1/jaw/servo_jp
+</code></pre></div>
+<hr />
+</li>
+<li>
+<p>Írjunk függvényt, amely lineáris trajektória mentén a kívánt pozícióba mozgatja a TCP-t. Küldjük az csipeszt a (0.0, 0.05, -0.12) pozícióba, az orientációt hagyjuk változatlanul. 0.01s legyen a mintavételi idő.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">move_tcp_to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+</code></pre></div>
+<hr />
+</li>
+<li>
+<p>Írjunk függvényt, amellyel a csipeszt tudjuk nyitni-zárni, szintén lineáris trajektória használatával.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">move_jaw_to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">omega</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+</code></pre></div>
+<hr />
+</li>
+</ol>
+<h3 id="4-dummy-marker-letrehozasa">4. Dummy marker létrehozása</h3>
+<hr />
+<ol>
+<li>
+<p>Hozzunk létre új python forrásfájlt <code>dummy_marker.py</code> névvel a  <code>~/catkin_ws/src/ros_course/scripts</code> mappában. Adjuk meg a fájl nevét a <code>CMakeLists.txt</code>-ben a megszokott módon.</p>
+<hr />
+</li>
+<li>
+<p>Vizsgáljuk meg a <code>visualization_msgs/Marker</code> msg típust.</p>
+<hr />
+</li>
+<li>
+<p>Implementájunk python programot, amely markert publikál (-0.05, 0.08, -0.12) pozícióval <code>dummy_target_marker</code> nevű topic-ban. A <code>frame_id</code> addattag értéke legyen <code>PSM1_psm_base_link</code>.</p>
+</li>
+<li>
+<p>Futtassuk a node-ot és jelenítsük meg a markert RViz-ben.</p>
+<hr />
+</li>
+</ol>
+<h3 id="5-marker-megfogasa">5. Marker megfogása</h3>
+<hr />
+<ol>
+<li>
+<p>Módosítsuk a <code>psm_grasp.py</code> programot úgy, hogy a csipesszel fogjuk meg a generált markert.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A használt szimulátor hajlamos rá, hogy bizonyos értékek "beragadjanak", ezért a program elején érdemes az alábbi sorok használatával resetelni a kart:
+<div class="highlight"><pre><span></span><code><span class="c1">#Reset the arm</span>
+<span class="n">psm</span><span class="o">.</span><span class="n">move_tcp_to</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.12</span><span class="p">],</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+<span class="n">psm</span><span class="o">.</span><span class="n">move_jaw_to</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+</code></pre></div></p>
+</div>
+</li>
+</ol>
+<hr />
+<h2 id="hasznos-linkek">Hasznos linkek</h2>
+<ul>
+<li><a href="https://github.com/jhu-dvrk/sawIntuitiveResearchKit/wiki/CatkinBuild">Download and compile dVRK</a></li>
+<li><a href="https://www.programcreek.com/python/example/88812/visualization_msgs.msg.Marker">Marker examples</a></li>
+<li><a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.norm.html">Numpy vector magnitude</a></li>
+</ul>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Élőláb">
+      
+        
+        <a href="../04_git/" class="md-footer__link md-footer__link--prev" aria-label="Előző: 4. Verziókövetés, Git" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Előző
+              </span>
+              4. Verziókövetés, Git
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../08_roslaunch/" class="md-footer__link md-footer__link--next" aria-label="Következő: 8. Roslaunch, saját üzenetek, action, service" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Következő
+              </span>
+              8. Roslaunch, saját üzenetek, action, service
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2022 <a href="mailto:tamas.daniel.nagy@irob.uni-obuda.hu">Tamas D. Nagy</a>.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "toc.integrate"], "translations": {"clipboard.copy": "M\u00e1sol\u00e1s v\u00e1g\u00f3lapra", "clipboard.copied": "V\u00e1g\u00f3lapra m\u00e1solva", "search.config.lang": "hu", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Keres\u00e9s", "search.result.placeholder": "Keres\u00e9shez \u00edrj ide valamit", "search.result.none": "Nincs tal\u00e1lat", "search.result.one": "1 egyez\u0151 dokumentum", "search.result.other": "# egyez\u0151 dokumentum", "search.result.more.one": "1 tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.more.other": "# tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.term.missing": "\u00dcres", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.960e086b.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/gh/rod2ik/cdn@main/mkdocs/javascripts/mkdocs-graphviz.js"></script>
+      
+    
+  </body>
+</html>
