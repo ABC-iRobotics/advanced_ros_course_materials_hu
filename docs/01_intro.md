@@ -124,12 +124,22 @@ Ajánlott környezet:
 
     [https://ros-qtc-plugin.readthedocs.io/en/latest/_source/How-to-Install-Users.html](https://ros-qtc-plugin.readthedocs.io/en/latest/_source/How-to-Install-Users.html)
 
-    Ha letöltöttük, az IDE az alábbi paranccsal telepíthető (fontos, hogy `cd`zzünk be a lettöltés helyére):
+    Ha letöltöttük, az IDE az alábbi paranccsal telepíthető (fontos, hogy `cd`zzünk be a letöltés helyére):
 
 
     ```bash
     sudo ./qtcreator-ros-bionic-latest-online-installer.run
     ```
+
+---
+
+!!! tip "Suggestion"
+    Install **Terminator** terminal emulator:
+    ```bash
+    sudo apt update
+    sudo apt install terminator
+    ```
+
 
 ---
 
