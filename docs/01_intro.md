@@ -71,7 +71,7 @@ Ajánlott környezet:
     sudo apt update
     sudo apt install ros-noetic-desktop-full
     source /opt/ros/noetic/setup.bash
-        ```
+    ```
 
 
     A `source` parancs a környezeti változók beállításáért felelős, ezt minden új terminálablak megnyitásakor meg kell(ene) adni. Ez a parancs beilleszthető a `~/.bashrc` fájl végére, amely minden terminálablak megnyitásakor lefut, így nem kell mindig beírnunk:
@@ -120,7 +120,7 @@ Ajánlott környezet:
 
 4. QtCreator
 
-    ROS csomagok fejlesztéséhez jelenleg a leginkább használható IDE a QtCreator, melyhez ROS plugin is készült. Az installer az alábbi linken elérhető. A "18.04 online installer"-t érdemes használni, ez működik Ubunutu 20.04-en is.
+    ROS csomagok fejlesztéséhez jelenleg a leginkább használható IDE a QtCreator, melyhez ROS plugin is készült. Az installer az alábbi linken elérhető. A "18.04 **offline** installer"-t érdemes használni, ez működik Ubunutu 20.04-en is.
 
     [https://ros-qtc-plugin.readthedocs.io/en/latest/_source/How-to-Install-Users.html](https://ros-qtc-plugin.readthedocs.io/en/latest/_source/How-to-Install-Users.html)
 
@@ -130,6 +130,8 @@ Ajánlott környezet:
     ```bash
     sudo ./qtcreator-ros-bionic-latest-online-installer.run
     ```
+
+    Amikor a telepítő kérdezi, hova telepítse, módosítsuk pl. `/home/<USER>/QtCreator` mappára. Ha a root-ba teléepítjük, nem fogjuk tudni futtatni. A telepítés után "Qt Creator (4.9.2)" néven keressük.
 
 ---
 

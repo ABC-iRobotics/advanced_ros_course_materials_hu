@@ -92,19 +92,19 @@ A félév elfogadásának feltétele, hogy mind a két ZH, mind a kötelező pro
 - **Advanced:** ROS rendszer implementálása pályakövetésre szimulált környezetben bármely szenzor felhasználásával(pl. fal mellett haladás adott távolságra LIDAR segítségével).
 - **Epic:** Implementáció és tesztelés a valós hardware-en és/vagy nyűgözz le!
 
-### 1.2. PlatypOUs akadály elkerülés
+#### 1.2. PlatypOUs akadály elkerülés
 
 - **Basic:** Szimulátor élesztése, SLAM tesztelése. ROS node/node-ok implementálása szenzorok adatainak beolvasására és a a robot mozgatására.
 - **Advanced:** ROS rendszer implementálása akadály felismerésére és az akadályt kikerülő trajektória tervezésére és megvalósítására szimulált környezetben bármely szenzor felhasználásával.
 - **Epic:** Implementáció és tesztelés a valós hardware-en és/vagy nyűgözz le!
 
-### 1.3. PlatypOUs objektum követés
+#### 1.3. PlatypOUs objektum követés
 
 - **Basic:** Szimulátor élesztése, SLAM tesztelése. ROS node/node-ok implementálása szenzorok adatainak beolvasására és a a robot mozgatására.
 - **Advanced:** ROS rendszer implementálása objektum megkeresésére/felismerésére és követésére/megközelítésére szimulált környezetben bármely szenzor felhasználásával (pl. visual servoing).
 - **Epic:** Implementáció és tesztelés a valós hardware-en és/vagy nyűgözz le!
 
-### 1.4. PlatypOUs action library
+#### 1.4. PlatypOUs action library
 
 - **Basic:** Szimulátor élesztése, SLAM tesztelése. ROS node/node-ok implementálása szenzorok adatainak beolvasására és a a robot mozgatására.
 - **Advanced:** Egyszerű műveleteket tartalmazó, ROS action alapú könyvtár és ezeket végrehajtó rendszer implementálása (pl. push object, move to object, turn around).
@@ -126,7 +126,7 @@ A félév elfogadásának feltétele, hogy mind a két ZH, mind a kötelező pro
 - **Advanced:** Objektumok detektálása *Peg transfer puzzle*-ben
 - **Epic:** Autonóm manipuláció *Peg transfer*-en és/vagy nyűgözz le!
 
-### 2.2. KUKA robotkar ROS integrációja AMBF szimulátorban
+#### 2.2. KUKA robotkar ROS integrációja AMBF szimulátorban
 
 ![](https://i.imgur.com/4FyvHM5.png)
 
@@ -134,7 +134,7 @@ A félév elfogadásának feltétele, hogy mind a két ZH, mind a kötelező pro
 - **Advanced:** Robot vezérlése task space-ben, IK?
 - **Epic:** Trajektóriatervezés
 
-### 2.3. PR2 humanoid robot ROS integrációja AMBF szimulátorban
+#### 2.3. PR2 humanoid robot ROS integrációja AMBF szimulátorban
 
 ![](https://i.imgur.com/tGCClwQ.png)
 
