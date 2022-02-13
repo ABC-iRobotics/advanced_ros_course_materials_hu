@@ -119,14 +119,14 @@ cmake [label=<
 - Main unit to organize software in ROS
 - Buildable and redistributable unit of ROS code
 - Consosts of:
-  - Manifest (package.xml): information about package
-    - name
-    - version
-    - description
-    - dependencies
-    - etc.
-  - CMakeLists.txt: *input for the CMake build system*
-  - Anything else
+    - Manifest (package.xml): information about package
+        - name
+        - version
+        - description
+        - dependencies
+        - etc.
+    - CMakeLists.txt: *input for the CMake build system*
+    - Anything else
 - `rosrun turtlesim turtlesim_node`
 
 ---
@@ -441,14 +441,17 @@ roscore
     from std_msgs.msg import String
 
     def talker():
-        pub = rospy.Publisher('chatter', String, queue_size=10)
         rospy.init_node('talker', anonymous=True)
+        pub = rospy.Publisher('chatter', String, queue_size=10)
+        
         rate = rospy.Rate(10) # 10hz
+        
         while not rospy.is_shutdown():
             hello_str = "hello world %s" % rospy.get_time()
-            rospy.loginfo(hello_str)
+            print(hello_str)
             pub.publish(hello_str)
             rate.sleep()
+
 
     if __name__ == '__main__':
         try:
@@ -500,7 +503,7 @@ roscore
     from std_msgs.msg import String
 
     def callback(data):
-        rospy.loginfo(rospy.get_caller_id() + "I heard %s", data.data)
+        print(rospy.get_caller_id() + "I heard %s", data.data)
     
     def listener():
 
@@ -515,6 +518,8 @@ roscore
 
         # spin() simply keeps python from exiting until this node is stopped
         rospy.spin()
+
+
 
     if __name__ == '__main__':
         listener()
