@@ -662,7 +662,7 @@ sudo apt install terminator
 <ul>
 <li>Main unit to organize software in ROS</li>
 <li>Buildable and redistributable unit of ROS code</li>
-<li>Consosts of:</li>
+<li>Consosts of:<ul>
 <li>Manifest (package.xml): information about package<ul>
 <li>name</li>
 <li>version</li>
@@ -673,6 +673,8 @@ sudo apt install terminator
 </li>
 <li>CMakeLists.txt: <em>input for the CMake build system</em></li>
 <li>Anything else</li>
+</ul>
+</li>
 <li><code>rosrun turtlesim turtlesim_node</code></li>
 </ul>
 <hr />
@@ -903,14 +905,17 @@ mkdir scripts
 <span class="kn">from</span> <span class="nn">std_msgs.msg</span> <span class="kn">import</span> <span class="n">String</span>
 
 <span class="k">def</span> <span class="nf">talker</span><span class="p">():</span>
-    <span class="n">pub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s1">&#39;chatter&#39;</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
     <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s1">&#39;talker&#39;</span><span class="p">,</span> <span class="n">anonymous</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">pub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s1">&#39;chatter&#39;</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
     <span class="n">rate</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Rate</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># 10hz</span>
+
     <span class="k">while</span> <span class="ow">not</span> <span class="n">rospy</span><span class="o">.</span><span class="n">is_shutdown</span><span class="p">():</span>
         <span class="n">hello_str</span> <span class="o">=</span> <span class="s2">&quot;hello world </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">()</span>
-        <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="n">hello_str</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">hello_str</span><span class="p">)</span>
         <span class="n">pub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">hello_str</span><span class="p">)</span>
         <span class="n">rate</span><span class="o">.</span><span class="n">sleep</span><span class="p">()</span>
+
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="k">try</span><span class="p">:</span>
@@ -953,7 +958,7 @@ rosrun ros_course talker.py
 <span class="kn">from</span> <span class="nn">std_msgs.msg</span> <span class="kn">import</span> <span class="n">String</span>
 
 <span class="k">def</span> <span class="nf">callback</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-    <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="n">rospy</span><span class="o">.</span><span class="n">get_caller_id</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;I heard </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">rospy</span><span class="o">.</span><span class="n">get_caller_id</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;I heard </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">listener</span><span class="p">():</span>
 
@@ -968,6 +973,8 @@ rosrun ros_course talker.py
 
     <span class="c1"># spin() simply keeps python from exiting until this node is stopped</span>
     <span class="n">rospy</span><span class="o">.</span><span class="n">spin</span><span class="p">()</span>
+
+
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">listener</span><span class="p">()</span>
