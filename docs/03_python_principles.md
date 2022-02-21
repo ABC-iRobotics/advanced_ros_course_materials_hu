@@ -294,7 +294,7 @@ if __name__ == "__main__":
     
         # New method for TurtlesimController
         def cb_pose(msg):
-        self.pose = msg
+            self.pose = msg
     
         # Go to method
         def go_to(self, speed, omega, x, y):
