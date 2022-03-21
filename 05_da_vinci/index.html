@@ -403,6 +403,33 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#python-libraries" class="md-nav__link">
+    Python libraries
+  </a>
+  
+    <nav class="md-nav" aria-label="Python libraries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#numpy" class="md-nav__link">
+    Numpy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matplotlib" class="md-nav__link">
+    Matplotlib
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -644,6 +671,79 @@
 </ul>
 </li>
 </ul>
+<hr />
+<h3 id="python-libraries">Python libraries</h3>
+<hr />
+<h4 id="numpy">Numpy</h4>
+<hr />
+<ul>
+<li>Python library</li>
+<li>High dimension arrays and matrices</li>
+<li>Mathematical functions</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Creating ndarrays</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">a</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">a</span><span class="o">.</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">l</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>    <span class="c1"># ndarray from python list</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+
+<span class="c1"># Indexing</span>
+<span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">l</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">r</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># Operations on ndarrays</span>
+<span class="n">r_sin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+
+<span class="n">l</span> <span class="o">&lt;</span> <span class="mi">7</span>
+<span class="n">l</span><span class="p">[</span><span class="n">l</span> <span class="o">&lt;</span> <span class="mi">7</span><span class="p">]</span>
+<span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">l</span> <span class="o">&lt;</span> <span class="mi">7</span><span class="p">)</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">p</span> <span class="o">+</span> <span class="n">q</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">p</span> <span class="o">*</span> <span class="n">q</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">p</span> <span class="o">*</span> <span class="mi">10</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">p</span> <span class="o">+</span> <span class="mi">10</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">p</span> <span class="o">@</span> <span class="n">q</span>    <span class="c1"># dot product</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">T</span>
+</code></pre></div>
+If not installed:</p>
+<div class="highlight"><pre><span></span><code>pip3 install numpy
+</code></pre></div>
+<h4 id="matplotlib">Matplotlib</h4>
+<ul>
+<li>Visualization in python</li>
+<li>Syntax similar to Matlab</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>
+<span class="n">C</span><span class="p">,</span> <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">S</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p>If not installed:</p>
+<div class="highlight"><pre><span></span><code>pip3 install matplotlib
+</code></pre></div>
 <hr />
 <h2 id="gyakorlat">Gyakorlat</h2>
 <hr />
