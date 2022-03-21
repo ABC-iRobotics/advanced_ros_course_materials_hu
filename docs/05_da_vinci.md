@@ -251,6 +251,7 @@ $$
 - [Download and compile dVRK](https://github.com/jhu-dvrk/sawIntuitiveResearchKit/wiki/CatkinBuild)
 - [Marker examples](https://www.programcreek.com/python/example/88812/visualization_msgs.msg.Marker)
 - [Numpy vector magnitude](https://numpy.org/doc/stable/reference/generated/numpy.linalg.norm.html)
+- [Numpy linspace](https://numpy.org/doc/stable/reference/generated/numpy.linspace.html)
 
 
 
