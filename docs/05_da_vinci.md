@@ -298,6 +298,8 @@ pip3 install matplotlib
     def move_jaw_to(self, target, omega, dt):
     ```
     
+    ![](img/lin.png){:style="width:700px" align=right}
+    
     ---
     
 ### 4. Dummy marker létrehozása
