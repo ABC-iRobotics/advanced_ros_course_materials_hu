@@ -11,8 +11,8 @@ tags: Lectures, ROS course
 
 ## Elmélet
 
-!!! note "Soon..."
-    ROS service and action are coming...
+#!!! note "Soon..."
+#    ROS service and action are coming...
 
 
 ---
