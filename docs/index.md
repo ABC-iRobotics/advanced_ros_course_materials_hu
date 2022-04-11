@@ -63,7 +63,7 @@ Détár Borsa
 |7.| márc. 21 |[Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben II.](05_da_vinci.md) | **ZH1**: ROS alapok, publisher, subscriber. Python alapok. Robotikai alapfogalmak.|
 |8.| márc. 28 |  [Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben III.](05_da_vinci.md)   | - |
 |9.| ápr. 4 |  Projekt labor II. | Kötelező program mérföldkő. |
-|10.| ápr. 11 | [Roslaunch, ROS paraméter szerver. Rosbag. Saját üzenetek definiálása. ROS service fogalma és felhasználása.](08_roslaunch.md)   | - |
+|10.| ápr. 11 | [Roslaunch, ROS paraméter szerver. Rosbag.](08_roslaunch.md)   | - |
 |12.| ápr. 25 | [Kinematika, inverz kinematika, szimulált robotkar programozása csukló-, és munkatérben I.](12_robotics_principles.md) | - |
 |13.| máj. 2  | [Kinematika, inverz kinematika, szimulált robotkar programozása csukló-, és munkatérben II.](12_robotics_principles.md) | - |
 |14.| máj. 9| - | Kötelező programok bemutatása. Pótlás. **ZH2**: Roslaunch, ROS paraméter szerver. ROS service. ROS action. Kinematika, inverz kinematika.|

@@ -4,15 +4,13 @@ author: Tamas D. Nagy
 tags: Lectures, ROS course
 ---
 
-# 08. Roslaunch, ROS paraméter szerver, Rosbag, Saját üzenetek definiálása, ROS service, ROS action
+# 08. Roslaunch, ROS paraméter szerver, Rosbag
 
 ---
 
 
 ## Elmélet
 
-#!!! note "Soon..."
-#    ROS service and action are coming...
 
 
 ---
