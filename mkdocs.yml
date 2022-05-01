@@ -12,7 +12,6 @@ nav:
         - 4. Verziókövetés, Git: 04_git.md
         - 5. Robotikai alapismeretek, Sebészrobot programozása: 05_da_vinci.md
         - 8. Roslaunch, saját üzenetek, action, service: 08_roslaunch.md
-        - 10. Szenzoros adatok feldolgozása: 10_sensory_data.md
         - 12. Kinematika, inverz kinematika: 12_robotics_principles.md
     - Kötelező program: kotprog.md
     

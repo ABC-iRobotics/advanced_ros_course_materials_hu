@@ -7,7 +7,7 @@ tags: Lectures, ROS course
 # 12. Kinematika, inverz kienamtika, Szimulált robotkar programozása csukló-, és munkatérben
 
 !!! warning
-	**ZH2** (Roslaunch, ROS paraméter szerver. ROS service. ROS action. Kinematika, inverz kinematika.) és a **Kötelező program bemutatás** **május 9.**
+	**ZH2** (Roslaunch, ROS paraméter szerver. Kinematika, inverz kinematika.) és a **Kötelező program bemutatás** **május 9.**
 
 
 ---
@@ -145,7 +145,7 @@ $$
     ```
 
     !!! tip
-        A `kinpy` csomag forrását is töltsük le, hasznos lehet az API megértése szempontjából: https://pypi.org/project/kinpy/  
+        A `kinpy` csomag forrását is töltsük le, hasznos lehet az API megértése szempontjából: [https://pypi.org/project/kinpy/]()  
 
 
     ---
@@ -229,22 +229,6 @@ $$
     
 2. Számítsuk ki, majd irassuk ki a TCP pozícióját az adott konfigurációban a `kinpy` csomag segítségével. A https://pypi.org/project/kinpy/ oldalon lévő példa hibás, érdemes az alábbi példa kódból kiindulni:
     ```python
-    data = '<robot name="test_robot">'\
-        '<link name="link1" />'\
-        '<link name="link2" />'\
-        '<link name="link3" />'\
-        '<joint name="joint1" type="revolute">'\
-        '<origin xyz="1.0 0.0 0.0"/>'\
-        '<parent link="link1"/>'\
-        '<child link="link2"/>'\
-        '</joint>'\
-        '<joint name="joint2" type="revolute">'\
-        '<origin xyz="1.0 0.0 0.0"/>'\
-        '<parent link="link2"/>'\
-        '<child link="link3"/>'\
-        '</joint>'\
-        '</robot>'
-        chain = kp.build_serial_chain_from_urdf(data, 'link3')
         th1 = np.random.rand(2)
         tg = chain.forward_kinematics(th1)
         th2 = chain.inverse_kinematics(tg)
@@ -253,19 +237,12 @@ $$
     
     ---
     
-### 4: Kinpy inverz kinematika
+
+### 4: Inverz kinematika Jacobi inverz módszerrel
 
 ---
 
-1. A `kinpy` csomag `chain.inverse_kinematics(...)` függvény segítségével mozgassuk a TCP-t a `kp.Transform(rot=[-0.08434791, -0.93360388,  0.23838817, -0.25385094], pos=[ 0.59840159, -0.21191189,  0.42244937])` helyzetbe.
-
-    ---
-    
-### 5: Inverz kinematika Jacobi inverz módszerrel
-
----
-
-Írjunk metódust, amely az előadásban bemutatott Jakobi inverz módszerrel valósítja meg az inverz kinematikai feladatot a roboton. Az orientációt hagyjuk figyelmen kívül.
+Írjunk metódust, amely az előadásban bemutatott Jakobi inverz módszerrel valósítja meg az inverz kinematikai feladatot a roboton. Az orientációt hagyjuk figyelmen kívül. Mozgassuk a TCP-t a `(0.59840159, -0.21191189,  0.42244937)` pozícióba.
 
 1.  Írjunk egy ciklust, melynek megállási feltétele a `delta_r` megfelelő nagysága, vagy `rospy.is_shutdown()`.
 
@@ -306,10 +283,10 @@ Egészítsük ki az előző feladat megoldását úgy, hogy az orientációt is 
 
 ## Hasznos linkek
 
--[rrr-arm model](https://githubmemory.com/repo/Robotawi/rrr-arm)
--[https://pypi.org/project/kinpy/]()
--[https://en.wikipedia.org/wiki/Axis%E2%80%93angle_representation]()
--[https://www.rosroboticslearning.com/jacobian]()
+- [rrr-arm model](https://githubmemory.com/repo/Robotawi/rrr-arm)
+- [https://pypi.org/project/kinpy/]()
+- [https://en.wikipedia.org/wiki/Axis%E2%80%93angle_representation]()
+- [https://www.rosroboticslearning.com/jacobian]()
 
 
 
