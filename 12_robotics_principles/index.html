@@ -367,20 +367,6 @@
               
   
   
-  
-    <li class="md-nav__item">
-      <a href="../10_sensory_data/" class="md-nav__link">
-        10. Szenzoros adatok feldolgozása
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
     
   
   
@@ -513,15 +499,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-kinpy-inverz-kinematika" class="md-nav__link">
-    4: Kinpy inverz kinematika
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-inverz-kinematika-jacobi-inverz-modszerrel" class="md-nav__link">
-    5: Inverz kinematika Jacobi inverz módszerrel
+  <a href="#4-inverz-kinematika-jacobi-inverz-modszerrel" class="md-nav__link">
+    4: Inverz kinematika Jacobi inverz módszerrel
   </a>
   
 </li>
@@ -591,7 +570,7 @@
 <h1 id="12-kinematika-inverz-kienamtika-szimulalt-robotkar-programozasa-csuklo-es-munkaterben">12. Kinematika, inverz kienamtika, Szimulált robotkar programozása csukló-, és munkatérben</h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p><strong>ZH2</strong> (Roslaunch, ROS paraméter szerver. ROS service. ROS action. Kinematika, inverz kinematika.) és a <strong>Kötelező program bemutatás</strong> <strong>május 9.</strong></p>
+<p><strong>ZH2</strong> (Roslaunch, ROS paraméter szerver. Kinematika, inverz kinematika.) és a <strong>Kötelező program bemutatás</strong> <strong>május 9.</strong></p>
 </div>
 <hr />
 <h2 id="ismetles">Ismétlés</h2>
@@ -715,7 +694,7 @@ rosdep update
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>A <code>kinpy</code> csomag forrását is töltsük le, hasznos lehet az API megértése szempontjából: https://pypi.org/project/kinpy/  </p>
+<p>A <code>kinpy</code> csomag forrását is töltsük le, hasznos lehet az API megértése szempontjából: <a href="">https://pypi.org/project/kinpy/</a>  </p>
 </div>
 <hr />
 </li>
@@ -785,23 +764,7 @@ rosrun xacro xacro rrr_arm.xacro &gt; rrr_arm.xacro.urdf
 </li>
 <li>
 <p>Számítsuk ki, majd irassuk ki a TCP pozícióját az adott konfigurációban a <code>kinpy</code> csomag segítségével. A https://pypi.org/project/kinpy/ oldalon lévő példa hibás, érdemes az alábbi példa kódból kiindulni:
-    <div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="s1">&#39;&lt;robot name=&quot;test_robot&quot;&gt;&#39;</span>\
-    <span class="s1">&#39;&lt;link name=&quot;link1&quot; /&gt;&#39;</span>\
-    <span class="s1">&#39;&lt;link name=&quot;link2&quot; /&gt;&#39;</span>\
-    <span class="s1">&#39;&lt;link name=&quot;link3&quot; /&gt;&#39;</span>\
-    <span class="s1">&#39;&lt;joint name=&quot;joint1&quot; type=&quot;revolute&quot;&gt;&#39;</span>\
-    <span class="s1">&#39;&lt;origin xyz=&quot;1.0 0.0 0.0&quot;/&gt;&#39;</span>\
-    <span class="s1">&#39;&lt;parent link=&quot;link1&quot;/&gt;&#39;</span>\
-    <span class="s1">&#39;&lt;child link=&quot;link2&quot;/&gt;&#39;</span>\
-    <span class="s1">&#39;&lt;/joint&gt;&#39;</span>\
-    <span class="s1">&#39;&lt;joint name=&quot;joint2&quot; type=&quot;revolute&quot;&gt;&#39;</span>\
-    <span class="s1">&#39;&lt;origin xyz=&quot;1.0 0.0 0.0&quot;/&gt;&#39;</span>\
-    <span class="s1">&#39;&lt;parent link=&quot;link2&quot;/&gt;&#39;</span>\
-    <span class="s1">&#39;&lt;child link=&quot;link3&quot;/&gt;&#39;</span>\
-    <span class="s1">&#39;&lt;/joint&gt;&#39;</span>\
-    <span class="s1">&#39;&lt;/robot&gt;&#39;</span>
-    <span class="n">chain</span> <span class="o">=</span> <span class="n">kp</span><span class="o">.</span><span class="n">build_serial_chain_from_urdf</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;link3&#39;</span><span class="p">)</span>
-    <span class="n">th1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <div class="highlight"><pre><span></span><code>    <span class="n">th1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
     <span class="n">tg</span> <span class="o">=</span> <span class="n">chain</span><span class="o">.</span><span class="n">forward_kinematics</span><span class="p">(</span><span class="n">th1</span><span class="p">)</span>
     <span class="n">th2</span> <span class="o">=</span> <span class="n">chain</span><span class="o">.</span><span class="n">inverse_kinematics</span><span class="p">(</span><span class="n">tg</span><span class="p">)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">th1</span><span class="p">,</span> <span class="n">th2</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mf">1.0e-6</span><span class="p">))</span>
@@ -809,17 +772,9 @@ rosrun xacro xacro rrr_arm.xacro &gt; rrr_arm.xacro.urdf
 <hr />
 </li>
 </ol>
-<h3 id="4-kinpy-inverz-kinematika">4: Kinpy inverz kinematika</h3>
+<h3 id="4-inverz-kinematika-jacobi-inverz-modszerrel">4: Inverz kinematika Jacobi inverz módszerrel</h3>
 <hr />
-<ol>
-<li>
-<p>A <code>kinpy</code> csomag <code>chain.inverse_kinematics(...)</code> függvény segítségével mozgassuk a TCP-t a <code>kp.Transform(rot=[-0.08434791, -0.93360388,  0.23838817, -0.25385094], pos=[ 0.59840159, -0.21191189,  0.42244937])</code> helyzetbe.</p>
-<hr />
-</li>
-</ol>
-<h3 id="5-inverz-kinematika-jacobi-inverz-modszerrel">5: Inverz kinematika Jacobi inverz módszerrel</h3>
-<hr />
-<p>Írjunk metódust, amely az előadásban bemutatott Jakobi inverz módszerrel valósítja meg az inverz kinematikai feladatot a roboton. Az orientációt hagyjuk figyelmen kívül.</p>
+<p>Írjunk metódust, amely az előadásban bemutatott Jakobi inverz módszerrel valósítja meg az inverz kinematikai feladatot a roboton. Az orientációt hagyjuk figyelmen kívül. Mozgassuk a TCP-t a <code>(0.59840159, -0.21191189,  0.42244937)</code> pozícióba.</p>
 <ol>
 <li>
 <p>Írjunk egy ciklust, melynek megállási feltétele a <code>delta_r</code> megfelelő nagysága, vagy <code>rospy.is_shutdown()</code>.</p>
@@ -855,10 +810,12 @@ rosrun xacro xacro rrr_arm.xacro &gt; rrr_arm.xacro.urdf
 <p>Egészítsük ki az előző feladat megoldását úgy, hogy az orientációt is figyelembe vesszük az inverz kinematikai számítás során.</p>
 <hr />
 <h2 id="hasznos-linkek">Hasznos linkek</h2>
-<p>-<a href="https://githubmemory.com/repo/Robotawi/rrr-arm">rrr-arm model</a>
--<a href="">https://pypi.org/project/kinpy/</a>
--<a href="">https://en.wikipedia.org/wiki/Axis%E2%80%93angle_representation</a>
--<a href="">https://www.rosroboticslearning.com/jacobian</a></p>
+<ul>
+<li><a href="https://githubmemory.com/repo/Robotawi/rrr-arm">rrr-arm model</a></li>
+<li><a href="">https://pypi.org/project/kinpy/</a></li>
+<li><a href="">https://en.wikipedia.org/wiki/Axis%E2%80%93angle_representation</a></li>
+<li><a href="">https://www.rosroboticslearning.com/jacobian</a></li>
+</ul>
 
               
             </article>
@@ -872,7 +829,7 @@ rosrun xacro xacro rrr_arm.xacro &gt; rrr_arm.xacro.urdf
     <nav class="md-footer__inner md-grid" aria-label="Élőláb">
       
         
-        <a href="../10_sensory_data/" class="md-footer__link md-footer__link--prev" aria-label="Előző: 10. Szenzoros adatok feldolgozása" rel="prev">
+        <a href="../08_roslaunch/" class="md-footer__link md-footer__link--prev" aria-label="Előző: 8. Roslaunch, saját üzenetek, action, service" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -881,7 +838,7 @@ rosrun xacro xacro rrr_arm.xacro &gt; rrr_arm.xacro.urdf
               <span class="md-footer__direction">
                 Előző
               </span>
-              10. Szenzoros adatok feldolgozása
+              8. Roslaunch, saját üzenetek, action, service
             </div>
           </div>
         </a>
