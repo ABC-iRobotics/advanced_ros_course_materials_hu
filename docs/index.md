@@ -55,18 +55,18 @@ Détár Borsa
 
 | Okt. hét | Dátum      | Témakör | Számonkérés |
 |:--------:| ---------- | ------- | ----------- |
-|1.| feb. 7 | [Követelmények ismertetése. ROS bevezetés. Fejlesztőkörnyezet felállítása.](01_intro.md) | - |
-|2.| feb. 14 | [Fejlesztőkörnyezet felállítása. Linux alapok. ROS alapok. Egyszerű próbakódok futtatása. ROS package. Az alapvető ROS kommunikáció, publisher és subscriber implementálása.](02_linux_ros_principles.md)| Kötelező programok ismertetése.  |
-|3.| feb. 21 | [Python alapok. ROS kommunikáció implementációjának gyakorlása, példafeladatok megoldása.](03_python_principles.md) | - |
-|4.| feb. 28  | [Verziókövetés, Git.](04_git.md) Projekt labor I. | Kötelező programok választása. |
-|5.| márc. 7 | [Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben I.](05_da_vinci.md) |  - |
-|7.| márc. 21 |[Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben II.](05_da_vinci.md) | **ZH1**: ROS alapok, publisher, subscriber. Python alapok. Robotikai alapfogalmak.|
-|8.| márc. 28 |  [Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben III.](05_da_vinci.md)   | - |
-|9.| ápr. 4 |  Projekt labor II. | Kötelező program mérföldkő. |
-|10.| ápr. 11 | [Roslaunch, ROS paraméter szerver. Rosbag.](08_roslaunch.md)   | - |
-|12.| ápr. 25 | [Kinematika, inverz kinematika, szimulált robotkar programozása csukló-, és munkatérben I.](12_robotics_principles.md) | - |
-|13.| máj. 2  | [Kinematika, inverz kinematika, szimulált robotkar programozása csukló-, és munkatérben II.](12_robotics_principles.md) | - |
-|14.| máj. 9| - | Kötelező programok bemutatása. Pótlás. **ZH2**: Roslaunch, ROS paraméter szerver. ROS service. ROS action. Kinematika, inverz kinematika.|
+|1.| szept. 6 | [Követelmények ismertetése. ROS bevezetés. Fejlesztőkörnyezet felállítása.](01_intro.md) | - |
+|2.| szept. 13 | [Fejlesztőkörnyezet felállítása. Linux alapok. ROS alapok. Egyszerű próbakódok futtatása. ROS package. Az alapvető ROS kommunikáció, publisher és subscriber implementálása.](02_linux_ros_principles.md)| Kötelező programok ismertetése.  |
+|3.| szept. 20 | [Python alapok. ROS kommunikáció implementációjának gyakorlása, példafeladatok megoldása.](03_python_principles.md) | - |
+|4.| szept. 27  | [Verziókövetés, Git.](04_git.md) Projekt labor I. | Kötelező programok választása. |
+|5.| okt. 4 | [Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben I.](05_da_vinci.md) |  - |
+|7.| okt 11 |[Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben II.](05_da_vinci.md) | **ZH1**: ROS alapok, publisher, subscriber. Python alapok. Robotikai alapfogalmak.|
+|8.| okt. 18 |  [Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben III.](05_da_vinci.md)   | - |
+|9.| okt. 25 |  Projekt labor II. | Kötelező program mérföldkő. |
+|10.| nov. 8 | [Roslaunch, ROS paraméter szerver. Rosbag.](08_roslaunch.md)   | - |
+|12.| nov. 15 | [Kinematika, inverz kinematika, szimulált robotkar programozása csukló-, és munkatérben I.](12_robotics_principles.md) | - |
+|13.| nov. 29  | [Kinematika, inverz kinematika, szimulált robotkar programozása csukló-, és munkatérben II.](12_robotics_principles.md) | - |
+|14.| dec. 6| - | Kötelező programok bemutatása. Pótlás. **ZH2**: Roslaunch, ROS paraméter szerver. ROS service. ROS action. Kinematika, inverz kinematika.|
 
 
 !!! warning

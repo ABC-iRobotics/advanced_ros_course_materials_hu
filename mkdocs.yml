@@ -26,8 +26,10 @@ theme:
         - navigation.tabs
         - toc.integrate
    
-      
-
+plugins:
+    - search
+    - pdf-export
+       
       
 markdown_extensions:
     - pymdownx.arithmatex:
