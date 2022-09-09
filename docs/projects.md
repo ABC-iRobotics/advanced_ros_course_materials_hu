@@ -3,7 +3,7 @@ title: Követelmények
 author: Tamas D. Nagy
 ---
 
-# Követelmények
+# Kötelező Program
 
 ---
 
@@ -43,10 +43,9 @@ A kötelező programok a következő szempontok szerint kerülnek értékelésre
 
 | Okt. hét | Dátum      | Számonkérés |
 |:--------:| ---------- | ----------- |
-|2.| február 14  | Kötelező programok ismertetése. |
-|4.| február 28 | Kötelező programok választása. |
-|9| április 4  | Kötelező program mérföldkő.|
-|14.| május 9 | Kötelező programok bemutatása. |
+|2.| szept. 13  | Kötelező programok ismertetése. |
+|8.| okt. 25  | Kötelező program mérföldkő.|
+|14.| nov. 6 | Kötelező programok bemutatása. |
 
 ---
 
@@ -61,16 +60,6 @@ A félév elfogadásának feltétele, hogy mind a két ZH, mind a kötelező pro
 
 ---
 
-## Témaválasztás
-
----
-
-- A 4. heti órán (február 28.) konzultálunk a kötelező programokról
-
-!!! warning
-	A választott témáját mindenki küldje el emailben **február 28. 19:00-ig** erre az email címre: `tamas.daniel.nagy@irob.uni-obuda.hu`. Az email tárgya legyen **ROS_kötprog_2022_tavasz**.
-
----
 
 ## Kötelező program témák
 

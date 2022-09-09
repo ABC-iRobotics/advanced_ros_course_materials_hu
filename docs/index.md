@@ -11,7 +11,7 @@
 |1.| szept. 6 | [Követelmények ismertetése. ROS bevezetés. Fejlesztőkörnyezet felállítása.](01_intro.md) | - |
 |2.| szept. 13 | [Fejlesztőkörnyezet felállítása. Linux alapok. ROS alapok. Egyszerű próbakódok futtatása. ROS package. Az alapvető ROS kommunikáció, publisher és subscriber implementálása.](02_linux_ros_principles.md)| Kötelező programok ismertetése.  |
 |3.| szept. 20 | [Python alapok. ROS kommunikáció implementációjának gyakorlása, példafeladatok megoldása.](03_python_principles.md) | - |
-|4.| szept. 27  | [Verziókövetés, Git.](04_git.md) Projekt labor I. | Kötelező programok választása. |
+|4.| szept. 27  | [Verziókövetés, Git.](04_git.md) Projekt labor I. | - |
 |5.| okt. 4 | [Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben I.](05_da_vinci.md) |  - |
 |6.| okt. 11 |[Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben II.](05_da_vinci.md) | **ZH1**: ROS alapok, publisher, subscriber. Python alapok. Robotikai alapfogalmak.|
 |7.| okt. 18 |  [Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben III.](05_da_vinci.md)   | - |
