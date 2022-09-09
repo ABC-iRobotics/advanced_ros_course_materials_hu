@@ -1,7 +1,7 @@
 site_name: Robotprogramozás ROS környezetben
 site_url: https://example.com/
 site_description: Robotprogramozás ROS környezetben
-site_author: Tamas D. Nagy
+site_author: Nagy Tamás
 
 nav:
     - Kezdőlap: index.md
@@ -25,6 +25,18 @@ theme:
     features:
         - navigation.tabs
         - toc.integrate
+        
+        
+
+extra:                                              
+  alternate:  
+    - name: English
+      link: https://abc-irobotics.github.io/ros_course_materials_en/
+      lang: en
+
+    - name: Hungarian
+      link: https://abc-irobotics.github.io/ros_course_materials_hu/
+      lang: hu
    
 plugins:
     - search

@@ -1,23 +1,23 @@
-## Course information
+## Kurzussal kapcsolatos információk
 
 ---
 
 ### Tárgyfelelős
-Dr. Péter Galambos    
+Dr. Galambos Péter    
 [peter.galambos@irob.uni-obuda.hu](mailto:peter.galambos@irob.uni-obuda.hu)
 
 ---
 
-### Teachers
-Tamás Nagy    
+### Oktatók
+Nagy Tamás    
 [tamas.daniel.nagy@irob.uni-obuda.hu](mailto:tamas.daniel.nagy@irob.uni-obuda.hu)
 
-Borsa Détár    
+Détár Borsa    
 [detar.borsa@gmail.com](mailto:detar.borsa@gmail.com)
 
 ---
 
-### Antal Bejczy Center for Intelligent Robotics (BARK/IROB)
+### Bejczy Antal Intelligens Robottechnikai Központ (BARK)
 
 
 ![](img/bark_logo.png){:style="width:550px"}
@@ -49,11 +49,11 @@ Borsa Détár
 
 ---
 
-## Schedule
+## Féléves ütemezés
 
 ---
 
-| Week | Date      | Topic | Test |
+| Okt. hét | Dátum      | Témakör | Számonkérés |
 |:--------:| ---------- | ------- | ----------- |
 |1.| szept. 6 | [Követelmények ismertetése. ROS bevezetés. Fejlesztőkörnyezet felállítása.](01_intro.md) | - |
 |2.| szept. 13 | [Fejlesztőkörnyezet felállítása. Linux alapok. ROS alapok. Egyszerű próbakódok futtatása. ROS package. Az alapvető ROS kommunikáció, publisher és subscriber implementálása.](02_linux_ros_principles.md)| Kötelező programok ismertetése.  |
@@ -95,3 +95,4 @@ A félév elfogadásának feltétele, hogy mind a két ZH, mind a kötelező pro
 
 !!! abstract "Félév végi jegy"
 	$Jegy = (ZH1 + ZH2 + 2 \times KötProg) / 4$ 
+

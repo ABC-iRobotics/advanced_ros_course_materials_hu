@@ -4,15 +4,15 @@ author: Tamas D. Nagy
 tags: Lectures, ROS course
 ---
 
-# 01. Introduction
+# 01. Bevezetés
 
 ---
 
-## Robot Operating System (ROS) introduction
+## Robot Operating System (ROS) bevezetés
 
 ---
 
-### The definition of robot
+### A robot fogalma
 
 - **Joseph Engelberger, pioneer in industrial robotics:** *"I can't define a robot, but I know one when I see one."*
 - **Wikipedia:** *"A robot is a machine—especially one programmable by a computer— capable of carrying out a complex series of actions automatically. Robots can be guided by an external control device or the control may be embedded within. Robots may be constructed on the lines of human form, but most robots are machines designed to perform a task with no regard to their aesthetics."*
@@ -22,38 +22,38 @@ tags: Lectures, ROS course
 
 ---
 
-### What is ROS?
+### Mi a ROS?
 
 ![](https://moveit.ros.org/assets/images/logo/ROS_logo.png){:style="width:300px" align=right}
 
-- Open-source, robotics themed middleware
-- Modularity, reusability (drivers, algorithms, libraries, ...)
-- Hardware abstraction, ROS API
-- C++ és Python support
-- Ubuntu Linux (except ROS 2)
-- Great community
+- Open-source, robotikai célú middleware
+- Modularitás, újra-felhasználhatóság (driverek, algoritmusok, library-k, ...)
+- Hardware absztrakció, ROS API
+- C++ és Python támogatás
+- Ubuntu Linux (kivéve ROS 2)
+- Népes közösség
 
 ![](https://upload.wikimedia.org/wikipedia/commons/4/43/Ros_Equation.png)
 
 ---
 
-### History
+### Történet
 
-- Mid 2000s, Stanford: robotics themed, flexible, dynamic framework for prototype development
-- 2007, Willow Garage: incubation, the core of ROS under BSD license
-- Spread in robotics reserach, PR2
-- 2012: Industrial robotics, ROS-Industrial
+- 2000-es évek közepe, Stanford: robotikai célú rugalmas, dinamikus szoftverrendszer prototípusok fejlesztése
+- 2007, Willow Garage: inkubáció, kialakult a ROS alapja BSD open-source licensz alatt
+- Robotikai kutatások területén egyre inkább elterjedt, PR2
+- 2012: Ipari robotika, ROS-Industrial
 - 2017: ROS 2
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/mDwZ21Zia8s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ---
 
-## Development system build -- homework
+## Fejlesztőkörnyezet felállítása - Házi feladat
 
 ---
 
-Recommended environment:
+Ajánlott környezet:
     
 - Ubuntu 20.04
 - ROS Noetic
@@ -145,7 +145,7 @@ Recommended environment:
 
 ---
 
-## Useful links
+## Hasznos linkek
 
 - [https://www.ros.org/](https://www.ros.org/)
 - [https://www.ros.org/install/](https://www.ros.org/install/)
@@ -155,6 +155,7 @@ Recommended environment:
 - [QtCreator + ROS plugin](https://ros-qtc-plugin.readthedocs.io/en/latest/_source/How-to-Install-Users.html)
 - [IROB virtual tour](https://www.youtube.com/watch?v=8XmKGWBV5Nw)
 - [ROS 10 years montage](https://www.youtube.com/watch?v=mDwZ21Zia8s)
+
 
 
 
