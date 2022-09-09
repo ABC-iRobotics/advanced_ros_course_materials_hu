@@ -1,7 +1,6 @@
 ---
 title: Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben
-author: Tamas D. Nagy
-tags: Lectures, ROS course
+author: Nagy Tamás
 ---
 
 # 05. Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben

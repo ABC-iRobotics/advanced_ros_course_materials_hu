@@ -1,7 +1,6 @@
 ---
 title: Kinematika, inverz kienamtika
-author: Tamas D. Nagy
-tags: Lectures, ROS course
+author: Nagy Tamás
 ---
 
 # 12. Kinematika, inverz kienamtika, Szimulált robotkar programozása csukló-, és munkatérben

@@ -1,7 +1,6 @@
 ---
-title: 02. Linux, ROS alapismeretek
-author: Tamas D. Nagy
-tags: Lectures, ROS course
+title: Linux, ROS alapismeretek
+author: Nagy Tamás
 ---
 
 # 02. Linux, ROS alapismeretek

@@ -1,7 +1,6 @@
 ---
-title: 08. Roslaunch, saját üzenetek, action, service
-author: Tamas D. Nagy
-tags: Lectures, ROS course
+title: Roslaunch, saját üzenetek, action, service
+author: Nagy Tamás
 ---
 
 # 08. Roslaunch, ROS paraméter szerver, Rosbag

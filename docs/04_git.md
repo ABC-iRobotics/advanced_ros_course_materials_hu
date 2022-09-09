@@ -1,7 +1,6 @@
 ---
-title: 04. Verziókövetés, Git
-author: Tamas D. Nagy
-tags: Lectures, ROS course
+title: Verziókövetés, Git
+author: Nagy Tamás
 ---
 
 # 04. Verziókövetés, Git

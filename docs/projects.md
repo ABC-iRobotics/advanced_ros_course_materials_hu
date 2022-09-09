@@ -1,7 +1,6 @@
 ---
 title: Követelmények
 author: Tamas D. Nagy
-tags: ROS course, Project
 ---
 
 # Követelmények

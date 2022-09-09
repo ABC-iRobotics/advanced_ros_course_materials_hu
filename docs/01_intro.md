@@ -1,7 +1,6 @@
 ---
-title: 01. Bevezetés
-author: Tamas D. Nagy
-tags: Lectures, ROS course
+title: Bevezetés
+author: Nagy Tamás
 ---
 
 # 01. Bevezetés

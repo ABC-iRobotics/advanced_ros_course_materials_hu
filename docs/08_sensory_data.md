@@ -1,7 +1,6 @@
 ---
-title: 10. Szenzoros adatok gyűjtése és feldolgozása
-author: Tamas D. Nagy
-tags: Lectures, ROS course
+title: Szenzoros adatok gyűjtése és feldolgozása
+author: Nagy Tamás
 ---
 
 # 10. Szenzoros adatok gyűjtése és feldolgozása

@@ -1,7 +1,6 @@
 ---
-title: 03. Python alapismeretek,  ROS kommunikáció gyakorlása
-author: Tamas D. Nagy
-tags: Lectures, ROS course
+title: Python alapismeretek,  ROS kommunikáció gyakorlása
+author: Nagy Tamás
 ---
 
 # 03. Python alapismeretek,  ROS kommunikáció gyakorlása
