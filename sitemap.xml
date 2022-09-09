@@ -36,6 +36,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://example.com/10_sensory_data/</loc>
+         <lastmod>2022-09-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://example.com/12_robotics_principles/</loc>
          <lastmod>2022-09-09</lastmod>
          <changefreq>daily</changefreq>

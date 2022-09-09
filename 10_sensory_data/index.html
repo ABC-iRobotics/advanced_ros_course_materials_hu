@@ -12,19 +12,21 @@
         <meta name="author" content="Tamas D. Nagy">
       
       
-      <link rel="icon" href="/assets/images/favicon.png">
+        <link rel="canonical" href="https://example.com/10_sensory_data/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.3">
     
     
       
-        <title>Robotprogramozás ROS környezetben</title>
+        <title>10. Szenzoros adatok gyűjtése és feldolgozása - Robotprogramozás ROS környezetben</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.6b80c2a2.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.6b80c2a2.min.css">
       
         
-        <link rel="stylesheet" href="/assets/stylesheets/palette.cbb835fc.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
         
           
           
@@ -44,7 +46,7 @@
       
     
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -67,6 +69,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#10-szenzoros-adatok-gyujtese-es-feldolgozasa" class="md-skip">
+          Kihagyás
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -77,7 +84,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Élőfej">
-    <a href="/." title="Robotprogramozás ROS környezetben" class="md-header__button md-logo" aria-label="Robotprogramozás ROS környezetben" data-md-component="logo">
+    <a href=".." title="Robotprogramozás ROS környezetben" class="md-header__button md-logo" aria-label="Robotprogramozás ROS környezetben" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -96,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              10. Szenzoros adatok gyűjtése és feldolgozása
             
           </span>
         </div>
@@ -159,7 +166,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="/." class="md-tabs__link">
+    <a href=".." class="md-tabs__link">
       Kezdőlap
     </a>
   </li>
@@ -174,7 +181,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/01_intro/" class="md-tabs__link">
+      <a href="../01_intro/" class="md-tabs__link">
         Tananyagok
       </a>
     </li>
@@ -187,7 +194,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="/kotprog/" class="md-tabs__link">
+    <a href="../kotprog/" class="md-tabs__link">
       Kötelező program
     </a>
   </li>
@@ -216,7 +223,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigáció" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="Robotprogramozás ROS környezetben" class="md-nav__button md-logo" aria-label="Robotprogramozás ROS környezetben" data-md-component="logo">
+    <a href=".." title="Robotprogramozás ROS környezetben" class="md-nav__button md-logo" aria-label="Robotprogramozás ROS környezetben" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -235,7 +242,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         Kezdőlap
       </a>
     </li>
@@ -276,7 +283,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/01_intro/" class="md-nav__link">
+      <a href="../01_intro/" class="md-nav__link">
         1. Bevezetés
       </a>
     </li>
@@ -290,7 +297,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/02_linux_ros_principles/" class="md-nav__link">
+      <a href="../02_linux_ros_principles/" class="md-nav__link">
         2. Linux, ROS alapismeretek
       </a>
     </li>
@@ -304,7 +311,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/03_python_principles/" class="md-nav__link">
+      <a href="../03_python_principles/" class="md-nav__link">
         3. Python alapismeretek,  ROS kommunikáció gyakorlása
       </a>
     </li>
@@ -318,7 +325,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/04_git/" class="md-nav__link">
+      <a href="../04_git/" class="md-nav__link">
         4. Verziókövetés, Git
       </a>
     </li>
@@ -332,7 +339,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/05_da_vinci/" class="md-nav__link">
+      <a href="../05_da_vinci/" class="md-nav__link">
         5. Robotikai alapismeretek, Sebészrobot programozása
       </a>
     </li>
@@ -346,7 +353,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/08_roslaunch/" class="md-nav__link">
+      <a href="../08_roslaunch/" class="md-nav__link">
         8. Roslaunch, saját üzenetek, action, service
       </a>
     </li>
@@ -360,7 +367,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/12_robotics_principles/" class="md-nav__link">
+      <a href="../12_robotics_principles/" class="md-nav__link">
         12. Kinematika, inverz kinematika
       </a>
     </li>
@@ -382,7 +389,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/kotprog/" class="md-nav__link">
+      <a href="../kotprog/" class="md-nav__link">
         Kötelező program
       </a>
     </li>
@@ -398,10 +405,183 @@
             
           
           <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
+            <article class="md-content__inner md-typeset"><a class="md-content__button md-icon" download href="10_sensory_data.pdf" title="PDF Export"><svg style="height: 1.2rem; width: 1.2rem;" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm76.45 211.36l-96.42 95.7c-6.65 6.61-17.39 6.61-24.04 0l-96.42-95.7C73.42 337.29 80.54 320 94.82 320H160v-80c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v80h65.18c14.28 0 21.4 17.29 11.27 27.36zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"></path></svg></a>
               
-  <h1>404 - Not found</h1>
+                
 
+
+<h1 id="10-szenzoros-adatok-gyujtese-es-feldolgozasa">10. Szenzoros adatok gyűjtése és feldolgozása</h1>
+<hr />
+<h2 id="gyakorlat">Gyakorlat</h2>
+<hr />
+<div class="admonition note">
+<p class="admonition-title">Thing may change here...</p>
+<p>Ezt a gyakorlatot lehet, hogy le fogjuk cserélni.</p>
+</div>
+<h3 id="1-leo-rover">1: Leo rover</h3>
+<hr />
+<ol>
+<li>
+<p>Installáljuk a Leo rover ROS package-eit:</p>
+<div class="highlight"><pre><span></span><code>sudo apt update
+sudo apt install ros-noetic-leo*
+</code></pre></div>
+<hr />
+</li>
+<li>
+<p>A http://wiki.ros.org/leo_gazebo leírás segítségével indítsuk el a gazebo szimulátort a Mars landscape-pel.</p>
+<hr />
+</li>
+<li>
+<p>Indítsunk teleop node-ot, és mozgassuk meg a robotot.</p>
+<hr />
+</li>
+</ol>
+<h3 id="2-kave-a-marson-kepek-rogzitese">2: Kávé a Marson -- képek rögzítése</h3>
+<hr />
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>A Mars rover képet küldött egy különös, kávés bögrének tűnő tárgyról! A feladat, hogy fordítsuk a rovert a bögre felé, majd közelítsük meg, hogy részletesen megvizsgálhassuk.</p>
+</div>
+<p><img alt="" src="../img/coffee.png" style="width:600px" /></p>
+<hr />
+<ol>
+<li>
+<p>Indítsuk el a Gazebo-t:</p>
+<div class="highlight"><pre><span></span><code>    gazebo
+</code></pre></div>
+<hr />
+</li>
+<li>
+<p>Az <code>insert</code> panelen keressük ki a <code>googleresearch/models/cole_hardware_mug_classic_blue</code> modellt, majd helyezzük el a szimulációban. Ez azért kell, hogy később meglegyen a bögre modellje a fáljrendszerünkben.</p>
+<hr />
+</li>
+<li>
+<p>Zárjuk be a Gazebo-t</p>
+<hr />
+</li>
+<li>
+<p>Töltsük le a <code>leo_masryard_coffee.launch</code> és a <code>marsyard_coffe.world</code> fájlokat, majd másoljuk be rendre a <code>catkin_ws/src/ros_course/launch</code> és <code>catkin_ws/src/ros_course/worlds</code> mappákba.</p>
+<hr />
+</li>
+<li>
+<p>A <code>.world</code> fájlokban írjuk át a <code>/home/tamas/.ignition/fuel/fuel...</code> elérési utakat (fájlonként 2x) a sajátunkra.</p>
+<hr />
+</li>
+<li>
+<p>Indítsuk el a szimulátort:</p>
+<div class="highlight"><pre><span></span><code>    roslaunch ros_course leo_marsyard_coffee.launch
+</code></pre></div>
+<hr />
+</li>
+<li>
+<p>Indítsuk el a teleopot és az <code>rqt_image_view</code>-t:</p>
+<div class="highlight"><pre><span></span><code>    rosrun leo_teleop key_teleop
+    <span class="sb">```</span>
+
+<span class="sb">```</span>bash
+    rosrun rqt_image_view rqt_image_view
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Ha a szimulátor futtatása túlságosan megterhelő a PC számára, dolgozhatunk a terrain nélküli <code>leo_gazebo_coffee.launch</code> és <code>gazebo_coffe.world</code> fájlokkal is.</p>
+</div>
+<hr />
+</li>
+<li>
+<p>Mentsünk le egy-egy képet, amin látható, illetve nem látható a kávés bögre. </p>
+<hr />
+</li>
+</ol>
+<h3 id="3-kave-a-marson-offline-kepfeldolgozas">3: Kávé a Marson -- offline képfeldolgozás</h3>
+<hr />
+<ol>
+<li>
+<p>Írjunk Python szkriptet, amely beolvassa és megjeleníti a lementett képeket.</p>
+<hr />
+</li>
+<li>
+<p>Szín alapú szegmentálással (vagy bárhogy máshogy) szegmentáljuk a kávés bögrét.</p>
+<hr />
+</li>
+<li>
+<p>Határozzuk meg a bögre középpontját képi koordinátákban.</p>
+<hr />
+</li>
+<li>
+<p>A szegmentálás zaja gondot okozhat, próbáljuk meg leszűrni.</p>
+<hr />
+</li>
+</ol>
+<h3 id="4-kave-a-marson-online-perception-node">4: Kávé a Marson -- online perception node</h3>
+<hr />
+<ol>
+<li>
+<p>Iratkozzunk fel a <code>/camera/image_raw</code> topicra, majd a <code>cv.imshow()</code> függvény segítségéval jelenítsük meg a kapott képeket.</p>
+<hr />
+</li>
+<li>
+<p>Dolgozzuk be a működő computer vision algoritmusunkat egy ROS node-ba.</p>
+<hr />
+</li>
+<li>
+<p>Publikáljuk új topicban a detektált bögre középpontjának képi koordinátát. Használhatjuk pl. az Int32MultiArray, Point2D típusokat, vagy definiálhatunk sajátot (később szükség lesz a bögre méretére is).</p>
+<hr />
+</li>
+<li>
+<p><em>Bónusz: publikáljuk a maszkot és a maszkolt képet egy-egy Image topicban</em></p>
+<hr />
+</li>
+</ol>
+<h3 id="5-kave-a-marson-operation-logic-node">5: Kávé a Marson -- operation logic node</h3>
+<hr />
+<ol>
+<li>
+<p>Írjunk új ROS node-ot, amely fogadja a perception node üzeneteit, illetve képes a rover mozgásának irányítására.</p>
+<hr />
+</li>
+<li>
+<p>Forgassuk a rovert egy helyben, amíg a bögre a kép közepére nem kerül.</p>
+<hr />
+</li>
+<li>
+<p>Közelítsük meg a bögrét annyira, hogy a látszólagos mérete a kép méretének 50%-át el nem éri.</p>
+<hr />
+</li>
+<li>
+<p>Mentsünk le képet a gyanús objektumról.</p>
+<hr />
+</li>
+</ol>
+<h3 id="51-bonusz">5+1: Bónusz</h3>
+<hr />
+<ol>
+<li>
+<p>Nézzünk szét Gazebo-ban a beilleszthető modellek között (<code>insert</code> panel) és válasszunk egyet, amely valamilyen más módszerrel detektálható a kamera képén (pl. template matching).</p>
+<hr />
+</li>
+<li>
+<p>Módosítsuk úgy a node-okat, hogy ezt az objektumot közelítse meg a rover.</p>
+<hr />
+<div class="admonition warning">
+<p class="admonition-title">Figyelem!</p>
+<p>Az óra végén a forráskódokat mindenkinek fel kell tölteni Moodle-re egy zip archívumba csomagolva!</p>
+</div>
+</li>
+</ol>
+<hr />
+<h2 id="hasznos-linkek">Hasznos linkek</h2>
+<ul>
+<li><a href="">http://wiki.ros.org/leo_gazebo</a></li>
+<li><a href="">http://wiki.ros.org/cv_bridge/Tutorials/ConvertingBetweenROSImagesAndOpenCVImagesPython</a></li>
+<li><a href="">https://realpython.com/python-opencv-color-spaces/</a></li>
+<li><a href="">https://stackoverflow.com/questions/59164192/how-to-find-the-contour-of-a-blob-using-opencv-python</a></li>
+</ul>
+
+
+
+
+              
             </article>
             
           </div>
@@ -436,12 +616,12 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "/", "features": ["navigation.tabs", "toc.integrate"], "search": "/assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "V\u00e1g\u00f3lapra m\u00e1solva", "clipboard.copy": "M\u00e1sol\u00e1s v\u00e1g\u00f3lapra", "search.config.lang": "hu", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Keres\u00e9s", "search.result.more.one": "1 tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.more.other": "# tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.none": "Nincs tal\u00e1lat", "search.result.one": "1 egyez\u0151 dokumentum", "search.result.other": "# egyez\u0151 dokumentum", "search.result.placeholder": "Keres\u00e9shez \u00edrj ide valamit", "search.result.term.missing": "\u00dcres", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "toc.integrate"], "search": "../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "V\u00e1g\u00f3lapra m\u00e1solva", "clipboard.copy": "M\u00e1sol\u00e1s v\u00e1g\u00f3lapra", "search.config.lang": "hu", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Keres\u00e9s", "search.result.more.one": "1 tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.more.other": "# tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.none": "Nincs tal\u00e1lat", "search.result.one": "1 egyez\u0151 dokumentum", "search.result.other": "# egyez\u0151 dokumentum", "search.result.placeholder": "Keres\u00e9shez \u00edrj ide valamit", "search.result.term.missing": "\u00dcres", "select.version.title": "Select version"}}</script>
     
     
-      <script src="/assets/javascripts/bundle.2ab50757.min.js"></script>
+      <script src="../assets/javascripts/bundle.2ab50757.min.js"></script>
       
-        <script src="/javascripts/mathjax.js"></script>
+        <script src="../javascripts/mathjax.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
