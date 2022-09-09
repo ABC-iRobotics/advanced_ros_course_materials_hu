@@ -12,14 +12,14 @@
         <meta name="author" content="Tamas D. Nagy">
       
       
-        <link rel="canonical" href="https://example.com/10_sensory_data/">
+        <link rel="canonical" href="https://example.com/projects/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.3">
     
     
       
-        <title>10. Szenzoros adatok gyűjtése és feldolgozása - Robotprogramozás ROS környezetben</title>
+        <title>Követelmények - Robotprogramozás ROS környezetben</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#10-szenzoros-adatok-gyujtese-es-feldolgozasa" class="md-skip">
+        <a href="#kovetelmenyek" class="md-skip">
           Kihagyás
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              10. Szenzoros adatok gyűjtése és feldolgozása
+              Követelmények
             
           </span>
         </div>
@@ -217,10 +217,12 @@
         
   
   
+    
+  
 
 
   <li class="md-tabs__item">
-    <a href="../kotprog/" class="md-tabs__link">
+    <a href="./" class="md-tabs__link md-tabs__link--active">
       Kötelező program
     </a>
   </li>
@@ -379,7 +381,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../08_roslaunch/" class="md-nav__link">
+      <a href="../06_roslaunch/" class="md-nav__link">
         8. Roslaunch, saját üzenetek, action, service
       </a>
     </li>
@@ -393,7 +395,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../12_robotics_principles/" class="md-nav__link">
+      <a href="../07_robotics_principles/" class="md-nav__link">
         12. Kinematika, inverz kinematika
       </a>
     </li>
@@ -413,11 +415,175 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../kotprog/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Kötelező program
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Kötelező program
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tartalomjegyzék">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tartalomjegyzék
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#nehezsegi-fokozatok-es-erdemjegyek" class="md-nav__link">
+    Nehézségi fokozatok és érdemjegyek
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utemezes" class="md-nav__link">
+    Ütemezés
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evkozi-jegy" class="md-nav__link">
+    Évközi jegy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#temavalasztas" class="md-nav__link">
+    Témaválasztás
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kotelezo-program-temak" class="md-nav__link">
+    Kötelező program témák
+  </a>
+  
+    <nav class="md-nav" aria-label="Kötelező program témák">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-platypous" class="md-nav__link">
+    1. PlatypOUs
+  </a>
+  
+    <nav class="md-nav" aria-label="1. PlatypOUs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-platypous-palyakovetes" class="md-nav__link">
+    1.1. PlatypOUs pályakövetés
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-platypous-akadaly-elkerules" class="md-nav__link">
+    1.2. PlatypOUs akadály elkerülés
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-platypous-objektum-kovetes" class="md-nav__link">
+    1.3. PlatypOUs objektum követés
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-platypous-action-library" class="md-nav__link">
+    1.4. PlatypOUs action library
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-ambf" class="md-nav__link">
+    2. AMBF
+  </a>
+  
+    <nav class="md-nav" aria-label="2. AMBF">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-da-vinci-sebeszrobot-ros-integracioja-ambf-szimulatorban" class="md-nav__link">
+    2.1. da Vinci sebészrobot ROS integrációja AMBF szimulátorban
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-kuka-robotkar-ros-integracioja-ambf-szimulatorban" class="md-nav__link">
+    2.2. KUKA robotkar ROS integrációja AMBF szimulátorban
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-pr2-humanoid-robot-ros-integracioja-ambf-szimulatorban" class="md-nav__link">
+    2.3. PR2 humanoid robot ROS integrációja AMBF szimulátorban
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#x-sajat-tema" class="md-nav__link">
+    X. Saját téma
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hasznos-linkek" class="md-nav__link">
+    Hasznos linkek
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -431,177 +597,178 @@
             
           
           <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset"><a class="md-content__button md-icon" download href="10_sensory_data.pdf" title="PDF Export"><svg style="height: 1.2rem; width: 1.2rem;" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm76.45 211.36l-96.42 95.7c-6.65 6.61-17.39 6.61-24.04 0l-96.42-95.7C73.42 337.29 80.54 320 94.82 320H160v-80c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v80h65.18c14.28 0 21.4 17.29 11.27 27.36zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"></path></svg></a>
+            <article class="md-content__inner md-typeset"><a class="md-content__button md-icon" download href="projects.pdf" title="PDF Export"><svg style="height: 1.2rem; width: 1.2rem;" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm76.45 211.36l-96.42 95.7c-6.65 6.61-17.39 6.61-24.04 0l-96.42-95.7C73.42 337.29 80.54 320 94.82 320H160v-80c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v80h65.18c14.28 0 21.4 17.29 11.27 27.36zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"></path></svg></a>
               
                 
 
 
-<h1 id="10-szenzoros-adatok-gyujtese-es-feldolgozasa">10. Szenzoros adatok gyűjtése és feldolgozása</h1>
+<h1 id="kovetelmenyek">Követelmények</h1>
 <hr />
-<h2 id="gyakorlat">Gyakorlat</h2>
+<h2 id="nehezsegi-fokozatok-es-erdemjegyek">Nehézségi fokozatok és érdemjegyek</h2>
 <hr />
-<div class="admonition note">
-<p class="admonition-title">Thing may change here...</p>
-<p>Ezt a gyakorlatot lehet, hogy le fogjuk cserélni.</p>
-</div>
-<h3 id="1-leo-rover">1: Leo rover</h3>
-<hr />
-<ol>
-<li>
-<p>Installáljuk a Leo rover ROS package-eit:</p>
-<div class="highlight"><pre><span></span><code>sudo apt update
-sudo apt install ros-noetic-leo*
-</code></pre></div>
-<hr />
-</li>
-<li>
-<p>A http://wiki.ros.org/leo_gazebo leírás segítségével indítsuk el a gazebo szimulátort a Mars landscape-pel.</p>
-<hr />
-</li>
-<li>
-<p>Indítsunk teleop node-ot, és mozgassuk meg a robotot.</p>
-<hr />
-</li>
-</ol>
-<h3 id="2-kave-a-marson-kepek-rogzitese">2: Kávé a Marson -- képek rögzítése</h3>
-<hr />
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>A Mars rover képet küldött egy különös, kávés bögrének tűnő tárgyról! A feladat, hogy fordítsuk a rovert a bögre felé, majd közelítsük meg, hogy részletesen megvizsgálhassuk.</p>
-</div>
-<p><img alt="" src="../img/coffee.png" style="width:600px" /></p>
-<hr />
-<ol>
-<li>
-<p>Indítsuk el a Gazebo-t:</p>
-<div class="highlight"><pre><span></span><code>    gazebo
-</code></pre></div>
-<hr />
-</li>
-<li>
-<p>Az <code>insert</code> panelen keressük ki a <code>googleresearch/models/cole_hardware_mug_classic_blue</code> modellt, majd helyezzük el a szimulációban. Ez azért kell, hogy később meglegyen a bögre modellje a fáljrendszerünkben.</p>
-<hr />
-</li>
-<li>
-<p>Zárjuk be a Gazebo-t</p>
-<hr />
-</li>
-<li>
-<p>Töltsük le a <code>leo_masryard_coffee.launch</code> és a <code>marsyard_coffe.world</code> fájlokat, majd másoljuk be rendre a <code>catkin_ws/src/ros_course/launch</code> és <code>catkin_ws/src/ros_course/worlds</code> mappákba.</p>
-<hr />
-</li>
-<li>
-<p>A <code>.world</code> fájlokban írjuk át a <code>/home/tamas/.ignition/fuel/fuel...</code> elérési utakat (fájlonként 2x) a sajátunkra.</p>
-<hr />
-</li>
-<li>
-<p>Indítsuk el a szimulátort:</p>
-<div class="highlight"><pre><span></span><code>    roslaunch ros_course leo_marsyard_coffee.launch
-</code></pre></div>
-<hr />
-</li>
-<li>
-<p>Indítsuk el a teleopot és az <code>rqt_image_view</code>-t:</p>
-<div class="highlight"><pre><span></span><code>    rosrun leo_teleop key_teleop
-    <span class="sb">```</span>
-
-<span class="sb">```</span>bash
-    rosrun rqt_image_view rqt_image_view
-</code></pre></div>
+<p>A kötelező programok három <em>nehézségi fokozatban</em> teljesíthetők. A <em>nehézségi fok</em> meghatározza a <strong>legjobb</strong> érdemjegyet, amely a teljesítéséért kapható! </p>
+<table>
+<thead>
+<tr>
+<th>Nehézségi fok</th>
+<th align="center">Legjobb megszerezhető érdemjegy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Basic</td>
+<td align="center">3</td>
+</tr>
+<tr>
+<td>Advanced</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td>Epic</td>
+<td align="center">5</td>
+</tr>
+</tbody>
+</table>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Ha a szimulátor futtatása túlságosan megterhelő a PC számára, dolgozhatunk a terrain nélküli <code>leo_gazebo_coffee.launch</code> és <code>gazebo_coffe.world</code> fájlokkal is.</p>
+<p>A feladatok úgy vannak megadva, hogy érdemes a <strong>Basic</strong> szinttel kezdeni, és onnan fokozatosan építkezni az <strong>Epic</strong> szintig.</p>
+</div>
+<p>A kötelező programok a következő szempontok szerint kerülnek értékelésre: </p>
+<ul>
+<li>Bizonyítottan saját munka</li>
+<li>Értékelhető eredményeket produkáljon</li>
+<li>Verziókövetés használata, feltöltés GitHub/GitLab/egyéb repoba</li>
+<li>Értékelési szempontok:<ul>
+<li>a megoldás teljessége</li>
+<li>megfelelő ROS kommunikáció alkalmazása</li>
+<li>program célszerű szerkezete</li>
+<li>az implementáció minősége</li>
+<li>a kód dokumentálása</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="utemezes">Ütemezés</h2>
+<hr />
+<table>
+<thead>
+<tr>
+<th align="center">Okt. hét</th>
+<th>Dátum</th>
+<th>Számonkérés</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">2.</td>
+<td>február 14</td>
+<td>Kötelező programok ismertetése.</td>
+</tr>
+<tr>
+<td align="center">4.</td>
+<td>február 28</td>
+<td>Kötelező programok választása.</td>
+</tr>
+<tr>
+<td align="center">9</td>
+<td>április 4</td>
+<td>Kötelező program mérföldkő.</td>
+</tr>
+<tr>
+<td align="center">14.</td>
+<td>május 9</td>
+<td>Kötelező programok bemutatása.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="evkozi-jegy">Évközi jegy</h2>
+<hr />
+<p>A félév elfogadásának feltétele, hogy mind a két ZH, mind a kötelező program értékelése legalább elégséges. A két ZH közül az egyik az utolsó óra alkalmával pótolható.</p>
+<div class="admonition abstract">
+<p class="admonition-title">Félév végi jegy</p>
+<p><span class="arithmatex">\(Jegy = (ZH1 + ZH2 + 2 \times KötProg) / 4\)</span> </p>
 </div>
 <hr />
-</li>
-<li>
-<p>Mentsünk le egy-egy képet, amin látható, illetve nem látható a kávés bögre. </p>
+<h2 id="temavalasztas">Témaválasztás</h2>
 <hr />
-</li>
-</ol>
-<h3 id="3-kave-a-marson-offline-kepfeldolgozas">3: Kávé a Marson -- offline képfeldolgozás</h3>
-<hr />
-<ol>
-<li>
-<p>Írjunk Python szkriptet, amely beolvassa és megjeleníti a lementett képeket.</p>
-<hr />
-</li>
-<li>
-<p>Szín alapú szegmentálással (vagy bárhogy máshogy) szegmentáljuk a kávés bögrét.</p>
-<hr />
-</li>
-<li>
-<p>Határozzuk meg a bögre középpontját képi koordinátákban.</p>
-<hr />
-</li>
-<li>
-<p>A szegmentálás zaja gondot okozhat, próbáljuk meg leszűrni.</p>
-<hr />
-</li>
-</ol>
-<h3 id="4-kave-a-marson-online-perception-node">4: Kávé a Marson -- online perception node</h3>
-<hr />
-<ol>
-<li>
-<p>Iratkozzunk fel a <code>/camera/image_raw</code> topicra, majd a <code>cv.imshow()</code> függvény segítségéval jelenítsük meg a kapott képeket.</p>
-<hr />
-</li>
-<li>
-<p>Dolgozzuk be a működő computer vision algoritmusunkat egy ROS node-ba.</p>
-<hr />
-</li>
-<li>
-<p>Publikáljuk új topicban a detektált bögre középpontjának képi koordinátát. Használhatjuk pl. az Int32MultiArray, Point2D típusokat, vagy definiálhatunk sajátot (később szükség lesz a bögre méretére is).</p>
-<hr />
-</li>
-<li>
-<p><em>Bónusz: publikáljuk a maszkot és a maszkolt képet egy-egy Image topicban</em></p>
-<hr />
-</li>
-</ol>
-<h3 id="5-kave-a-marson-operation-logic-node">5: Kávé a Marson -- operation logic node</h3>
-<hr />
-<ol>
-<li>
-<p>Írjunk új ROS node-ot, amely fogadja a perception node üzeneteit, illetve képes a rover mozgásának irányítására.</p>
-<hr />
-</li>
-<li>
-<p>Forgassuk a rovert egy helyben, amíg a bögre a kép közepére nem kerül.</p>
-<hr />
-</li>
-<li>
-<p>Közelítsük meg a bögrét annyira, hogy a látszólagos mérete a kép méretének 50%-át el nem éri.</p>
-<hr />
-</li>
-<li>
-<p>Mentsünk le képet a gyanús objektumról.</p>
-<hr />
-</li>
-</ol>
-<h3 id="51-bonusz">5+1: Bónusz</h3>
-<hr />
-<ol>
-<li>
-<p>Nézzünk szét Gazebo-ban a beilleszthető modellek között (<code>insert</code> panel) és válasszunk egyet, amely valamilyen más módszerrel detektálható a kamera képén (pl. template matching).</p>
-<hr />
-</li>
-<li>
-<p>Módosítsuk úgy a node-okat, hogy ezt az objektumot közelítse meg a rover.</p>
-<hr />
+<ul>
+<li>A 4. heti órán (február 28.) konzultálunk a kötelező programokról</li>
+</ul>
 <div class="admonition warning">
-<p class="admonition-title">Figyelem!</p>
-<p>Az óra végén a forráskódokat mindenkinek fel kell tölteni Moodle-re egy zip archívumba csomagolva!</p>
+<p class="admonition-title">Warning</p>
+<p>A választott témáját mindenki küldje el emailben <strong>február 28. 19:00-ig</strong> erre az email címre: <code>tamas.daniel.nagy@irob.uni-obuda.hu</code>. Az email tárgya legyen <strong>ROS_kötprog_2022_tavasz</strong>.</p>
 </div>
-</li>
-</ol>
+<hr />
+<h2 id="kotelezo-program-temak">Kötelező program témák</h2>
+<hr />
+<h3 id="1-platypous">1. PlatypOUs</h3>
+<hr />
+<p><img alt="" src="https://i.imgur.com/mCuxG54.png" /></p>
+<h4 id="11-platypous-palyakovetes">1.1. PlatypOUs pályakövetés</h4>
+<ul>
+<li><strong>Basic:</strong> Szimulátor élesztése, SLAM tesztelése. ROS node/node-ok implementálása szenzorok adatainak beolvasására és a a robot mozgatására.</li>
+<li><strong>Advanced:</strong> ROS rendszer implementálása pályakövetésre szimulált környezetben bármely szenzor felhasználásával(pl. fal mellett haladás adott távolságra LIDAR segítségével).</li>
+<li><strong>Epic:</strong> Implementáció és tesztelés a valós hardware-en és/vagy nyűgözz le!</li>
+</ul>
+<h4 id="12-platypous-akadaly-elkerules">1.2. PlatypOUs akadály elkerülés</h4>
+<ul>
+<li><strong>Basic:</strong> Szimulátor élesztése, SLAM tesztelése. ROS node/node-ok implementálása szenzorok adatainak beolvasására és a a robot mozgatására.</li>
+<li><strong>Advanced:</strong> ROS rendszer implementálása akadály felismerésére és az akadályt kikerülő trajektória tervezésére és megvalósítására szimulált környezetben bármely szenzor felhasználásával.</li>
+<li><strong>Epic:</strong> Implementáció és tesztelés a valós hardware-en és/vagy nyűgözz le!</li>
+</ul>
+<h4 id="13-platypous-objektum-kovetes">1.3. PlatypOUs objektum követés</h4>
+<ul>
+<li><strong>Basic:</strong> Szimulátor élesztése, SLAM tesztelése. ROS node/node-ok implementálása szenzorok adatainak beolvasására és a a robot mozgatására.</li>
+<li><strong>Advanced:</strong> ROS rendszer implementálása objektum megkeresésére/felismerésére és követésére/megközelítésére szimulált környezetben bármely szenzor felhasználásával (pl. visual servoing).</li>
+<li><strong>Epic:</strong> Implementáció és tesztelés a valós hardware-en és/vagy nyűgözz le!</li>
+</ul>
+<h4 id="14-platypous-action-library">1.4. PlatypOUs action library</h4>
+<ul>
+<li><strong>Basic:</strong> Szimulátor élesztése, SLAM tesztelése. ROS node/node-ok implementálása szenzorok adatainak beolvasására és a a robot mozgatására.</li>
+<li><strong>Advanced:</strong> Egyszerű műveleteket tartalmazó, ROS action alapú könyvtár és ezeket végrehajtó rendszer implementálása (pl. push object, move to object, turn around).</li>
+<li><strong>Epic:</strong> Implementáció és tesztelés a valós hardware-en és/vagy nyűgözz le!</li>
+</ul>
+<hr />
+<h3 id="2-ambf">2. AMBF</h3>
+<hr />
+<h4 id="21-da-vinci-sebeszrobot-ros-integracioja-ambf-szimulatorban">2.1. da Vinci sebészrobot ROS integrációja AMBF szimulátorban</h4>
+<p><img alt="" src="https://i.imgur.com/tmhAkwg.png" /></p>
+<ul>
+<li><strong>Basic:</strong> Szimulátor élesztése, robot vezérlése joint space-ben és task space-ben (IK már implementálva AMBF-ben) ROS-ból CRTK szerinti topic-okon keresztül</li>
+<li><strong>Advanced:</strong> Objektumok detektálása <em>Peg transfer puzzle</em>-ben</li>
+<li><strong>Epic:</strong> Autonóm manipuláció <em>Peg transfer</em>-en és/vagy nyűgözz le!</li>
+</ul>
+<h4 id="22-kuka-robotkar-ros-integracioja-ambf-szimulatorban">2.2. KUKA robotkar ROS integrációja AMBF szimulátorban</h4>
+<p><img alt="" src="https://i.imgur.com/4FyvHM5.png" /></p>
+<ul>
+<li><strong>Basic:</strong> Szimulátor élesztése, robot vezérlése joint space-ben ROS-ból</li>
+<li><strong>Advanced:</strong> Robot vezérlése task space-ben, IK?</li>
+<li><strong>Epic:</strong> Trajektóriatervezés</li>
+</ul>
+<h4 id="23-pr2-humanoid-robot-ros-integracioja-ambf-szimulatorban">2.3. PR2 humanoid robot ROS integrációja AMBF szimulátorban</h4>
+<p><img alt="" src="https://i.imgur.com/tGCClwQ.png" /></p>
+<ul>
+<li><strong>Basic:</strong> Szimulátor élesztése, robot vezérlése joint space-ben ROS-ból</li>
+<li><strong>Advanced:</strong> Robot vezérlése task space-ben, IK?</li>
+<li><strong>Epic:</strong> Trajektóriatervezés/Navigáció/Manipuláció</li>
+</ul>
+<hr />
+<h3 id="x-sajat-tema">X. Saját téma</h3>
+<hr />
+<p>Megegyezés alapján.</p>
 <hr />
 <h2 id="hasznos-linkek">Hasznos linkek</h2>
 <ul>
-<li><a href="">http://wiki.ros.org/leo_gazebo</a></li>
-<li><a href="">http://wiki.ros.org/cv_bridge/Tutorials/ConvertingBetweenROSImagesAndOpenCVImagesPython</a></li>
-<li><a href="">https://realpython.com/python-opencv-color-spaces/</a></li>
-<li><a href="">https://stackoverflow.com/questions/59164192/how-to-find-the-contour-of-a-blob-using-opencv-python</a></li>
+<li><a href="http://wiki.ros.org/gazebo_ros_pkgs">Gazebo ROS packages</a></li>
+<li><a href="https://github.com/ABC-iRobotics/PlatypOUs-Mobile-Robot-Platform">PlatypOUs</a></li>
+<li><a href="https://github.com/WPI-AIM/ambf">AMBF</a></li>
+<li><a href="https://github.com/TamasDNagy/ambf">My fork of AMBF</a></li>
+<li><a href="https://github.com/jhu-cisst/cisst/blob/devel/utils/crtk-port/crtk-ros-commands.dict">CRTK topics</a></li>
+<li><a href="http://wiki.ros.org/navigation">Navigation stack</a></li>
+<li><a href="https://www.hindawi.com/journals/jat/2020/8867937/">Paper on LiDAR SLAM</a></li>
+<li><a href="https://ipsjcva.springeropen.com/articles/10.1186/s41074-017-0027-2">Paper on vSLAM</a></li>
+<li><a href="https://www.researchgate.net/publication/252057005_An_image_based_visual_servoing_scheme_for_wheeled_mobile_robots">Paper on Visual Servoing Mobile Robot</a></li>
 </ul>
 
 
@@ -616,6 +783,27 @@ sudo apt install ros-noetic-leo*
       </main>
       
         <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Élőláb" >
+      
+        
+        <a href="../07_robotics_principles/" class="md-footer__link md-footer__link--prev" aria-label="Előző: 12. Kinematika, inverz kinematika" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Előző
+              </span>
+              12. Kinematika, inverz kinematika
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

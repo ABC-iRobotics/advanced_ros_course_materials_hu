@@ -31,22 +31,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://example.com/08_roslaunch/</loc>
+         <loc>https://example.com/06_roslaunch/</loc>
          <lastmod>2022-09-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://example.com/10_sensory_data/</loc>
+         <loc>https://example.com/07_robotics_principles/</loc>
          <lastmod>2022-09-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://example.com/12_robotics_principles/</loc>
+         <loc>https://example.com/08_sensory_data/</loc>
          <lastmod>2022-09-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://example.com/kotprog/</loc>
+         <loc>https://example.com/projects/</loc>
          <lastmod>2022-09-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
