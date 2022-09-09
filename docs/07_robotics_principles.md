@@ -3,7 +3,7 @@ title: Kinematika, inverz kienamtika
 author: Nagy Tamás
 ---
 
-# 12. Kinematika, inverz kienamtika, Szimulált robotkar programozása csukló-, és munkatérben
+# 07. Kinematika, inverz kienamtika, Szimulált robotkar programozása csukló-, és munkatérben
 
 !!! warning
 	**ZH2** (Roslaunch, ROS paraméter szerver. Kinematika, inverz kinematika.) és a **Kötelező program bemutatás** **május 9.**

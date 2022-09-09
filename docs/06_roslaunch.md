@@ -3,7 +3,7 @@ title: Roslaunch, saját üzenetek, action, service
 author: Nagy Tamás
 ---
 
-# 08. Roslaunch, ROS paraméter szerver, Rosbag
+# 06. Roslaunch, ROS paraméter szerver, Rosbag
 
 ---
 

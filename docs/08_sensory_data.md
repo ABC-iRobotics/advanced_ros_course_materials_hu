@@ -3,7 +3,7 @@ title: Szenzoros adatok gyűjtése és feldolgozása
 author: Nagy Tamás
 ---
 
-# 10. Szenzoros adatok gyűjtése és feldolgozása
+# 08. Szenzoros adatok gyűjtése és feldolgozása
 
 ---
 
