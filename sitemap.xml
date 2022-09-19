@@ -2,52 +2,52 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://example.com/</loc>
-         <lastmod>2022-09-13</lastmod>
+         <lastmod>2022-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://example.com/01_intro/</loc>
-         <lastmod>2022-09-13</lastmod>
+         <lastmod>2022-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://example.com/02_linux_ros_principles/</loc>
-         <lastmod>2022-09-13</lastmod>
+         <lastmod>2022-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://example.com/03_python_principles/</loc>
-         <lastmod>2022-09-13</lastmod>
+         <lastmod>2022-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://example.com/04_git/</loc>
-         <lastmod>2022-09-13</lastmod>
+         <lastmod>2022-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://example.com/05_da_vinci/</loc>
-         <lastmod>2022-09-13</lastmod>
+         <lastmod>2022-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://example.com/06_roslaunch/</loc>
-         <lastmod>2022-09-13</lastmod>
+         <lastmod>2022-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://example.com/07_robotics_principles/</loc>
-         <lastmod>2022-09-13</lastmod>
+         <lastmod>2022-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://example.com/08_sensory_data/</loc>
-         <lastmod>2022-09-13</lastmod>
+         <lastmod>2022-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://example.com/projects/</loc>
-         <lastmod>2022-09-13</lastmod>
+         <lastmod>2022-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
