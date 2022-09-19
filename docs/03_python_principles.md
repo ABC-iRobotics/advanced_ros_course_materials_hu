@@ -1,9 +1,9 @@
 ---
-title: Python alapismeretek,  ROS kommunikáció gyakorlása
+title: Python alapismeretek, ROS Publisher, ROS Subscriber
 author: Nagy Tamás
 ---
 
-# 03. Python alapismeretek,  ROS kommunikáció gyakorlása
+# 03. Python alapismeretek, ROS Publisher, ROS Subscriber
 
 ---
 
@@ -92,6 +92,12 @@ if __name__ == "__main__":
     ```bash
     python3 hello.py
     ```
+    
+    !!! tip
+        Ha hibát kapunk, hogy a fájl nem futtatható, állítsuk be a futtatási jogosultságot:
+        ```bash
+        chmod +x hello.py
+        ```
 
 4. Módosítsuk a programot úgy, hogy a *"World"* szót a parancssori argumentumként megadott szóval helyettesítse:
 
@@ -235,6 +241,15 @@ if __name__ == "__main__":
     
     ---
     
+    
+7. Futtassuk a node-ot:
+
+    ```bash
+    rosrun ros_course turtlesim_controller.py
+    ```
+    
+    ---
+    
    
 ### 3: Alakzatok rajolása
 
@@ -293,8 +308,17 @@ if __name__ == "__main__":
     
         # New method for TurtlesimController
         def cb_pose(msg):
-            self.pose = msg
+            self.pose = msg  
+    ```
     
+    ---
+    
+    
+    3. Implementáljuk a `go_to` metódust. Teszteljük, hívjuk meg a main-ből.
+
+    ```python
+        # ...
+
         # Go to method
         def go_to(self, speed, omega, x, y):
             # Stuff

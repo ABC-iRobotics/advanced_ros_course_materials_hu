@@ -8,7 +8,7 @@ nav:
     - Tananyagok: 
         - 1. Bevezetés: 01_intro.md
         - 2. Linux, ROS alapismeretek: 02_linux_ros_principles.md
-        - 3. Python alapismeretek,  ROS kommunikáció gyakorlása: 03_python_principles.md
+        - 3. Python alapismeretek,  ROS Publisher, ROS Subscriber: 03_python_principles.md
         - 4. Verziókövetés, Git: 04_git.md
         - 5. Robotikai alapismeretek, Sebészrobot programozása: 05_da_vinci.md
         - 8. Roslaunch, saját üzenetek, action, service: 06_roslaunch.md
