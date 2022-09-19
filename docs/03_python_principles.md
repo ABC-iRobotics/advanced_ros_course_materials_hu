@@ -70,12 +70,14 @@ if __name__ == "__main__":
 
 ### 1: Hello, World!
 
-1. Nyissunk meg egy terminált. Huzzuk létre a *~/catkin_ws/src/ros_course/scripts/* könyvtárunkban a `hello.py` fájlt:
+1. Nyissunk meg egy terminált. Huzzuk létre a `~/catkin_ws/src/ros_course/scripts/` könyvtárunkban a `hello.py` fájlt:
 
     ```bash
     cd catkin_ws/src/ros_course/scripts
     touch hello.py
     ```
+    
+    ---
 
 2. Nyissuk meg a `hello.py` fájlt QtCreatorban, írjuk be a következő sort a `hello.py` fájlba:
 
@@ -86,6 +88,8 @@ if __name__ == "__main__":
     !!! tip
         **Aki gedit-et használ:** Preferences :arrow_forward: Editor :arrow_forward: Insert spaces instead of tabs.
 
+    
+    ---
 
 3. Futtassuk a fájlt, terminál:
 
@@ -94,10 +98,10 @@ if __name__ == "__main__":
     ```
     
     !!! tip
-        Ha hibát kapunk, hogy a fájl nem futtatható, állítsuk be a futtatási jogosultságot:
-        ```bash
-        chmod +x hello.py
-        ```
+        Ha hibát kapunk, hogy a fájl nem futtatható, állítsuk be a futtatási jogosultságot: `chmod +x hello.py`
+
+    
+    ---
 
 4. Módosítsuk a programot úgy, hogy a *"World"* szót a parancssori argumentumként megadott szóval helyettesítse:
 
@@ -107,17 +111,22 @@ if __name__ == "__main__":
     msg = sys.argv[1]
     print("Hello," , msg, "!")
     ```
+    
+    ---
 
-6. Futtassuk a fájlt, terminál:
+5. Futtassuk a fájlt, terminál:
 
     ```bash
     python3 hello.py John
     ``` 
-
+    
+    ---
+    
+    
 ### 2: Teknőc mozgatása egyenes mentén
 
 
-1. Írjunk ROS node-ot, amely előre, egyenes mentén megadott távolságra mozgatja a teknőcöt. Nyissunk meg egy terminált. Huzzuk létre a *~/catkin_ws/src/ros_course/scripts* könyvtárunkban a `turtlesim_controller.py` fájlt:
+1. Írjunk ROS node-ot, amely előre, egyenes mentén megadott távolságra mozgatja a teknőcöt. Nyissunk meg egy terminált. Huzzuk létre a `~/catkin_ws/src/ros_course/scripts` könyvtárunkban a `turtlesim_controller.py` fájlt:
 
     ![](img/turtle_straight.png){:style="width:300px" align=right} 
 
