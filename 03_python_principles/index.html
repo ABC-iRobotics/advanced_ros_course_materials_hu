@@ -610,10 +610,11 @@
 <h3 id="1-hello-world">1: Hello, World!</h3>
 <ol>
 <li>
-<p>Nyissunk meg egy terminált. Huzzuk létre a <em>~/catkin_ws/src/ros_course/scripts/</em> könyvtárunkban a <code>hello.py</code> fájlt:</p>
+<p>Nyissunk meg egy terminált. Huzzuk létre a <code>~/catkin_ws/src/ros_course/scripts/</code> könyvtárunkban a <code>hello.py</code> fájlt:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> catkin_ws/src/ros_course/scripts
 touch hello.py
 </code></pre></div>
+<hr />
 </li>
 <li>
 <p>Nyissuk meg a <code>hello.py</code> fájlt QtCreatorban, írjuk be a következő sort a <code>hello.py</code> fájlba:</p>
@@ -623,6 +624,7 @@ touch hello.py
 <p class="admonition-title">Tip</p>
 <p><strong>Aki gedit-et használ:</strong> Preferences :arrow_forward: Editor :arrow_forward: Insert spaces instead of tabs.</p>
 </div>
+<hr />
 </li>
 <li>
 <p>Futtassuk a fájlt, terminál:</p>
@@ -630,10 +632,9 @@ touch hello.py
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Ha hibát kapunk, hogy a fájl nem futtatható, állítsuk be a futtatási jogosultságot:
-<div class="highlight"><pre><span></span><code>chmod +x hello.py
-</code></pre></div></p>
+<p>Ha hibát kapunk, hogy a fájl nem futtatható, állítsuk be a futtatási jogosultságot: <code>chmod +x hello.py</code></p>
 </div>
+<hr />
 </li>
 <li>
 <p>Módosítsuk a programot úgy, hogy a <em>"World"</em> szót a parancssori argumentumként megadott szóval helyettesítse:</p>
@@ -642,17 +643,19 @@ touch hello.py
 <span class="n">msg</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello,&quot;</span> <span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="s2">&quot;!&quot;</span><span class="p">)</span>
 </code></pre></div>
+<hr />
 </li>
 <li>
 <p>Futtassuk a fájlt, terminál:</p>
 <div class="highlight"><pre><span></span><code>python3 hello.py John
 </code></pre></div>
+<hr />
 </li>
 </ol>
 <h3 id="2-teknoc-mozgatasa-egyenes-menten">2: Teknőc mozgatása egyenes mentén</h3>
 <ol>
 <li>
-<p>Írjunk ROS node-ot, amely előre, egyenes mentén megadott távolságra mozgatja a teknőcöt. Nyissunk meg egy terminált. Huzzuk létre a <em>~/catkin_ws/src/ros_course/scripts</em> könyvtárunkban a <code>turtlesim_controller.py</code> fájlt:</p>
+<p>Írjunk ROS node-ot, amely előre, egyenes mentén megadott távolságra mozgatja a teknőcöt. Nyissunk meg egy terminált. Huzzuk létre a <code>~/catkin_ws/src/ros_course/scripts</code> könyvtárunkban a <code>turtlesim_controller.py</code> fájlt:</p>
 <p><img align="right" alt="" src="../img/turtle_straight.png" style="width:300px" /> </p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> catkin_ws/src/ros_course/scripts
 touch turtlesim_controller.py
