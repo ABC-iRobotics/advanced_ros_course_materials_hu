@@ -282,7 +282,7 @@ if __name__ == "__main__":
   
     ---
     
-4. Implementáljunk a teknőccel tetszőleges szabályos alakzatot rajzoltató metódust az egyenes mozgást és a fordulást végrehajtó metódusok felhasználásával.
+3. Implementáljunk a teknőccel tetszőleges szabályos alakzatot rajzoltató metódust az egyenes mozgást és a fordulást végrehajtó metódusok felhasználásával.
 
     ```python
     def draw_poly(self, speed, omega, N, a):
@@ -323,7 +323,7 @@ if __name__ == "__main__":
     ---
     
     
-    3. Implementáljuk a `go_to` metódust. Teszteljük, hívjuk meg a main-ből.
+3. Implementáljuk a `go_to` metódust. Teszteljük, hívjuk meg a main-ből.
 
     ```python
         # ...
