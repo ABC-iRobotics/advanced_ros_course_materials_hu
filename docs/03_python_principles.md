@@ -316,7 +316,7 @@ if __name__ == "__main__":
         self.pose_subscriber = rospy.Subscriber('/turtle1/pose', Pose, self.cb_pose)
     
         # New method for TurtlesimController
-        def cb_pose(msg):
+        def cb_pose(self, msg):
             self.pose = msg  
     ```
     
