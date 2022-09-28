@@ -12,7 +12,7 @@ author: Nagy Tamás
 --- 
 
 !!! warning
-	**ZH1** (ROS alapok, publisher, subscriber. Python alapok. Robotikai alapfogalmak.) **március 21.**
+	**ZH1** (ROS alapok, publisher, subscriber. Python alapok. Robotikai alapfogalmak.) **október 11.**
 
 
 
@@ -305,16 +305,55 @@ pip3 install matplotlib
 
 ---
 
-1. Hozzunk létre új python forrásfájlt `dummy_marker.py` névvel a  `~/catkin_ws/src/ros_course/scripts` mappában. Adjuk meg a fájl nevét a `CMakeLists.txt`-ben a megszokott módon.
+1. Hozzunk létre új python forrásfájlt `dummy_marker.py` névvel a  `~/catkin_ws/src/ros_course/scripts` mappában. Adjuk meg a fájl nevét a `CMakeLists.txt`-ben a megszokott módon. Implementájunk python programot, amely markert publikál (-0.05, 0.08, -0.12) pozícióval `dummy_target_marker` nevű topic-ban. A `frame_id` addattag értéke legyen `PSM1_psm_base_link`. Másoljuk az alábbi kódot a `dummy_marker.py` fájlba:
+
+    ```python
+    import rospy
+    from visualization_msgs.msg import Marker
+
+    def marker(position):
+        rospy.init_node('dummy_target_publisher', anonymous=True)
+        pub = rospy.Publisher('dummy_target_marker', Marker, queue_size=10)
+        rate = rospy.Rate(10) # 10hz
+        i = 0
+        while not rospy.is_shutdown():
+            marker = Marker()
+            marker.header.frame_id = 'PSM1_psm_base_link'
+            marker.header.stamp = rospy.Time()
+            marker.ns = "dvrk_viz"
+            marker.id = i
+            marker.type = Marker.SPHERE
+            marker.action = Marker.MODIFY
+            marker.pose.position.x = position[0]
+            marker.pose.position.y = position[1]
+            marker.pose.position.z = position[2]
+            marker.pose.orientation.x = 0.0
+            marker.pose.orientation.y = 0.0
+            marker.pose.orientation.z = 0.0
+            marker.pose.orientation.w = 1.0
+            marker.scale.x = 0.008
+            marker.scale.y = 0.008
+            marker.scale.z = 0.008
+            marker.color.a = 1.0 # Don't forget to set the alpha!
+            marker.color.r = 0.0
+            marker.color.g = 1.0
+            marker.color.b = 0.0;
+
+            #rospy.loginfo(marker)
+            pub.publish(marker)
+            i = i + 1
+            rate.sleep()
+
+    if __name__ == '__main__':
+        try:
+            marker([-0.05, 0.08, -0.12])
+        except rospy.ROSInterruptException:
+            pass
+    ```
 
     ---
-    
-2. Vizsgáljuk meg a `visualization_msgs/Marker` msg típust.
 
-    ---
-
-3. Implementájunk python programot, amely markert publikál (-0.05, 0.08, -0.12) pozícióval `dummy_target_marker` nevű topic-ban. A `frame_id` addattag értéke legyen `PSM1_psm_base_link`.
-4. Futtassuk a node-ot és jelenítsük meg a markert RViz-ben.
+2. Futtassuk a node-ot és jelenítsük meg a markert RViz-ben.
 
     ---
 
@@ -322,7 +361,11 @@ pip3 install matplotlib
 
 ---
 
-1. Módosítsuk a `psm_grasp.py` programot úgy, hogy a csipesszel fogjuk meg a generált markert.
+1. Iratkozzunk fel a marker pozícióját küldő topic-ra a `psm_grasp.py`-ban.
+
+    ---
+
+2. Módosítsuk a `psm_grasp.py` programot úgy, hogy a csipesszel fogjuk meg a generált markert.
 
     !!! note
         A használt szimulátor hajlamos rá, hogy bizonyos értékek "beragadjanak", ezért a program elején érdemes az alábbi sorok használatával resetelni a kart:
