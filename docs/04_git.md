@@ -58,6 +58,15 @@ git config --global user.email "istvan.szabo@gmail.com"
 
 ```
 
+    !!! tip
+        **Personal token megjegyzése:** `git config --global credential.helper store`
+
+
+    !!! tip
+        **Windows és Linux óra probléma megoldása:** `timedatectl set-local-rtc 1 --adjust-system-clock`
+
+
+
 ---
 
 #### GitHub
