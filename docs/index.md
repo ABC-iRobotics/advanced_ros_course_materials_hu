@@ -13,7 +13,7 @@
 |3.| szept. 20 | [Python alapok. ROS kommunikáció implementációjának gyakorlása, példafeladatok megoldása.](03_python_principles.md) | - |
 |5.| okt. 4 | [Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben I.](05_da_vinci.md) |  - |
 |6.| okt. 11 |[Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben II.](05_da_vinci.md) | **ZH1**: ROS alapok, publisher, subscriber. Python alapok. Robotikai alapfogalmak.|
-|4.| okt. 18  | [Verziókövetés, Git.](04_git.md) Projekt labor I. | - |
+|7.| okt. 18  | [Verziókövetés, Git.](04_git.md) Projekt labor I. | - |
 |8.| okt. 25 | [Roslaunch, ROS paraméter szerver. Rosbag.](06_roslaunch.md)  | - |
 |10.| nov. 8 | [Kinematika, inverz kinematika, szimulált robotkar programozása csukló-, és munkatérben I.](07_robotics_principles.md)  | - |
 |11.| nov. 15 | [Kinematika, inverz kinematika, szimulált robotkar programozása csukló-, és munkatérben II.](07_robotics_principles.md) | - |
