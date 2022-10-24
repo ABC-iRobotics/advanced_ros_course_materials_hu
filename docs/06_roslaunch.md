@@ -1,5 +1,5 @@
 ---
-title: Roslaunch, saját üzenetek, action, service
+title: Roslaunch, ROS paraméter szerver, Rosbag
 author: Nagy Tamás
 ---
 
@@ -190,19 +190,15 @@ author: Nagy Tamás
 
 ---
 
-1. Hozzunk létre fájlt `dummy_markers.launch` névvel a `~catkin_ws/src/ros_course/launch` mappában.
+1. Hozzunk létre fájlt `dummy_markers.launch` névvel a `~catkin_ws/src/ros_course/launch` mappában. Írjunk launchfájlt, amely mind a két dummy marker publisher-t elindítja.
 
     ---
 
-2. Írjunk launchfájlt, amely mind a két dummy marker publisher-t elindítja.
+2. Módosítsuk a launchfájlt és a Python szkripteket úgy, hogy a dummy marker publisher-ek a marker pozícióját ROS paraméterként kapják meg, mely a roslaunch parancssori argumentumaként is módosítható. A markerek pozíciójának legyen default értéke is, gömb: (-0.05, 0.1, -0.12), körlap: (0.05, 0.05, -0.15).
 
     ---
 
-3. Módosítsuk a launchfájlt és a Python szkripteket úgy, hogy a dummy marker publisher-ek a marker pozícióját ROS paraméterként kapják meg, mely a roslaunch parancssori argumentumaként is módosítható. A markerek pozíciójának legyen default értéke is, gömb: `(-0.05, 0.1, -0.12)`, körlap: `(0.05, 0.05, -0.15)`.
-
-    ---
-
-4. Hozzunk létre YAML fájlt, amelyből a körlap marker mérete és színe kerül beolvasásra.
+3. Hozzunk létre YAML fájlt, amelyből a körlap marker mérete és színe kerül beolvasásra.
 
     ---
     
@@ -211,19 +207,15 @@ author: Nagy Tamás
 
 ---
 
-1. Hozzunk létre launchfájlt `psm_grasp.launch` névvel.
+1. Hozzunk létre launchfájlt `psm_grasp.launch` névvel a `psm_grasp.py` szkripthez. A dt, sebesség és a pofák szögsebessége ROS paraméterként legyen állítható.
 
     ---
     
-2. Írjunk launchfájlt a `psm_grasp.py` szkripthez. A dt, sebesség és a pofák szögsebessége ROS paraméterként legyen állítható.
+2. Futtassuk a `psm_grasp.launch`-ot különböző marker pozíciók mellett.
 
     ---
     
-3. Futtassuk a `psm_grasp.launch`-ot különböző marker pozíciók mellett.
-
-    ---
-    
-4. Módosítsuk a node-ot úgy, hogy a gömb marker megragadása előtt navigáljon körbe a korong alakú marker peremén.
+3. Módosítsuk a node-ot úgy, hogy a gömb marker megragadása előtt navigáljon körbe a korong alakú marker peremén.
 
     ---
 
@@ -232,12 +224,18 @@ author: Nagy Tamás
 ---
 
 1. Az előző feladatban implementált program futása közben rögzítsük a topic-ok tartalmát egy rosbag fájlba.
+
+    ```bash
+        rosbag record --all
+    ```
+    
     
     ---
 
 2. Telepítsük az `rqt` csomagot.
 
     ```bash
+        sudo apt-get update
         sudo apt-get install ros-noetic-rqt
         sudo apt-get install ros-noetic-rqt-common-plugins
     ```
@@ -245,6 +243,11 @@ author: Nagy Tamás
     ---
 
 4. Játsszuk vissza a rosbag fájlt és jelenítsük meg a PSM végpontjának koordinátáit `rqt_plot` segítségével.
+
+    ```bash
+        rosbag play <filename.bag>
+        rostopic echo /PSM1/measured_cp
+    ```
 
 
 ---
