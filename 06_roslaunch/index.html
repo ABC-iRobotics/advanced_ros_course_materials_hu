@@ -19,7 +19,7 @@
     
     
       
-        <title>Roslaunch, saját üzenetek, action, service - Robotprogramozás ROS környezetben</title>
+        <title>Roslaunch, ROS paraméter szerver, Rosbag - Robotprogramozás ROS környezetben</title>
       
     
     
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Roslaunch, saját üzenetek, action, service
+              Roslaunch, ROS paraméter szerver, Rosbag
             
           </span>
         </div>
@@ -751,15 +751,11 @@
 <hr />
 <ol>
 <li>
-<p>Hozzunk létre fájlt <code>dummy_markers.launch</code> névvel a <code>~catkin_ws/src/ros_course/launch</code> mappában.</p>
+<p>Hozzunk létre fájlt <code>dummy_markers.launch</code> névvel a <code>~catkin_ws/src/ros_course/launch</code> mappában. Írjunk launchfájlt, amely mind a két dummy marker publisher-t elindítja.</p>
 <hr />
 </li>
 <li>
-<p>Írjunk launchfájlt, amely mind a két dummy marker publisher-t elindítja.</p>
-<hr />
-</li>
-<li>
-<p>Módosítsuk a launchfájlt és a Python szkripteket úgy, hogy a dummy marker publisher-ek a marker pozícióját ROS paraméterként kapják meg, mely a roslaunch parancssori argumentumaként is módosítható. A markerek pozíciójának legyen default értéke is, gömb: <code>(-0.05, 0.1, -0.12)</code>, körlap: <code>(0.05, 0.05, -0.15)</code>.</p>
+<p>Módosítsuk a launchfájlt és a Python szkripteket úgy, hogy a dummy marker publisher-ek a marker pozícióját ROS paraméterként kapják meg, mely a roslaunch parancssori argumentumaként is módosítható. A markerek pozíciójának legyen default értéke is, gömb: (-0.05, 0.1, -0.12), körlap: (0.05, 0.05, -0.15).</p>
 <hr />
 </li>
 <li>
@@ -771,11 +767,7 @@
 <hr />
 <ol>
 <li>
-<p>Hozzunk létre launchfájlt <code>psm_grasp.launch</code> névvel.</p>
-<hr />
-</li>
-<li>
-<p>Írjunk launchfájlt a <code>psm_grasp.py</code> szkripthez. A dt, sebesség és a pofák szögsebessége ROS paraméterként legyen állítható.</p>
+<p>Hozzunk létre launchfájlt <code>psm_grasp.launch</code> névvel a <code>psm_grasp.py</code> szkripthez. A dt, sebesség és a pofák szögsebessége ROS paraméterként legyen állítható.</p>
 <hr />
 </li>
 <li>
@@ -792,17 +784,23 @@
 <ol>
 <li>
 <p>Az előző feladatban implementált program futása közben rögzítsük a topic-ok tartalmát egy rosbag fájlba.</p>
+<div class="highlight"><pre><span></span><code>    rosbag record --all
+</code></pre></div>
 <hr />
 </li>
 <li>
 <p>Telepítsük az <code>rqt</code> csomagot.</p>
-<div class="highlight"><pre><span></span><code>    sudo apt-get install ros-noetic-rqt
+<div class="highlight"><pre><span></span><code>    sudo apt-get update
+    sudo apt-get install ros-noetic-rqt
     sudo apt-get install ros-noetic-rqt-common-plugins
 </code></pre></div>
 <hr />
 </li>
 <li>
 <p>Játsszuk vissza a rosbag fájlt és jelenítsük meg a PSM végpontjának koordinátáit <code>rqt_plot</code> segítségével.</p>
+<div class="highlight"><pre><span></span><code>    rosbag play &lt;filename.bag&gt;
+    rostopic <span class="nb">echo</span> /PSM1/measured_cp
+</code></pre></div>
 </li>
 </ol>
 <hr />
