@@ -1,12 +1,12 @@
 ---
-title: Kinematika, inverz kienamtika
+title: Kinematika, inverz kinematika
 author: Nagy Tamás
 ---
 
 # 07. Kinematika, inverz kienamtika, Szimulált robotkar programozása csukló-, és munkatérben
 
 !!! warning
-	**ZH2** (Roslaunch, ROS paraméter szerver. Kinematika, inverz kinematika.) és a **Kötelező program bemutatás** **május 9.**
+	**ZH2** (Roslaunch, ROS paraméter szerver. Kinematika, inverz kinematika.) és a **Kötelező program bemutatás** **december 6.**
 
 
 ---
@@ -78,6 +78,19 @@ $$
 
 !!! abstract "Def. Kinematika"
     A TCP (vagy bármi más) helyzetének kiszámítása a csukló koordinátákból.
+
+
+- Kinematikai modell
+    - Denavit--Hartenberg (HD) konvenció
+    - URDF (Unified Robotics Description Format, XML-alapú)
+    
+Ha a segmensekhez rendelt koordináta rendszerek rendre $base, 1, 2, 3, ..., TCP$, a szomszédos $i$ and $i+1$ szegmensek közötti transzfomrációk $T_{i+1,i}(q_{i+1})$ (mely a közbezárt csukló szögének függvénye), a transzfomráció a base frame és a TCP között felírható ($n$ csuklós robotra):
+ 
+$$
+     T_{TCP,base}(q_1, \cdots, q_n) = T_{TCP,n-1}(q_{n}) \cdot T_{n-1,n-2}(q_{n-1}) \cdots T_{2,1}(q_2) \cdot T_{1,base}(q_1) \cdot base
+$$
+
+
 
 
 !!! abstract "Def. Inverz kinematika"
@@ -267,7 +280,11 @@ $$
 
     ---
     
-7. A fenti képlet segítségével számítsük ki `delta_q`-t, majd növeljük a csuklószögeket a kapott értékekkel.
+7. A fenti képlet segítségével számítsük ki `delta_q`-t.
+
+    ---
+
+8. Növeljük a csuklószögeket a kapott értékekkel.
 
     ---
 
