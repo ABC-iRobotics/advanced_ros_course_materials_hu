@@ -665,6 +665,17 @@
 <p class="admonition-title">Def. Kinematika</p>
 <p>A TCP (vagy bármi más) helyzetének kiszámítása a csukló koordinátákból.</p>
 </div>
+<ul>
+<li>Kinematikai modell<ul>
+<li>Denavit--Hartenberg (HD) konvenció</li>
+<li>URDF (Unified Robotics Description Format, XML-alapú)</li>
+</ul>
+</li>
+</ul>
+<p>Ha a segmensekhez rendelt koordináta rendszerek rendre <span class="arithmatex">\(base, 1, 2, 3, ..., TCP\)</span>, a szomszédos <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(i+1\)</span> szegmensek közötti transzfomrációk <span class="arithmatex">\(T_{i+1,i}(q_{i+1})\)</span> (mely a közbezárt csukló szögének függvénye), a transzfomráció a base frame és a TCP között felírható (<span class="arithmatex">\(n\)</span> csuklós robotra):</p>
+<div class="arithmatex">\[
+     T_{TCP,base}(q_1, \cdots, q_n) = T_{TCP,n-1}(q_{n}) \cdot T_{n-1,n-2}(q_{n-1}) \cdots T_{2,1}(q_2) \cdot T_{1,base}(q_1) \cdot base
+\]</div>
 <div class="admonition abstract">
 <p class="admonition-title">Def. Inverz kinematika</p>
 <p>Csukló koordináták kiszámítása a (kívánt)  TCP (vagy bármi más) pose eléréséhez.</p>
