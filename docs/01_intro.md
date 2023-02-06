@@ -117,7 +117,9 @@ Ajánlott környezet:
     ---
 
 
-4. QtCreator
+4. IDE
+
+4.1. QtCreator
 
     ROS csomagok fejlesztéséhez jelenleg a leginkább használható IDE a QtCreator, melyhez ROS plugin is készült. Az installer az alábbi linken elérhető. A "18.04 **offline** installer"-t érdemes használni, ez működik Ubunutu 20.04-en is.
 
@@ -131,7 +133,14 @@ Ajánlott környezet:
     ```
 
     Amikor a telepítő kérdezi, hova telepítse, módosítsuk pl. `/home/<USER>/QtCreator` mappára. Ha a root-ba teléepítjük, nem fogjuk tudni futtatni. A telepítés után "Qt Creator (4.9.2)" néven keressük.
+    
+4.2. CLion
 
+Keressük meg a `/var/lib/snapd/desktop/applications/clion-clion.desktop` fájlt. A megfelelő sort írjuk át erre:
+
+    ```bash
+    Exec=bash -i -c "/snap/bin/clion" %f
+    ```
 ---
 
 !!! tip "Suggestion"
