@@ -197,7 +197,33 @@ pip3 install matplotlib
 ---
 
 
-### 1. dVRK install
+### 1: Catkin workspace
+
+---
+
+
+1. Telepítsük a catkin build tools csomagot:
+
+    ```bash
+    sudo apt update
+    sudo apt-get install python3-catkin-tools python3-osrf-pycommon
+    ```
+
+    ---
+
+
+2. Hozzuk létre a workspace-t:
+
+    ```bash
+    mkdir -p ~/catkin_ws/src
+    cd ~/catkin_ws
+    catkin init
+    ```
+    
+---
+
+
+### 2. dVRK install
 
 ---
 
@@ -219,15 +245,19 @@ pip3 install matplotlib
     cd src                             # go in source directory to pull code
     wstool merge https://raw.githubusercontent.com/jhu-dvrk/dvrk-ros/master/dvrk_ros.rosinstall # or replace master by devel
     wstool up                          # now wstool knows which repositories to pull, let's get the code
-    cd ~/catkin_ws       
+    cd ~/catkin_ws
     catkin build --summary             # ... and finally compile everything
     ```
+    
+    !!! danger
+        **Soha** ne használjuk a `catkin build` és a `catkin_make` parancsokat ugyanabban a workspace-ben!
 
     ---
     
 3. Indítsuk el a PSM1 (Patient Side Manipulator) RViz szimulációját:
 
     ```bash
+    source ~/catkin_ws/devel/setup.bash
     roslaunch dvrk_robot dvrk_arm_rviz.launch arm:=PSM1 config:=/home/$(whoami)/catkin_ws/src/cisst-saw/sawIntuitiveResearchKit/share/console/console-PSM1_KIN_SIMULATED.json
     ```
 
@@ -235,6 +265,28 @@ pip3 install matplotlib
 <iframe width="560" height="315" src="https://www.youtube.com/embed/QksAVT0YMEo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
     ---
+
+### 3. ROS1-ROS2 bridge build és install
+
+---
+    ```bash
+    chmod +x source_ros.sh
+
+    ```
+
+
+    ```bash
+    mkdir -p ~/ros1_bridge_ws/src
+    cd ~/ros1_bridge_ws/src
+    git clone -b galactic https://github.com/ros2/ros1_bridge.git
+    
+    ~/source_ros.sh -v 1
+    ~/source_ros.sh -v 2
+    
+    cd ~/ros1_bridge_ws
+    colcon build --packages-select ros1_bridge --cmake-force-configure --cmake-args -DBUILD_TESTING=FALSE
+
+    ```
 
 ### 2. PSM subscriber implementálása
 
@@ -384,6 +436,7 @@ pip3 install matplotlib
 - [Marker examples](https://www.programcreek.com/python/example/88812/visualization_msgs.msg.Marker)
 - [Numpy vector magnitude](https://numpy.org/doc/stable/reference/generated/numpy.linalg.norm.html)
 - [Numpy linspace](https://numpy.org/doc/stable/reference/generated/numpy.linspace.html)
+- [https://industrial-training-master.readthedocs.io/en/melodic/_source/session7/ROS1-ROS2-bridge.html](https://industrial-training-master.readthedocs.io/en/melodic/_source/session7/ROS1-ROS2-bridge.html)
 
 
 

@@ -342,85 +342,56 @@ roscore
 
 ---
 
-### 2: Catkin workspace
-
----
-
-
-1. Telepítsük a catkin build tools csomagot:
+### 2: ROS2 workspace létrehozása
 
     ```bash
-    sudo apt update
-    sudo apt-get install python3-catkin-tools python3-osrf-pycommon
+    mkdir -p ~/ros2_ws/src
+
     ```
-
-    ---
-
-2. Másoljuk az alábbi sort a `~/.bashrc` fájl végére:
-
-    ```bash
-    source /opt/ros/noetic/setup.bash   # replace noetic by whatever your ROS distribution is
-    ```
-    
-    ---
-        
-
-3. Hozzuk létre a workspace-t:
-
-    ```bash
-    source /opt/ros/noetic/setup.bash 
-    mkdir -p ~/catkin_ws/src
-    cd ~/catkin_ws
-    catkin init
-    ```
-    
----
            
 
-### 3: ROS package létrehozása
+### 3: ROS2 package létrehozása
 
-1. Hozzunk létre új ROS package-et `ros_course` névvel.
+1. Hozzunk létre új ROS2 package-et `ros2_course` névvel.
 
     ```bash
-    cd ~/catkin_ws/src
-    catkin create pkg ros_course --catkin-deps std_msgs rospy roscpp
+    cd ~/ros2_ws/src
+    ros2 pkg create --build-type ament_python --node-name hello ros2_course
     ```
 
     !!! note "Szintaxis"
-        `catkin create pkg <PKG_NAME> --catkin-deps <DEP_1> <DEP_2>`
-
-    ---
-
-2. Nyissuk meg a `package.xml` fájlt, és töltsük fel a következő tag-eket:
-
-    ```xml
-    <description>The beginner_tutorials package</description>
-
-    <maintainer email="you@yourdomain.tld">Your Name</maintainer>
-    ```
+        `ros2 pkg create --build-type ament_python <package_name>`
 
     ---
 
 3. Build-eljük a workspace-t.
 
     ```bash
-    cd ~/catkin_ws
-    catkin build
+    cd ~/ros2_ws
+    colcon build --symlink-install
     ```
 
-    !!! danger
-        **Soha** ne használjuk a `catkin build` és a `catkin_make` parancsokat ugyanabban a workspace-ben!
 
     ---
 
 4. A `~/.bashrc` fájl végére illesszük be az alábbi sort:
 
     ```bash
-    source ~/catkin_ws/devel/setup.bash
+    source ~/ros2_ws/install/setup.bash
     ```
+
+    !!! note "Inportálás QtCreator-ba"
+        `New file or project -> Other project -> ROS Workspace. Válasszuk ki a Colcon-t, mint Build System, és a ros2_ws-t, mint Worksapce path.`
 
 ---
 
+5. Teszteljük a Hello World működését:
+
+    ```bash
+    ros2 run ros2_course hello 
+    ```
+    
+    
 ### 4: Publisher implementálása Python-ban
 
 1. Hozzunk létre egy mappát `scripts` névvel a `ros_course` package-ben.
@@ -569,6 +540,8 @@ roscore
 
 - [ROS Tutorials](http://wiki.ros.org/ROS/Tutorials)
 - [Curiosity rover simulation](https://www.tapatalk.com/groups/jpl_opensource_rover/real-curiosity-rover-simulation-in-gazebo-with-ros-t60.html)
+- [https://docs.ros.org/en/galactic/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html](https://docs.ros.org/en/galactic/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html)
+- [https://docs.ros.org/en/galactic/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html](https://docs.ros.org/en/galactic/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html)
 
 
 

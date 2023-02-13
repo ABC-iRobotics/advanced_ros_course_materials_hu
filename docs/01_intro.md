@@ -62,11 +62,12 @@ Ajánlott környezet:
 
 1. ROS1
 
-    ROS noetic
+    ROS Noetic
 
     ```bash
     sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
     sudo apt install curl
+    curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
     sudo apt update
     sudo apt install ros-noetic-desktop-full
     source /opt/ros/noetic/setup.bash
@@ -89,26 +90,55 @@ Ajánlott környezet:
 
     ---
 
-2. ROS2
+2. ROS2 Galactic
 
-
+    Set locale.
 
 
     ```bash
-    sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential
-    sudo rosdep init
-    rosdep update
+    locale  # check for UTF-8
+
+    sudo apt update && sudo apt install locales
+    sudo locale-gen en_US en_US.UTF-8
+    sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+    export LANG=en_US.UTF-8
+
+    locale  # verify settings
     ```
 
+    ROS Galactic
+
+
+    ```bash
+    sudo apt install software-properties-common
+    sudo add-apt-repository universe
+    sudo apt update && sudo apt install curl
+    sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
+    sudo apt update
+    sudo apt upgrade
+    sudo apt install ros-galactic-desktop
+    sudo apt install ros-dev-tools
+    ```
+    
     Ha ezzel megvagyunk, a következő parancssal tesztelhetjük a ROS telepítésünket:
 
 
     ```bash
-    roscore
+    source /opt/ros/galactic/setup.bash
+    ros2 run demo_nodes_py listener
     ```
 
     ---
     
+    A `source` parancs a környezeti változók beállításáért felelős, ezt minden új terminálablak megnyitásakor meg kell(ene) adni. Ez a parancs beilleszthető a `~/.bashrc` fájl végére, amely minden terminálablak megnyitásakor lefut, így nem kell mindig beírnunk (ROS2 lesz az alapértelmezett):
+
+
+    ```bash
+    echo "source /opt/ros/galactic/setup.bash" >> ~/.bashrc
+    ```
+    
+    ---
 
 3. További csomagok
 
@@ -135,7 +165,8 @@ Ajánlott környezet:
 
 
     ```bash
-    sudo ./qtcreator-ros-bionic-latest-online-installer.run
+    chmod +x qtcreator-ros-bionic-latest-offline-installer.run
+    sudo ./qtcreator-ros-bionic-latest-offline-installer.run
     ```
 
     Amikor a telepítő kérdezi, hova telepítse, módosítsuk pl. `/home/<USER>/QtCreator` mappára. Ha a root-ba teléepítjük, nem fogjuk tudni futtatni. A telepítés után "Qt Creator (4.9.2)" néven keressük.
@@ -163,6 +194,7 @@ Keressük meg a `/var/lib/snapd/desktop/applications/clion-clion.desktop` fájlt
 
 - [https://www.ros.org/](https://www.ros.org/)
 - [https://www.ros.org/install/](https://www.ros.org/install/)
+- [https://docs.ros.org/en/galactic/Installation/Ubuntu-Install-Debians.html](https://docs.ros.org/en/galactic/Installation/Ubuntu-Install-Debians.html)
 - [http://wiki.ros.org/ROS/Tutorials](http://wiki.ros.org/ROS/Tutorials)
 - [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 - [Online MD editor: HackMD](https://hackmd.io/)
@@ -174,23 +206,6 @@ Keressük meg a `/var/lib/snapd/desktop/applications/clion-clion.desktop` fájlt
 
 
 
-
-
-
-
-
-
-
-    ---
-
-
-    A `source` parancs a környezeti változók beállításáért felelős, ezt minden új terminálablak megnyitásakor meg kell(ene) adni. Ez a parancs beilleszthető a `~/.bashrc` fájl végére, amely minden terminálablak megnyitásakor lefut, így nem kell mindig beírnunk:
-
-
-    ```bash
-    echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
-    source ~/.bashrc
-    ```
 
 
 
