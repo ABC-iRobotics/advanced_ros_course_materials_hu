@@ -287,6 +287,23 @@ pip3 install matplotlib
     colcon build --packages-select ros1_bridge --cmake-force-configure --cmake-args -DBUILD_TESTING=FALSE
 
     ```
+    
+    Launch
+    
+    ```bash
+    source ros_setup.sh -v 1
+    roslaunch dvrk_robot dvrk_arm_rviz.launch arm:=PSM1 config:=/home/$(whoami)/catkin_ws/src/cisst-saw/sawIntuitiveResearchKit/share/console/console-PSM1_KIN_SIMULATED.json
+
+    ```
+    
+    ```bash
+    source ros_setup.sh -v b
+    ros2 run ros1_bridge dynamic_bridge
+
+    ```
+    
+    
+    
 
 ### 2. PSM subscriber implementálása
 
