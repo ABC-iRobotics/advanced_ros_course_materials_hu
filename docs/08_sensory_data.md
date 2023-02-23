@@ -86,8 +86,8 @@ author: Nagy Tamás
 3. Indítsuk el a teleopot és az `rqt_image_view`-t:
 
     ```bash
-        rosrun leo_teleop key_teleop
-        ```
+    rosrun leo_teleop key_teleop
+    ```
         
     ```bash
         rosrun rqt_image_view rqt_image_view
@@ -186,6 +186,14 @@ author: Nagy Tamás
 - [http://wiki.ros.org/cv_bridge/Tutorials/ConvertingBetweenROSImagesAndOpenCVImagesPython]()
 - [https://realpython.com/python-opencv-color-spaces/]()
 - [https://stackoverflow.com/questions/59164192/how-to-find-the-contour-of-a-blob-using-opencv-python]()
+-[Turtlebot](https://ros2-industrial-workshop.readthedocs.io/en/latest/_source/navigation/ROS2-Turtlebot.html)
+
+
+    ```bash
+    export TURTLEBOT3_MODEL=burger
+    export ROS_DOMAIN_ID=11
+    export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:`ros2 pkg prefix turtlebot3_gazebo `/share/ turtlebot3_gazebo/models/
+    ```
 
 
 
