@@ -147,30 +147,38 @@ $$
 
     ```bash
     sudo apt update
-    sudo apt-get install ros-noetic-effort-controllers
-    sudo apt-get install ros-noetic-position-controllers
-    sudo apt-get install ros-noetic-gazebo-ros-pkgs 
-    sudo apt-get install ros-noetic-gazebo-ros-control
-    sudo apt-get install ros-noetic-gazebo-ros
-    pip3 install kinpy 
-    rosdep update
+    sudo apt-get install libpoco-dev
+    sudo apt-get install ros-foxy-control-msgs ros-foxy-realtime-tools ros-foxy-xacro ros-foxy-joint-state-publisher-gui
+    pip3 install kinpy
     ```
-
+    
     !!! tip
-        A `kinpy` csomag forrását is töltsük le, hasznos lehet az API megértése szempontjából: [https://pypi.org/project/kinpy/]()  
-
-
+    A `kinpy` csomag forrását is töltsük le, hasznos lehet az API megértése szempontjából: [https://pypi.org/project/kinpy/]()
+    
+        
     ---
-
+    
 2. Clone-ozzuk és build-eljük a repo-t.
 
 
     ```bash
-    cd ~/catkin_ws/src
-    git clone https://github.com/Robotawi/rrr-arm.git
-    cd ..
-    catkin build
+    cd ~/ros2_ws/src
+    git clone https://github.com/TamasDNagy/doosan-robot2.git
+    git clone https://github.com/ros-controls/ros2_control.git
+    git clone https://github.com/ros-controls/ros2_controllers.git
+    git clone https://github.com/ros-simulation/gazebo_ros2_control.git
+    cd ros2_control && git reset --hard 3dc62e28e3bc8cf636275825526c11d13b554bb6 && cd ..
+    cd ros2_controllers && git reset --hard 83c494f460f1c8675f4fdd6fb8707b87e81cb197 && cd ..
+    cd gazebo_ros2_control && git reset --hard 3dfe04d412d5be4540752e9c1165ccf25d7c51fb && cd ..
+    git clone -b ros2 --single-branch https://github.com/ros-planning/moveit_msgs
+    cd ~/ros2_ws
+    rosdep update
+    rosdep install --from-paths src --ignore-src --rosdistro foxy -r -y
+    colcon build
+    . install/setup.bash
+    rosdep update
     ```
+
     
     ---
     
@@ -178,19 +186,18 @@ $$
 3. Teszteljük a szimulátort, új teminál ablakokban:
 
     ```bash
-    roslaunch rrr_arm view_arm_gazebo_control_empty_world.launch
+    ros2 launch dsr_launcher2 single_robot_rviz.launch.py model:=a0912 color:=blue
     ```
     
     ```bash
-    rostopic pub /rrr_arm/joint1_position_controller/command  std_msgs/Float64 "data: 1.0" &    rostopic pub /rrr_arm/joint2_position_controller/command  std_msgs/Float64 "data: 1.0" & rostopic pub /rrr_arm/joint3_position_controller/command  std_msgs/Float64 "data: 1.5" & rostopic pub /rrr_arm/joint4_position_controller/command std_msgs/Float64 "data: 1.5"
+    cd ~/ros2_ws/src/doosan-robot2/dsr_example2/py/dsr_example2_py
+    python3 dsr_service_motion_basic.py 
     ```
-    
-    !!! tip
-        A szimulátor panaszkodni fog, hogy "No p gain specified for pid...", de ez nem okoz gondot a működésében.
+   
 
     ---
 
-4. Állítsuk elő a robotot leíró urdf fájlt:
+4. Állítsuk elő a robotot leíró urdf fájlt: TODO
 
     ```bash
     cd ~/catkin_ws/src/rrr-arm/urdf
@@ -299,7 +306,7 @@ Egészítsük ki az előző feladat megoldását úgy, hogy az orientációt is 
 
 ## Hasznos linkek
 
-- [rrr-arm model](https://githubmemory.com/repo/Robotawi/rrr-arm)
+- [doosan-robot2 github](https://github.com/doosan-robotics/doosan-robot2)
 - [https://pypi.org/project/kinpy/]()
 - [https://en.wikipedia.org/wiki/Axis%E2%80%93angle_representation]()
 - [https://www.rosroboticslearning.com/jacobian]()

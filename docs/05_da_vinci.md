@@ -270,22 +270,35 @@ pip3 install matplotlib
 
 ---
     ```bash
-    chmod +x source_ros.sh
+    chmod +x ros_setup.sh
 
     ```
+    
+    Adjuk hozzá az alábbi sort a `~/.bashrc` fájlhoz:
+    
+    ```bash
+    export ROS_MASTER_URI=http://localhost:11311
+    ```
 
-
+<!---
     ```bash
     mkdir -p ~/ros1_bridge_ws/src
     cd ~/ros1_bridge_ws/src
-    git clone -b galactic https://github.com/ros2/ros1_bridge.git
+    git clone -b foxy https://github.com/ros2/ros1_bridge.git
     
-    ~/source_ros.sh -v 1
-    ~/source_ros.sh -v 2
-    
-    cd ~/ros1_bridge_ws
+    source ~/ros_setup.sh -v 1
+    source ~/ros_setup.sh -v 2
+
     colcon build --packages-select ros1_bridge --cmake-force-configure --cmake-args -DBUILD_TESTING=FALSE
 
+    ```
+-->
+    
+    ```bash
+    sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+    sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
+    sudo apt update
+    sudo apt install ros-foxy-ros1-bridge
     ```
     
     Launch
@@ -298,8 +311,7 @@ pip3 install matplotlib
     
     ```bash
     source ros_setup.sh -v b
-    ros2 run ros1_bridge dynamic_bridge
-
+    ros2 run ros1_bridge dynamic_bridge --bridge-all-topics
     ```
     
     

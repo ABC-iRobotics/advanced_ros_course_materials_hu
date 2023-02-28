@@ -55,7 +55,8 @@ author: Nagy Tamás
 Ajánlott környezet:
     
 - Ubuntu 20.04
-- ROS Noetic
+- ROS1 Noetic
+- ROS2 Foxy
 - *IDE: QtCreator/CLion/VSCode*
 
 ---
@@ -117,15 +118,16 @@ Ajánlott környezet:
     echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
     sudo apt update
     sudo apt upgrade
-    sudo apt install ros-galactic-desktop
+    sudo apt install ros-foxy-desktop python3-argcomplete
     sudo apt install ros-dev-tools
+    sudo apt install ros-foxy-moveit* ros-foxy-control*
     ```
     
     Ha ezzel megvagyunk, a következő parancssal tesztelhetjük a ROS telepítésünket:
 
 
     ```bash
-    source /opt/ros/galactic/setup.bash
+    source /opt/ros/foxy/setup.bash
     ros2 run demo_nodes_py listener
     ```
 
@@ -135,7 +137,7 @@ Ajánlott környezet:
 
 
     ```bash
-    echo "source /opt/ros/galactic/setup.bash" >> ~/.bashrc
+    echo "source /opt/ros/foxy/setup.bash" >> ~/.bashrc
     ```
     
     ---
@@ -147,7 +149,7 @@ Ajánlott környezet:
 
 
     ```bash
-    sudo apt install libxml2-dev libraw1394-dev libncurses5-dev qtcreator swig sox espeak cmake-curses-gui cmake-qt-gui git subversion gfortran libcppunit-dev libqt5xmlpatterns5-dev python3-catkin-tools python3-osrf-pycommon libasound2-dev libgl1-mesa-dev xorg-dev ros-galactic-turtlebot3*
+    sudo apt install libxml2-dev libraw1394-dev libncurses5-dev qtcreator swig sox espeak cmake-curses-gui cmake-qt-gui git subversion gfortran libcppunit-dev libqt5xmlpatterns5-dev python3-catkin-tools python3-osrf-pycommon libasound2-dev libgl1-mesa-dev xorg-dev ros-foxy-turtlebot3*
     ```
 
     ---
@@ -194,7 +196,7 @@ Keressük meg a `/var/lib/snapd/desktop/applications/clion-clion.desktop` fájlt
 
 - [https://www.ros.org/](https://www.ros.org/)
 - [https://www.ros.org/install/](https://www.ros.org/install/)
-- [https://docs.ros.org/en/galactic/Installation/Ubuntu-Install-Debians.html](https://docs.ros.org/en/galactic/Installation/Ubuntu-Install-Debians.html)
+- [https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
 - [http://wiki.ros.org/ROS/Tutorials](http://wiki.ros.org/ROS/Tutorials)
 - [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 - [Online MD editor: HackMD](https://hackmd.io/)
