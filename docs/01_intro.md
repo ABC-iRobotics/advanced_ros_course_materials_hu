@@ -91,7 +91,7 @@ Ajánlott környezet:
 
     ---
 
-2. ROS2 Galactic
+2. ROS2 Foxy
 
     Set locale.
 
@@ -107,7 +107,7 @@ Ajánlott környezet:
     locale  # verify settings
     ```
 
-    ROS Galactic
+    ROS Foxy
 
 
     ```bash
