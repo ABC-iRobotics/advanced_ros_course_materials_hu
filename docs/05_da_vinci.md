@@ -279,6 +279,15 @@ pip3 install matplotlib
     ```bash
     export ROS_MASTER_URI=http://localhost:11311
     ```
+    
+    Szintén a `~/.bashrc` fájlban: kommenteljük ki a ROS2 source-olására használt sorokat.
+    
+    ```bash
+    # ROS 2
+    source /opt/ros/foxy/setup.bash
+    source ~/ros2_ws/install/setup.bash
+    source ~/doosan2_ws/install/setup.bash
+    ```
 
 <!---
     ```bash
@@ -312,6 +321,12 @@ pip3 install matplotlib
     ```bash
     source ros_setup.sh -v b
     ros2 run ros1_bridge dynamic_bridge --bridge-all-topics
+    ```
+    
+    ```bash
+    source ros_setup.sh -v 2
+    ros2 topic list
+    ros2 topic echo /PSM1/measured_cp
     ```
     
     

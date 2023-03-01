@@ -162,7 +162,8 @@ $$
 
 
     ```bash
-    cd ~/ros2_ws/src
+    mkdir -p ~/doosan2_ws/src
+    cd ~/doosan2_ws/src
     git clone https://github.com/TamasDNagy/doosan-robot2.git
     git clone https://github.com/ros-controls/ros2_control.git
     git clone https://github.com/ros-controls/ros2_controllers.git
@@ -171,12 +172,18 @@ $$
     cd ros2_controllers && git reset --hard 83c494f460f1c8675f4fdd6fb8707b87e81cb197 && cd ..
     cd gazebo_ros2_control && git reset --hard 3dfe04d412d5be4540752e9c1165ccf25d7c51fb && cd ..
     git clone -b ros2 --single-branch https://github.com/ros-planning/moveit_msgs
-    cd ~/ros2_ws
+    cd ~/doosan2_ws
     rosdep update
     rosdep install --from-paths src --ignore-src --rosdistro foxy -r -y
-    colcon build
+    colcon build --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON 
     . install/setup.bash
     rosdep update
+    ```
+    
+    Adjuk hozzá az alábbi sort a `~/.bashrc` fájlhoz:
+    
+    ```bash
+    source ~/doosan2_ws/install/setup.bash
     ```
 
     
@@ -186,13 +193,11 @@ $$
 3. Teszteljük a szimulátort, új teminál ablakokban:
 
     ```bash
-    ros2 launch dsr_launcher2 single_robot_rviz.launch.py model:=a0912 color:=blue
+    #ros2 launch dsr_launcher2 single_robot_rviz.launch.py model:=a0912 color:=blue
+    ros2 launch dsr_launcher2 single_robot_rviz_topic.launch.py model:=a0912 color:=blue
     ```
     
-    ```bash
-    cd ~/ros2_ws/src/doosan-robot2/dsr_example2/py/dsr_example2_py
-    python3 dsr_service_motion_basic.py 
-    ```
+   
    
 
     ---

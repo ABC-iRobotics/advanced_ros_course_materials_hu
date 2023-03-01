@@ -118,9 +118,7 @@ Ajánlott környezet:
     echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
     sudo apt update
     sudo apt upgrade
-    sudo apt install ros-foxy-desktop python3-argcomplete
-    sudo apt install ros-dev-tools
-    sudo apt install ros-foxy-moveit* ros-foxy-control*
+    sudo apt install ros-foxy-desktop python3-argcomplete ros-dev-tools ros-foxy-moveit* ros-foxy-control*
     ```
     
     Ha ezzel megvagyunk, a következő parancssal tesztelhetjük a ROS telepítésünket:
@@ -128,7 +126,7 @@ Ajánlott környezet:
 
     ```bash
     source /opt/ros/foxy/setup.bash
-    ros2 run demo_nodes_py listener
+    ros2 run demo_nodes_py talker
     ```
 
     ---
@@ -180,6 +178,16 @@ Keressük meg a `/var/lib/snapd/desktop/applications/clion-clion.desktop` fájlt
     ```bash
     Exec=bash -i -c "/snap/bin/clion" %f
     ```
+    
+Állítsuk be a Python iterpretert Python 3.8-ra, `/usr/bin/python3`. Adjuk hozzá akövetkező elérési utat: `/opt/ros/foxy/lib/python3.8/site-packages`. Hozzuk létre a `compile_commands.json` fájlt a `~/ros2_ws/build` könyvtárban az alábbi tartalommal: 
+
+    ```bash
+    [
+    ]
+    ```
+    
+TODO: move to workspace creation.
+    
 ---
 
 !!! tip "Suggestion"
