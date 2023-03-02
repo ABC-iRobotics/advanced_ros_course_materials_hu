@@ -6,20 +6,20 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Robotprogramozás ROS környezetben">
+        <meta name="description" content="Fejlett robotprogramozás ROS környezetben">
       
       
         <meta name="author" content="Nagy Tamás">
       
       
-        <link rel="canonical" href="https://example.com/02_linux_ros_principles/">
+        <link rel="canonical" href="https://abc-irobotics.github.io/advanced_ros_course_materials_hu/02_linux_ros_principles/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.3">
     
     
       
-        <title>Linux, ROS alapismeretek - Robotprogramozás ROS környezetben</title>
+        <title>Linux, ROS alapismeretek - Fejlett robotprogramozás ROS környezetben</title>
       
     
     
@@ -27,10 +27,6 @@
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
-        
-          
-          
-          <meta name="theme-color" content="#546d78">
         
       
       
@@ -57,12 +53,16 @@
   
     
     
+      
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="">
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="orange">
   
     
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -84,7 +84,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Élőfej">
-    <a href=".." title="Robotprogramozás ROS környezetben" class="md-header__button md-logo" aria-label="Robotprogramozás ROS környezetben" data-md-component="logo">
+    <a href=".." title="Fejlett robotprogramozás ROS környezetben" class="md-header__button md-logo" aria-label="Fejlett robotprogramozás ROS környezetben" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -97,7 +97,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Robotprogramozás ROS környezetben
+            Fejlett robotprogramozás ROS környezetben
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -110,6 +110,28 @@
       </div>
     </div>
     
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
     
       <div class="md-header__option">
         <div class="md-select">
@@ -121,13 +143,13 @@
             <ul class="md-select__list">
               
                 <li class="md-select__item">
-                  <a href="https://abc-irobotics.github.io/ros_course_materials_en/" hreflang="en" class="md-select__link">
+                  <a href="https://abc-irobotics.github.io/advanced_ros_course_materials_en/" hreflang="en" class="md-select__link">
                     English
                   </a>
                 </li>
                 
                 <li class="md-select__item">
-                  <a href="https://abc-irobotics.github.io/ros_course_materials_hu/" hreflang="hu" class="md-select__link">
+                  <a href="https://abc-irobotics.github.io/advanced_ros_course_materials_hu/" hreflang="hu" class="md-select__link">
                     Hungarian
                   </a>
                 </li>
@@ -209,7 +231,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../01_intro/" class="md-tabs__link md-tabs__link--active">
+      <a href="../01_system_setup/" class="md-tabs__link md-tabs__link--active">
         Tananyagok
       </a>
     </li>
@@ -251,13 +273,13 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigáció" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Robotprogramozás ROS környezetben" class="md-nav__button md-logo" aria-label="Robotprogramozás ROS környezetben" data-md-component="logo">
+    <a href=".." title="Fejlett robotprogramozás ROS környezetben" class="md-nav__button md-logo" aria-label="Fejlett robotprogramozás ROS környezetben" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
-    Robotprogramozás ROS környezetben
+    Fejlett robotprogramozás ROS környezetben
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -313,8 +335,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../01_intro/" class="md-nav__link">
-        1. Bevezetés
+      <a href="../01_system_setup/" class="md-nav__link">
+        1. Bevezetés, Fejlesztőkörnyezet
       </a>
     </li>
   
@@ -619,6 +641,7 @@
 
 
 <h1 id="02-linux-ros-alapismeretek">02. Linux, ROS alapismeretek</h1>
+<p><img alt="" src="../img/under_construction.png" style="width:400px" /></p>
 <hr />
 <h2 id="elmelet">Elmélet</h2>
 <hr />
@@ -870,8 +893,15 @@ colcon build --symlink-install
 <div class="highlight"><pre><span></span><code><span class="nb">source</span> ~/ros2_ws/install/setup.bash
 </code></pre></div>
 <div class="admonition note">
-<p class="admonition-title">Inportálás QtCreator-ba</p>
+<p class="admonition-title">Importálás QtCreator-ba</p>
 <p><code>New file or project -&gt; Other project -&gt; ROS Workspace. Válasszuk ki a Colcon-t, mint Build System, és a ros2_ws-t, mint Worksapce path.</code></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Importálás CLion-ba</p>
+<p>Állítsuk be a Python iterpretert Python 3.8-ra, <code>/usr/bin/python3</code>. Adjuk hozzá akövetkező elérési utat: <code>/opt/ros/foxy/lib/python3.8/site-packages</code>. Hozzuk létre a <code>compile_commands.json</code> fájlt a <code>~/ros2_ws/build</code> könyvtárban az alábbi tartalommal:
+<div class="highlight"><pre><span></span><code><span class="o">[</span>
+<span class="o">]</span>
+</code></pre></div></p>
 </div>
 </li>
 </ol>
@@ -1029,7 +1059,7 @@ rosrun ros_course talker.py
     <nav class="md-footer__inner md-grid" aria-label="Élőláb" >
       
         
-        <a href="../01_intro/" class="md-footer__link md-footer__link--prev" aria-label="Előző: 1. Bevezetés" rel="prev">
+        <a href="../01_system_setup/" class="md-footer__link md-footer__link--prev" aria-label="Előző: 1. Bevezetés, Fejlesztőkörnyezet" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1038,7 +1068,7 @@ rosrun ros_course talker.py
               <span class="md-footer__direction">
                 Előző
               </span>
-              1. Bevezetés
+              1. Bevezetés, Fejlesztőkörnyezet
             </div>
           </div>
         </a>
@@ -1066,7 +1096,7 @@ rosrun ros_course talker.py
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2022 <a href="mailto:tamas.daniel.nagy@irob.uni-obuda.hu">Tamas D. Nagy</a>.
+      Copyright &copy; 2023 <a href="mailto:tamas.daniel.nagy@irob.uni-obuda.hu">Tamas D. Nagy</a>.
     </div>
   
   
