@@ -5,7 +5,7 @@ author: Nagy Tamás
 
 # 02. Linux, ROS alapismeretek
 
-![](Coming-Soon.png){:style="width:550px"}
+![](img/Coming-Soon.png){:style="width:550px"}
 
 ---
 
