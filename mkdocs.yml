@@ -1,13 +1,13 @@
-site_name: Robotprogramozás ROS környezetben
-site_url: https://example.com/
-site_description: Robotprogramozás ROS környezetben
+site_name: Fejlett robotprogramozás ROS környezetben
+site_url: https://abc-irobotics.github.io/advanced_ros_course_materials_hu/
+site_description: Fejlett robotprogramozás ROS környezetben
 site_author: Nagy Tamás
 
 nav:
     - Kezdőlap: index.md
     - Tananyagok: 
-        - 1. Bevezetés: 01_intro.md
-        - 2. Linux, ROS alapismeretek: 02_linux_ros_principles.md
+        - 1. Fejlesztőkörnyezet: 01_intro.md
+        - 2. Bevezetés, Linux, ROS alapismeretek: 02_linux_ros_principles.md
         - 3. Python alapismeretek,  ROS Publisher, ROS Subscriber: 03_python_principles.md
         - 4. Verziókövetés, Git: 04_git.md
         - 5. Robotikai alapismeretek, Sebészrobot programozása: 05_da_vinci.md
@@ -21,7 +21,8 @@ theme:
     palette:
     # Palette toggle for light mode
       - media: "(prefers-color-scheme: light)"
-        scheme: default
+        primary: black
+        accent: orange
         toggle:
           icon: material/lightbulb
           name: Switch to dark mode
@@ -29,6 +30,8 @@ theme:
     # Palette toggle for dark mode
       - media: "(prefers-color-scheme: dark)"
         scheme: slate
+        primary: black
+        accent: orange
         toggle:
           icon: material/lightbulb-outline
           name: Switch to light mode
@@ -42,11 +45,11 @@ theme:
 extra:                                              
   alternate:  
     - name: English
-      link: https://abc-irobotics.github.io/ros_course_materials_en/
+      link: https://abc-irobotics.github.io/advanced_ros_course_materials_en/
       lang: en
 
     - name: Hungarian
-      link: https://abc-irobotics.github.io/ros_course_materials_hu/
+      link: https://abc-irobotics.github.io/advanced_ros_course_materials_hu/
       lang: hu
    
 plugins:
@@ -66,7 +69,7 @@ markdown_extensions:
     - tables
 
     
-copyright: Copyright &copy; 2022 <a href="mailto:tamas.daniel.nagy@irob.uni-obuda.hu">Tamas D. Nagy</a>.
+copyright: Copyright &copy; 2023 <a href="mailto:tamas.daniel.nagy@irob.uni-obuda.hu">Tamas D. Nagy</a>.
 
 
 extra_javascript:
