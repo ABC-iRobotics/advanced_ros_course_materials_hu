@@ -1,9 +1,11 @@
 ---
-title: Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben
+title: Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben, ROS1-ROS2 bridge
 author: Nagy Tamás
 ---
 
-# 05. Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben
+# 05. Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben, ROS1-ROS2 bridge
+
+![](img/under_construction.png){:style="width:400px"}
 
 ---
 

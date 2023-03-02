@@ -5,6 +5,8 @@ author: Nagy Tamás
 
 # 08. Szenzoros adatok gyűjtése és feldolgozása
 
+![](img/under_construction.png){:style="width:400px"}
+
 ---
 
 

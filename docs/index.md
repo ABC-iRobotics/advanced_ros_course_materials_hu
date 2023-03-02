@@ -1,24 +1,51 @@
 ## Kurzussal kapcsolatos információk
 
 ---
-
-## Féléves ütemezés
+### Tárgyfelelős
+Dr. Galambos Péter    
+[peter.galambos@irob.uni-obuda.hu](mailto:peter.galambos@irob.uni-obuda.hu)
 
 ---
 
-| Okt. hét | Dátum      | Témakör | Számonkérés |
-|:--------:| ---------- | ------- | ----------- |
-|1.| szept. 6 | [Követelmények ismertetése. ROS bevezetés. Fejlesztőkörnyezet felállítása.](01_intro.md) | - |
-|2.| szept. 13 | [Fejlesztőkörnyezet felállítása. Linux alapok. ROS alapok. Egyszerű próbakódok futtatása. ROS package. Az alapvető ROS kommunikáció, publisher és subscriber implementálása.](02_linux_ros_principles.md)| Kötelező programok ismertetése.  |
-|3.| szept. 20 | [Python alapok. ROS kommunikáció implementációjának gyakorlása, példafeladatok megoldása.](03_python_principles.md) | - |
-|5.| okt. 4 | [Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben I.](05_da_vinci.md) |  - |
-|6.| okt. 11 |[Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben II.](05_da_vinci.md) | **ZH1**: ROS alapok, publisher, subscriber. Python alapok. Robotikai alapfogalmak.|
-|7.| okt. 18  | [Verziókövetés, Git.](04_git.md) Projekt labor I. | - |
-|8.| okt. 25 | [Roslaunch, ROS paraméter szerver. Rosbag.](06_roslaunch.md)  | - |
-|10.| nov. 8 | [Kinematika, inverz kinematika, szimulált robotkar programozása csukló-, és munkatérben I.](07_robotics_principles.md)  | - |
-|11.| nov. 15 | [Kinematika, inverz kinematika, szimulált robotkar programozása csukló-, és munkatérben II.](07_robotics_principles.md) | - |
-|13.| nov. 29  | Projekt labor II.  | - |
-|14.| dec. 6| - | Kötelező programok bemutatása. Pótlás. **ZH2**: Roslaunch, ROS paraméter szerver. ROS service. ROS action. Kinematika, inverz kinematika.|
+### Oktatók
+Nagy Tamás    
+[tamas.daniel.nagy@irob.uni-obuda.hu](mailto:tamas.daniel.nagy@irob.uni-obuda.hu)
+
+Détár Borsa    
+[detar.borsa@gmail.com](mailto:detar.borsa@gmail.com)
+
+---
+
+## Órarendi információk
+
+
+|           Csoport            | Időpont                | Terem   | 
+|:----------------------------:|------------------------|---------|
+| **1. csoport** _ea. és lab._ | **Péntek 10:45-13:45** | BA.1.10 |                                                                                                                                                                                   
+| **2. csoport** _ea. és lab._ | **Péntek 14:00-17:00** | BA.1.10 |
+
+
+---
+
+## Féléves ütemezés
+
+
+| Okt. hét | Dátum    | Témakör                                                                                                                                                                                                                      | Számonkérés                           |
+|:--------:|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|
+|    1.    | márc. 3  | [Követelmények ismertetése. ROS bevezetés. Fejlesztőkörnyezet felállítása.](01_system_setup.md)                                                                                                                              | -                                     |
+|    2.    | márc. 10 | [Fejlesztőkörnyezet felállítása. Linux alapok. ROS 1 és ROS 2. Egyszerű próbakódok futtatása. ROS package. Az alapvető ROS kommunikáció, publisher és subscriber implementálása.](02_linux_ros_principles.md) | -                                     |
+|    3.    | márc. 17 | [Python alapok. ROS kommunikáció implementációjának gyakorlása, példafeladatok megoldása.](03_python_principles.md)                                                                                                          | -                                     |
+|    4.    | márc. 24 | [Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben I.](05_da_vinci.md)                                                                                                                        | -                                     |
+|    5.    | márc. 31 | [Verziókövetés, Git.](04_git.md) Projekt labor I.                                                                                                                                                                            | -                                     |
+|    7.    | ápr. 14  | [Roslaunch, ROS paraméter szerver. Rosbag.](06_roslaunch.md)                                                                                                                                                                 | -                                     |
+|    8.    | ápr. 21  | Saját üzenetek definiálása. ROS service, ROS action fogalma, felhasználása.                                                                                                                                                  | **ZH1**                                        |
+|    9.    | ápr. 28  | [Kinematika, inverz kinematika, szimulált robotkar programozása csukló-, és munkatérben I.](07_robotics_principles.md)                                                                                                       | -                                     |
+|   10.    | máj. 5   | URDF, webes felületek illesztése: RosBridge és RoslibJS.                                                                                                                                                                     | -                                     |
+|   11.    | máj. 12  | Kálmán-szűrő. Szenzoros adatok gyűjtése és feldolgozása ROS környezetben.                                                                                                                                                    | -                                     |
+|   12.    | máj. 19  | Szenzorfúzió Kálmán-szűrővel.  Odometria-IMU szenzorfúzió implementációja mobil robot platformra.                                                                                                                            | -                                     |
+|   13.    | máj. 26  | Projekt labor II.                                                                                                                                                                                                            | -                                     |
+|   14.    | jún. 2   | -                                                                                                                                                                                                                            | Kötelező programok bemutatása. **ZH2** |
+|  14+1.   | jún. 9   | -                                                                                                                                                                                                                            | Aláíráspótló.                         |
 
 
 !!! warning
@@ -43,24 +70,11 @@
 
 A jelenlét az órákon kötelező (min 70%).
 
-A félév elfogadásának feltétele, hogy mind a két ZH, mind a kötelező program értékelése legalább elégséges. A két ZH közül az egyik az utolsó óra alkalmával pótolható.
+A félév elfogadásának feltétele, hogy mind a két ZH, mind a kötelező program értékelése legalább elégséges. A **két ZH közül** az **egyik** az aláíráspótló vizsga alkalmával **pótolható**.
 
 !!! abstract "Félév végi jegy"
 	$Jegy = (ZH1 + ZH2 + 2 \times KötProg) / 4$ 
-	
-	
-### Tárgyfelelős
-Dr. Galambos Péter    
-[peter.galambos@irob.uni-obuda.hu](mailto:peter.galambos@irob.uni-obuda.hu)
 
----
-
-### Oktatók
-Nagy Tamás    
-[tamas.daniel.nagy@irob.uni-obuda.hu](mailto:tamas.daniel.nagy@irob.uni-obuda.hu)
-
-Détár Borsa    
-[detar.borsa@gmail.com](mailto:detar.borsa@gmail.com)
 
 ---
 
@@ -81,9 +95,9 @@ Détár Borsa
 
 (iRob Surgical Automation Framework)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/4QTRZkEnNIk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 <iframe width="560" height="315" src="https://www.youtube.com/embed/d8aKvtvy1-4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7pB6zXom3k0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 [https://github.com/ABC-iRobotics/irob-saf](https://github.com/ABC-iRobotics/irob-saf)

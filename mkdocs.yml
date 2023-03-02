@@ -6,8 +6,8 @@ site_author: Nagy Tamás
 nav:
     - Kezdőlap: index.md
     - Tananyagok: 
-        - 1. Fejlesztőkörnyezet: 01_intro.md
-        - 2. Bevezetés, Linux, ROS alapismeretek: 02_linux_ros_principles.md
+        - 1. Bevezetés, Fejlesztőkörnyezet: 01_system_setup.md
+        - 2. Linux, ROS alapismeretek: 02_linux_ros_principles.md
         - 3. Python alapismeretek,  ROS Publisher, ROS Subscriber: 03_python_principles.md
         - 4. Verziókövetés, Git: 04_git.md
         - 5. Robotikai alapismeretek, Sebészrobot programozása: 05_da_vinci.md

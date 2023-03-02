@@ -5,6 +5,8 @@ author: Nagy Tamás
 
 # 06. Roslaunch, ROS paraméter szerver, Rosbag
 
+![](img/under_construction.png){:style="width:400px"}
+
 ---
 
 
