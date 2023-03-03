@@ -43,9 +43,9 @@ Détár Borsa
 |   10.    | máj. 5   | URDF, webes felületek illesztése: RosBridge és RoslibJS.                                                                                                                                                                     | -                                     |
 |   11.    | máj. 12  | Kálmán-szűrő. Szenzoros adatok gyűjtése és feldolgozása ROS környezetben.                                                                                                                                                    | -                                     |
 |   12.    | máj. 19  | Szenzorfúzió Kálmán-szűrővel.  Odometria-IMU szenzorfúzió implementációja mobil robot platformra.                                                                                                                            | -                                     |
-|   13.    | máj. 26  | Projekt labor II.                                                                                                                                                                                                            | -                                     |
-|   14.    | jún. 2   | -                                                                                                                                                                                                                            | Kötelező programok bemutatása. **ZH2** |
-|  14+1.   | jún. 9   | -                                                                                                                                                                                                                            | Aláíráspótló.                         |
+|   13.    | máj. 26  | Projekt labor II.             | **ZH2**                                    |
+|   14.    | jún. 2    | Kötelező programok bemutatása.  | **Pót ZH**
+|  14+1.   | jún. 9   | -                        | Aláíráspótló: **csak kötprog**                         |
 
 
 !!! warning

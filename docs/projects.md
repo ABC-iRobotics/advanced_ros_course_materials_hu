@@ -5,6 +5,8 @@ author: Tamas D. Nagy
 
 # Kötelező Program
 
+![](img/under_construction.png){:style="width:400px"}
+
 ---
 
 
