@@ -202,7 +202,7 @@ Ajánlott környezet:
 
     A CLion magasfokú ROS integrációval rendelkezik, a kurzus során ennek a használata a leginkább ajánlott. Ingyenes hallgatói licensz az alábbi linken igényelhető: [https://www.jetbrains.com/community/education/#students](https://www.jetbrains.com/community/education/#students)
 
-    Telepítés után keressük meg a `/var/lib/snapd/desktop/applications/clion-clion.desktop` fájlt. A megfelelő sort írjuk át erre, így a terminál által beállított környezetet fogja használni az IDE:
+    Telepítés után keressük meg a `/var/lib/snapd/desktop/applications/clion_clion.desktop` fájlt. A megfelelő sort írjuk át erre, így a terminál által beállított környezetet fogja használni az IDE:
 
     ```bash
     Exec=bash -i -c "/snap/bin/clion" %f

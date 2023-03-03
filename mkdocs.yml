@@ -1,7 +1,9 @@
 site_name: Fejlett robotprogramozás ROS környezetben
 site_url: https://abc-irobotics.github.io/advanced_ros_course_materials_hu/
-site_description: Fejlett robotprogramozás ROS környezetben
+site_description: Tanagyag a "Fejlett robotprogramozás ROS környezetben" kurzushoz (Óbudai Egyetem)
 site_author: Nagy Tamás
+repo_url: https://github.com/ABC-iRobotics/advanced_ros_course_materials_hu
+
 
 nav:
     - Kezdőlap: index.md
