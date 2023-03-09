@@ -293,14 +293,18 @@ source ~/catkin_ws/devel/setup.bash
 1. Indítsuk el a `turtlesim_node`-ot és a `turtle_teleop_key` node-ot az alábbi parancsokkal, külö-külön terminál ablakokban:
 
 
-    !!! tip
-        **Terminator**-ban `Ctrl-Shift-O`, `Ctrl-Shift-E` billentyű kombinációkkal oszthatjuk tovább az adott ablakot. `Ctrl-Shift-W` bezárja az aktív ablakot.
-
 
     ```bash
     ros2 run turtlesim turtlesim_node
+    ```
+
+    ```bash
     ros2 run turtlesim turtle_teleop_key
     ```
+
+    !!! tip
+        **Terminator**-ban `Ctrl-Shift-O`, `Ctrl-Shift-E` billentyű kombinációkkal oszthatjuk tovább az adott ablakot. `Ctrl-Shift-W` bezárja az aktív ablakot.
+
 
     !!! tip "Futtatás megszakítása"
         `Ctrl-C`
@@ -391,10 +395,10 @@ source ~/catkin_ws/devel/setup.bash
     ```
 
     !!! note "Importálás QtCreator-ba"
-        New file or project -> Other project -> ROS Workspace. Válasszuk ki a Colcon-t, mint Build System, és a `ros2_ws`-t, mint Worksapce path.
+        New file or project &rarr; Other project &rarr; ROS Workspace. Válasszuk ki a Colcon-t, mint Build System, és a `ros2_ws`-t, mint Worksapce path.
 
     !!! note "Importálás CLion-ba"
-        Állítsuk be a Python iterpretert Python 3.8-ra, `/usr/bin/python3`. Adjuk hozzá akövetkező elérési utat: `/opt/ros/foxy/lib/python3.8/site-packages`. Hozzuk létre a `compile_commands.json` fájlt a `~/ros2_ws/build` könyvtárban az alábbi tartalommal:
+        Állítsuk be a Python interpretert Python 3.8-ra, `/usr/bin/python3`. Adjuk hozzá akövetkező elérési utat: `/opt/ros/foxy/lib/python3.8/site-packages`. Hozzuk létre a `compile_commands.json` fájlt a `~/ros2_ws/build` könyvtárban az alábbi tartalommal:
         ```bash
         [
         ]
