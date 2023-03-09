@@ -5,8 +5,6 @@ author: Nagy Tamás
 
 # 02. Linux, ROS alapismeretek
 
-![](img/under_construction.png){:style="width:400px"}
-
 ---
 
 ## Elmélet
@@ -208,10 +206,13 @@ cmake [label=<
    <table border="0" cellborder="0" cellspacing="3">
     <tr><td><table border="0" cellborder="0" cellspacing="3">
     <tr><td align="left">- package.xml</td></tr>
-    <tr><td align="left">- CMakeLists.txt</td></tr>
+    <tr><td align="left">- setup.py</td></tr>
+    <tr><td align="left">- setup.cfg</td></tr>
+    <tr><td align="left">- A</td></tr>
+    <tr><td align="left">    - __init__.py</td></tr>
+    <tr><td align="left">    - python scripts</td></tr>
    </table></td></tr>
    <tr><td><table border="1" cellborder="0" cellspacing="3">
-    <tr><td align="left">- ROS nodes</td></tr>
     <tr><td align="left">- ROS-independent libraries</td></tr>
     <tr><td align="left">- Launch files, config files...</td></tr>
    </table></td></tr>
@@ -322,6 +323,7 @@ source ~/catkin_ws/devel/setup.bash
     ```
 
     ---
+
 3. Az alábbi paranccsal indítsuk el az `rqt_gui`-t:
 
     ```bash
@@ -336,21 +338,28 @@ source ~/catkin_ws/devel/setup.bash
 
 5. Publikáljunk a `/turtle1/cmd_vel` topic-ba szintén az `rqt_gui` felhasználásával: Plugins &rarr; Topics &rarr; Message Publisher.
    
-    ![](img/under_construction.png){:style="width:400px"}
+    ![](img/screenshot_msg_publisher.png){:style="width:500px"}
 
 
 ---
 
 ### 2: ROS 2 workspace létrehozása
 
+---
+
+1. Hozzunk létre új ROS2 workspace-t `ros2_ws` névvel.
+
     ```bash
     mkdir -p ~/ros2_ws/src
     ```
-           
+
+---           
 
 ### 3: ROS 2 package létrehozása
 
-1. Hozzunk létre új ROS2 package-et `ros2_course` névvel.
+---
+
+1. Hozzunk létre új ROS2 package-et `ros2_course` névvel és egy Hello World-del.
 
     ```bash
     cd ~/ros2_ws/src
@@ -369,9 +378,10 @@ source ~/catkin_ws/devel/setup.bash
     colcon build --symlink-install
     ```
 
-   !!! note "Symlink"
-       A `--symlink-install` opció az Install space-be belinkeli a forrás script-eket, így módosítás után nem kell újra build-elnünk.
+    !!! note "Symlink"
+        A `--symlink-install` opció az Install space-be belinkeli a forrás script-eket, így módosítás után nem kell újra build-elnünk.  
 
+   
     ---
 
 4. A `~/.bashrc` fájl végére illesszük be az alábbi sort:
@@ -381,7 +391,7 @@ source ~/catkin_ws/devel/setup.bash
     ```
 
     !!! note "Importálás QtCreator-ba"
-        `New file or project -> Other project -> ROS Workspace. Válasszuk ki a Colcon-t, mint Build System, és a ros2_ws-t, mint Worksapce path.`
+        New file or project -> Other project -> ROS Workspace. Válasszuk ki a Colcon-t, mint Build System, és a `ros2_ws`-t, mint Worksapce path.
 
     !!! note "Importálás CLion-ba"
         Állítsuk be a Python iterpretert Python 3.8-ra, `/usr/bin/python3`. Adjuk hozzá akövetkező elérési utat: `/opt/ros/foxy/lib/python3.8/site-packages`. Hozzuk létre a `compile_commands.json` fájlt a `~/ros2_ws/build` könyvtárban az alábbi tartalommal:
@@ -402,6 +412,8 @@ source ~/catkin_ws/devel/setup.bash
     
 ### 4: Publisher implementálása Python-ban
 
+---
+
     
 1. Navigáljunk a `ros2_ws/src/ros2_course/ros2_course` mappába és hozzuk létre a `talker.py` fájlt az alábbi tartalommal.
 
@@ -416,7 +428,7 @@ source ~/catkin_ws/devel/setup.bash
     
         def __init__(self):
             super().__init__('minimal_publisher')
-            self.publisher_ = self.create_publisher(String, 'topic', 10)
+            self.publisher_ = self.create_publisher(String, 'chatter', 10)
             timer_period = 0.5  # seconds
             self.timer = self.create_timer(timer_period, self.timer_callback)
             self.i = 0
@@ -430,10 +442,8 @@ source ~/catkin_ws/devel/setup.bash
     
     
     def main(args=None):
-    rclpy.init(args=args)
-    
+        rclpy.init(args=args)
         minimal_publisher = MinimalPublisher()
-    
         rclpy.spin(minimal_publisher)
     
         # Destroy the node explicitly
@@ -478,44 +488,53 @@ source ~/catkin_ws/devel/setup.bash
 
 ### 5: Subscriber implementálása Python-ban
 
-1. Navigáljunk a `scripts` mappába és hozzuk létre a `listener.py` fájlt az alábbi tartalommal.
+---
+
+1. Navigáljunk a `ros2_ws/src/ros2_course/ros2_course` mappába és hozzuk létre a `listener.py` fájlt az alábbi tartalommal.
 
     ```python
-    import rospy
+    import rclpy
+    from rclpy.node import Node
     from std_msgs.msg import String
 
-    def callback(data):
-        print(rospy.get_caller_id() + "I heard %s", data.data)
-    
-    def listener():
 
-        # In ROS, nodes are uniquely named. If two nodes with the same
-        # name are launched, the previous one is kicked off. The
-        # anonymous=True flag means that rospy will choose a unique
-        # name for our 'listener' node so that multiple listeners can
-        # run simultaneously.
-        rospy.init_node('listener', anonymous=True)
-    
-        rospy.Subscriber("chatter", String, callback)
+    class MinimalSubscriber(Node):
 
-        # spin() simply keeps python from exiting until this node is stopped
-        rospy.spin()
+        def __init__(self):
+            super().__init__('minimal_subscriber')
+            self.subscription = self.create_subscription(
+                String,
+                'chatter',
+                self.listener_callback,
+                10)
+            self.subscription  # prevent unused variable warning
+
+        def listener_callback(self, msg):
+            self.get_logger().info('I heard msg: "%s"' % msg.data)
 
 
+    def main(args=None):
+        rclpy.init(args=args)
+        minimal_subscriber = MinimalSubscriber()
+        rclpy.spin(minimal_subscriber)
+
+        # Destroy the node explicitly
+        # (optional - otherwise it will be done automatically
+        # when the garbage collector destroys the node object)
+        minimal_subscriber.destroy_node()
+        rclpy.shutdown()
 
     if __name__ == '__main__':
-        listener()
+        main()
     ```
 
     ---
     
     
-2. A `CMakeLists.txt`-hez adjuk hozzá a következőt:
+2. A `setup.py` fájlban adjunk meg egy új entry point-on:
 
-    ```cmake
-    catkin_install_python(PROGRAMS scripts/talker.py scripts/listener.py
-        DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-    )
+    ```python
+    'listener = ros3_course.listener:main',
     ```
 
     ---
@@ -523,39 +542,30 @@ source ~/catkin_ws/devel/setup.bash
 3. Build-eljük és futtassuk mind a 2 node-ot:
 
     ```bash
-    cd ~/catkin_ws
-    catkin build
-    rosrun ros_course talker.py
+    cd ~/ros2_ws
+    colcon build --symlink-install
+    ros2 run ros2_course talker
     ```
     
     ```bash
-    rosrun ros_course listener.py
+    ros2 run ros2_course listener
     ```
     
     ---
 
-4. `rqt_graph` használatával jeleníttessük meg a futó rendszer node-jait és topic-jait:
+4. Az `rqt_gui` használatával jeleníttessük meg a futó rendszer node-jait és topic-jait:
 
     ```bash
-    rosrun rqt_graph rqt_graph
+    ros2 run rqt_gui rqt_gui
     ```
-
-
-!!! warning "Figyelem!"
-    Az óra végén a forráskódokat mindenkinek fel kell tölteni Moodle-re egy zip archívumba csomagolva!
-
 
 ---
 
 
 ## Hasznos linkek
 
-- [ROS Tutorials](http://wiki.ros.org/ROS/Tutorials)
+- [ROS 2 Tutorials](https://docs.ros.org/en/foxy/Tutorials.html)
 - [What is a ROS 2 package?](https://docs.ros.org/en/eloquent/Tutorials/Creating-Your-First-ROS2-Package.html#what-is-a-ros-2-package)
-- [Curiosity rover simulation](https://www.tapatalk.com/groups/jpl_opensource_rover/real-curiosity-rover-simulation-in-gazebo-with-ros-t60.html)
-- [https://docs.ros.org/en/galactic/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html](https://docs.ros.org/en/galactic/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html)
-- [https://docs.ros.org/en/galactic/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html](https://docs.ros.org/en/galactic/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html)
-
 
 
 
