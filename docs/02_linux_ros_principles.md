@@ -294,7 +294,7 @@ edge [color=Black, style=solid, arrowhead=open] //All the lines look like this
 - ROS can find any resources that have been installed or built to that location
 
 ```bash
-source ~/catkin_ws/devel/setup.bash
+source ~/ros2_ws/install/setup.bash
 ```
 
 
@@ -487,7 +487,7 @@ source ~/catkin_ws/devel/setup.bash
 3. A `setup.py` fájlban adjunk meg egy új entry point-on:
 
     ```python
-    'talker = ros3_course.talker:main',
+    'talker = ros2_course.talker:main',
     ```
     
     ---
