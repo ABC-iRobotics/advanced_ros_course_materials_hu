@@ -477,7 +477,7 @@ source ~/ros2_ws/install/setup.bash
     
     
     if __name__ == '__main__':
-    main()
+        main()
     ```
 
 
@@ -557,7 +557,7 @@ source ~/ros2_ws/install/setup.bash
 2. A `setup.py` fájlban adjunk meg egy új entry point-on:
 
     ```python
-    'listener = ros3_course.listener:main',
+    'listener = ros2_course.listener:main',
     ```
 
     ---
