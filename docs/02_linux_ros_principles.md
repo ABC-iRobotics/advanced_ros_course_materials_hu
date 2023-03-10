@@ -73,6 +73,8 @@ See some basic commands below:
 - Focus on standardization and industry collaboration
 - No ROS Master
 - No Devel space
+- `rclpy`, `rclcpp`
+- More structured code (`Node` class)
 - Different build system
 - Platforms: Windows, OS X, Linux
 
@@ -259,6 +261,23 @@ cmake [label=<
 ---
 
 - System for building software packages in ROS
+
+```graphviz dot colcon.png
+digraph colcon {
+
+nodesep=0.1 // increases the separation between nodes
+node [color=Black,fontname=Arial,shape=ellipse,style=filled,fillcolor=moccasin] //All nodes will this shape and colour
+edge [color=Black, style=solid, arrowhead=open] //All the lines look like this
+  
+   amentpython [label="ament_python"]
+   amentcmake [label="ament_cmake"]
+   g [label="g++"]
+   
+   colcon->{amentpython,amentcmake}
+   amentpython->install
+   amentcmake->CMake->g
+}
+```
 
 
 ---
