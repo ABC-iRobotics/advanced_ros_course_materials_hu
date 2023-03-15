@@ -456,29 +456,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-hello-world" class="md-nav__link">
-    1: Hello, World!
+  <a href="#1-teknoc-mozgatasa-egyenes-menten" class="md-nav__link">
+    1: Teknőc mozgatása egyenes mentén
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-teknoc-mozgatasa-egyenes-menten" class="md-nav__link">
-    2: Teknőc mozgatása egyenes mentén
+  <a href="#2-alakzatok-rajolasa" class="md-nav__link">
+    2: Alakzatok rajolása
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-alakzatok-rajolasa" class="md-nav__link">
-    3: Alakzatok rajolása
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-go-to-funkcio-implementalasa" class="md-nav__link">
-    4: Go to funkció implementálása
+  <a href="#3-go-to-funkcio-implementalasa" class="md-nav__link">
+    3: Go to funkció implementálása
   </a>
   
 </li>
@@ -496,8 +489,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#useful-links" class="md-nav__link">
-    Useful links
+  <a href="#hasznos-linkek" class="md-nav__link">
+    Hasznos linkek
   </a>
   
 </li>
@@ -659,201 +652,185 @@
 </code></pre></div>
 <h2 id="gyakorlat">Gyakorlat</h2>
 <hr />
-<h3 id="1-hello-world">1: Hello, World!</h3>
+<h3 id="1-teknoc-mozgatasa-egyenes-menten">1: Teknőc mozgatása egyenes mentén</h3>
 <ol>
 <li>
-<p>Nyissunk meg egy terminált. Huzzuk létre a <code>~/catkin_ws/src/ros_course/scripts/</code> könyvtárunkban a <code>hello.py</code> fájlt:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> catkin_ws/src/ros_course/scripts
-touch hello.py
-</code></pre></div>
-<hr />
-</li>
-<li>
-<p>Nyissuk meg a <code>hello.py</code> fájlt QtCreatorban, írjuk be a következő sort a <code>hello.py</code> fájlba:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
-</code></pre></div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p><strong>Aki gedit-et használ:</strong> Preferences :arrow_forward: Editor :arrow_forward: Insert spaces instead of tabs.</p>
-</div>
-<hr />
-</li>
-<li>
-<p>Futtassuk a fájlt, terminál:</p>
-<div class="highlight"><pre><span></span><code>python3 hello.py
-</code></pre></div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Ha hibát kapunk, hogy a fájl nem futtatható, állítsuk be a futtatási jogosultságot: <code>chmod +x hello.py</code></p>
-</div>
-<hr />
-</li>
-<li>
-<p>Módosítsuk a programot úgy, hogy a <em>"World"</em> szót a parancssori argumentumként megadott szóval helyettesítse:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span>
-
-<span class="n">msg</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello,&quot;</span> <span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="s2">&quot;!&quot;</span><span class="p">)</span>
-</code></pre></div>
-<hr />
-</li>
-<li>
-<p>Futtassuk a fájlt, terminál:</p>
-<div class="highlight"><pre><span></span><code>python3 hello.py John
-</code></pre></div>
-<hr />
-</li>
-</ol>
-<h3 id="2-teknoc-mozgatasa-egyenes-menten">2: Teknőc mozgatása egyenes mentén</h3>
-<ol>
-<li>
-<p>Írjunk ROS node-ot, amely előre, egyenes mentén megadott távolságra mozgatja a teknőcöt. Nyissunk meg egy terminált. Huzzuk létre a <code>~/catkin_ws/src/ros_course/scripts</code> könyvtárunkban a <code>turtlesim_controller.py</code> fájlt:</p>
+<p>Írjunk ROS node-ot, amely előre, egyenes mentén megadott távolságra mozgatja a teknőcöt.
+Nyissunk meg egy terminált. Huzzuk létre a <code>~/ros2_ws/src/ros2_course/ros2_course</code>
+könyvtárunkban a <code>turtlesim_controller.py</code> fájlt:</p>
 <p><img align="right" alt="" src="../img/turtle_straight.png" style="width:300px" /> </p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> catkin_ws/src/ros_course/scripts
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ros2_ws/src/ros2_course/ros2_course
 touch turtlesim_controller.py
 </code></pre></div>
 <hr />
 </li>
 <li>
-<p>A <code>CMakeLists.txt</code>-hez adjuk hozzá a <code>turtlesim_controller.py</code>-t:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">catkin_install_python</span><span class="p">(</span><span class="s">PROGRAMS</span><span class="w"> </span>
-<span class="w">    </span><span class="s">scripts/talker.py</span>
-<span class="w">    </span><span class="s">scripts/listener.py</span>
-<span class="w">    </span><span class="s">scripts/turtlesim_controller.py</span>
-<span class="w">    </span><span class="s">DESTINATION</span><span class="w"> </span><span class="o">${</span><span class="nv">CATKIN_PACKAGE_BIN_DESTINATION</span><span class="o">}</span>
-<span class="p">)</span>
+<p>A <code>setup.py</code> fájlban adjunk meg egy új entry point-on:</p>
+<div class="highlight"><pre><span></span><code><span class="s1">&#39;turtlesim_controller = ros2_course.turtlesim_controller:main&#39;</span><span class="p">,</span>
 </code></pre></div>
 <hr />
 </li>
 <li>
 <p>Másoljuk be a <code>turtlesim_controller.py</code>-ba a program vázát:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">rospy</span>
-<span class="kn">import</span> <span class="nn">math</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">rclpy</span>
+<span class="kn">from</span> <span class="nn">rclpy.node</span> <span class="kn">import</span> <span class="n">Node</span>
 
-<span class="k">class</span> <span class="nc">TurtlesimController</span><span class="p">:</span>
+
+<span class="k">class</span> <span class="nc">TurtlesimController</span><span class="p">(</span><span class="n">Node</span><span class="p">):</span>
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c1"># Call init node only once</span>
-        <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s1">&#39;turtlesim_controller&#39;</span><span class="p">,</span> <span class="n">anonymous</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="c1"># Define publisher here</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s1">&#39;turtlesim_controller&#39;</span><span class="p">)</span>
 
 
-
-    <span class="k">def</span> <span class="nf">go_straight</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="n">distance</span><span class="p">,</span> <span class="n">forward</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">go_straight</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="n">distance</span><span class="p">):</span>
         <span class="c1"># Implement straght motion here</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="c1"># Init</span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
     <span class="n">tc</span> <span class="o">=</span> <span class="n">TurtlesimController</span><span class="p">()</span>
-    <span class="c1"># Send turtle on a straight line</span>
-    <span class="n">tc</span><span class="o">.</span><span class="n">go_straight</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># Destroy the node explicitly</span>
+    <span class="c1"># (optional - otherwise it will be done automatically</span>
+    <span class="c1"># when the garbage collector destroys the node object)</span>
+    <span class="n">tc</span><span class="o">.</span><span class="n">destroy_node</span><span class="p">()</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
 <hr />
 </li>
 <li>
-<p>Indítsunk egy egy <code>turtlesim_node</code>-ot, majd vizsgáljuk meg a topic-ot, amellyel irányíthatjuk. Három külön terminálablakban:</p>
-<div class="highlight"><pre><span></span><code>roscore
+<p>Indítsunk egy egy <code>turtlesim_node</code>-ot, majd vizsgáljuk meg a topic-ot,
+amellyel irányíthatjuk. Két külön terminálablakban:</p>
+<div class="highlight"><pre><span></span><code>ros2 run turtlesim turtlesim_node
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>rosrun turtlesim turtlesim_node
+<div class="highlight"><pre><span></span><code>ros2 topic list
+ros2 topic info /turtle1/cmd_vel
+ros2 interface show geometry_msgs/msg/Twist
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>rostopic list
-rostopic info /turtle1/cmd_vel
-rosmsg show geometry_msgs/Twist
+<p>Vagy használjuk az <code>rqt_gui</code>-t:</p>
+<div class="highlight"><pre><span></span><code>ros2 run rqt_gui rqt_gui
 </code></pre></div>
 <hr />
 </li>
 <li>
-<p>Importáljuk a <code>geometry_msgs/Twist</code> üzenettípust és hozzuk létre a publishert a <code>turtlesim_controller.py</code>-ban:</p>
+<p>Importáljuk a <code>geometry_msgs/msg/Twist</code> üzenettípust és hozzuk létre a publishert a
+<code>turtlesim_controller.py</code>-ban:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">geometry_msgs.msg</span> <span class="kn">import</span> <span class="n">Twist</span>
 
 <span class="c1">#...</span>
 
-<span class="bp">self</span><span class="o">.</span><span class="n">twist_pub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s1">&#39;/turtle1/cmd_vel&#39;</span><span class="p">,</span> <span class="n">Twist</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="c1"># In the constructor:</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">twist_pub</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_publisher</span><span class="p">(</span><span class="n">Twist</span><span class="p">,</span> <span class="s1">&#39;/turtle1/cmd_vel&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 </code></pre></div>
 <hr />
 </li>
 <li>
-<p>Implementáljuk a <code>go_straight</code> metódust. Számítsuk ki, mennyi ideig tart, hogy a megadott távolságot a megadott sebességgel megtegye a teknőc. Publikáljunk üzenetet, amivel beállítjuk a sebességet, majd várjunk a kiszámított ideig, ezután küldjünk újabb üzenetet, amellyel nullázzuk a sebességet. Egy kis segítség az API használatához:</p>
+<p>Implementáljuk a <code>go_straight</code> metódust. Számítsuk ki, mennyi ideig tart,
+hogy a megadott távolságot a megadott sebességgel megtegye a teknőc. Publikáljunk üzenetet,
+amivel beállítjuk a sebességet, majd várjunk a kiszámított ideig, ezután
+küldjünk újabb üzenetet, amellyel nullázzuk a sebességet.
+Egy kis segítség az API használatához:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create and publish msg</span>
 <span class="n">vel_msg</span> <span class="o">=</span> <span class="n">Twist</span><span class="p">()</span>
-<span class="k">if</span> <span class="n">forward</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">distance</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
     <span class="n">vel_msg</span><span class="o">.</span><span class="n">linear</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">speed</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="n">vel_msg</span><span class="o">.</span><span class="n">linear</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="n">speed</span>
-<span class="n">vel_msg</span><span class="o">.</span><span class="n">linear</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">vel_msg</span><span class="o">.</span><span class="n">linear</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">vel_msg</span><span class="o">.</span><span class="n">angular</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">vel_msg</span><span class="o">.</span><span class="n">angular</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">vel_msg</span><span class="o">.</span><span class="n">angular</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">vel_msg</span><span class="o">.</span><span class="n">linear</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">vel_msg</span><span class="o">.</span><span class="n">linear</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">vel_msg</span><span class="o">.</span><span class="n">angular</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">vel_msg</span><span class="o">.</span><span class="n">angular</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">vel_msg</span><span class="o">.</span><span class="n">angular</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.0</span>
 
 <span class="c1"># Set loop rate</span>
-<span class="n">rate</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Rate</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># Hz</span>
+<span class="n">loop_rate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_rate</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_clock</span><span class="p">())</span> <span class="c1"># Hz</span>
 
-<span class="c1"># Publish first msg and note time</span>
+<span class="c1"># Calculate time</span>
+<span class="c1"># T = ...</span>
+
+<span class="c1"># Publish first msg and note time when to stop</span>
 <span class="bp">self</span><span class="o">.</span><span class="n">twist_pub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">vel_msg</span><span class="p">)</span>
-<span class="n">t0</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Time</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">to_sec</span><span class="p">()</span>
+<span class="c1"># self.get_logger().info(&#39;Turtle started.&#39;)</span>
+<span class="n">when</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_clock</span><span class="p">()</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">+</span> <span class="n">rclpy</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">Duration</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="n">T</span><span class="p">)</span>
 
 <span class="c1"># Publish msg while the calculated time is up</span>
-<span class="k">while</span> <span class="p">(</span><span class="n">some</span> <span class="n">condition</span><span class="o">...</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span><span class="p">(</span><span class="n">rospy</span><span class="o">.</span><span class="n">is_shutdown</span><span class="p">()):</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">some</span> <span class="n">condition</span><span class="o">...</span><span class="p">)</span> <span class="ow">and</span> <span class="n">rclpy</span><span class="o">.</span><span class="n">ok</span><span class="p">():</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">twist_pub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">vel_msg</span><span class="p">)</span>
-    <span class="c1"># ...and stuff</span>
-    <span class="n">rate</span><span class="o">.</span><span class="n">sleep</span><span class="p">()</span>    <span class="c1"># loop rate</span>
+    <span class="c1"># self.get_logger().info(&#39;On its way...&#39;)</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">spin_once</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>   <span class="c1"># loop rate</span>
 
-
-<span class="c1"># Set velocity to 0</span>
-<span class="n">vel_msg</span><span class="o">.</span><span class="n">linear</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="c1"># turtle arrived, set velocity to 0</span>
+<span class="n">vel_msg</span><span class="o">.</span><span class="n">linear</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mf">0.0</span>
 <span class="bp">self</span><span class="o">.</span><span class="n">twist_pub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">vel_msg</span><span class="p">)</span>
+<span class="c1"># self.get_logger().info(&#39;Arrived to destination.&#39;)</span>
 </code></pre></div>
 <hr />
 </li>
 <li>
-<p>Futtassuk a node-ot:</p>
-<div class="highlight"><pre><span></span><code>rosrun ros_course turtlesim_controller.py
+<p>Build-eljük és futtassuk a node-ot:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ros2_ws
+colcon build --symlink-install
+ros2 run ros2_course turtlesim_controller
 </code></pre></div>
 <hr />
 </li>
 </ol>
-<h3 id="3-alakzatok-rajolasa">3: Alakzatok rajolása</h3>
+<h3 id="2-alakzatok-rajolasa">2: Alakzatok rajolása</h3>
 <p><img align="right" alt="" src="../img/turtle_hex.png" style="width:300px" /> </p>
 <ol>
 <li>
-<p>Implementáljunk adott szöggel történő elfordulást megvalósító metódust a  <code>turtlesim_controller.py</code>-ban, az egyenes mozgásshoz hasonló módon.</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">turn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">omega</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="n">forward</span><span class="p">):</span>
+<p>Implementáljunk adott szöggel történő elfordulást megvalósító metódust a
+<code>turtlesim_controller.py</code>-ban, az egyenes mozgásshoz hasonló módon.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">turn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">omega</span><span class="p">,</span> <span class="n">angle</span><span class="p">):</span>
         <span class="c1"># Implement rotation here</span>
 </code></pre></div>
 <hr />
 </li>
 <li>
-<p>Implementáljunk a teknőccel négyzetet rajzoltató metódust az egyenes mozgást és a fordulást végrehajtó metódusok felhasználásával.</p>
+<p>Implementáljunk a teknőccel négyzetet rajzoltató metódust az egyenes mozgást
+és a fordulást végrehajtó metódusok felhasználásával.</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">draw_square</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="n">omega</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
 </code></pre></div>
 <hr />
 </li>
 <li>
-<p>Implementáljunk a teknőccel tetszőleges szabályos alakzatot rajzoltató metódust az egyenes mozgást és a fordulást végrehajtó metódusok felhasználásával.</p>
+<p>Implementáljunk a teknőccel tetszőleges szabályos alakzatot rajzoltató metódust
+az egyenes mozgást és a fordulást végrehajtó metódusok felhasználásával.</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">draw_poly</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="n">omega</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
 </code></pre></div>
 <hr />
 </li>
 </ol>
-<h3 id="4-go-to-funkcio-implementalasa">4: Go to funkció implementálása</h3>
+<h3 id="3-go-to-funkcio-implementalasa">3: Go to funkció implementálása</h3>
 <p><img align="right" alt="" src="../img/turtle_goto.png" style="width:300px" /> </p>
 <ol>
 <li>
 <p>Vizsgáljuk meg a topic-ot, amelyen a <code>turtlesim_node</code> a pillanatnyi pozícióját publikálja. </p>
-<div class="highlight"><pre><span></span><code>rostopic list
-rostopic info /turtle1/pose
-rosmsg show turtlesim/Pose
+<div class="highlight"><pre><span></span><code>ros2 topic list
+ros2 topic info /turtle1/pose
+ros2 interface show turtlesim/msg/Pose
+</code></pre></div>
+<p>Vagy használjuk az <code>rqt_gui</code>-t:  </p>
+<div class="highlight"><pre><span></span><code>ros2 run rqt_gui rqt_gui
 </code></pre></div>
 <hr />
 </li>
 <li>
-<p>Definiáljunk subscriber-t a topichoz és írjuk meg a callback függvényt, majd implementáljuk a go to funkciót.</p>
+<p>Definiáljunk subscriber-t a topichoz és írjuk meg a callback függvényt.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Imports</span>
 <span class="kn">from</span> <span class="nn">turtlesim.msg</span> <span class="kn">import</span> <span class="n">Pose</span>
 
     <span class="c1"># Constructor</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">pose_subscriber</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Subscriber</span><span class="p">(</span><span class="s1">&#39;/turtle1/pose&#39;</span><span class="p">,</span> <span class="n">Pose</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cb_pose</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">pose</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">subscription</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_subscription</span><span class="p">(</span>
+        <span class="n">Pose</span><span class="p">,</span>
+        <span class="s1">&#39;/turtle1/pose&#39;</span><span class="p">,</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cb_pose</span><span class="p">,</span>
+        <span class="mi">10</span><span class="p">)</span>
 
     <span class="c1"># New method for TurtlesimController</span>
     <span class="k">def</span> <span class="nf">cb_pose</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
@@ -863,33 +840,47 @@ rosmsg show turtlesim/Pose
 </li>
 <li>
 <p>Implementáljuk a <code>go_to</code> metódust. Teszteljük, hívjuk meg a main-ből.</p>
-<div class="highlight"><pre><span></span><code>    <span class="c1"># ...</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># ...</span>
 
-    <span class="c1"># Go to method</span>
+<span class="c1"># Go to method</span>
     <span class="k">def</span> <span class="nf">go_to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="n">omega</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-        <span class="c1"># Stuff</span>
+        <span class="c1"># Wait for position to be received</span>
+        <span class="n">loop_rate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_rate</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_clock</span><span class="p">())</span> <span class="c1"># Hz</span>
+        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">pose</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">rclpy</span><span class="o">.</span><span class="n">ok</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Waiting for pose...&#39;</span><span class="p">)</span>
+            <span class="n">rclpy</span><span class="o">.</span><span class="n">spin_once</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
-    <span class="c1"># Main</span>
-    <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-        <span class="c1"># Init</span>
-        <span class="n">tc</span> <span class="o">=</span> <span class="n">TurtlesimController</span><span class="p">()</span>
-        <span class="c1"># 1 sec sleep so subscriber can get msgs</span>
-        <span class="n">rospy</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  
-        <span class="n">tc</span><span class="o">.</span><span class="n">go_to</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
-    <span class="n">tc</span><span class="o">.</span><span class="n">go_to</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-    <span class="n">tc</span><span class="o">.</span><span class="n">go_to</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-    <span class="n">tc</span><span class="o">.</span><span class="n">go_to</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>    
+        <span class="c1"># Stuff with atan2</span>
+
+
+<span class="c1"># Main</span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
+    <span class="n">tc</span> <span class="o">=</span> <span class="n">TurtlesimController</span><span class="p">()</span>
+
+    <span class="n">tc</span><span class="o">.</span><span class="n">go_to</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+    <span class="n">tc</span><span class="o">.</span><span class="n">go_to</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">tc</span><span class="o">.</span><span class="n">go_to</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="n">tc</span><span class="o">.</span><span class="n">go_to</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="c1"># Destroy the node explicitly</span>
+    <span class="c1"># (optional - otherwise it will be done automatically</span>
+    <span class="c1"># when the garbage collector destroys the node object)</span>
+    <span class="n">tc</span><span class="o">.</span><span class="n">destroy_node</span><span class="p">()</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>  
 </code></pre></div>
+<p><img alt="" src="../img/turtle_atan2.png" style="width:600px" /></p>
 </li>
 </ol>
+<hr />
 <h3 id="bonusz-advanced-go-to">Bónusz: Advanced go to</h3>
 <p>Írjunk arányos szabályozót használó go to funckiót.</p>
 <hr />
-<h2 id="useful-links">Useful links</h2>
+<h2 id="hasznos-linkek">Hasznos linkek</h2>
 <ul>
 <li><a href="https://www.w3schools.com/python/python_for_loops.asp">For loops in python</a></li>
 <li><a href="https://docs.python.org/3.4/library/functions.html">Some python functions</a></li>
-<li><a href="http://wiki.ros.org/turtlesim">Turtlesim documentation</a></li>
+<li><a href="https://docs.ros.org/en/foxy/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html">Turtlesim help</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Atan2">atan2</a></li>
 </ul>
 
