@@ -70,213 +70,179 @@ if __name__ == "__main__":
 
 ---
 
-### 1: Hello, World!
-
-1. Nyissunk meg egy terminált. Huzzuk létre a `~/catkin_ws/src/ros_course/scripts/` könyvtárunkban a `hello.py` fájlt:
-
-    ```bash
-    cd catkin_ws/src/ros_course/scripts
-    touch hello.py
-    ```
     
-    ---
-
-2. Nyissuk meg a `hello.py` fájlt QtCreatorban, írjuk be a következő sort a `hello.py` fájlba:
-
-    ```python
-    print("Hello, World!")
-    ```
-
-    !!! tip
-        **Aki gedit-et használ:** Preferences :arrow_forward: Editor :arrow_forward: Insert spaces instead of tabs.
-
-    
-    ---
-
-3. Futtassuk a fájlt, terminál:
-
-    ```bash
-    python3 hello.py
-    ```
-    
-    !!! tip
-        Ha hibát kapunk, hogy a fájl nem futtatható, állítsuk be a futtatási jogosultságot: `chmod +x hello.py`
-
-    
-    ---
-
-4. Módosítsuk a programot úgy, hogy a *"World"* szót a parancssori argumentumként megadott szóval helyettesítse:
-
-    ```python
-    import sys
-
-    msg = sys.argv[1]
-    print("Hello," , msg, "!")
-    ```
-    
-    ---
-
-5. Futtassuk a fájlt, terminál:
-
-    ```bash
-    python3 hello.py John
-    ``` 
-    
-    ---
-    
-    
-### 2: Teknőc mozgatása egyenes mentén
+### 1: Teknőc mozgatása egyenes mentén
 
 
-1. Írjunk ROS node-ot, amely előre, egyenes mentén megadott távolságra mozgatja a teknőcöt. Nyissunk meg egy terminált. Huzzuk létre a `~/catkin_ws/src/ros_course/scripts` könyvtárunkban a `turtlesim_controller.py` fájlt:
+1. Írjunk ROS node-ot, amely előre, egyenes mentén megadott távolságra mozgatja a teknőcöt.
+Nyissunk meg egy terminált. Huzzuk létre a `~/ros2_ws/src/ros2_course/ros2_course`
+könyvtárunkban a `turtlesim_controller.py` fájlt:
 
     ![](img/turtle_straight.png){:style="width:300px" align=right} 
 
     ```bash
-    cd catkin_ws/src/ros_course/scripts
+    cd ros2_ws/src/ros2_course/ros2_course
     touch turtlesim_controller.py
     ```
 
    
     ---
-    
-2. A `CMakeLists.txt`-hez adjuk hozzá a `turtlesim_controller.py`-t:
 
-    ```cmake
-    catkin_install_python(PROGRAMS 
-        scripts/talker.py
-        scripts/listener.py
-        scripts/turtlesim_controller.py
-        DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-    )
+2. A `setup.py` fájlban adjunk meg egy új entry point-on:
+
+    ```python
+    'turtlesim_controller = ros2_course.turtlesim_controller:main',
     ```
     
     ---
+
+
     
 3. Másoljuk be a `turtlesim_controller.py`-ba a program vázát:
     
     ```python
-    import rospy
     import math
-
-    class TurtlesimController:
+    import rclpy
+    from rclpy.node import Node
+   
+   
+    class TurtlesimController(Node):
+   
         def __init__(self):
-            # Call init node only once
-            rospy.init_node('turtlesim_controller', anonymous=True)
-            # Define publisher here
-
-
-
-        def go_straight(self, speed, distance, forward):
+            super().__init__('turtlesim_controller')
+   
+   
+        def go_straight(self, speed, distance):
             # Implement straght motion here
-
-
-    if __name__ == '__main__':
-        # Init
+   
+   
+    def main(args=None):
+        rclpy.init(args=args)
         tc = TurtlesimController()
-        # Send turtle on a straight line
-        tc.go_straight(1, 4, True)
+   
+        # Destroy the node explicitly
+        # (optional - otherwise it will be done automatically
+        # when the garbage collector destroys the node object)
+        tc.destroy_node()
+        rclpy.shutdown()
+   
+    if __name__ == '__main__':
+        main()
     ```
     
     ---
 
-4. Indítsunk egy egy `turtlesim_node`-ot, majd vizsgáljuk meg a topic-ot, amellyel irányíthatjuk. Három külön terminálablakban:
+4. Indítsunk egy egy `turtlesim_node`-ot, majd vizsgáljuk meg a topic-ot,
+amellyel irányíthatjuk. Két külön terminálablakban:
+    
+    ```bash
+    ros2 run turtlesim turtlesim_node
+    ```
+    
+    ```bash
+    ros2 topic list
+    ros2 topic info /turtle1/cmd_vel
+    ros2 interface show geometry_msgs/msg/Twist
+    ```
+   
+    Vagy használjuk az `rqt_gui`-t:
 
     ```bash
-    roscore
-    ```
-    
-    ```bash
-    rosrun turtlesim turtlesim_node
-    ```
-    
-    ```bash
-    rostopic list
-    rostopic info /turtle1/cmd_vel
-    rosmsg show geometry_msgs/Twist
+    ros2 run rqt_gui rqt_gui
     ```
 
     ---
     
-5. Importáljuk a `geometry_msgs/Twist` üzenettípust és hozzuk létre a publishert a `turtlesim_controller.py`-ban:
+5. Importáljuk a `geometry_msgs/msg/Twist` üzenettípust és hozzuk létre a publishert a
+`turtlesim_controller.py`-ban:
 
     ```python
     from geometry_msgs.msg import Twist
     
     #...
     
-    self.twist_pub = rospy.Publisher('/turtle1/cmd_vel', Twist, queue_size=10)
-    
+    # In the constructor:
+    self.twist_pub = self.create_publisher(Twist, '/turtle1/cmd_vel', 10)
     ```
 
     ---
  
 
     
-6. Implementáljuk a `go_straight` metódust. Számítsuk ki, mennyi ideig tart, hogy a megadott távolságot a megadott sebességgel megtegye a teknőc. Publikáljunk üzenetet, amivel beállítjuk a sebességet, majd várjunk a kiszámított ideig, ezután küldjünk újabb üzenetet, amellyel nullázzuk a sebességet. Egy kis segítség az API használatához:
+6. Implementáljuk a `go_straight` metódust. Számítsuk ki, mennyi ideig tart,
+hogy a megadott távolságot a megadott sebességgel megtegye a teknőc. Publikáljunk üzenetet,
+amivel beállítjuk a sebességet, majd várjunk a kiszámított ideig, ezután
+küldjünk újabb üzenetet, amellyel nullázzuk a sebességet.
+Egy kis segítség az API használatához:
 
-
-    
-
+   
     ```python
     # Create and publish msg
     vel_msg = Twist()
-    if forward:
+    if distance > 0:
         vel_msg.linear.x = speed
     else:
         vel_msg.linear.x = -speed
-    vel_msg.linear.y = 0
-    vel_msg.linear.z = 0
-    vel_msg.angular.x = 0
-    vel_msg.angular.y = 0
-    vel_msg.angular.z = 0
-    
+    vel_msg.linear.y = 0.0
+    vel_msg.linear.z = 0.0
+    vel_msg.angular.x = 0.0
+    vel_msg.angular.y = 0.0
+    vel_msg.angular.z = 0.0
+
     # Set loop rate
-    rate = rospy.Rate(100) # Hz
-    
-    # Publish first msg and note time
+    loop_rate = self.create_rate(100, self.get_clock()) # Hz
+
+    # Calculate time
+    # T = ...
+   
+    # Publish first msg and note time when to stop
     self.twist_pub.publish(vel_msg)
-    t0 = rospy.Time.now().to_sec()
+    # self.get_logger().info('Turtle started.')
+    when = self.get_clock().now() + rclpy.time.Duration(seconds=T)
 
     # Publish msg while the calculated time is up
-    while (some condition...) and not(rospy.is_shutdown()):
+    while (some condition...) and rclpy.ok():
         self.twist_pub.publish(vel_msg)
-        # ...and stuff
-        rate.sleep()    # loop rate
-    
-    
-    # Set velocity to 0
-    vel_msg.linear.x = 0
+        # self.get_logger().info('On its way...')
+        rclpy.spin_once(self)   # loop rate
+
+    # turtle arrived, set velocity to 0
+    vel_msg.linear.x = 0.0
     self.twist_pub.publish(vel_msg)
+    # self.get_logger().info('Arrived to destination.')
     ```
     
     ---
     
     
-7. Futtassuk a node-ot:
+7. Build-eljük és futtassuk a node-ot:
 
     ```bash
-    rosrun ros_course turtlesim_controller.py
+    cd ros2_ws
+    colcon build --symlink-install
+    ros2 run ros2_course turtlesim_controller
     ```
     
     ---
     
    
-### 3: Alakzatok rajolása
+### 2: Alakzatok rajolása
 
 ![](img/turtle_hex.png){:style="width:300px" align=right} 
 
-1. Implementáljunk adott szöggel történő elfordulást megvalósító metódust a  `turtlesim_controller.py`-ban, az egyenes mozgásshoz hasonló módon.
+1. Implementáljunk adott szöggel történő elfordulást megvalósító metódust a
+`turtlesim_controller.py`-ban, az egyenes mozgásshoz hasonló módon.
 
 
     ```python
-    def turn(self, omega, angle, forward):
+    def turn(self, omega, angle):
             # Implement rotation here
     ```
     
     ---
     
-2. Implementáljunk a teknőccel négyzetet rajzoltató metódust az egyenes mozgást és a fordulást végrehajtó metódusok felhasználásával.
+2. Implementáljunk a teknőccel négyzetet rajzoltató metódust az egyenes mozgást
+és a fordulást végrehajtó metódusok felhasználásával.
 
     ```python
     def draw_square(self, speed, omega, a):
@@ -284,7 +250,8 @@ if __name__ == "__main__":
   
     ---
     
-3. Implementáljunk a teknőccel tetszőleges szabályos alakzatot rajzoltató metódust az egyenes mozgást és a fordulást végrehajtó metódusok felhasználásával.
+3. Implementáljunk a teknőccel tetszőleges szabályos alakzatot rajzoltató metódust
+az egyenes mozgást és a fordulást végrehajtó metódusok felhasználásával.
 
     ```python
     def draw_poly(self, speed, omega, N, a):
@@ -293,7 +260,7 @@ if __name__ == "__main__":
     ---
     
    
-### 4: Go to funkció implementálása
+### 3: Go to funkció implementálása
 
 ![](img/turtle_goto.png){:style="width:300px" align=right} 
 
@@ -301,21 +268,34 @@ if __name__ == "__main__":
 
 
     ```bash
-    rostopic list
-    rostopic info /turtle1/pose
-    rosmsg show turtlesim/Pose
+    ros2 topic list
+    ros2 topic info /turtle1/pose
+    ros2 interface show turtlesim/msg/Pose
+    ```
+
+
+    Vagy használjuk az `rqt_gui`-t:  
+
+
+    ```bash
+    ros2 run rqt_gui rqt_gui
     ```
     
     --- 
  
-2. Definiáljunk subscriber-t a topichoz és írjuk meg a callback függvényt, majd implementáljuk a go to funkciót.
+2. Definiáljunk subscriber-t a topichoz és írjuk meg a callback függvényt.
 
     ```python
     # Imports
     from turtlesim.msg import Pose
  
         # Constructor
-        self.pose_subscriber = rospy.Subscriber('/turtle1/pose', Pose, self.cb_pose)
+        self.pose = None
+        self.subscription = self.create_subscription(
+            Pose,
+            '/turtle1/pose',
+            self.cb_pose,
+            10)
     
         # New method for TurtlesimController
         def cb_pose(self, msg):
@@ -328,24 +308,39 @@ if __name__ == "__main__":
 3. Implementáljuk a `go_to` metódust. Teszteljük, hívjuk meg a main-ből.
 
     ```python
-        # ...
+    # ...
 
-        # Go to method
+    # Go to method
         def go_to(self, speed, omega, x, y):
-            # Stuff
-        
-        # Main
-        if __name__ == '__main__':
-            # Init
-            tc = TurtlesimController()
-            # 1 sec sleep so subscriber can get msgs
-            rospy.sleep(1)  
-            tc.go_to(1, 2, 2, 8)
-        tc.go_to(1, 2, 2, 2)
-        tc.go_to(1, 2, 3, 4)
-        tc.go_to(1, 2, 6, 2)    
-    ```
+            # Wait for position to be received
+            loop_rate = self.create_rate(100, self.get_clock()) # Hz
+            while self.pose is None and rclpy.ok():
+                self.get_logger().info('Waiting for pose...')
+                rclpy.spin_once(self)
+            
+            # Stuff with atan2
     
+   
+    # Main
+    def main(args=None):
+        rclpy.init(args=args)
+        tc = TurtlesimController()
+    
+        tc.go_to(1.0, 20.0, 2, 8)
+        tc.go_to(1.0, 20.0, 2, 2)
+        tc.go_to(1.0, 20.0, 3, 4)
+        tc.go_to(1.0, 20.0, 6, 2)
+    
+        # Destroy the node explicitly
+        # (optional - otherwise it will be done automatically
+        # when the garbage collector destroys the node object)
+        tc.destroy_node()
+        rclpy.shutdown()  
+    ```
+
+    ![](img/turtle_atan2.png){:style="width:600px"}
+
+---
     
 ### Bónusz: Advanced go to
     
@@ -354,12 +349,12 @@ if __name__ == "__main__":
     
 ---
 
-## Useful links
+## Hasznos linkek
 
 
 - [For loops in python](https://www.w3schools.com/python/python_for_loops.asp)
 - [Some python functions](https://docs.python.org/3.4/library/functions.html)
-- [Turtlesim documentation](http://wiki.ros.org/turtlesim)
+- [Turtlesim help](https://docs.ros.org/en/foxy/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html)
 - [atan2](https://en.wikipedia.org/wiki/Atan2)
 
 
