@@ -5,7 +5,6 @@ author: Nagy Tamás
 
 # 03. Python alapismeretek, ROS Publisher, ROS Subscriber
 
-![](img/under_construction.png){:style="width:400px"}
 
 ---
 
