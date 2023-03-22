@@ -197,6 +197,8 @@ author: Nagy Tamás
     export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:`ros2 pkg prefix turtlebot3_gazebo `/share/ turtlebot3_gazebo/models/
     ```
 
+https://ros2-industrial-workshop.readthedocs.io/en/latest/_source/navigation/ROS2-Cartographer.html
+
 
 
 

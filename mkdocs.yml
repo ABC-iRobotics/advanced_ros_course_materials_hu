@@ -11,9 +11,9 @@ nav:
         - 1. Bevezetés, Fejlesztőkörnyezet: 01_system_setup.md
         - 2. Linux, ROS alapismeretek: 02_linux_ros_principles.md
         - 3. Python alapismeretek,  ROS Publisher, ROS Subscriber: 03_python_principles.md
-        - 4. Verziókövetés, Git: 04_git.md
-        - 5. Robotikai alapismeretek, Sebészrobot programozása: 05_da_vinci.md
-        - 6. Roslaunch, saját üzenetek, action, service: 06_roslaunch.md
+        - 4. ROS 2 Launch, Param, Bag: 04_roslaunch.md
+        - 5. Verziókövetés, Git: 05_git.md
+        - 6. Robotikai alapismeretek, Sebészrobot programozása: 05_da_vinci.md
         - 7. Kinematika, inverz kinematika: 07_robotics_principles.md
     - Kötelező program: projects.md
     
