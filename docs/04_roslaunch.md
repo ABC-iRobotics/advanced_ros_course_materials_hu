@@ -272,7 +272,8 @@ Listázzuk ki a paramétereket.
 3. Módosítsuk a sebesség és szögsebesség paramétereket parancssorból az alábbi parancs segítségével:
 
     ```bash
-    ros2 param set <PARAM_NAME> <NEW_VALUE>
+    ros2 param set <NODE_NAME> <PARAM_NAME> <NEW_VALUE>
+    ros2 param set turtlesim_controller speed 100.0
     ```
 
 ---
