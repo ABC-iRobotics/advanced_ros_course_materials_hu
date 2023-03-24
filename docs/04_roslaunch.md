@@ -294,11 +294,11 @@ fájl argumentumaiként legyenek megadhatóak.
     from launch.substitutions import LaunchConfiguration, PythonExpression
 
     def generate_launch_description():
-        turtlesim_ns = LaunchConfiguration('turtlesim_ns')
-        use_provided_red = LaunchConfiguration('use_provided_red')
-        new_background_r = LaunchConfiguration('new_background_r')
-        background_g = LaunchConfiguration('background_g')
-        background_b = LaunchConfiguration('background_b')
+        turtlesim_ns_value = LaunchConfiguration('turtlesim_ns')
+        use_provided_red_value = LaunchConfiguration('use_provided_red')
+        new_background_r_value = LaunchConfiguration('new_background_r')
+        background_g_value = LaunchConfiguration('background_g')
+        background_b_value = LaunchConfiguration('background_b')
     
         turtlesim_ns_launch_arg = DeclareLaunchArgument(
             'turtlesim_ns',
@@ -324,7 +324,7 @@ fájl argumentumaiként legyenek megadhatóak.
     
         turtlesim_node = Node(
             package='turtlesim',
-            namespace=turtlesim_ns,
+            namespace=turtlesim_ns_value,
             executable='turtlesim_node',
             name='sim'
             parameters=[{
@@ -354,7 +354,7 @@ fájl argumentumaiként legyenek megadhatóak.
         change_background_r_conditioned = ExecuteProcess(
             condition=IfCondition(
                 PythonExpression([
-                    new_background_r,
+                    new_background_r_value,
                     ' == 200',
                     ' and ',
                     use_provided_red
@@ -362,7 +362,7 @@ fájl argumentumaiként legyenek megadhatóak.
             ),
             cmd=[[
                 'ros2 param set ',
-                turtlesim_ns,
+                turtlesim_ns_value,
                 '/sim background_r ',
                 new_background_r
             ]],
