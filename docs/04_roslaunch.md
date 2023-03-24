@@ -273,7 +273,7 @@ Listázzuk ki a paramétereket.
 
     ```bash
     ros2 param set <NODE_NAME> <PARAM_NAME> <NEW_VALUE>
-    ros2 param set turtlesim_controller speed 100.0
+    ros2 param set controller speed 100.0
     ```
 
 ---
