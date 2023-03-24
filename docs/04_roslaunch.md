@@ -326,7 +326,7 @@ fájl argumentumaiként legyenek megadhatóak.
             package='turtlesim',
             namespace=turtlesim_ns_value,
             executable='turtlesim_node',
-            name='sim'
+            name='sim',
             parameters=[{
                 'background_g': background_g_value,
                 'background_b': background_b_value,
