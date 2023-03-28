@@ -1,11 +1,21 @@
 ---
-title: Követelmények
-author: Tamas D. Nagy
+title: Kötelező program
+author: Nagy Tamás
 ---
 
 # Kötelező Program
 
-![](img/under_construction.png){:style="width:400px"}
+---
+
+## Ütemezés
+
+---
+
+| Okt. hét | Dátum    | Számonkérés                                      |
+|:--------:|----------|--------------------------------------------------|
+|    8.    | márc. 31 | Kötelező programok ismertetése. Projekt labor I. |
+|   13.    | máj. 26  | Projekt labor II.                                |
+|   14.    | jún. 2   | Kötelező programok bemutatása.                   |
 
 ---
 
@@ -30,26 +40,19 @@ A kötelező programok a következő szempontok szerint kerülnek értékelésre
 - Bizonyítottan saját munka
 - Értékelhető eredményeket produkáljon
 - Verziókövetés használata, feltöltés GitHub/GitLab/egyéb repoba
-- Értékelési szempontok:
-    - a megoldás teljessége
-    - megfelelő ROS kommunikáció alkalmazása
-    - program célszerű szerkezete
-    - az implementáció minősége
-    - a kód dokumentálása
+- Launch fájlok
+- Megoldás teljessége
+- Megfelelő ROS kommunikáció alkalmazása
+- Program célszerű ROS struktúrája
+- Implementáció minősége
+- Kód dokumentálása
+
+!!! tip
+    ChatGPT és egyéb MI eszközök használata megengedett.
 
 ---
 
-## Ütemezés
 
----
-
-| Okt. hét | Dátum      | Számonkérés |
-|:--------:| ---------- | ----------- |
-|2.| szept. 13  | Kötelező programok ismertetése. |
-|8.| okt. 25  | Kötelező program mérföldkő.|
-|14.| nov. 6 | Kötelező programok bemutatása. |
-
----
 
 ## Évközi jegy
 
@@ -67,66 +70,105 @@ A félév elfogadásának feltétele, hogy mind a két ZH, mind a kötelező pro
 
 ---
 
-### 1. PlatypOUs 
+### 1. TurtleBot3 
+
+
+[TurtleBot3 ROS tutorial](https://ros2-industrial-workshop.readthedocs.io/en/latest/_source/navigation/ROS2-Turtlebot.html)
+
+
 
 ---
 
+#### 1.2. TurtleBot akadály elkerülés
 
-![](https://i.imgur.com/mCuxG54.png)
 
-#### 1.1. PlatypOUs pályakövetés
+![turtlebot_world.png](img%2Fturtlebot_world.png){:style="width:380px" align=right}
+
+- **Basic:** Szimulátor élesztése, SLAM tesztelése. ROS node/node-ok implementálása szenzorok adatainak beolvasására és a a robot mozgatására.
+- **Advanced:** ROS rendszer implementálása akadály felismerésére és az akadályt kikerülő trajektória tervezésére és megvalósítására szimulált környezetben bármely szenzor felhasználásával.
+- **Epic:** Nyűgözz le!
+
+---
+
+#### 1.1. TurtleBot pályakövetés
+
+![](https://robots.ros.org/assets/img/robots/turtlebot3/turtlebot3.png){:style="width:380px" align=right}
 
 
 
 - **Basic:** Szimulátor élesztése, SLAM tesztelése. ROS node/node-ok implementálása szenzorok adatainak beolvasására és a a robot mozgatására.
 - **Advanced:** ROS rendszer implementálása pályakövetésre szimulált környezetben bármely szenzor felhasználásával(pl. fal mellett haladás adott távolságra LIDAR segítségével).
-- **Epic:** Implementáció és tesztelés a valós hardware-en és/vagy nyűgözz le!
+- **Epic:** Nyűgözz le!
+<!--suppress XmlDeprecatedElement -->
+<font size="1"> Image source: https://robots.ros.org/turtlebot3/ </font>
 
-#### 1.2. PlatypOUs akadály elkerülés
 
-- **Basic:** Szimulátor élesztése, SLAM tesztelése. ROS node/node-ok implementálása szenzorok adatainak beolvasására és a a robot mozgatására.
-- **Advanced:** ROS rendszer implementálása akadály felismerésére és az akadályt kikerülő trajektória tervezésére és megvalósítására szimulált környezetben bármely szenzor felhasználásával.
-- **Epic:** Implementáció és tesztelés a valós hardware-en és/vagy nyűgözz le!
+---
 
-#### 1.3. PlatypOUs objektum követés
+#### 1.3. TurtleBot objektum követés/visual servoing
 
 - **Basic:** Szimulátor élesztése, SLAM tesztelése. ROS node/node-ok implementálása szenzorok adatainak beolvasására és a a robot mozgatására.
 - **Advanced:** ROS rendszer implementálása objektum megkeresésére/felismerésére és követésére/megközelítésére szimulált környezetben bármely szenzor felhasználásával (pl. visual servoing).
-- **Epic:** Implementáció és tesztelés a valós hardware-en és/vagy nyűgözz le!
+- **Epic:** Nyűgözz le!
 
-#### 1.4. PlatypOUs action library
+---
+
+#### 1.4. TurtleBot action library
 
 - **Basic:** Szimulátor élesztése, SLAM tesztelése. ROS node/node-ok implementálása szenzorok adatainak beolvasására és a a robot mozgatására.
 - **Advanced:** Egyszerű műveleteket tartalmazó, ROS action alapú könyvtár és ezeket végrehajtó rendszer implementálása (pl. push object, move to object, turn around).
-- **Epic:** Implementáció és tesztelés a valós hardware-en és/vagy nyűgözz le!
+- **Epic:** Nyűgözz le!
+
+
+
+---
+
+### 2. YouBot
+
+<iframe width="560" height="315" align="right" src="https://www.youtube.com/embed/qvBEQsGvC3M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+[YouBot controller GitHub](https://github.com/ABC-iRobotics/YoubotDriver/tree/ROS)
+
+---
+
+
+#### 2.1. YouBot ROS integráció
+
+- **Basic:** YouBot repo build-elése, megismerése
+- **Advanced:** Szimulált robot mozgatása csuklótérben ROS környezetben
+- **Epic:** Tesztelés valós roboton és/vagy nyűgözz le!
 
 
 ---
 
-### 2. AMBF
+### 3. AMBF
+
+[AMBF GitHub](https://github.com/WPI-AIM/ambf)
 
 ---
 
 
-#### 2.1. da Vinci sebészrobot ROS integrációja AMBF szimulátorban
+#### 3.1. da Vinci sebészrobot ROS integrációja AMBF szimulátorban
 
-![](https://i.imgur.com/tmhAkwg.png)
+![ambf_psm.png](img%2Fambf_psm.png){:style="width:200px" align=right}
 
 - **Basic:** Szimulátor élesztése, robot vezérlése joint space-ben és task space-ben (IK már implementálva AMBF-ben) ROS-ból CRTK szerinti topic-okon keresztül
 - **Advanced:** Objektumok detektálása *Peg transfer puzzle*-ben
 - **Epic:** Autonóm manipuláció *Peg transfer*-en és/vagy nyűgözz le!
 
-#### 2.2. KUKA robotkar ROS integrációja AMBF szimulátorban
+#### 3.2. KUKA robotkar ROS integrációja AMBF szimulátorban
 
-![](https://i.imgur.com/4FyvHM5.png)
+![ambf_kuka.png](img%2Fambf_kuka.png){:style="width:200px" align=right}
+
 
 - **Basic:** Szimulátor élesztése, robot vezérlése joint space-ben ROS-ból
-- **Advanced:** Robot vezérlése task space-ben, IK?
-- **Epic:** Trajektóriatervezés
+- **Advanced:** Trajektóriák generálása joint space-ben
+- **Epic:** Inverz kinematika implementálása
 
-#### 2.3. PR2 humanoid robot ROS integrációja AMBF szimulátorban
+#### 3.3. PR2 humanoid robot ROS integrációja AMBF szimulátorban
 
-![](https://i.imgur.com/tGCClwQ.png)
+![ambf_pr2.png](img%2Fambf_pr2.png){:style="width:200px" align=right}
 
 - **Basic:** Szimulátor élesztése, robot vezérlése joint space-ben ROS-ból
 - **Advanced:** Robot vezérlése task space-ben, IK?
@@ -144,8 +186,8 @@ Megegyezés alapján.
 
 ## Hasznos linkek
 
-- [Gazebo ROS packages](http://wiki.ros.org/gazebo_ros_pkgs)
-- [PlatypOUs](https://github.com/ABC-iRobotics/PlatypOUs-Mobile-Robot-Platform)
+- [TurtleBot3 Simulation](https://emanual.robotis.com/docs/en/platform/turtlebot3/simulation/)
+- [TurtleBot3 Tutorial](https://ros2-industrial-workshop.readthedocs.io/en/latest/_source/navigation/ROS2-Turtlebot.html)
 - [AMBF](https://github.com/WPI-AIM/ambf)
 - [My fork of AMBF](https://github.com/TamasDNagy/ambf)
 - [CRTK topics](https://github.com/jhu-cisst/cisst/blob/devel/utils/crtk-port/crtk-ros-commands.dict)
