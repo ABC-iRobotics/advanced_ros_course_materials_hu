@@ -111,6 +111,9 @@ git push -u origin master
 
 2. Hozzunk létre egy private repo-t GitHub-on a `ros2_course` package számára.
 
+    ---
+
+
 3. Hozzuk létre a local repo-t, állítsuk be a remote-ot, majd push-oljuk a package
 tartalmát GitHUb-ra (a GitHub is segít a repo létrehozása után):
 
@@ -126,6 +129,10 @@ tartalmát GitHUb-ra (a GitHub is segít a repo létrehozása után):
 
     !!! tip
         **Personal token megjegyzése:** `git config --global credential.helper store`
+
+
+    ---
+
 
 4. Adjunk hozzá egy README.md-t a ros2_course csomaghoz az alábbi tartalommal:
  
