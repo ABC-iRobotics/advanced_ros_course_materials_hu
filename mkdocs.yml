@@ -13,7 +13,7 @@ nav:
         - 3. Python alapismeretek,  ROS Publisher, ROS Subscriber: 03_python_principles.md
         - 4. ROS 2 Launch, Param, Bag: 04_roslaunch.md
         - 5. Verziókövetés, Git: 05_git.md
-        - 6. Robotikai alapismeretek, Sebészrobot programozása: 05_da_vinci.md
+        - 6. Robotikai alapismeretek, Sebészrobot programozása: 06_da_vinci.md
         - 7. Kinematika, inverz kinematika: 07_robotics_principles.md
     - Kötelező program: projects.md
     
