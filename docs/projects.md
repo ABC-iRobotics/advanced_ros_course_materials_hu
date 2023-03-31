@@ -79,7 +79,7 @@ A félév elfogadásának feltétele, hogy mind a két ZH, mind a kötelező pro
 
 ---
 
-#### 1.2. TurtleBot akadály elkerülés
+#### 1.1. TurtleBot akadály elkerülés
 
 
 ![turtlebot_world.png](img%2Fturtlebot_world.png){:style="width:380px" align=right}
@@ -90,7 +90,7 @@ A félév elfogadásának feltétele, hogy mind a két ZH, mind a kötelező pro
 
 ---
 
-#### 1.1. TurtleBot pályakövetés
+#### 1.2. TurtleBot pályakövetés
 
 ![](https://robots.ros.org/assets/img/robots/turtlebot3/turtlebot3.png){:style="width:380px" align=right}
 
@@ -146,6 +146,23 @@ A félév elfogadásának feltétele, hogy mind a két ZH, mind a kötelező pro
 
 [AMBF GitHub](https://github.com/WPI-AIM/ambf)
 
+!!! tip "AMBF build-elése"
+	Fork-oljuk az AMBF csomagot, majd a fork-ot clone-ozzuk:
+	```bash
+	cd ~/ros2_ws/src
+	git clone <MY_AMBF_FORK.git>
+	```
+    Ne az AMBF dokumentációjában javasolt make-et használjuk, hanem colcon-t:
+	```bash
+    cd ~/ros2_ws
+    colcon build --symlink-install
+	```    
+	Így indíthatjukl el a szimulátort:
+	```bash    
+    cd ~/ros2_ws/src/ambf/bin/lin-x86_64
+	./ambf_simulator -l 4
+	```
+
 ---
 
 
@@ -164,7 +181,7 @@ A félév elfogadásának feltétele, hogy mind a két ZH, mind a kötelező pro
 
 - **Basic:** Szimulátor élesztése, robot vezérlése joint space-ben ROS-ból
 - **Advanced:** Trajektóriák generálása joint space-ben
-- **Epic:** Inverz kinematika implementálása
+- **Epic:** Inverz kinematika implementálása és/vagy nyűgözz le!
 
 #### 3.3. PR2 humanoid robot ROS integrációja AMBF szimulátorban
 
@@ -172,7 +189,7 @@ A félév elfogadásának feltétele, hogy mind a két ZH, mind a kötelező pro
 
 - **Basic:** Szimulátor élesztése, robot vezérlése joint space-ben ROS-ból
 - **Advanced:** Robot vezérlése task space-ben, IK?
-- **Epic:** Trajektóriatervezés/Navigáció/Manipuláció
+- **Epic:** Trajektóriatervezés/Navigáció/Manipuláció és/vagy nyűgözz le!
 
 ---
 

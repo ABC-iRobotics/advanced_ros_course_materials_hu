@@ -29,6 +29,7 @@ author: Nagy Tamás
  
 ---
 
+
 #### Install
 
 ---
@@ -58,9 +59,6 @@ git config --global user.email "istvan.szabo@gmail.com"
 
 ```
 
-
-!!! tip
-    **Windows és Linux óra probléma megoldása:** `timedatectl set-local-rtc 1 --adjust-system-clock`
 
 
 
@@ -111,6 +109,11 @@ git push -u origin master
 
 2. Hozzunk létre egy private repo-t GitHub-on a `ros2_course` package számára.
 
+
+!!! tip
+    **Personal token megjegyzése:** `git config --global credential.helper store`
+
+
     ---
 
 
@@ -127,8 +130,6 @@ tartalmát GitHUb-ra (a GitHub is segít a repo létrehozása után):
     git push -u origin main
     ```
 
-    !!! tip
-        **Personal token megjegyzése:** `git config --global credential.helper store`
 
 
     ---
@@ -165,6 +166,11 @@ tartalmát GitHUb-ra (a GitHub is segít a repo létrehozása után):
         A GitHub használata CLion-ban is beállítható, így grafikus felületen kezelhetjük a verziókat.
 
 ---
+
+!!! tip
+    **Windows és Linux óra probléma megoldása:** `timedatectl set-local-rtc 1 --adjust-system-clock`
+
+
 
 ## Hasznos linkek
 
