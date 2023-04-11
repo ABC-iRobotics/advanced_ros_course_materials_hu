@@ -5,8 +5,6 @@ author: Nagy Tamás
 
 # 06. Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben, ROS1-ROS2 bridge
 
-![](img/under_construction.png){:style="width:400px"}
-
 ---
 
 ## Elmélet
@@ -14,7 +12,7 @@ author: Nagy Tamás
 --- 
 
 !!! warning
-	**ZH1** (ROS alapok, publisher, subscriber. Python alapok. Robotikai alapfogalmak.) **október 11.**
+	**ZH1** (ROS alapok, publisher, subscriber. Python alapok. Launch, paraméterek, rosbag. Robotikai alapfogalmak.) **április 21.**
 
 
 
