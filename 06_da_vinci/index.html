@@ -530,50 +530,50 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-catkin-workspace" class="md-nav__link">
-    1: Catkin workspace
+  <a href="#1-ros1-ros2-bridge-install" class="md-nav__link">
+    1: ROS1-ROS2 bridge install
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-dvrk-install" class="md-nav__link">
-    2. dVRK install
+  <a href="#2-catkin-workspace" class="md-nav__link">
+    2: Catkin workspace
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-ros1-ros2-bridge-build-es-install" class="md-nav__link">
-    3. ROS1-ROS2 bridge build és install
+  <a href="#3-dvrk-install" class="md-nav__link">
+    3: dVRK install
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-psm-subscriber-implementalasa" class="md-nav__link">
-    2. PSM subscriber implementálása
+  <a href="#4-psm-subscriber-implementalasa" class="md-nav__link">
+    4: PSM subscriber implementálása
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-psm-tcp-mozgatasa-linearis-trajektoria-menten" class="md-nav__link">
-    3. PSM TCP mozgatása lineáris trajektória mentén
+  <a href="#5-psm-tcp-mozgatasa-linearis-trajektoria-menten" class="md-nav__link">
+    5. PSM TCP mozgatása lineáris trajektória mentén
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-dummy-marker-letrehozasa" class="md-nav__link">
-    4. Dummy marker létrehozása
+  <a href="#6-dummy-marker-letrehozasa" class="md-nav__link">
+    6. Dummy marker létrehozása
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-marker-megfogasa" class="md-nav__link">
-    5. Marker megfogása
+  <a href="#7-marker-megfogasa" class="md-nav__link">
+    7. Marker megfogása
   </a>
   
 </li>
@@ -652,13 +652,12 @@
 
 
 <h1 id="06-robotikai-alapfogalmak-da-vinci-sebeszrobot-programozasa-szimulalt-kornyezetben-ros1-ros2-bridge">06. Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben, ROS1-ROS2 bridge</h1>
-<p><img alt="" src="../img/under_construction.png" style="width:400px" /></p>
 <hr />
 <h2 id="elmelet">Elmélet</h2>
 <hr />
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p><strong>ZH1</strong> (ROS alapok, publisher, subscriber. Python alapok. Robotikai alapfogalmak.) <strong>október 11.</strong></p>
+<p><strong>ZH1</strong> (ROS alapok, publisher, subscriber. Python alapok. Launch, paraméterek, rosbag. Robotikai alapfogalmak.) <strong>április 21.</strong></p>
 </div>
 <h3 id="merev-test-mozgasa">Merev test mozgása</h3>
 <hr />
@@ -810,11 +809,15 @@ If not installed:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 
-<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">24</span><span class="p">)</span>
 <span class="n">C</span><span class="p">,</span> <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">S</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;y=cos(x)&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">S</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;y=sin(x)&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
@@ -824,7 +827,31 @@ If not installed:</p>
 <hr />
 <h2 id="gyakorlat">Gyakorlat</h2>
 <hr />
-<h3 id="1-catkin-workspace">1: Catkin workspace</h3>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/QksAVT0YMEo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<hr />
+<h3 id="1-ros1-ros2-bridge-install">1: ROS1-ROS2 bridge install</h3>
+<hr />
+<ol>
+<li>
+<p>Nyissuk meg a <code>~/.bashrc</code> fájlt és kommenteljük ki a ROS 1, ROS 2 és további ROS workspace-ek source-olásáért felelős sorokat.</p>
+<hr />
+</li>
+<li>
+<p>Adjuk hozzá az alábbi sort a <code>~/.bashrc</code> fájlhoz:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">ROS_MASTER_URI</span><span class="o">=</span>http://localhost:11311
+</code></pre></div>
+<hr />
+</li>
+<li>
+<p>Telepítsük a <code>ros-foxy-ros1-bridge</code> csomagot:</p>
+<div class="highlight"><pre><span></span><code>sudo apt update
+sudo apt install ros-foxy-ros1-bridge
+</code></pre></div>
+</li>
+</ol>
+<hr />
+<h3 id="2-catkin-workspace">2: Catkin workspace</h3>
 <hr />
 <ol>
 <li>
@@ -835,7 +862,7 @@ sudo apt-get install python3-catkin-tools python3-osrf-pycommon
 <hr />
 </li>
 <li>
-<p>Hozzuk létre a workspace-t:</p>
+<p>Hozzuk létre a catkin workspace-t:</p>
 <div class="highlight"><pre><span></span><code>mkdir -p ~/catkin_ws/src
 <span class="nb">cd</span> ~/catkin_ws
 catkin init
@@ -843,7 +870,7 @@ catkin init
 </li>
 </ol>
 <hr />
-<h3 id="2-dvrk-install">2. dVRK install</h3>
+<h3 id="3-dvrk-install">3: dVRK install</h3>
 <hr />
 <ol>
 <li>
@@ -851,6 +878,11 @@ catkin init
 <div class="highlight"><pre><span></span><code>sudo apt install libxml2-dev libraw1394-dev libncurses5-dev qtcreator swig sox espeak cmake-curses-gui cmake-qt-gui git subversion gfortran libcppunit-dev libqt5xmlpatterns5-dev python3-wstool python3-catkin-tools python3-osrf-pycommon ros-noetic-rviz
 </code></pre></div>
 <hr />
+</li>
+<li>
+<p>Töltsük le a ROS verziók source-olását megkönnyítő scriptet (a VM-eken már le van töltve). Source-oljuk a ROS 1-et:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span> ros_setup.sh -v <span class="m">1</span>
+</code></pre></div>
 </li>
 <li>
 <p>Töltsük le és telepítsük a dVRK-t (da Vinci Reserach Kit):</p>
@@ -870,89 +902,37 @@ catkin build --summary             <span class="c1"># ... and finally compile ev
 <hr />
 </li>
 <li>
-<p>Indítsuk el a PSM1 (Patient Side Manipulator) RViz szimulációját:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">source</span> ~/catkin_ws/devel/setup.bash
+<p>Indítsuk el a PSM1 (Patient Side Manipulator) RViz szimulációját. A dVRK konzolon ne felejtsünk el HOME-olni. Indítsuk el a ROS1-ROS2 Bridge-t.
+Tanulmányozzuk a szimulátor működését ROS 2-ből a tanult prancsok (<code>ros2 topic list</code>, <code>ros2 topic echo</code> <code>ros2 run rqt_gui rqt_gui</code>, stb.) használatával. </p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span> ros_setup.sh -v <span class="m">2</span>
+ros2 topic list
+ros2 topic <span class="nb">echo</span> /PSM1/measured_cp
+ros2 run rqt_gui rqt_gui
+<span class="sb">````</span>rqt_gui<span class="sb">`</span> segítségével.
+
+<span class="sb">```</span>bash
+<span class="nb">source</span> ros_setup.sh -v <span class="m">1</span>
 roslaunch dvrk_robot dvrk_arm_rviz.launch arm:<span class="o">=</span>PSM1 config:<span class="o">=</span>/home/<span class="k">$(</span>whoami<span class="k">)</span>/catkin_ws/src/cisst-saw/sawIntuitiveResearchKit/share/console/console-PSM1_KIN_SIMULATED.json
 </code></pre></div>
-</li>
-</ol>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/QksAVT0YMEo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<pre><code>---
-</code></pre>
-<h3 id="3-ros1-ros2-bridge-build-es-install">3. ROS1-ROS2 bridge build és install</h3>
-<hr />
-<pre><code>```bash
-chmod +x ros_setup.sh
-
-```
-
-Adjuk hozzá az alábbi sort a `~/.bashrc` fájlhoz:
-
-```bash
-export ROS_MASTER_URI=http://localhost:11311
-```
-
-Szintén a `~/.bashrc` fájlban: kommenteljük ki a ROS2 source-olására használt sorokat.
-
-```bash
-# ROS 2
-source /opt/ros/foxy/setup.bash
-source ~/ros2_ws/install/setup.bash
-source ~/doosan2_ws/install/setup.bash
-```
-</code></pre>
-<!---
-    <div class="highlight"><pre><span></span><code>mkdir -p ~/ros1_bridge_ws/src
-<span class="nb">cd</span> ~/ros1_bridge_ws/src
-git clone -b foxy https://github.com/ros2/ros1_bridge.git
-
-<span class="nb">source</span> ~/ros_setup.sh -v <span class="m">1</span>
-<span class="nb">source</span> ~/ros_setup.sh -v <span class="m">2</span>
-
-colcon build --packages-select ros1_bridge --cmake-force-configure --cmake-args -DBUILD_TESTING<span class="o">=</span>FALSE
-</code></pre></div>
--->
-
-<pre><code>```bash
-sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" &gt; /etc/apt/sources.list.d/ros-latest.list'
-sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
-sudo apt update
-sudo apt install ros-foxy-ros1-bridge
-```
-
-Launch
-
-```bash
-source ros_setup.sh -v 1
-roslaunch dvrk_robot dvrk_arm_rviz.launch arm:=PSM1 config:=/home/$(whoami)/catkin_ws/src/cisst-saw/sawIntuitiveResearchKit/share/console/console-PSM1_KIN_SIMULATED.json
-
-```
-
-```bash
+<p>```bash
 source ros_setup.sh -v b
 ros2 run ros1_bridge dynamic_bridge --bridge-all-topics
-```
-
-```bash
+<div class="highlight"><pre><span></span><code>```bash
 source ros_setup.sh -v 2
-ros2 topic list
-ros2 topic echo /PSM1/measured_cp
-```
-</code></pre>
-<h3 id="2-psm-subscriber-implementalasa">2. PSM subscriber implementálása</h3>
+ros2 run rqt_gui rqt_gui
+</code></pre></div></p>
+</li>
+</ol>
+<hr />
+<h3 id="4-psm-subscriber-implementalasa">4: PSM subscriber implementálása</h3>
 <hr />
 <ol>
 <li>
-<p>Nyissuk meg a workspace-t QtCreatorban, mint új ROS workspace.</p>
+<p>Hozzunk létre új python forrásfájlt <code>psm_grasp.py</code> névvel a  <code>~/ros2_ws/src/ros2_course/ros2_course</code> mappában. Adjuk meg az új entry point-ot a <code>setup.py</code>-ban a megszokott módon.</p>
 <hr />
 </li>
 <li>
-<p>Hozzunk létre új python forrásfájlt <code>psm_grasp.py</code> névvel a  <code>~/catkin_ws/src/ros_course/scripts</code> mappában. Adjuk meg a fájl nevét a <code>CMakeLists.txt</code>-ben a megszokott módon.</p>
-<hr />
-</li>
-<li>
-<p>Vizsgáljuk a szimulátor működését a tanult prancsok (<code>rostopic list</code>, <code>rosrun rqt_graph rqt_graph</code>, stb.) használatával. A PSM a lenti topic-okban publikálja a TCP-t (Tool Center Point) és a csipesz pofái által bezárt szöget. Iratkozzunk fel ezekre a topic-okra, írassuk ki és tároljuk el a pillanatnyi állapotot egy-egy változóban.</p>
+<p>Iratkozzunk fel a PSM TCP (Tool Center Point) pozícióját és a csipesz pofái által bezárt szögét publikáló topic-okra.</p>
 <div class="highlight"><pre><span></span><code>/PSM1/measured_cp
 /PSM1/jaw/measured_js
 </code></pre></div>
@@ -960,16 +940,17 @@ ros2 topic echo /PSM1/measured_cp
 </li>
 <li>
 <p>Build-eljünk és futtassuk a node-ot:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/catkin_ws
-catkin build ros_course
-rosrun ros_course psm_grasp.py 
+<div class="highlight"><pre><span></span><code><span class="nb">source</span> ros_setup.sh -v <span class="m">2</span>
+<span class="nb">cd</span> ~/ros2_ws
+colcon build --symlink-install
+ros2 run ros2_course psm_grasp 
 </code></pre></div>
 <hr />
 </li>
 </ol>
-<h3 id="3-psm-tcp-mozgatasa-linearis-trajektoria-menten">3. PSM TCP mozgatása lineáris trajektória mentén</h3>
+<h3 id="5-psm-tcp-mozgatasa-linearis-trajektoria-menten">5. PSM TCP mozgatása lineáris trajektória mentén</h3>
 <hr />
-<p><img align="right" alt="" src="../img/PSM_coordinates.png" style="width:400px" /></p>
+<p><img align="right" alt="" src="../img/PSM_coordinates.png" style="width:350px" /></p>
 <ol>
 <li>
 <p>A PSM a lenti topicok-ban várja a kívánt TCP pozíciót és a csipesz pofái által bezárt szöget. Hozzunk létre publishereket a <code>psm_grasp.py</code> fájlban ezekhez a topicokhoz.</p>
@@ -979,43 +960,53 @@ rosrun ros_course psm_grasp.py
 <hr />
 </li>
 <li>
-<p>Írjunk függvényt, amely lineáris trajektória mentén a kívánt pozícióba mozgatja a TCP-t. Küldjük az csipeszt a (0.0, 0.05, -0.12) pozícióba, az orientációt hagyjuk változatlanul. 0.01s legyen a mintavételi idő.</p>
+<p>Írjunk függvényt, amely lineáris trajektória mentén a kívánt pozícióba mozgatja a TCP-t. Küldjük az csipeszt a (0.0, 0.05, -0.12) pozícióba,
+az orientációt hagyjuk változatlanul. 0.01s legyen a mintavételi idő. Matplotlib használatával plotoljuk a tervezett trajektória
+x, y és z komponensét idő függvényében.</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">move_tcp_to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
 </code></pre></div>
+<p><img align="right" alt="" src="../img/lin.png" style="width:700px" /></p>
 <hr />
 </li>
 <li>
 <p>Írjunk függvényt, amellyel a csipeszt tudjuk nyitni-zárni, szintén lineáris trajektória használatával.</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">move_jaw_to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">omega</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
 </code></pre></div>
-<p><img align="right" alt="" src="../img/lin.png" style="width:700px" /></p>
 <hr />
 </li>
 </ol>
-<h3 id="4-dummy-marker-letrehozasa">4. Dummy marker létrehozása</h3>
+<h3 id="6-dummy-marker-letrehozasa">6. Dummy marker létrehozása</h3>
 <hr />
 <ol>
 <li>
-<p>Hozzunk létre új python forrásfájlt <code>dummy_marker.py</code> névvel a  <code>~/catkin_ws/src/ros_course/scripts</code> mappában. Adjuk meg a fájl nevét a <code>CMakeLists.txt</code>-ben a megszokott módon. Implementájunk python programot, amely markert publikál (-0.05, 0.08, -0.12) pozícióval <code>dummy_target_marker</code> nevű topic-ban. A <code>frame_id</code> addattag értéke legyen <code>PSM1_psm_base_link</code>. Másoljuk az alábbi kódot a <code>dummy_marker.py</code> fájlba:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">rospy</span>
+<p>Hozzunk létre új python forrásfájlt <code>dummy_marker.py</code> névvel. Adjuk meg az entry point-ot a <code>setup.py</code>-ban a megszokott módon.
+Implementájunk python programot, amely markert publikál (-0.05, 0.08, -0.14) pozícióval <code>dummy_target_marker</code> nevű topic-ban.
+A <code>frame_id</code> addattag értéke legyen <code>PSM1_psm_base_link</code>. Másoljuk az alábbi kódot a <code>dummy_marker.py</code> fájlba:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">rclpy</span>
+<span class="kn">from</span> <span class="nn">rclpy.node</span> <span class="kn">import</span> <span class="n">Node</span>
 <span class="kn">from</span> <span class="nn">visualization_msgs.msg</span> <span class="kn">import</span> <span class="n">Marker</span>
 
-<span class="k">def</span> <span class="nf">marker</span><span class="p">(</span><span class="n">position</span><span class="p">):</span>
-    <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s1">&#39;dummy_target_publisher&#39;</span><span class="p">,</span> <span class="n">anonymous</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">pub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s1">&#39;dummy_target_marker&#39;</span><span class="p">,</span> <span class="n">Marker</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-    <span class="n">rate</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Rate</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># 10hz</span>
-    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">while</span> <span class="ow">not</span> <span class="n">rospy</span><span class="o">.</span><span class="n">is_shutdown</span><span class="p">():</span>
+<span class="k">class</span> <span class="nc">DummyMarker</span><span class="p">(</span><span class="n">Node</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">position</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s1">&#39;minimal_publisher&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">position</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">publisher_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_publisher</span><span class="p">(</span><span class="n">Marker</span><span class="p">,</span> <span class="s1">&#39;dummy_target_marker&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="n">timer_period</span> <span class="o">=</span> <span class="mf">0.1</span>  <span class="c1"># seconds</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">timer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_timer</span><span class="p">(</span><span class="n">timer_period</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">timer_callback</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">timer_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">marker</span> <span class="o">=</span> <span class="n">Marker</span><span class="p">()</span>
         <span class="n">marker</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="s1">&#39;PSM1_psm_base_link&#39;</span>
-        <span class="n">marker</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">stamp</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Time</span><span class="p">()</span>
+        <span class="n">marker</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">stamp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_clock</span><span class="p">()</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">to_msg</span><span class="p">()</span>
         <span class="n">marker</span><span class="o">.</span><span class="n">ns</span> <span class="o">=</span> <span class="s2">&quot;dvrk_viz&quot;</span>
-        <span class="n">marker</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">i</span>
+        <span class="n">marker</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">i</span>
         <span class="n">marker</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">Marker</span><span class="o">.</span><span class="n">SPHERE</span>
         <span class="n">marker</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="n">Marker</span><span class="o">.</span><span class="n">MODIFY</span>
-        <span class="n">marker</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">position</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">marker</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">position</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-        <span class="n">marker</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">position</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">marker</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">marker</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">marker</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
         <span class="n">marker</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mf">0.0</span>
         <span class="n">marker</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mf">0.0</span>
         <span class="n">marker</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.0</span>
@@ -1028,16 +1019,23 @@ rosrun ros_course psm_grasp.py
         <span class="n">marker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">g</span> <span class="o">=</span> <span class="mf">1.0</span>
         <span class="n">marker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
 
-        <span class="c1">#rospy.loginfo(marker)</span>
-        <span class="n">pub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">marker</span><span class="p">)</span>
-        <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
-        <span class="n">rate</span><span class="o">.</span><span class="n">sleep</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">publisher_</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">marker</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
+    <span class="n">marker_publisher</span> <span class="o">=</span> <span class="n">DummyMarker</span><span class="p">([</span><span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.08</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.12</span><span class="p">])</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">marker_publisher</span><span class="p">)</span>
+
+    <span class="c1"># Destroy the node explicitly</span>
+    <span class="c1"># (optional - otherwise it will be done automatically</span>
+    <span class="c1"># when the garbage collector destroys the node object)</span>
+    <span class="n">marker_publisher</span><span class="o">.</span><span class="n">destroy_node</span><span class="p">()</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">marker</span><span class="p">([</span><span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.08</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.12</span><span class="p">])</span>
-    <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ROSInterruptException</span><span class="p">:</span>
-        <span class="k">pass</span>
+    <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
 <hr />
 </li>
@@ -1046,7 +1044,7 @@ rosrun ros_course psm_grasp.py
 <hr />
 </li>
 </ol>
-<h3 id="5-marker-megfogasa">5. Marker megfogása</h3>
+<h3 id="7-marker-megfogasa">7. Marker megfogása</h3>
 <hr />
 <ol>
 <li>
@@ -1072,7 +1070,6 @@ rosrun ros_course psm_grasp.py
 <li><a href="https://www.programcreek.com/python/example/88812/visualization_msgs.msg.Marker">Marker examples</a></li>
 <li><a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.norm.html">Numpy vector magnitude</a></li>
 <li><a href="https://numpy.org/doc/stable/reference/generated/numpy.linspace.html">Numpy linspace</a></li>
-<li><a href="https://industrial-training-master.readthedocs.io/en/melodic/_source/session7/ROS1-ROS2-bridge.html">https://industrial-training-master.readthedocs.io/en/melodic/_source/session7/ROS1-ROS2-bridge.html</a></li>
 </ul>
 
               
