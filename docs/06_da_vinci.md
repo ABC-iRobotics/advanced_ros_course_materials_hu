@@ -172,11 +172,15 @@ pip3 install numpy
 import numpy as np
 from matplotlib import pyplot as plt
 
-X = np.linspace(-np.pi, np.pi, 256)
+X = np.linspace(-np.pi, np.pi, 24)
 C, S = np.cos(X), np.sin(X)
 
-plt.plot(X, C)
-plt.plot(X, S)
+plt.plot(X, C, label='y=cos(x)', marker='.')
+plt.plot(X, S label='y=sin(x)', marker='.')
+
+plt.xlabel('x')
+plt.ylabel('y')
+plt.legend()
 
 plt.show()
 ```
@@ -197,10 +201,40 @@ pip3 install matplotlib
 ---
 
 
-### 1: Catkin workspace
+<iframe width="560" height="315" src="https://www.youtube.com/embed/QksAVT0YMEo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 ---
 
+### 1: ROS1-ROS2 bridge install
+
+---
+
+1. Nyissuk meg a `~/.bashrc` fájlt és kommenteljük ki a ROS 1, ROS 2 és további ROS workspace-ek source-olásáért felelős sorokat.
+
+    ---
+
+2. Adjuk hozzá az alábbi sort a `~/.bashrc` fájlhoz:
+
+    ```bash
+    export ROS_MASTER_URI=http://localhost:11311
+    ```
+
+    ---
+
+3. Telepítsük a `ros-foxy-ros1-bridge` csomagot:
+
+    
+    ```bash
+    sudo apt update
+    sudo apt install ros-foxy-ros1-bridge
+    ```
+
+---
+
+### 2: Catkin workspace
+
+---
 
 1. Telepítsük a catkin build tools csomagot:
 
@@ -212,7 +246,7 @@ pip3 install matplotlib
     ---
 
 
-2. Hozzuk létre a workspace-t:
+2. Hozzuk létre a catkin workspace-t:
 
     ```bash
     mkdir -p ~/catkin_ws/src
@@ -223,7 +257,7 @@ pip3 install matplotlib
 ---
 
 
-### 2. dVRK install
+### 3: dVRK install
 
 ---
 
@@ -235,8 +269,15 @@ pip3 install matplotlib
     ```
     
     ---
-    
-2. Töltsük le és telepítsük a dVRK-t (da Vinci Reserach Kit):
+
+2. Töltsük le a ROS verziók source-olását megkönnyítő scriptet (a VM-eken már le van töltve). Source-oljuk a ROS 1-et:
+
+    ```bash
+    source ros_setup.sh -v 1
+    ```
+
+
+3. Töltsük le és telepítsük a dVRK-t (da Vinci Reserach Kit):
 
     ```bash
     cd ~/catkin_ws                     # go in the workspace
@@ -254,97 +295,45 @@ pip3 install matplotlib
 
     ---
     
-3. Indítsuk el a PSM1 (Patient Side Manipulator) RViz szimulációját:
+4. Indítsuk el a PSM1 (Patient Side Manipulator) RViz szimulációját. A dVRK konzolon ne felejtsünk el HOME-olni. Indítsuk el a ROS1-ROS2 Bridge-t.
+Tanulmányozzuk a szimulátor működését ROS 2-ből a tanult prancsok (`ros2 topic list`, `ros2 topic echo` `ros2 run rqt_gui rqt_gui`, stb.) használatával. 
 
-    ```bash
-    source ~/catkin_ws/devel/setup.bash
-    roslaunch dvrk_robot dvrk_arm_rviz.launch arm:=PSM1 config:=/home/$(whoami)/catkin_ws/src/cisst-saw/sawIntuitiveResearchKit/share/console/console-PSM1_KIN_SIMULATED.json
-    ```
-
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/QksAVT0YMEo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-    ---
-
-### 3. ROS1-ROS2 bridge build és install
-
----
-    ```bash
-    chmod +x ros_setup.sh
-
-    ```
-    
-    Adjuk hozzá az alábbi sort a `~/.bashrc` fájlhoz:
-    
-    ```bash
-    export ROS_MASTER_URI=http://localhost:11311
-    ```
-    
-    Szintén a `~/.bashrc` fájlban: kommenteljük ki a ROS2 source-olására használt sorokat.
-    
-    ```bash
-    # ROS 2
-    source /opt/ros/foxy/setup.bash
-    source ~/ros2_ws/install/setup.bash
-    source ~/doosan2_ws/install/setup.bash
-    ```
-
-<!---
-    ```bash
-    mkdir -p ~/ros1_bridge_ws/src
-    cd ~/ros1_bridge_ws/src
-    git clone -b foxy https://github.com/ros2/ros1_bridge.git
-    
-    source ~/ros_setup.sh -v 1
-    source ~/ros_setup.sh -v 2
-
-    colcon build --packages-select ros1_bridge --cmake-force-configure --cmake-args -DBUILD_TESTING=FALSE
-
-    ```
--->
-    
-    ```bash
-    sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
-    sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
-    sudo apt update
-    sudo apt install ros-foxy-ros1-bridge
-    ```
-    
-    Launch
-    
-    ```bash
-    source ros_setup.sh -v 1
-    roslaunch dvrk_robot dvrk_arm_rviz.launch arm:=PSM1 config:=/home/$(whoami)/catkin_ws/src/cisst-saw/sawIntuitiveResearchKit/share/console/console-PSM1_KIN_SIMULATED.json
-
-    ```
-    
-    ```bash
-    source ros_setup.sh -v b
-    ros2 run ros1_bridge dynamic_bridge --bridge-all-topics
-    ```
-    
     ```bash
     source ros_setup.sh -v 2
     ros2 topic list
     ros2 topic echo /PSM1/measured_cp
-    ```
-    
-    
-    
+    ros2 run rqt_gui rqt_gui
+    ````rqt_gui` segítségével.
 
-### 2. PSM subscriber implementálása
+    ```bash
+    source ros_setup.sh -v 1
+    roslaunch dvrk_robot dvrk_arm_rviz.launch arm:=PSM1 config:=/home/$(whoami)/catkin_ws/src/cisst-saw/sawIntuitiveResearchKit/share/console/console-PSM1_KIN_SIMULATED.json
+    ```
+   
+     ```bash
+    source ros_setup.sh -v b
+    ros2 run ros1_bridge dynamic_bridge --bridge-all-topics
+    ```
+
+    ```bash
+    source ros_setup.sh -v 2
+    ros2 run rqt_gui rqt_gui
+    ```
 
 ---
 
-1. Nyissuk meg a workspace-t QtCreatorban, mint új ROS workspace.
+    
+    
+
+### 4: PSM subscriber implementálása
+
+---
+
+1. Hozzunk létre új python forrásfájlt `psm_grasp.py` névvel a  `~/ros2_ws/src/ros2_course/ros2_course` mappában. Adjuk meg az új entry point-ot a `setup.py`-ban a megszokott módon.
 
     ---
     
-2. Hozzunk létre új python forrásfájlt `psm_grasp.py` névvel a  `~/catkin_ws/src/ros_course/scripts` mappában. Adjuk meg a fájl nevét a `CMakeLists.txt`-ben a megszokott módon.
-
-    ---
-    
-3. Vizsgáljuk a szimulátor működését a tanult prancsok (`rostopic list`, `rosrun rqt_graph rqt_graph`, stb.) használatával. A PSM a lenti topic-okban publikálja a TCP-t (Tool Center Point) és a csipesz pofái által bezárt szöget. Iratkozzunk fel ezekre a topic-okra, írassuk ki és tároljuk el a pillanatnyi állapotot egy-egy változóban.
+2. Iratkozzunk fel a PSM TCP (Tool Center Point) pozícióját és a csipesz pofái által bezárt szögét publikáló topic-okra.
 
     ```bash
     /PSM1/measured_cp
@@ -353,21 +342,23 @@ pip3 install matplotlib
     
     ---
 
-4. Build-eljünk és futtassuk a node-ot:
+3. Build-eljünk és futtassuk a node-ot:
 
     ```bash
-    cd ~/catkin_ws
-    catkin build ros_course
-    rosrun ros_course psm_grasp.py 
+    source ros_setup.sh -v 2
+    cd ~/ros2_ws
+    colcon build --symlink-install
+    ros2 run ros2_course psm_grasp 
     ```
 
     ---
 
-### 3. PSM TCP mozgatása lineáris trajektória mentén
+### 5. PSM TCP mozgatása lineáris trajektória mentén
 
 ---
 
-![](img/PSM_coordinates.png){:style="width:400px" align=right}
+![](img/PSM_coordinates.png){:style="width:350px" align=right}
+
 
 1. A PSM a lenti topicok-ban várja a kívánt TCP pozíciót és a csipesz pofái által bezárt szöget. Hozzunk létre publishereket a `psm_grasp.py` fájlban ezekhez a topicokhoz.
 
@@ -378,13 +369,18 @@ pip3 install matplotlib
 
     ---
 
-2. Írjunk függvényt, amely lineáris trajektória mentén a kívánt pozícióba mozgatja a TCP-t. Küldjük az csipeszt a (0.0, 0.05, -0.12) pozícióba, az orientációt hagyjuk változatlanul. 0.01s legyen a mintavételi idő.
+2. Írjunk függvényt, amely lineáris trajektória mentén a kívánt pozícióba mozgatja a TCP-t. Küldjük az csipeszt a (0.0, 0.05, -0.12) pozícióba,
+az orientációt hagyjuk változatlanul. 0.01s legyen a mintavételi idő. Matplotlib használatával plotoljuk a tervezett trajektória
+x, y és z komponensét idő függvényében.
 
     ```python
     def move_tcp_to(self, target, v, dt):
     ```
-
+   
+    ![](img/lin.png){:style="width:700px" align=right}
+    
     ---
+
     
 3. Írjunk függvényt, amellyel a csipeszt tudjuk nyitni-zárni, szintén lineáris trajektória használatával.
 
@@ -393,36 +389,43 @@ pip3 install matplotlib
     def move_jaw_to(self, target, omega, dt):
     ```
     
-    ![](img/lin.png){:style="width:700px" align=right}
-    
+
     ---
     
-### 4. Dummy marker létrehozása
+### 6. Dummy marker létrehozása
 
 ---
 
-1. Hozzunk létre új python forrásfájlt `dummy_marker.py` névvel a  `~/catkin_ws/src/ros_course/scripts` mappában. Adjuk meg a fájl nevét a `CMakeLists.txt`-ben a megszokott módon. Implementájunk python programot, amely markert publikál (-0.05, 0.08, -0.12) pozícióval `dummy_target_marker` nevű topic-ban. A `frame_id` addattag értéke legyen `PSM1_psm_base_link`. Másoljuk az alábbi kódot a `dummy_marker.py` fájlba:
+1. Hozzunk létre új python forrásfájlt `dummy_marker.py` névvel. Adjuk meg az entry point-ot a `setup.py`-ban a megszokott módon.
+Implementájunk python programot, amely markert publikál (-0.05, 0.08, -0.14) pozícióval `dummy_target_marker` nevű topic-ban.
+A `frame_id` addattag értéke legyen `PSM1_psm_base_link`. Másoljuk az alábbi kódot a `dummy_marker.py` fájlba:
 
     ```python
-    import rospy
+    import rclpy
+    from rclpy.node import Node
     from visualization_msgs.msg import Marker
-
-    def marker(position):
-        rospy.init_node('dummy_target_publisher', anonymous=True)
-        pub = rospy.Publisher('dummy_target_marker', Marker, queue_size=10)
-        rate = rospy.Rate(10) # 10hz
-        i = 0
-        while not rospy.is_shutdown():
+    
+    class DummyMarker(Node):
+        def __init__(self, position):
+            super().__init__('minimal_publisher')
+            self.position = position
+            self.publisher_ = self.create_publisher(Marker, 'dummy_target_marker', 10)
+            timer_period = 0.1  # seconds
+            self.timer = self.create_timer(timer_period, self.timer_callback)
+            self.i = 0
+            i = 0
+    
+        def timer_callback(self):
             marker = Marker()
             marker.header.frame_id = 'PSM1_psm_base_link'
-            marker.header.stamp = rospy.Time()
+            marker.header.stamp = self.get_clock().now().to_msg()
             marker.ns = "dvrk_viz"
-            marker.id = i
+            marker.id = self.i
             marker.type = Marker.SPHERE
             marker.action = Marker.MODIFY
-            marker.pose.position.x = position[0]
-            marker.pose.position.y = position[1]
-            marker.pose.position.z = position[2]
+            marker.pose.position.x = self.position[0]
+            marker.pose.position.y = self.position[1]
+            marker.pose.position.z = self.position[2]
             marker.pose.orientation.x = 0.0
             marker.pose.orientation.y = 0.0
             marker.pose.orientation.z = 0.0
@@ -434,17 +437,24 @@ pip3 install matplotlib
             marker.color.r = 0.0
             marker.color.g = 1.0
             marker.color.b = 0.0;
-
-            #rospy.loginfo(marker)
-            pub.publish(marker)
-            i = i + 1
-            rate.sleep()
-
+    
+            self.publisher_.publish(marker)
+            self.i += 1
+    
+   
+    def main(args=None):
+        rclpy.init(args=args)
+        marker_publisher = DummyMarker([-0.05, 0.08, -0.12])
+        rclpy.spin(marker_publisher)
+    
+        # Destroy the node explicitly
+        # (optional - otherwise it will be done automatically
+        # when the garbage collector destroys the node object)
+        marker_publisher.destroy_node()
+        rclpy.shutdown()
+    
     if __name__ == '__main__':
-        try:
-            marker([-0.05, 0.08, -0.12])
-        except rospy.ROSInterruptException:
-            pass
+        main()
     ```
 
     ---
@@ -453,7 +463,7 @@ pip3 install matplotlib
 
     ---
 
-### 5. Marker megfogása
+### 7. Marker megfogása
 
 ---
 
@@ -480,7 +490,6 @@ pip3 install matplotlib
 - [Marker examples](https://www.programcreek.com/python/example/88812/visualization_msgs.msg.Marker)
 - [Numpy vector magnitude](https://numpy.org/doc/stable/reference/generated/numpy.linalg.norm.html)
 - [Numpy linspace](https://numpy.org/doc/stable/reference/generated/numpy.linspace.html)
-- [https://industrial-training-master.readthedocs.io/en/melodic/_source/session7/ROS1-ROS2-bridge.html](https://industrial-training-master.readthedocs.io/en/melodic/_source/session7/ROS1-ROS2-bridge.html)
 
 
 
