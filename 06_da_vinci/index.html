@@ -913,7 +913,8 @@ catkin<span class="w"> </span>build<span class="w"> </span>--summary<span class=
 </li>
 <li>
 <p>Indítsuk el a PSM1 (Patient Side Manipulator) RViz szimulációját. A dVRK konzolon ne felejtsünk el HOME-olni. Indítsuk el a ROS1-ROS2 Bridge-t.
-Tanulmányozzuk a szimulátor működését ROS 2-ből a tanult prancsok (<code>ros2 topic list</code>, <code>ros2 topic echo</code> <code>ros2 run rqt_gui rqt_gui</code>, stb.) használatával. </p>
+Tanulmányozzuk a szimulátor működését ROS 2-ből a tanult prancsok
+(<code>ros2 topic list</code>, <code>ros2 topic echo</code> <code>ros2 run rqt_gui rqt_gui</code>, stb.) használatával. </p>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>ros_setup.sh<span class="w"> </span>-v<span class="w"> </span><span class="m">2</span>
 ros2<span class="w"> </span>topic<span class="w"> </span>list
 ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/PSM1/measured_cp
@@ -922,13 +923,12 @@ ros2<span class="w"> </span>run<span class="w"> </span>rqt_gui<span class="w"> <
 <div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>ros_setup.sh<span class="w"> </span>-v<span class="w"> </span><span class="m">1</span>
 roslaunch<span class="w"> </span>dvrk_robot<span class="w"> </span>dvrk_arm_rviz.launch<span class="w"> </span>arm:<span class="o">=</span>PSM1<span class="w"> </span>config:<span class="o">=</span>/home/<span class="k">$(</span>whoami<span class="k">)</span>/catkin_ws/src/cisst-saw/sawIntuitiveResearchKit/share/console/console-PSM1_KIN_SIMULATED.json
 </code></pre></div>
-<p>```bash
-source ros_setup.sh -v b
-ros2 run ros1_bridge dynamic_bridge --bridge-all-topics
-<div class="highlight"><pre><span></span><code>```bash
-source ros_setup.sh -v 2
-ros2 run rqt_gui rqt_gui
-</code></pre></div></p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>ros_setup.sh<span class="w"> </span>-v<span class="w"> </span>b
+ros2<span class="w"> </span>run<span class="w"> </span>ros1_bridge<span class="w"> </span>dynamic_bridge<span class="w"> </span>--bridge-all-topics
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>ros_setup.sh<span class="w"> </span>-v<span class="w"> </span><span class="m">2</span>
+ros2<span class="w"> </span>run<span class="w"> </span>rqt_gui<span class="w"> </span>rqt_gui
+</code></pre></div>
 </li>
 </ol>
 <hr />
