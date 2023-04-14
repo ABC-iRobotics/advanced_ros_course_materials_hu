@@ -14,8 +14,14 @@
       
         <link rel="canonical" href="https://abc-irobotics.github.io/advanced_ros_course_materials_hu/04_roslaunch/">
       
+      
+        <link rel="prev" href="../03_python_principles/">
+      
+      
+        <link rel="next" href="../05_git/">
+      
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.9">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.6">
     
     
       
@@ -23,27 +29,30 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.2b4465f4.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ded33207.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
         
-      
-    
-    
-    
-      
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
-    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
+    
     
     
   </head>
@@ -56,7 +65,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="orange">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="orange">
   
     
     
@@ -85,11 +94,11 @@
     <a href=".." title="Fejlett robotprogramozás ROS környezetben" class="md-header__button md-logo" aria-label="Fejlett robotprogramozás ROS környezetben" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -111,20 +120,18 @@
       <form class="md-header__option" data-md-component="palette">
         
           
-          
-          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
             </label>
           
         
           
-          
           <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
             </label>
           
         
@@ -134,8 +141,8 @@
       <div class="md-header__option">
         <div class="md-select">
           
-          <button class="md-header__button md-icon" aria-label="Select language">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24z"/></svg>
+          <button class="md-header__button md-icon" aria-label="Nyelvváltás">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"/></svg>
           </button>
           <div class="md-select__inner">
             <ul class="md-select__list">
@@ -145,13 +152,13 @@
                     English
                   </a>
                 </li>
-                
+              
                 <li class="md-select__item">
                   <a href="https://abc-irobotics.github.io/advanced_ros_course_materials_hu/" hreflang="hu" class="md-select__link">
                     Hungarian
                   </a>
                 </li>
-                
+              
             </ul>
           </div>
         </div>
@@ -159,7 +166,7 @@
     
     
       <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
       </label>
       <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
@@ -167,13 +174,13 @@
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Keresés" placeholder="Keresés" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="Search">
+      <nav class="md-search__options" aria-label="Keresés">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Törlés" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        <button type="reset" class="md-search__icon md-icon" title="Törlés" aria-label="Törlés" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
       
@@ -184,7 +191,7 @@
           <div class="md-search-result__meta">
             Keresés inicializálása
           </div>
-          <ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
         </div>
       </div>
     </div>
@@ -193,10 +200,10 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/ABC-iRobotics/advanced_ros_course_materials_hu/" title="Főoldalra ugrás" class="md-source" data-md-component="source">
+        <a href="https://github.com/ABC-iRobotics/advanced_ros_course_materials_hu" title="Főoldalra ugrás" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub
@@ -215,7 +222,7 @@
           
             
 <nav class="md-tabs" aria-label="Lapok" data-md-component="tabs">
-  <div class="md-tabs__inner md-grid">
+  <div class="md-grid">
     <ul class="md-tabs__list">
       
         
@@ -286,17 +293,17 @@
     <a href=".." title="Fejlett robotprogramozás ROS környezetben" class="md-nav__button md-logo" aria-label="Fejlett robotprogramozás ROS környezetben" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
     Fejlett robotprogramozás ROS környezetben
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/ABC-iRobotics/advanced_ros_course_materials_hu/" title="Főoldalra ugrás" class="md-source" data-md-component="source">
+      <a href="https://github.com/ABC-iRobotics/advanced_ros_course_materials_hu" title="Főoldalra ugrás" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub
@@ -334,17 +341,18 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
       
       
       
-      
-        <label class="md-nav__link" for="__nav_2">
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
           Tananyagok
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Tananyagok" data-md-level="1">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           Tananyagok
@@ -402,7 +410,7 @@
   
     <li class="md-nav__item md-nav__item--active">
       
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
         
@@ -614,13 +622,14 @@
             
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset"><a class="md-content__button md-icon" download href="04_roslaunch.pdf" title="PDF Export"><svg style="height: 1.2rem; width: 1.2rem;" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm76.45 211.36l-96.42 95.7c-6.65 6.61-17.39 6.61-24.04 0l-96.42-95.7C73.42 337.29 80.54 320 94.82 320H160v-80c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v80h65.18c14.28 0 21.4 17.29 11.27 27.36zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"></path></svg></a>
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset"><a class="md-content__button md-icon" download href="04_roslaunch.pdf" title="PDF Export"><svg style="height: 1.2rem; width: 1.2rem;" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm76.45 211.36l-96.42 95.7c-6.65 6.61-17.39 6.61-24.04 0l-96.42-95.7C73.42 337.29 80.54 320 94.82 320H160v-80c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v80h65.18c14.28 0 21.4 17.29 11.27 27.36zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"></path></svg></a>
                 
-<a href="https://github.com/ABC-iRobotics/advanced_ros_course_materials_hu/edit/master/docs/04_roslaunch.md" title="Oldal szerkesztése" class="md-content__button md-icon">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-</a>
+                  
+
+  
+  
 
 
 <h1 id="04-ros-2-launch-param-bag">04. ROS 2 Launch, Param, Bag</h1>
@@ -638,8 +647,8 @@
 </ul>
 <hr />
 <h4 id="usage">Usage</h4>
-<div class="highlight"><pre><span></span><code>    ros2 launch package_name file.launch
-    ros2 launch irob_robot dvrk_server.launch arm_typ:<span class="o">=</span>PSM1
+<div class="highlight"><pre><span></span><code><span class="w">    </span>ros2<span class="w"> </span>launch<span class="w"> </span>package_name<span class="w"> </span>file.launch
+<span class="w">    </span>ros2<span class="w"> </span>launch<span class="w"> </span>irob_robot<span class="w"> </span>dvrk_server.launch<span class="w"> </span>arm_typ:<span class="o">=</span>PSM1
 </code></pre></div>
 <hr />
 <h3 id="ros-2-parameters">ROS 2 Parameters</h3>
@@ -659,10 +668,10 @@
 <li>Command line tool</li>
 <li>API for C++ and Python</li>
 </ul>
-<div class="highlight"><pre><span></span><code>    ros2 bag record -o &lt;file_name&gt; &lt;topic_name&gt;
-    ros2 bag record --all
-    ros2 bag info &lt;filename.bag&gt;
-    ros2 bag play &lt;filename.bag&gt;
+<div class="highlight"><pre><span></span><code><span class="w">    </span>ros2<span class="w"> </span>bag<span class="w"> </span>record<span class="w"> </span>-o<span class="w"> </span>&lt;file_name&gt;<span class="w"> </span>&lt;topic_name&gt;
+<span class="w">    </span>ros2<span class="w"> </span>bag<span class="w"> </span>record<span class="w"> </span>--all
+<span class="w">    </span>ros2<span class="w"> </span>bag<span class="w"> </span>info<span class="w"> </span>&lt;filename.bag&gt;
+<span class="w">    </span>ros2<span class="w"> </span>bag<span class="w"> </span>play<span class="w"> </span>&lt;filename.bag&gt;
 </code></pre></div>
 <hr />
 <h2 id="gyakorlat">Gyakorlat</h2>
@@ -673,8 +682,8 @@
 <li>
 <p>Hozzuk létre a <code>launch</code> mappát a <code>ros2_course</code> package-en belül,
 ahol a launch fájlokat tárolhatjuk majd:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/ros2_ws/src/ros2_course
-mkdir launch
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/ros2_ws/src/ros2_course
+mkdir<span class="w"> </span>launch
 </code></pre></div>
 <hr />
 </li>
@@ -713,18 +722,18 @@ következő taralommal:</p>
 </li>
 <li>
 <p>Egészítsük ki a <code>setup.py</code> fájlt az alábbiakkal:</p>
-<div class="highlight"><pre><span></span><code>import os
-from glob import glob
+<div class="highlight"><pre><span></span><code>import<span class="w"> </span>os
+from<span class="w"> </span>glob<span class="w"> </span>import<span class="w"> </span>glob
 
 <span class="c1"># ...</span>
 
 <span class="nv">data_files</span><span class="o">=[</span>
-    <span class="o">(</span><span class="s1">&#39;share/ament_index/resource_index/packages&#39;</span>,
-        <span class="o">[</span><span class="s1">&#39;resource/&#39;</span> + package_name<span class="o">])</span>,
-    <span class="o">(</span><span class="s1">&#39;share/&#39;</span> + package_name, <span class="o">[</span><span class="s1">&#39;package.xml&#39;</span><span class="o">])</span>,
-    <span class="c1"># Include all launch files.</span>
-    <span class="o">(</span>os.path.join<span class="o">(</span><span class="s1">&#39;share&#39;</span>, package_name<span class="o">)</span>,
-        glob<span class="o">(</span><span class="s1">&#39;launch/*launch.[pxy][yma]*&#39;</span><span class="o">))</span>
+<span class="w">    </span><span class="o">(</span><span class="s1">&#39;share/ament_index/resource_index/packages&#39;</span>,
+<span class="w">        </span><span class="o">[</span><span class="s1">&#39;resource/&#39;</span><span class="w"> </span>+<span class="w"> </span>package_name<span class="o">])</span>,
+<span class="w">    </span><span class="o">(</span><span class="s1">&#39;share/&#39;</span><span class="w"> </span>+<span class="w"> </span>package_name,<span class="w"> </span><span class="o">[</span><span class="s1">&#39;package.xml&#39;</span><span class="o">])</span>,
+<span class="w">    </span><span class="c1"># Include all launch files.</span>
+<span class="w">    </span><span class="o">(</span>os.path.join<span class="o">(</span><span class="s1">&#39;share&#39;</span>,<span class="w"> </span>package_name<span class="o">)</span>,
+<span class="w">        </span>glob<span class="o">(</span><span class="s1">&#39;launch/*launch.[pxy][yma]*&#39;</span><span class="o">))</span>
 <span class="o">]</span>,
 </code></pre></div>
 <hr />
@@ -737,26 +746,26 @@ from glob import glob
 </li>
 <li>
 <p>Build-eljük a workspace-t:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ros2_ws
-colcon build --symlink-install
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>ros2_ws
+colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
 </code></pre></div>
 <hr />
 </li>
 <li>
 <p>Indítsuk el a launch fájlt:</p>
-<div class="highlight"><pre><span></span><code>ros2 launch ros2_course turtlesim_mimic_launch.py
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>ros2_course<span class="w"> </span>turtlesim_mimic_launch.py
 </code></pre></div>
 <hr />
 </li>
 <li>
 <p>Publikáljunk a topic-ba a parancssorból, új teminál ablakban:</p>
-<div class="highlight"><pre><span></span><code>ros2 topic pub -r <span class="m">1</span> /turtlesim1/turtle1/cmd_vel geometry_msgs/msg/Twist <span class="s2">&quot;{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: -1.8}}&quot;</span>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>-r<span class="w"> </span><span class="m">1</span><span class="w"> </span>/turtlesim1/turtle1/cmd_vel<span class="w"> </span>geometry_msgs/msg/Twist<span class="w"> </span><span class="s2">&quot;{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: -1.8}}&quot;</span>
 </code></pre></div>
 <hr />
 </li>
 <li>
 <p>Vizsgáljuk a rendszer működését <code>rqt_gui</code> segítségével:</p>
-<div class="highlight"><pre><span></span><code>ros2 run rqt_gui rqt_gui
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>run<span class="w"> </span>rqt_gui<span class="w"> </span>rqt_gui
 </code></pre></div>
 </li>
 </ol>
@@ -776,14 +785,14 @@ Az írányítandó teknőst a <code>namespace</code> vagy a <code>remappings</co
 </li>
 <li>
 <p>Build-eljük a workspace-t:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ros2_ws
-colcon build --symlink-install
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>ros2_ws
+colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
 </code></pre></div>
 <hr />
 </li>
 <li>
 <p>Indítsuk el az új launch fájlt:</p>
-<div class="highlight"><pre><span></span><code>ros2 launch ros2_course turtlesim_controller_launch.py
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>ros2_course<span class="w"> </span>turtlesim_controller_launch.py
 </code></pre></div>
 <hr />
 </li>
@@ -824,16 +833,16 @@ ROS paramétereken keresztül legyen állítható. API példa a paraméterekhez:
 <li>
 <p>Futtassuk a <code>turtlesim_controller.py</code>-t a korábban megírt launch file segítségével.
 Listázzuk ki a paramétereket. </p>
-<div class="highlight"><pre><span></span><code>ros2 launch ros2_course turtlesim_controller_launch.py
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>ros2_course<span class="w"> </span>turtlesim_controller_launch.py
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>ros2 param list
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>param<span class="w"> </span>list
 </code></pre></div>
 <hr />
 </li>
 <li>
 <p>Módosítsuk a sebesség és szögsebesség paramétereket parancssorból az alábbi parancs segítségével:</p>
-<div class="highlight"><pre><span></span><code>ros2 param <span class="nb">set</span> &lt;NODE_NAME&gt; &lt;PARAM_NAME&gt; &lt;NEW_VALUE&gt;
-ros2 param <span class="nb">set</span> controller speed <span class="m">100</span>.0
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>param<span class="w"> </span><span class="nb">set</span><span class="w"> </span>&lt;NODE_NAME&gt;<span class="w"> </span>&lt;PARAM_NAME&gt;<span class="w"> </span>&lt;NEW_VALUE&gt;
+ros2<span class="w"> </span>param<span class="w"> </span><span class="nb">set</span><span class="w"> </span>controller<span class="w"> </span>speed<span class="w"> </span><span class="m">100</span>.0
 </code></pre></div>
 </li>
 </ol>
@@ -944,21 +953,21 @@ fájl argumentumaiként legyenek megadhatóak.</p>
 </li>
 <li>
 <p>Build-eljük a workspace-t és futtassuk a <code>turtlesim_controller_param_launch.py</code>-t:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ros2_ws
-colcon build --symlink-install
-ros2 launch ros2_course turtlesim_controller_param_launch.py
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>ros2_ws
+colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
+ros2<span class="w"> </span>launch<span class="w"> </span>ros2_course<span class="w"> </span>turtlesim_controller_param_launch.py
 </code></pre></div>
 <hr />
 </li>
 <li>
 <p>Listázzuk ki az új launch fájl argumentumait:</p>
-<div class="highlight"><pre><span></span><code>ros2 launch ros2_course turtlesim_controller_param_launch.py --show-args
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>ros2_course<span class="w"> </span>turtlesim_controller_param_launch.py<span class="w"> </span>--show-args
 </code></pre></div>
 <hr />
 </li>
 <li>
 <p>Futtassuk a launch fájlt az argumentumok beállításával:</p>
-<div class="highlight"><pre><span></span><code>ros2 launch ros2_course turtlesim_controller_param_launch.py speed:<span class="o">=</span><span class="m">100</span>.0 omega:<span class="o">=</span><span class="m">60</span>.0
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>ros2_course<span class="w"> </span>turtlesim_controller_param_launch.py<span class="w"> </span>speed:<span class="o">=</span><span class="m">100</span>.0<span class="w"> </span>omega:<span class="o">=</span><span class="m">60</span>.0
 </code></pre></div>
 <hr />
 </li>
@@ -972,27 +981,27 @@ ros2 launch ros2_course turtlesim_controller_param_launch.py
 <ol>
 <li>
 <p>Az előző feladatban implementált program futása közben rögzítsük a topic-ok tartalmát egy rosbag fájlba.</p>
-<div class="highlight"><pre><span></span><code>    ros2 bag record --all
+<div class="highlight"><pre><span></span><code><span class="w">    </span>ros2<span class="w"> </span>bag<span class="w"> </span>record<span class="w"> </span>--all
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Syntax</p>
 <p>The filename and the topics to record can also be set, e.g.:
-<div class="highlight"><pre><span></span><code>ros2 bag record -o turtle_bagfile_1 /turtle1/cmd_vel /turtle1/pose
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>bag<span class="w"> </span>record<span class="w"> </span>-o<span class="w"> </span>turtle_bagfile_1<span class="w"> </span>/turtle1/cmd_vel<span class="w"> </span>/turtle1/pose
 </code></pre></div></p>
 </div>
 <hr />
 </li>
 <li>
 <p>Használjuk az alábbi parancsot a bag fájl tulajdonságainak lekérdezésére:</p>
-<div class="highlight"><pre><span></span><code>ros2 bag info &lt;PATH_TO_BAGFILE&gt;
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>bag<span class="w"> </span>info<span class="w"> </span>&lt;PATH_TO_BAGFILE&gt;
 </code></pre></div>
 <hr />
 </li>
 <li>
 <p>Játsszuk vissza a bag fájlt és jelenítsük meg az egyik teknőc  <code>pose/x</code> értékét grafikonon  <code>rqt_gui</code> segítségével.</p>
-<div class="highlight"><pre><span></span><code>ros2 bag info &lt;PATH_TO_BAGFILE&gt;
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>bag<span class="w"> </span>info<span class="w"> </span>&lt;PATH_TO_BAGFILE&gt;
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>ros2 run rqt_gui rqt_gui
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>run<span class="w"> </span>rqt_gui<span class="w"> </span>rqt_gui
 </code></pre></div>
 </li>
 </ol>
@@ -1005,49 +1014,20 @@ ros2 launch ros2_course turtlesim_controller_param_launch.py
 <li><a href="https://docs.ros.org/en/foxy/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.html">ROS 2 Bag</a></li>
 </ul>
 
-              
-            </article>
-          </div>
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
         </div>
         
       </main>
       
         <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Élőláb">
-      
-        
-        <a href="../03_python_principles/" class="md-footer__link md-footer__link--prev" aria-label="Előző: 3. Python alapismeretek,  ROS Publisher, ROS Subscriber" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Előző
-              </span>
-              3. Python alapismeretek,  ROS Publisher, ROS Subscriber
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../05_git/" class="md-footer__link md-footer__link--next" aria-label="Következő: 5. Verziókövetés, Git" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Következő
-              </span>
-              5. Verziókövetés, Git
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -1073,10 +1053,11 @@ ros2 launch ros2_course turtlesim_controller_param_launch.py
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "toc.integrate"], "translations": {"clipboard.copy": "M\u00e1sol\u00e1s v\u00e1g\u00f3lapra", "clipboard.copied": "V\u00e1g\u00f3lapra m\u00e1solva", "search.config.lang": "hu", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Keres\u00e9s", "search.result.placeholder": "Keres\u00e9shez \u00edrj ide valamit", "search.result.none": "Nincs tal\u00e1lat", "search.result.one": "1 egyez\u0151 dokumentum", "search.result.other": "# egyez\u0151 dokumentum", "search.result.more.one": "1 tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.more.other": "# tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.term.missing": "\u00dcres", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "toc.integrate"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "V\u00e1g\u00f3lapra m\u00e1solva", "clipboard.copy": "M\u00e1sol\u00e1s v\u00e1g\u00f3lapra", "search.result.more.one": "1 tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.more.other": "# tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.none": "Nincs tal\u00e1lat", "search.result.one": "1 egyez\u0151 dokumentum", "search.result.other": "# egyez\u0151 dokumentum", "search.result.placeholder": "Keres\u00e9shez \u00edrj ide valamit", "search.result.term.missing": "\u00dcres", "select.version": "Verzi\u00f3v\u00e1lt\u00e1s"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.960e086b.min.js"></script>
+      <script src="../assets/javascripts/bundle.51198bba.min.js"></script>
       
         <script src="../javascripts/mathjax.js"></script>
       
