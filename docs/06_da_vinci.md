@@ -297,7 +297,9 @@ pip3 install matplotlib
     ---
     
 4. Indítsuk el a PSM1 (Patient Side Manipulator) RViz szimulációját. A dVRK konzolon ne felejtsünk el HOME-olni. Indítsuk el a ROS1-ROS2 Bridge-t.
-Tanulmányozzuk a szimulátor működését ROS 2-ből a tanult prancsok (`ros2 topic list`, `ros2 topic echo` `ros2 run rqt_gui rqt_gui`, stb.) használatával. 
+Tanulmányozzuk a szimulátor működését ROS 2-ből a tanult prancsok
+(`ros2 topic list`, `ros2 topic echo` `ros2 run rqt_gui rqt_gui`, stb.) használatával. 
+
 
     ```bash
     source ros_setup.sh -v 2
@@ -306,15 +308,18 @@ Tanulmányozzuk a szimulátor működését ROS 2-ből a tanult prancsok (`ros2 
     ros2 run rqt_gui rqt_gui
     ```
 
+
     ```bash
     source ros_setup.sh -v 1
     roslaunch dvrk_robot dvrk_arm_rviz.launch arm:=PSM1 config:=/home/$(whoami)/catkin_ws/src/cisst-saw/sawIntuitiveResearchKit/share/console/console-PSM1_KIN_SIMULATED.json
     ```
    
-     ```bash
+
+    ```bash
     source ros_setup.sh -v b
     ros2 run ros1_bridge dynamic_bridge --bridge-all-topics
     ```
+
 
     ```bash
     source ros_setup.sh -v 2
