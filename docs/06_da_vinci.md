@@ -273,6 +273,7 @@ pip3 install matplotlib
 2. Töltsük le a ROS verziók source-olását megkönnyítő scriptet (a VM-eken már le van töltve). Source-oljuk a ROS 1-et:
 
     ```bash
+    cd 
     source ros_setup.sh -v 1
     ```
 
@@ -303,7 +304,7 @@ Tanulmányozzuk a szimulátor működését ROS 2-ből a tanult prancsok (`ros2 
     ros2 topic list
     ros2 topic echo /PSM1/measured_cp
     ros2 run rqt_gui rqt_gui
-    ````rqt_gui` segítségével.
+    ```
 
     ```bash
     source ros_setup.sh -v 1
