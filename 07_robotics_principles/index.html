@@ -829,7 +829,9 @@ colcon build --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS<span class="o">=</span
 <hr />
 <ol>
 <li>
-<p>Iratkozzunk fel a robot csuklószögeit (konfigurációját) publikáló topicra. Hozzunk létre 
+<p>Hozzunk létre új python forrásfájlt <code>doosan2_controller.py</code> névvel a  <code>~/ros2_ws/src/ros2_course/ros2_course</code> 
+mappában. Adjuk meg az új entry point-ot a <code>setup.py</code>-ban a megszokott módon.
+Iratkozzunk fel a robot csuklószögeit (konfigurációját) publikáló topicra. Hozzunk létre 
 publisher-t a csuklók szögeinek beállítására használható topic-hoz.</p>
 <div class="highlight"><pre><span></span><code>/joint_states
 /joint_cmd
