@@ -211,7 +211,9 @@ $$
 
 ---
 
-1. Iratkozzunk fel a robot csuklószögeit (konfigurációját) publikáló topicra. Hozzunk létre 
+1. Hozzunk létre új python forrásfájlt `doosan2_controller.py` névvel a  `~/ros2_ws/src/ros2_course/ros2_course` 
+mappában. Adjuk meg az új entry point-ot a `setup.py`-ban a megszokott módon.
+Iratkozzunk fel a robot csuklószögeit (konfigurációját) publikáló topicra. Hozzunk létre 
 publisher-t a csuklók szögeinek beállítására használható topic-hoz.
 
     ```bash
