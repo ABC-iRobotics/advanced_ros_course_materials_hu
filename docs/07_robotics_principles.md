@@ -140,7 +140,9 @@ $$
 
 ---
 
-1. Telepítsük a dependency-ket.
+1. Állítsuk vissza a `~/.bashrc` fájlt ROS2 alapértelmezettre. 
+
+2. Telepítsük a dependency-ket.
 
     ![](img/doosan_rviz.png){:style="width:280px" align=right}
 
@@ -157,7 +159,7 @@ $$
         
     ---
     
-2. Clone-ozzuk és build-eljük a repo-t.
+3. Clone-ozzuk és build-eljük a repo-t.
 
     ```bash
     mkdir -p ~/doosan2_ws/src
@@ -196,7 +198,7 @@ $$
     ---
     
 
-3. Teszteljük a szimulátort, új teminál ablakban:
+4. Teszteljük a szimulátort, új teminál ablakban:
 
     ```bash
     ros2 launch dsr_launcher2 single_robot_rviz_topic.launch.py model:=a0912 color:=blue
