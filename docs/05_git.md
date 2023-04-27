@@ -68,7 +68,7 @@ git config --global user.email "istvan.szabo@gmail.com"
 
 ---
 
-![](https://miro.medium.com/max/719/1*WaaXnUvhvrswhBJSw4YTuQ.png){:style="width:300px" align=right}
+![](https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png){:style="width:300px" align=right}
 
 
 ```bash

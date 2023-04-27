@@ -5,11 +5,6 @@ author: Nagy Tamás
 
 # 07. Kinematika, inverz kienamtika, Szimulált robotkar programozása csukló-, és munkatérben
 
-![](img/under_construction.png){:style="width:400px"}
-
-!!! warning
-	**ZH2** (Roslaunch, ROS paraméter szerver. Kinematika, inverz kinematika.) és a **Kötelező program bemutatás** **december 6.**
-
 
 ---
 
@@ -141,11 +136,13 @@ $$
 
 ---
 
-### 1: Install rrr-arm
+### 1: Doosan2 install
 
 ---
 
 1. Telepítsük a dependency-ket.
+
+    ![](img/doosan_rviz.png){:style="width:280px" align=right}
 
     ```bash
     sudo apt update
@@ -155,13 +152,12 @@ $$
     ```
     
     !!! tip
-    A `kinpy` csomag forrását is töltsük le, hasznos lehet az API megértése szempontjából: [https://pypi.org/project/kinpy/]()
+        A `kinpy` csomag forrását is töltsük le, hasznos lehet az API megértése szempontjából: [https://pypi.org/project/kinpy/]()
     
         
     ---
     
 2. Clone-ozzuk és build-eljük a repo-t.
-
 
     ```bash
     mkdir -p ~/doosan2_ws/src
@@ -181,59 +177,48 @@ $$
     . install/setup.bash
     rosdep update
     ```
-    
+
+    !!! warning
+        A VM-eken már telepítve van, de itt is frissítsük a repo-t:
+        ```bash
+        cd ~/doosan2_ws/src/doosan-robot2
+        git pull
+        colcon build --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+        ```
+
     Adjuk hozzá az alábbi sort a `~/.bashrc` fájlhoz:
-    
+
     ```bash
     source ~/doosan2_ws/install/setup.bash
     ```
 
-    
     ---
     
 
-3. Teszteljük a szimulátort, új teminál ablakokban:
+3. Teszteljük a szimulátort, új teminál ablakban:
 
     ```bash
-    #ros2 launch dsr_launcher2 single_robot_rviz.launch.py model:=a0912 color:=blue
     ros2 launch dsr_launcher2 single_robot_rviz_topic.launch.py model:=a0912 color:=blue
     ```
-    
-   
-   
 
-    ---
 
-4. Állítsuk elő a robotot leíró urdf fájlt: TODO
-
-    ```bash
-    cd ~/catkin_ws/src/rrr-arm/urdf
-    rosrun xacro xacro rrr_arm.xacro > rrr_arm.xacro.urdf
-    ```
-    
-    ---
-    
+---
 
 ### 2: Robot mozgatása csuklótérben
 
 ---
 
-1. Iratkozzunk fel a robot csuklószögeit (konfigurációját) publikáló topicra. Hozzunk létre publisher-eket a csuklók szögeinek beállítására használható topic-okhoz.
+1. Iratkozzunk fel a robot csuklószögeit (konfigurációját) publikáló topicra. Hozzunk létre 
+publisher-t a csuklók szögeinek beállítására használható topic-hoz.
 
-    !!! warning
-        A Kinpy és a ROS nem mindig azonos sorrendben kezeli a csuklószögeket. Az alábbi két sorrend fordul elő:
-        **1. [gripper_joint_1, gripper_joint_2, joint_1, joint_2, joint_3, joint_4]**
-        - `/rrr_arm/joint_states` topic
-        - `kp.jacobian.calc_jacobian(...)` függvény
-
-        **2. [joint_1, joint_2, joint_3, joint_4, gripper_joint_1, gripper_joint_2]**
-        - `chain.forward_kinematics(...)` függvény
-        - `chain.inverse_kinematics(...)` függvény
-
-
+    ```bash
+    /joint_states
+    /joint_cmd
+    ```
+   
     ---
 
-2. Mozgassuk a robotot [1.0, 1.0, 1.5, 1.5] konfigurációba.
+2. Mozgassuk a robotot `q = [0.24, -0.3, 1.55, 0.03, 1.8, 0.5]` konfigurációba.
 
     ---
     
@@ -246,29 +231,30 @@ $$
     ```python
     import kinpy as kp
 
-    chain = kp.build_serial_chain_from_urdf(open("/home/<USERNAME>/catkin_ws/src/rrr-arm/urdf/rrr_arm.xacro.urdf").read(), "gripper_frame_cp")
-    print(chain)
-    print(chain.get_joint_parameter_names())
+    self.chain = kp.build_serial_chain_from_urdf(open(
+            "/home/<USERNAME>/doosan2_ws/src/doosan-robot2/dsr_description2/urdf/a0912.blue.urdf").read(),
+            "link6")
+    print(self.chain.get_joint_parameter_names())
+    print(self.chain)
     ```
     
     ---
     
-2. Számítsuk ki, majd irassuk ki a TCP pozícióját az adott konfigurációban a `kinpy` csomag segítségével. A https://pypi.org/project/kinpy/ oldalon lévő példa hibás, érdemes az alábbi példa kódból kiindulni:
+2. Számítsuk ki, majd irassuk ki a TCP pozícióját az adott konfigurációban a `kinpy` csomag segítségével.
+
     ```python
-        th1 = np.random.rand(2)
-        tg = chain.forward_kinematics(th1)
-        th2 = chain.inverse_kinematics(tg)
-        self.assertTrue(np.allclose(th1, th2, atol=1.0e-6))
+    tg = chain.forward_kinematics(th1)
     ```
     
-    ---
+---
     
 
 ### 4: Inverz kinematika Jacobi inverz módszerrel
 
 ---
 
-Írjunk metódust, amely az előadásban bemutatott Jakobi inverz módszerrel valósítja meg az inverz kinematikai feladatot a roboton. Az orientációt hagyjuk figyelmen kívül. Mozgassuk a TCP-t a `(0.59840159, -0.21191189,  0.42244937)` pozícióba.
+Írjunk metódust, amely az előadásban bemutatott Jakobi inverz módszerrel valósítja meg az inverz kinematikai feladatot a roboton. 
+Az orientációt hagyjuk figyelmen kívül. Mozgassuk a TCP-t a `(0.55, 0.05, 0.45)` pozícióba.
 
 1.  Írjunk egy ciklust, melynek megállási feltétele a `delta_r` megfelelő nagysága, vagy `rospy.is_shutdown()`.
 
