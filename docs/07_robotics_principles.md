@@ -183,6 +183,7 @@ $$
         ```bash
         cd ~/doosan2_ws/src/doosan-robot2
         git pull
+        cd ~/doosan2_ws
         colcon build --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
         ```
 
