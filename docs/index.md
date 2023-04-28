@@ -1,3 +1,5 @@
+google-site-verification: FvdynuQ7bWRSdFbJqOCTL5_UtXGGjBoTuHhiUGoEb7Q
+
 ## Kurzussal kapcsolatos információk
 
 ---
