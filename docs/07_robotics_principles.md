@@ -259,7 +259,8 @@ publisher-t a csuklók szögeinek beállítására használható topic-hoz.
 ---
 
 Írjunk metódust, amely az előadásban bemutatott Jakobi inverz módszerrel valósítja meg az inverz kinematikai feladatot a roboton. 
-Az orientációt hagyjuk figyelmen kívül. Mozgassuk a TCP-t a `(0.55, 0.05, 0.45)` pozícióba.
+Az orientációt hagyjuk figyelmen kívül. Mozgassuk a TCP-t a `(0.55, 0.05, 0.45)` pozícióba. Ábrázoljuk a TCP 
+trajektóriáját Matplotlib segítségével.
 
 1.  Írjunk egy ciklust, melynek megállási feltétele a `delta_r` megfelelő nagysága, vagy `rospy.is_shutdown()`.
 
