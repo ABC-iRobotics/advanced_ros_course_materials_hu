@@ -1,3 +1,5 @@
+<meta name="google-site-verification" content="FvdynuQ7bWRSdFbJqOCTL5_UtXGGjBoTuHhiUGoEb7Q" />
+
 ## Kurzussal kapcsolatos információk
 
 ---
