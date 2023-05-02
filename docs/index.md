@@ -1,4 +1,7 @@
-google-site-verification: FvdynuQ7bWRSdFbJqOCTL5_UtXGGjBoTuHhiUGoEb7Q
+---
+title: Fejlett robotprogramozás ROS környezetben - Kurzussal kapcsolatos információk
+author: Nagy Tamás
+---
 
 
 ## Kurzussal kapcsolatos információk
