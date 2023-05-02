@@ -73,6 +73,8 @@ $$
 
 ---
 
+#### Kinematika
+
 !!! abstract "Def. Kinematika"
     A TCP (vagy bármi más) helyzetének kiszámítása a csukló koordinátákból.
 
@@ -87,8 +89,9 @@ $$
      T_{TCP,base}(q_1, \cdots, q_n) = T_{TCP,n-1}(q_{n}) \cdot T_{n-1,n-2}(q_{n-1}) \cdots T_{2,1}(q_2) \cdot T_{1,base}(q_1) \cdot base
 $$
 
+---
 
-
+#### Inverz kinematika
 
 !!! abstract "Def. Inverz kinematika"
     Csukló koordináták kiszámítása a (kívánt)  TCP (vagy bármi más) pose eléréséhez.
