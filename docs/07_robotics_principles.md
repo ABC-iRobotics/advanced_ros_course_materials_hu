@@ -129,7 +129,7 @@ $$
 
 1. Számítsuk ki a kívánt és az aktuális pozíció különbségét: $\Delta\mathbf{r} = \mathbf{r}_{desired} - \mathbf{r}_0$
 2. Számítsuk ki a rotációk különbségét: $\Delta\mathbf{R} = \mathbf{R}_{desired}\mathbf{R}_{0}^{T}$, majd konvertáljuk át axis angle reprezentációba $(\mathbf{t},\phi)$
-3. Számítsuk ki $\Delta\mathbf{ q}=\mathbf{J}^{-1}(\mathbf{q_0})\cdot \left[\matrix{k_1 \cdot \Delta\mathbf{r} \\ k_2 \cdot \phi \cdot \mathbf{t}}\right]$, ahol az inverz lehet pszeudo-inverz, vagy transzponált
+3. Számítsuk ki $\Delta\mathbf{ q}=\mathbf{J}^{-1}(\mathbf{q_0})\cdot \left[\matrix{k_1 \cdot \Delta\mathbf{r} \\ k_2 \cdot \mathbf{\omega}}\right]$, ahol az inverz lehet pszeudo-inverz, vagy transzponált
 4. $\mathbf{q}_{better} = \mathbf{q}_{0} + \Delta\mathbf{q}$
 
 
@@ -273,11 +273,11 @@ trajektóriáját Matplotlib segítségével.
 
     ---
 
-3. `phi_dot_t` legyen `[0.0, 0.0, 0.0]` (ignoráljuk az orientációt).
+3. `omega` legyen `[0.0, 0.0, 0.0]` (ignoráljuk az orientációt).
 
     ---
 
-4. Konkatenáljuk `delta_r` és `phi_dot_t`-t.
+4. Konkatenáljuk `delta_r` és `omega`-t.
 
     ---
 
