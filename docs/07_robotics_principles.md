@@ -309,9 +309,9 @@ Egészítsük ki az előző feladat megoldását úgy, hogy az orientációt is 
 ## Hasznos linkek
 
 - [doosan-robot2 github](https://github.com/doosan-robotics/doosan-robot2)
-- [https://pypi.org/project/kinpy/]()
-- [https://en.wikipedia.org/wiki/Axis%E2%80%93angle_representation]()
-- [https://www.rosroboticslearning.com/jacobian]()
+- [https://pypi.org/project/kinpy/](https://pypi.org/project/kinpy/)
+- [https://en.wikipedia.org/wiki/Axis%E2%80%93angle_representation](https://en.wikipedia.org/wiki/Axis%E2%80%93angle_representation)
+- [https://www.rosroboticslearning.com/jacobian](https://www.rosroboticslearning.com/jacobian)
 
 
 
