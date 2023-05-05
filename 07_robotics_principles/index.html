@@ -783,7 +783,7 @@
 <ol>
 <li>Számítsuk ki a kívánt és az aktuális pozíció különbségét: <span class="arithmatex">\(\Delta\mathbf{r} = \mathbf{r}_{desired} - \mathbf{r}_0\)</span></li>
 <li>Számítsuk ki a rotációk különbségét: <span class="arithmatex">\(\Delta\mathbf{R} = \mathbf{R}_{desired}\mathbf{R}_{0}^{T}\)</span>, majd konvertáljuk át axis angle reprezentációba <span class="arithmatex">\((\mathbf{t},\phi)\)</span></li>
-<li>Számítsuk ki <span class="arithmatex">\(\Delta\mathbf{ q}=\mathbf{J}^{-1}(\mathbf{q_0})\cdot \left[\matrix{k_1 \cdot \Delta\mathbf{r} \\ k_2 \cdot \phi \cdot \mathbf{t}}\right]\)</span>, ahol az inverz lehet pszeudo-inverz, vagy transzponált</li>
+<li>Számítsuk ki <span class="arithmatex">\(\Delta\mathbf{ q}=\mathbf{J}^{-1}(\mathbf{q_0})\cdot \left[\matrix{k_1 \cdot \Delta\mathbf{r} \\ k_2 \cdot \mathbf{\omega}}\right]\)</span>, ahol az inverz lehet pszeudo-inverz, vagy transzponált</li>
 <li><span class="arithmatex">\(\mathbf{q}_{better} = \mathbf{q}_{0} + \Delta\mathbf{q}\)</span></li>
 </ol>
 <hr />
@@ -904,11 +904,11 @@ trajektóriáját Matplotlib segítségével.</p>
 <hr />
 </li>
 <li>
-<p><code>phi_dot_t</code> legyen <code>[0.0, 0.0, 0.0]</code> (ignoráljuk az orientációt).</p>
+<p><code>omega</code> legyen <code>[0.0, 0.0, 0.0]</code> (ignoráljuk az orientációt).</p>
 <hr />
 </li>
 <li>
-<p>Konkatenáljuk <code>delta_r</code> és <code>phi_dot_t</code>-t.</p>
+<p>Konkatenáljuk <code>delta_r</code> és <code>omega</code>-t.</p>
 <hr />
 </li>
 <li>
