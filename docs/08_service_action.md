@@ -223,7 +223,6 @@ dvrk_PSM1->grasp_server [label="   measured_cp\n    jaw/measured_js"]
 
     !!! tip "URDF-fel kapcsolatos hibák esetén"
         ```bash
-        CLion-ban az interpreterhez adjuk hozzá a
         locale  # check for UTF-8
 
         sudo apt update && sudo apt install locales
