@@ -221,6 +221,19 @@ dvrk_PSM1->grasp_server [label="   measured_cp\n    jaw/measured_js"]
     ros2 run rviz2 rviz2 -d ~/ros2_ws/install/dvrk_model/share/dvrk_model/rviz/PSM1.rviz
     ```
 
+    !!! tip "URDF-fel kapcsolatos hibák esetén"
+        ```bash
+        CLion-ban az interpreterhez adjuk hozzá a
+        locale  # check for UTF-8
+
+        sudo apt update && sudo apt install locales
+        sudo locale-gen en_US en_US.UTF-8
+        sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+        export LANG=en_US.UTF-8
+
+        locale  # verify settings
+        ```
+
     ---
 
 4. Tanulmányozzuk a szimulátor működését ROS 2-ből a tanult prancsok
