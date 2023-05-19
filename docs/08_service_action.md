@@ -342,16 +342,21 @@ megragadja a goal-ban szerepló koordinátákon található tárgyat (a dummy ma
 
     ---
 
-3. Futtassuk az action client-et (`grasp_client`) és a `dummy_marker`-t:
+3. Futtassuk az action server-t és teszteljük a működését parancssorból:
 
 
     ```bash
-    ros2 run ros2_course dummy_marker
+    ros2 run ros2_course grasp_server
     ```
 
     ```bash
-    ros2 run ros2_course grasp_client
+    ros2 node info grasp_server
+    ros2 action list -t
+    ros2 action info /grasp
+    ros2 interface show ros2_course_msgs/action/Grasp
+    ros2 action send_goal --feedback /grasp ros2_course_msgs/action/Grasp "{grasp_pos: {x: 0.0, y: 0.0, z: -0.18}}"
     ```
+
 
 ---
 
@@ -373,19 +378,15 @@ megragadására.
 
     ---
 
-3. Futtassuk az action server-t és teszteljük a működését parancssorból:
+3. Futtassuk az action client-et (`grasp_client`) és a `dummy_marker`-t:
 
 
     ```bash
-    ros2 run ros2_course grasp_server
+    ros2 run ros2_course dummy_marker
     ```
 
     ```bash
-    ros2 node info grasp_server
-    ros2 action list -t
-    ros2 action info /grasp
-    ros2 interface show ros2_course_msgs/action/Grasp
-    ros2 action send_goal --feedback /grasp ros2_course_msgs/action/Grasp "{grasp_pos: {x: 0.0, y: 0.0, z: -0.18}}"
+    ros2 run ros2_course grasp_client
     ```
 
 ---
