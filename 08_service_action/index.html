@@ -922,10 +922,14 @@ megragadja a goal-ban szerepló koordinátákon található tárgyat (a dummy ma
 <hr />
 </li>
 <li>
-<p>Futtassuk az action client-et (<code>grasp_client</code>) és a <code>dummy_marker</code>-t:</p>
-<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>run<span class="w"> </span>ros2_course<span class="w"> </span>dummy_marker
+<p>Futtassuk az action server-t és teszteljük a működését parancssorból:</p>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>run<span class="w"> </span>ros2_course<span class="w"> </span>grasp_server
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>run<span class="w"> </span>ros2_course<span class="w"> </span>grasp_client
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>node<span class="w"> </span>info<span class="w"> </span>grasp_server
+ros2<span class="w"> </span>action<span class="w"> </span>list<span class="w"> </span>-t
+ros2<span class="w"> </span>action<span class="w"> </span>info<span class="w"> </span>/grasp
+ros2<span class="w"> </span>interface<span class="w"> </span>show<span class="w"> </span>ros2_course_msgs/action/Grasp
+ros2<span class="w"> </span>action<span class="w"> </span>send_goal<span class="w"> </span>--feedback<span class="w"> </span>/grasp<span class="w"> </span>ros2_course_msgs/action/Grasp<span class="w"> </span><span class="s2">&quot;{grasp_pos: {x: 0.0, y: 0.0, z: -0.18}}&quot;</span>
 </code></pre></div>
 </li>
 </ol>
@@ -948,14 +952,10 @@ megragadására.</p>
 <hr />
 </li>
 <li>
-<p>Futtassuk az action server-t és teszteljük a működését parancssorból:</p>
-<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>run<span class="w"> </span>ros2_course<span class="w"> </span>grasp_server
+<p>Futtassuk az action client-et (<code>grasp_client</code>) és a <code>dummy_marker</code>-t:</p>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>run<span class="w"> </span>ros2_course<span class="w"> </span>dummy_marker
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>node<span class="w"> </span>info<span class="w"> </span>grasp_server
-ros2<span class="w"> </span>action<span class="w"> </span>list<span class="w"> </span>-t
-ros2<span class="w"> </span>action<span class="w"> </span>info<span class="w"> </span>/grasp
-ros2<span class="w"> </span>interface<span class="w"> </span>show<span class="w"> </span>ros2_course_msgs/action/Grasp
-ros2<span class="w"> </span>action<span class="w"> </span>send_goal<span class="w"> </span>--feedback<span class="w"> </span>/grasp<span class="w"> </span>ros2_course_msgs/action/Grasp<span class="w"> </span><span class="s2">&quot;{grasp_pos: {x: 0.0, y: 0.0, z: -0.18}}&quot;</span>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>run<span class="w"> </span>ros2_course<span class="w"> </span>grasp_client
 </code></pre></div>
 </li>
 </ol>
