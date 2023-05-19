@@ -886,10 +886,13 @@ colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<spa
 </li>
 <li>
 <p>Ellenőrizzük, hogy létrejött-e a <code>Grasp</code> action:</p>
-<p><div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/ros2_ws/install/setup.bash
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/ros2_ws/install/setup.bash
 ros2<span class="w"> </span>interface<span class="w"> </span>show<span class="w"> </span>ros2_course_msgs/action/Grasp
 </code></pre></div>
-7. A <code>ros2_course</code> csomag <code>package.xml</code>-jéhez adjuk hozzá a következő sort
+<hr />
+</li>
+<li>
+<p>A <code>ros2_course</code> csomag <code>package.xml</code>-jéhez adjuk hozzá a következő sort
 a <code>ros2_course_msgs</code>dependency beállításához:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;exec_depend&gt;</span>ros2_course_msgs<span class="nt">&lt;/exec_depend&gt;</span>
 </code></pre></div>
