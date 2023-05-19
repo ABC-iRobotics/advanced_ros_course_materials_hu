@@ -14,8 +14,14 @@
       
         <link rel="canonical" href="https://abc-irobotics.github.io/advanced_ros_course_materials_hu/08_service_action/">
       
+      
+        <link rel="prev" href="../07_robotics_principles/">
+      
+      
+        <link rel="next" href="../projects/">
+      
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.3">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.6">
     
     
       
@@ -23,13 +29,13 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.6b80c2a2.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ded33207.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
-        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
       
       
+
     
     
     
@@ -48,6 +54,7 @@
 
     
     
+    
 <meta name="google-site-verification" content="FvdynuQ7bWRSdFbJqOCTL5_UtXGGjBoTuHhiUGoEb7Q" />
 
   </head>
@@ -60,7 +67,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="orange">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="orange">
   
     
     
@@ -115,15 +122,13 @@
       <form class="md-header__option" data-md-component="palette">
         
           
-          
-          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
             </label>
           
         
-          
           
           <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
           
@@ -138,7 +143,7 @@
       <div class="md-header__option">
         <div class="md-select">
           
-          <button class="md-header__button md-icon" aria-label="Select language">
+          <button class="md-header__button md-icon" aria-label="Nyelvváltás">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"/></svg>
           </button>
           <div class="md-select__inner">
@@ -149,13 +154,13 @@
                     English
                   </a>
                 </li>
-                
+              
                 <li class="md-select__item">
                   <a href="https://abc-irobotics.github.io/advanced_ros_course_materials_hu/" hreflang="hu" class="md-select__link">
                     Hungarian
                   </a>
                 </li>
-                
+              
             </ul>
           </div>
         </div>
@@ -174,9 +179,9 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="Search">
+      <nav class="md-search__options" aria-label="Keresés">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Törlés" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Törlés" aria-label="Törlés" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
@@ -188,7 +193,7 @@
           <div class="md-search-result__meta">
             Keresés inicializálása
           </div>
-          <ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
         </div>
       </div>
     </div>
@@ -200,7 +205,7 @@
         <a href="https://github.com/ABC-iRobotics/advanced_ros_course_materials_hu" title="Főoldalra ugrás" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub
@@ -219,7 +224,7 @@
           
             
 <nav class="md-tabs" aria-label="Lapok" data-md-component="tabs">
-  <div class="md-tabs__inner md-grid">
+  <div class="md-grid">
     <ul class="md-tabs__list">
       
         
@@ -300,7 +305,7 @@
       <a href="https://github.com/ABC-iRobotics/advanced_ros_course_materials_hu" title="Főoldalra ugrás" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub
@@ -338,17 +343,18 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
       
       
       
-      
-        <label class="md-nav__link" for="__nav_2">
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
           Tananyagok
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Tananyagok" data-md-level="1">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           Tananyagok
@@ -462,7 +468,7 @@
   
     <li class="md-nav__item md-nav__item--active">
       
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
         
@@ -665,15 +671,14 @@
             
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset"><a class="md-content__button md-icon" download href="08_service_action.pdf" title="PDF Export"><svg style="height: 1.2rem; width: 1.2rem;" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm76.45 211.36l-96.42 95.7c-6.65 6.61-17.39 6.61-24.04 0l-96.42-95.7C73.42 337.29 80.54 320 94.82 320H160v-80c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v80h65.18c14.28 0 21.4 17.29 11.27 27.36zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"></path></svg></a>
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset"><a class="md-content__button md-icon" download href="08_service_action.pdf" title="PDF Export"><svg style="height: 1.2rem; width: 1.2rem;" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm76.45 211.36l-96.42 95.7c-6.65 6.61-17.39 6.61-24.04 0l-96.42-95.7C73.42 337.29 80.54 320 94.82 320H160v-80c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v80h65.18c14.28 0 21.4 17.29 11.27 27.36zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"></path></svg></a>
                 
+                  
 
-  <a href="https://github.com/ABC-iRobotics/advanced_ros_course_materials_hu/edit/master/docs/08_service_action.md" title="Oldal szerkesztése" class="md-content__button md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
-  </a>
+  
+  
 
 
 <h1 id="08-ros-action-ros-service">08. ROS Action, ROS Service</h1>
@@ -690,27 +695,26 @@
 <li>Use a client-server model</li>
 <li>Similar to Remote Procedure Calls (RPC)</li>
 <li>Blocking behavior by default (can be async)</li>
-<li>Command line tools: <code>rossrv</code>, <code>rosservice</code></li>
 </ul>
 <h4 id="ros-srv-files">ROS <code>.srv</code> files</h4>
-<div class="highlight"><pre><span></span><code>int a
-int b
+<div class="highlight"><pre><span></span><code>int<span class="w"> </span>a
+int<span class="w"> </span>b
 ---
-int sum
+int<span class="w"> </span>sum
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1">#request constants</span>
-int8 <span class="nv">FOO</span><span class="o">=</span><span class="m">1</span>
-int8 <span class="nv">BAR</span><span class="o">=</span><span class="m">2</span>
+int8<span class="w"> </span><span class="nv">FOO</span><span class="o">=</span><span class="m">1</span>
+int8<span class="w"> </span><span class="nv">BAR</span><span class="o">=</span><span class="m">2</span>
 <span class="c1">#request fields</span>
-int8 foobar
-another_pkg/AnotherMessage msg
+int8<span class="w"> </span>foobar
+another_pkg/AnotherMessage<span class="w"> </span>msg
 ---
 <span class="c1">#response constants</span>
-uint32 <span class="nv">SECRET</span><span class="o">=</span><span class="m">123456</span>
+uint32<span class="w"> </span><span class="nv">SECRET</span><span class="o">=</span><span class="m">123456</span>
 <span class="c1">#response fields</span>
-another_pkg/YetAnotherMessage val
-CustomMessageDefinedInThisPackage value
-uint32 an_integer
+another_pkg/YetAnotherMessage<span class="w"> </span>val
+CustomMessageDefinedInThisPackage<span class="w"> </span>value
+uint32<span class="w"> </span>an_integer
 </code></pre></div>
 <hr />
 <h3 id="ros-action">ROS Action</h3>
@@ -729,13 +733,13 @@ uint32 an_integer
 </ul>
 <h4 id="ros-action-files">ROS <code>.action</code> files</h4>
 <div class="highlight"><pre><span></span><code><span class="c1"># Define the goal</span>
-uint32 dishwasher_id  <span class="c1"># Specify which dishwasher we want to use</span>
+uint32<span class="w"> </span>dishwasher_id<span class="w">  </span><span class="c1"># Specify which dishwasher we want to use</span>
 ---
 <span class="c1"># Define the result</span>
-uint32 total_dishes_cleaned
+uint32<span class="w"> </span>total_dishes_cleaned
 ---
 <span class="c1"># Define a feedback message</span>
-float32 percent_complete
+float32<span class="w"> </span>percent_complete
 </code></pre></div>
 <hr />
 <h3 id="building-custom-interfaces-msg-srv-and-action-files">Building custom interfaces (<code>.msg</code> , <code>.srv</code> and <code>.action</code> files)</h3>
@@ -753,25 +757,25 @@ float32 percent_complete
 <li>
 <p>Indítsunk el egy <code>turtlesim node</code>-ot és egy <code>turtle_teleop_key</code>-t.
 Figyeljük megy a <code>G|B|V|C|D|E|R|T</code> billentyűk lenyomásának hatását.</p>
-<div class="highlight"><pre><span></span><code>ros2 run turtlesim turtlesim_node
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>run<span class="w"> </span>turtlesim<span class="w"> </span>turtlesim_node
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>ros2 run turtlesim turtle_teleop_key
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>run<span class="w"> </span>turtlesim<span class="w"> </span>turtle_teleop_key
 </code></pre></div>
 <hr />
 </li>
 <li>
 <p>Tanulmányozzuk a rendszer működését az alábbi parancsok segítségével:</p>
-<div class="highlight"><pre><span></span><code>ros2 node info /turtlesim
-ros2 node info /teleop_turtle
-ros2 action list -t
-ros2 action info /turtle1/rotate_absolute
-ros2 interface show turtlesim/action/RotateAbsolute
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>node<span class="w"> </span>info<span class="w"> </span>/turtlesim
+ros2<span class="w"> </span>node<span class="w"> </span>info<span class="w"> </span>/teleop_turtle
+ros2<span class="w"> </span>action<span class="w"> </span>list<span class="w"> </span>-t
+ros2<span class="w"> </span>action<span class="w"> </span>info<span class="w"> </span>/turtle1/rotate_absolute
+ros2<span class="w"> </span>interface<span class="w"> </span>show<span class="w"> </span>turtlesim/action/RotateAbsolute
 </code></pre></div>
 <hr />
 </li>
 <li>
 <p>Küldjünk action goal-t a parancssorból:</p>
-<div class="highlight"><pre><span></span><code>ros2 action send_goal /turtle1/rotate_absolute turtlesim/action/RotateAbsolute <span class="s2">&quot;{theta: 3.14}&quot;</span>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>action<span class="w"> </span>send_goal<span class="w"> </span>/turtle1/rotate_absolute<span class="w"> </span>turtlesim/action/RotateAbsolute<span class="w"> </span><span class="s2">&quot;{theta: 3.14}&quot;</span>
 </code></pre></div>
 </li>
 </ol>
@@ -788,40 +792,40 @@ bontani az alább ábra szerint.</p>
 <ol>
 <li>
 <p>Ubuntu 20.04-en az alábbi csomagokra lesz sükség:</p>
-<div class="highlight"><pre><span></span><code>sudo apt install python3-vcstool python3-colcon-common-extensions python3-pykdl libxml2-dev libraw1394-dev libncurses5-dev qtcreator swig sox espeak cmake-curses-gui cmake-qt-gui git subversion gfortran libcppunit-dev libqt5xmlpatterns5-dev libbluetooth-dev ros-foxy-joint-state-publisher* ros-foxy-xacro
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3-vcstool<span class="w"> </span>python3-colcon-common-extensions<span class="w"> </span>python3-pykdl<span class="w"> </span>libxml2-dev<span class="w"> </span>libraw1394-dev<span class="w"> </span>libncurses5-dev<span class="w"> </span>qtcreator<span class="w"> </span>swig<span class="w"> </span>sox<span class="w"> </span>espeak<span class="w"> </span>cmake-curses-gui<span class="w"> </span>cmake-qt-gui<span class="w"> </span>git<span class="w"> </span>subversion<span class="w"> </span>gfortran<span class="w"> </span>libcppunit-dev<span class="w"> </span>libqt5xmlpatterns5-dev<span class="w"> </span>libbluetooth-dev<span class="w"> </span>ros-foxy-joint-state-publisher*<span class="w"> </span>ros-foxy-xacro
 </code></pre></div>
 <hr />
 </li>
 <li>
 <p>Clone-ozzuk a dVRK ROS2 csomagokat  <code>vcs</code>-sel, majd build-eljük:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/ros2_ws/src                
-vcs import --input https://raw.githubusercontent.com/jhu-dvrk/dvrk_robot_ros2/main/dvrk.vcs --recursive
-colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE<span class="o">=</span>Release   
-<span class="nb">source</span> ~/ros2_ws/install/setup.bash
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/ros2_ws/src<span class="w">                </span>
+vcs<span class="w"> </span>import<span class="w"> </span>--input<span class="w"> </span>https://raw.githubusercontent.com/jhu-dvrk/dvrk_robot_ros2/main/dvrk.vcs<span class="w"> </span>--recursive
+colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w">   </span>
+<span class="nb">source</span><span class="w"> </span>~/ros2_ws/install/setup.bash
 </code></pre></div>
 <hr />
 </li>
 <li>
 <p>Indítsuk el a PSM1 RViz szimulációját. A dVRK konzolon ne felejtsünk el HOME-olni.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># dVRK main console</span>
-ros2 run dvrk_robot dvrk_console_json -j ~/ros2_ws/install/sawIntuitiveResearchKitAll/share/sawIntuitiveResearchKit/share/console/console-PSM1_KIN_SIMULATED.json
+ros2<span class="w"> </span>run<span class="w"> </span>dvrk_robot<span class="w"> </span>dvrk_console_json<span class="w"> </span>-j<span class="w"> </span>~/ros2_ws/install/sawIntuitiveResearchKitAll/share/sawIntuitiveResearchKit/share/console/console-PSM1_KIN_SIMULATED.json
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1"># ROS 2 joint and robot state publishers</span>
-ros2 launch dvrk_model dvrk_state_publisher.launch.py arm:<span class="o">=</span>PSM1
+ros2<span class="w"> </span>launch<span class="w"> </span>dvrk_model<span class="w"> </span>dvrk_state_publisher.launch.py<span class="w"> </span>arm:<span class="o">=</span>PSM1
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1"># RViz</span>
-ros2 run rviz2 rviz2 -d ~/ros2_ws/install/dvrk_model/share/dvrk_model/rviz/PSM1.rviz
+ros2<span class="w"> </span>run<span class="w"> </span>rviz2<span class="w"> </span>rviz2<span class="w"> </span>-d<span class="w"> </span>~/ros2_ws/install/dvrk_model/share/dvrk_model/rviz/PSM1.rviz
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">URDF-fel kapcsolatos hibák esetén</p>
-<div class="highlight"><pre><span></span><code>locale  <span class="c1"># check for UTF-8</span>
+<div class="highlight"><pre><span></span><code>locale<span class="w">  </span><span class="c1"># check for UTF-8</span>
 
-sudo apt update <span class="o">&amp;&amp;</span> sudo apt install locales
-sudo locale-gen en_US en_US.UTF-8
-sudo update-locale <span class="nv">LC_ALL</span><span class="o">=</span>en_US.UTF-8 <span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8
-<span class="nb">export</span> <span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8
+sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>locales
+sudo<span class="w"> </span>locale-gen<span class="w"> </span>en_US<span class="w"> </span>en_US.UTF-8
+sudo<span class="w"> </span>update-locale<span class="w"> </span><span class="nv">LC_ALL</span><span class="o">=</span>en_US.UTF-8<span class="w"> </span><span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8
+<span class="nb">export</span><span class="w"> </span><span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8
 
-locale  <span class="c1"># verify settings</span>
+locale<span class="w">  </span><span class="c1"># verify settings</span>
 </code></pre></div>
 </div>
 <hr />
@@ -837,21 +841,21 @@ locale  <span class="c1"># verify settings</span>
 <ol>
 <li>
 <p>Hozzunk létre új csomagot <code>ros2_course_msgs</code> névvel:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ros2_ws/src
-ros2 pkg create --build-type ament_cmake ros2_course_msgs --dependencies action_msgs std_msgs geometry_msgs rosidl_default_generators
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>ros2_ws/src
+ros2<span class="w"> </span>pkg<span class="w"> </span>create<span class="w"> </span>--build-type<span class="w"> </span>ament_cmake<span class="w"> </span>ros2_course_msgs<span class="w"> </span>--dependencies<span class="w"> </span>action_msgs<span class="w"> </span>std_msgs<span class="w"> </span>geometry_msgs<span class="w"> </span>rosidl_default_generators
 </code></pre></div>
 <hr />
 </li>
 <li>
 <p>Hozzuk létre a <code>ros2_course_msgs/action/Grasp.action</code> fájlt az alábbi tartalommal:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Goal</span>
-geometry_msgs/Point grasp_pos
+geometry_msgs/Point<span class="w"> </span>grasp_pos
 ---
 <span class="c1"># Result</span>
-bool success
+bool<span class="w"> </span>success
 ---
 <span class="c1"># Feedback</span>
-string status
+string<span class="w"> </span>status
 </code></pre></div>
 <hr />
 </li>
@@ -874,15 +878,15 @@ string status
 </li>
 <li>
 <p>Build-eljük a workspace-t:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/ros2_ws
-colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE<span class="o">=</span>Release
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/ros2_ws
+colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release
 </code></pre></div>
 <hr />
 </li>
 <li>
 <p>Ellenőrizzük, hogy létrejött-e a <code>Grasp</code> action:</p>
-<p><div class="highlight"><pre><span></span><code><span class="nb">source</span> ~/ros2_ws/install/setup.bash
-ros2 interface show ros2_course_msgs/action/Grasp
+<p><div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/ros2_ws/install/setup.bash
+ros2<span class="w"> </span>interface<span class="w"> </span>show<span class="w"> </span>ros2_course_msgs/action/Grasp
 </code></pre></div>
 7. A <code>ros2_course</code> csomag <code>package.xml</code>-jéhez adjuk hozzá a következő sort
 a <code>ros2_course_msgs</code>dependency beállításához:</p>
@@ -918,9 +922,9 @@ megragadja a goal-ban szerepló koordinátákon található tárgyat (a dummy ma
 </li>
 <li>
 <p>Futtassuk az action client-et (<code>grasp_client</code>) és a <code>dummy_marker</code>-t:</p>
-<div class="highlight"><pre><span></span><code>ros2 run ros2_course dummy_marker
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>run<span class="w"> </span>ros2_course<span class="w"> </span>dummy_marker
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>ros2 run ros2_course grasp_client
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>run<span class="w"> </span>ros2_course<span class="w"> </span>grasp_client
 </code></pre></div>
 </li>
 </ol>
@@ -944,13 +948,13 @@ megragadására.</p>
 </li>
 <li>
 <p>Futtassuk az action server-t és teszteljük a működését parancssorból:</p>
-<div class="highlight"><pre><span></span><code>ros2 run ros2_course grasp_server
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>run<span class="w"> </span>ros2_course<span class="w"> </span>grasp_server
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>ros2 node info grasp_server
-ros2 action list -t
-ros2 action info /grasp
-ros2 interface show ros2_course_msgs/action/Grasp
-ros2 action send_goal --feedback /grasp ros2_course_msgs/action/Grasp <span class="s2">&quot;{grasp_pos: {x: 0.0, y: 0.0, z: -0.18}}&quot;</span>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>node<span class="w"> </span>info<span class="w"> </span>grasp_server
+ros2<span class="w"> </span>action<span class="w"> </span>list<span class="w"> </span>-t
+ros2<span class="w"> </span>action<span class="w"> </span>info<span class="w"> </span>/grasp
+ros2<span class="w"> </span>interface<span class="w"> </span>show<span class="w"> </span>ros2_course_msgs/action/Grasp
+ros2<span class="w"> </span>action<span class="w"> </span>send_goal<span class="w"> </span>--feedback<span class="w"> </span>/grasp<span class="w"> </span>ros2_course_msgs/action/Grasp<span class="w"> </span><span class="s2">&quot;{grasp_pos: {x: 0.0, y: 0.0, z: -0.18}}&quot;</span>
 </code></pre></div>
 </li>
 </ol>
@@ -975,51 +979,17 @@ Kiindulhatunk ebből a példából: <a href="https://docs.ros.org/en/foxy/Tutori
 
 
 
-              
-            </article>
-            
-          </div>
+
+                
+              </article>
+            </div>
+          
+          
         </div>
         
       </main>
       
         <footer class="md-footer">
-  
-    
-    <nav class="md-footer__inner md-grid" aria-label="Élőláb" >
-      
-        
-        <a href="../07_robotics_principles/" class="md-footer__link md-footer__link--prev" aria-label="Előző: 7. Kinematika, inverz kinematika" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Előző
-              </span>
-              7. Kinematika, inverz kinematika
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../projects/" class="md-footer__link md-footer__link--next" aria-label="Következő: Kötelező program" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Következő
-              </span>
-              Kötelező program
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -1046,10 +1016,10 @@ Kiindulhatunk ebből a példából: <a href="https://docs.ros.org/en/foxy/Tutori
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "toc.integrate"], "search": "../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "V\u00e1g\u00f3lapra m\u00e1solva", "clipboard.copy": "M\u00e1sol\u00e1s v\u00e1g\u00f3lapra", "search.config.lang": "hu", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Keres\u00e9s", "search.result.more.one": "1 tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.more.other": "# tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.none": "Nincs tal\u00e1lat", "search.result.one": "1 egyez\u0151 dokumentum", "search.result.other": "# egyez\u0151 dokumentum", "search.result.placeholder": "Keres\u00e9shez \u00edrj ide valamit", "search.result.term.missing": "\u00dcres", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "toc.integrate"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "V\u00e1g\u00f3lapra m\u00e1solva", "clipboard.copy": "M\u00e1sol\u00e1s v\u00e1g\u00f3lapra", "search.result.more.one": "1 tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.more.other": "# tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.none": "Nincs tal\u00e1lat", "search.result.one": "1 egyez\u0151 dokumentum", "search.result.other": "# egyez\u0151 dokumentum", "search.result.placeholder": "Keres\u00e9shez \u00edrj ide valamit", "search.result.term.missing": "\u00dcres", "select.version": "Verzi\u00f3v\u00e1lt\u00e1s"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.2ab50757.min.js"></script>
+      <script src="../assets/javascripts/bundle.51198bba.min.js"></script>
       
         <script src="../javascripts/mathjax.js"></script>
       
