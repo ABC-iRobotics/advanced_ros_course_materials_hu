@@ -21,7 +21,6 @@ author: Nagy Tamás
 - Use a client-server model
 - Similar to Remote Procedure Calls (RPC)
 - Blocking behavior by default (can be async)
-- Command line tools: `rossrv`, `rosservice`
 
 #### ROS `.srv` files
 
