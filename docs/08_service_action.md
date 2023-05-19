@@ -306,6 +306,9 @@ dvrk_PSM1->grasp_server [label="   measured_cp\n    jaw/measured_js"]
     source ~/ros2_ws/install/setup.bash
     ros2 interface show ros2_course_msgs/action/Grasp
     ```
+
+    ---   
+
 7. A `ros2_course` csomag `package.xml`-jéhez adjuk hozzá a következő sort
 a `ros2_course_msgs`dependency beállításához:
 
