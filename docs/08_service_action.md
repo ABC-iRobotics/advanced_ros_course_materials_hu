@@ -195,6 +195,7 @@ dvrk_PSM1->grasp_server [label="   measured_cp\n    jaw/measured_js"]
     ```bash
     cd ~/ros2_ws/src                
     vcs import --input https://raw.githubusercontent.com/jhu-dvrk/dvrk_robot_ros2/main/dvrk.vcs --recursive
+    cd ~/ros2_ws
     colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release   
     source ~/ros2_ws/install/setup.bash
     ```
