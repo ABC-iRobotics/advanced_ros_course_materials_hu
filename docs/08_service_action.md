@@ -12,7 +12,7 @@ author: Nagy Tamás
 --- 
 
 !!! warning
-	**ZH2** **május 26.**
+	**ZH2** **május 26.** **10:45** **F.05 terem**
 
 
 ### ROS Service
