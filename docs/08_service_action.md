@@ -3,7 +3,7 @@ title: ROS Action, ROS Service
 author: Nagy Tamás
 ---
 
-# 08. ROS Action, ROS Service
+# 08. ROS service, ROS action fogalma, felhasználása
 
 ---
 
