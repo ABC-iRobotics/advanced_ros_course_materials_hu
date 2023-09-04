@@ -19,7 +19,7 @@
     
     
       
-        <title>Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben, ROS1-ROS2 bridge - Fejlett robotprogramozás ROS környezetben</title>
+        <title>Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben - Fejlett robotprogramozás ROS környezetben</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#06-robotikai-alapfogalmak-da-vinci-sebeszrobot-programozasa-szimulalt-kornyezetben-ros1-ros2-bridge" class="md-skip">
+        <a href="#06-robotikai-alapfogalmak-da-vinci-sebeszrobot-programozasa-szimulalt-kornyezetben" class="md-skip">
           Kihagyás
         </a>
       
@@ -105,7 +105,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben, ROS1-ROS2 bridge
+              Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben
             
           </span>
         </div>
@@ -534,50 +534,36 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-ros1-ros2-bridge-install" class="md-nav__link">
-    1: ROS1-ROS2 bridge install
+  <a href="#1-dvrk-ros-2-install" class="md-nav__link">
+    1: dVRK ROS 2 install
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-catkin-workspace" class="md-nav__link">
-    2: Catkin workspace
+  <a href="#2-psm-subscriber-implementalasa" class="md-nav__link">
+    2: PSM subscriber implementálása
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-dvrk-install" class="md-nav__link">
-    3: dVRK install
+  <a href="#3-psm-tcp-mozgatasa-linearis-trajektoria-menten" class="md-nav__link">
+    3. PSM TCP mozgatása lineáris trajektória mentén
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-psm-subscriber-implementalasa" class="md-nav__link">
-    4: PSM subscriber implementálása
+  <a href="#4-dummy-marker-letrehozasa" class="md-nav__link">
+    4. Dummy marker létrehozása
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-psm-tcp-mozgatasa-linearis-trajektoria-menten" class="md-nav__link">
-    5. PSM TCP mozgatása lineáris trajektória mentén
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-dummy-marker-letrehozasa" class="md-nav__link">
-    6. Dummy marker létrehozása
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-marker-megfogasa" class="md-nav__link">
-    7. Marker megfogása
+  <a href="#5-marker-megfogasa" class="md-nav__link">
+    5. Marker megfogása
   </a>
   
 </li>
@@ -671,7 +657,7 @@
   </a>
 
 
-<h1 id="06-robotikai-alapfogalmak-da-vinci-sebeszrobot-programozasa-szimulalt-kornyezetben-ros1-ros2-bridge">06. Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben, ROS1-ROS2 bridge</h1>
+<h1 id="06-robotikai-alapfogalmak-da-vinci-sebeszrobot-programozasa-szimulalt-kornyezetben">06. Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben</h1>
 <hr />
 <h2 id="elmelet">Elmélet</h2>
 <hr />
@@ -850,100 +836,54 @@ If not installed:</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/QksAVT0YMEo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <hr />
-<h3 id="1-ros1-ros2-bridge-install">1: ROS1-ROS2 bridge install</h3>
+<h3 id="1-dvrk-ros-2-install">1: dVRK ROS 2 install</h3>
 <hr />
 <ol>
 <li>
-<p>Nyissuk meg a <code>~/.bashrc</code> fájlt és kommenteljük ki a ROS 1, ROS 2 és további ROS workspace-ek source-olásáért felelős sorokat.</p>
-<hr />
-</li>
-<li>
-<p>Adjuk hozzá az alábbi sort a <code>~/.bashrc</code> fájlhoz:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">ROS_MASTER_URI</span><span class="o">=</span>http://localhost:11311
+<p>Klónozzuk a dVRK-t (da Vinci Reserach Kit) <code>vcs</code> segítségével egy új workspace-be, majd build-eljük:</p>
+<div class="highlight"><pre><span></span><code>mkdir -p ~/dvrk2_ws/src
+<span class="nb">cd</span> ~/dvrk2_ws/src                
+vcs import --input https://raw.githubusercontent.com/jhu-dvrk/dvrk_robot_ros2/main/dvrk.vcs --recursive
+<span class="nb">cd</span> ~/dvrk2_ws
+colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE<span class="o">=</span>Release   
+<span class="nb">source</span> ~/dvrk2_ws/install/setup.bash
 </code></pre></div>
 <hr />
 </li>
 <li>
-<p>Telepítsük a <code>ros-foxy-ros1-bridge</code> csomagot:</p>
-<div class="highlight"><pre><span></span><code>sudo apt update
-sudo apt install ros-foxy-ros1-bridge
-</code></pre></div>
+<p>A <code>.bashrc</code> fájl végére illesszük be az alábbi sort:
+    <div class="highlight"><pre><span></span><code><span class="nb">source</span> ~/dvrk2_ws/install/setup.bash
+</code></pre></div></p>
+<hr />
 </li>
 </ol>
-<hr />
-<h3 id="2-catkin-workspace">2: Catkin workspace</h3>
-<hr />
-<ol>
-<li>
-<p>Telepítsük a catkin build tools csomagot:</p>
-<div class="highlight"><pre><span></span><code>sudo apt update
-sudo apt-get install python3-catkin-tools python3-osrf-pycommon
-</code></pre></div>
-<hr />
-</li>
-<li>
-<p>Hozzuk létre a catkin workspace-t:</p>
-<div class="highlight"><pre><span></span><code>mkdir -p ~/catkin_ws/src
-<span class="nb">cd</span> ~/catkin_ws
-catkin init
-</code></pre></div>
-</li>
-</ol>
-<hr />
-<h3 id="3-dvrk-install">3: dVRK install</h3>
-<hr />
-<ol>
-<li>
-<p>Ubuntu 20.04-en az alábbi csomagokra lesz sükség:</p>
-<div class="highlight"><pre><span></span><code>sudo apt install libxml2-dev libraw1394-dev libncurses5-dev qtcreator swig sox espeak cmake-curses-gui cmake-qt-gui git subversion gfortran libcppunit-dev libqt5xmlpatterns5-dev python3-wstool python3-catkin-tools python3-osrf-pycommon ros-noetic-rviz
-</code></pre></div>
-<hr />
-</li>
-<li>
-<p>Töltsük le a ROS verziók source-olását megkönnyítő scriptet (a VM-eken már le van töltve). Source-oljuk a ROS 1-et:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> 
-<span class="nb">source</span> ros_setup.sh -v <span class="m">1</span>
-</code></pre></div>
-</li>
-<li>
-<p>Töltsük le és telepítsük a dVRK-t (da Vinci Reserach Kit):</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/catkin_ws                     <span class="c1"># go in the workspace</span>
-wstool init src                    <span class="c1"># we&#39;re going to use wstool to pull all the code from github</span>
-catkin config --cmake-args -DCMAKE_BUILD_TYPE<span class="o">=</span>Release <span class="c1"># all code should be compiled in release mode</span>
-<span class="nb">cd</span> src                             <span class="c1"># go in source directory to pull code</span>
-wstool merge https://raw.githubusercontent.com/jhu-dvrk/dvrk-ros/master/dvrk_ros.rosinstall <span class="c1"># or replace master by devel</span>
-wstool up                          <span class="c1"># now wstool knows which repositories to pull, let&#39;s get the code</span>
-<span class="nb">cd</span> ~/catkin_ws
-catkin build --summary             <span class="c1"># ... and finally compile everything</span>
-</code></pre></div>
-<div class="admonition danger">
-<p class="admonition-title">Danger</p>
-<p><strong>Soha</strong> ne használjuk a <code>catkin build</code> és a <code>catkin_make</code> parancsokat ugyanabban a workspace-ben!</p>
-</div>
-<hr />
-</li>
-<li>
-<p>Indítsuk el a PSM1 (Patient Side Manipulator) RViz szimulációját. A dVRK konzolon ne felejtsünk el HOME-olni. Indítsuk el a ROS1-ROS2 Bridge-t.
-Tanulmányozzuk a szimulátor működését ROS 2-ből a tanult prancsok
+<p>3Indítsuk el a PSM1 (Patient Side Manipulator) RViz szimulációját. A dVRK konzolon ne felejtsünk el HOME-olni. 
+Tanulmányozzuk a szimulátor működését a tanult prancsok
 (<code>ros2 topic list</code>, <code>ros2 topic echo</code> <code>ros2 run rqt_gui rqt_gui</code>, stb.) használatával. </p>
-<div class="highlight"><pre><span></span><code><span class="nb">source</span> ros_setup.sh -v <span class="m">2</span>
-ros2 topic list
-ros2 topic <span class="nb">echo</span> /PSM1/measured_cp
+<pre><code>```bash
+# dVRK main console
+ros2 run dvrk_robot dvrk_console_json -j ~/dvrk2_ws/install/sawIntuitiveResearchKitAll/share/sawIntuitiveResearchKit/share/console/console-PSM1_KIN_SIMULATED.json
+```
+
+```bash
+# ROS 2 joint and robot state publishers
+ros2 launch dvrk_model dvrk_state_publisher.launch.py arm:=PSM1
+```
+
+
+```bash
+# RViz
+ros2 run rviz2 rviz2 -d ~/dvrk2_ws/install/dvrk_model/share/dvrk_model/rviz/PSM1.rviz
+```
+
+
+```bash
+# rqt_gui
 ros2 run rqt_gui rqt_gui
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="nb">source</span> ros_setup.sh -v <span class="m">1</span>
-roslaunch dvrk_robot dvrk_arm_rviz.launch arm:<span class="o">=</span>PSM1 config:<span class="o">=</span>/home/<span class="k">$(</span>whoami<span class="k">)</span>/catkin_ws/src/cisst-saw/sawIntuitiveResearchKit/share/console/console-PSM1_KIN_SIMULATED.json
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="nb">source</span> ros_setup.sh -v b
-ros2 run ros1_bridge dynamic_bridge --bridge-all-topics
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="nb">source</span> ros_setup.sh -v <span class="m">2</span>
-ros2 run rqt_gui rqt_gui
-</code></pre></div>
-</li>
-</ol>
+```
+</code></pre>
 <hr />
-<h3 id="4-psm-subscriber-implementalasa">4: PSM subscriber implementálása</h3>
+<h3 id="2-psm-subscriber-implementalasa">2: PSM subscriber implementálása</h3>
 <hr />
 <ol>
 <li>
@@ -967,7 +907,7 @@ ros2 run ros2_course psm_grasp
 <hr />
 </li>
 </ol>
-<h3 id="5-psm-tcp-mozgatasa-linearis-trajektoria-menten">5. PSM TCP mozgatása lineáris trajektória mentén</h3>
+<h3 id="3-psm-tcp-mozgatasa-linearis-trajektoria-menten">3. PSM TCP mozgatása lineáris trajektória mentén</h3>
 <hr />
 <p><img align="right" alt="" src="../img/PSM_coordinates.png" style="width:350px" /></p>
 <ol>
@@ -994,7 +934,7 @@ x, y és z komponensét idő függvényében.</p>
 <hr />
 </li>
 </ol>
-<h3 id="6-dummy-marker-letrehozasa">6. Dummy marker létrehozása</h3>
+<h3 id="4-dummy-marker-letrehozasa">4. Dummy marker létrehozása</h3>
 <hr />
 <ol>
 <li>
@@ -1063,7 +1003,7 @@ A <code>frame_id</code> addattag értéke legyen <code>PSM1_psm_base_link</code>
 <hr />
 </li>
 </ol>
-<h3 id="7-marker-megfogasa">7. Marker megfogása</h3>
+<h3 id="5-marker-megfogasa">5. Marker megfogása</h3>
 <hr />
 <ol>
 <li>
@@ -1085,7 +1025,7 @@ A <code>frame_id</code> addattag értéke legyen <code>PSM1_psm_base_link</code>
 <hr />
 <h2 id="hasznos-linkek">Hasznos linkek</h2>
 <ul>
-<li><a href="https://github.com/jhu-dvrk/sawIntuitiveResearchKit/wiki/CatkinBuild">Download and compile dVRK</a></li>
+<li><a href="https://github.com/jhu-dvrk/sawIntuitiveResearchKit/wiki/BuildROS2">Download and compile dVRK 2</a></li>
 <li><a href="https://www.programcreek.com/python/example/88812/visualization_msgs.msg.Marker">Marker examples</a></li>
 <li><a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.norm.html">Numpy vector magnitude</a></li>
 <li><a href="https://numpy.org/doc/stable/reference/generated/numpy.linspace.html">Numpy linspace</a></li>
