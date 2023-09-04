@@ -225,6 +225,7 @@ pip3 install matplotlib
     ---
  
 2. A `.bashrc` fájl végére illesszük be az alábbi sort:
+
     ```bash
     source ~/dvrk2_ws/install/setup.bash
     ```
@@ -232,7 +233,7 @@ pip3 install matplotlib
     ---
     
 3. Indítsuk el a PSM1 (Patient Side Manipulator) RViz szimulációját. A dVRK konzolon ne felejtsünk el HOME-olni. 
-Tanulmányozzuk a szimulátor működését a tanult prancsok
+Tanulmányozzuk a szimulátor működését a tanult parancsok
 (`ros2 topic list`, `ros2 topic echo` `ros2 run rqt_gui rqt_gui`, stb.) használatával. 
 
 
