@@ -458,10 +458,10 @@ fájl argumentumaiként legyenek megadhatóak.
 
 ## Hasznos linkek
 
-- [ROS 2 Launch Tutorial](https://docs.ros.org/en/foxy/Tutorials/Intermediate/Launch/Launch-Main.html)
+- [ROS 2 Launch Tutorial](https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Launch-Main.html)
 - [ROS 2 Parameters](https://docs.ros.org/en/rolling/Concepts/About-ROS-2-Parameters.html)
-- [Using ROS 2 parameters in a Class](https://docs.ros.org/en/foxy/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.html)
-- [ROS 2 Bag](https://docs.ros.org/en/foxy/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.html)
+- [Using ROS 2 parameters in a Class](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.html)
+- [ROS 2 Bag](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.html)
 
 
 

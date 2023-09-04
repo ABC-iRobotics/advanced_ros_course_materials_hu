@@ -62,85 +62,48 @@ author: Nagy Tamás
 
 Ajánlott környezet:
     
-- Ubuntu 20.04
-- ROS1 Noetic
-- ROS2 Foxy
+- Ubuntu 22.04
+- ROS2 Humble
 - *IDE: QtCreator/CLion/VSCode*
 
 
 
 ---
 
-### ROS 1 Noetic 
 
+### ROS 2 Humble Hawksbill
 
-![](http://wiki.ros.org/noetic?action=AttachFile&do=get&target=noetic.png){:style="width:300px" align=right}
-
-1. ROS Noetic telepítése
-
-    ```bash
-    sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
-    sudo apt install curl
-    curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
-    sudo apt update
-    sudo apt install ros-noetic-desktop-full
-    source /opt/ros/noetic/setup.bash
-    ```
-
-    ---
-    
-2. ROS 1 dependencies
-    
-    ```bash
-    sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential
-    sudo rosdep init
-    rosdep update
-    ```
-   
-    ---
-
-3. Ha ezzel megvagyunk, a következő parancssal tesztelhetjük a ROS 1 telepítésünket:
-
-
-    ```bash
-    source /opt/ros/noetic/setup.bash
-    roscore
-    ```
-
----    
-
-### ROS 2 Foxy
-
-![](https://global.discourse-cdn.com/business7/uploads/ros/optimized/2X/d/d6fd5322bd2ddc06530d8352fcab20f0bca08c06_2_861x1024.png){:style="width:300px" align=right}
+![](https://www.therobotreport.com/wp-content/uploads/2022/05/ros-humble-hawksbill-featured.jpg){:style="width:300px" align=right}
 
 
 1. Locale beállítása.
 
     ```bash
     locale  # check for UTF-8
-
+    
     sudo apt update && sudo apt install locales
     sudo locale-gen en_US en_US.UTF-8
     sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
     export LANG=en_US.UTF-8
-
+    
     locale  # verify settings
     ```
    
     ---
 
-2. ROS 2 Foxy telepítése
+2. ROS 2 Humble telepítése
 
 
     ```bash
     sudo apt install software-properties-common
     sudo add-apt-repository universe
-    sudo apt update && sudo apt install curl
+    sudo apt update && sudo apt install curl -y
     sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
     echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
     sudo apt update
     sudo apt upgrade
-    sudo apt install ros-foxy-desktop python3-argcomplete ros-dev-tools ros-foxy-moveit* ros-foxy-control*
+    sudo apt install ros-humble-desktop
+    sudo apt install ros-dev-tools
     ```
 
     ---
@@ -149,7 +112,7 @@ Ajánlott környezet:
 
 
     ```bash
-    source /opt/ros/foxy/setup.bash
+    source /opt/ros/humble/setup.bash
     ros2 run demo_nodes_py talker
     ```
 
@@ -159,7 +122,7 @@ Ajánlott környezet:
 
 
     ```bash
-    echo "source /opt/ros/foxy/setup.bash" >> ~/.bashrc
+    echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
     ```
     
 ---
@@ -171,7 +134,7 @@ Ajánlott környezet:
 
 
     ```bash
-    sudo apt install libxml2-dev libraw1394-dev libncurses5-dev qtcreator swig sox espeak cmake-curses-gui cmake-qt-gui git subversion gfortran libcppunit-dev libqt5xmlpatterns5-dev python3-catkin-tools python3-osrf-pycommon libasound2-dev libgl1-mesa-dev xorg-dev ros-foxy-turtlebot3*
+    sudo apt install libxml2-dev libraw1394-dev libncurses5-dev qtcreator swig sox espeak cmake-curses-gui cmake-qt-gui git subversion gfortran libcppunit-dev libqt5xmlpatterns5-dev python3-catkin-tools python3-osrf-pycommon libasound2-dev libgl1-mesa-dev xorg-dev python3-vcstool python3-colcon-common-extensions python3-pykdl libxml2-dev libraw1394-dev libncurses5-dev qtcreator swig sox espeak cmake-curses-gui cmake-qt-gui git subversion gfortran libcppunit-dev libqt5xmlpatterns5-dev libbluetooth-dev ros-humble-joint-state-publisher* ros-humble-xacro gfortran-9
     ```
 
 ---
@@ -230,8 +193,7 @@ Ajánlott környezet:
 ## Hasznos linkek
 
 - [https://www.ros.org/](https://www.ros.org/)
-- [ROS 1 Noetic installation](http://wiki.ros.org/noetic/Installation/Ubuntu)
-- [ROS 2 Foxy installation](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
+- [ROS 2 Humble installation](https://docs.ros.org/en/humble/Installation.html)
 - [ROS Distributions](http://wiki.ros.org/Distributions)
 - [http://wiki.ros.org/ROS/Tutorials](http://wiki.ros.org/ROS/Tutorials)
 - [CLion hallgatói licensz](https://www.jetbrains.com/community/education/#students)

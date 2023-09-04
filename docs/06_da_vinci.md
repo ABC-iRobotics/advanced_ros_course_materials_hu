@@ -1,9 +1,9 @@
 ---
-title: Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben, ROS1-ROS2 bridge
+title: Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben
 author: Nagy Tamás
 ---
 
-# 06. Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben, ROS1-ROS2 bridge
+# 06. Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben
 
 ---
 
@@ -206,123 +206,55 @@ pip3 install matplotlib
 
 ---
 
-### 1: ROS1-ROS2 bridge install
+### 1: dVRK ROS 2 install
 
 ---
 
-1. Nyissuk meg a `~/.bashrc` fájlt és kommenteljük ki a ROS 1, ROS 2 és további ROS workspace-ek source-olásáért felelős sorokat.
 
-    ---
-
-2. Adjuk hozzá az alábbi sort a `~/.bashrc` fájlhoz:
+1. Klónozzuk a dVRK-t (da Vinci Reserach Kit) `vcs` segítségével egy új workspace-be, majd build-eljük:
 
     ```bash
-    export ROS_MASTER_URI=http://localhost:11311
+    mkdir -p ~/dvrk2_ws/src
+    cd ~/dvrk2_ws/src                
+    vcs import --input https://raw.githubusercontent.com/jhu-dvrk/dvrk_robot_ros2/main/dvrk.vcs --recursive
+    cd ~/dvrk2_ws
+    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release   
+    source ~/dvrk2_ws/install/setup.bash
     ```
 
     ---
-
-3. Telepítsük a `ros-foxy-ros1-bridge` csomagot:
-
-    
+ 
+2. A `.bashrc` fájl végére illesszük be az alábbi sort:
     ```bash
-    sudo apt update
-    sudo apt install ros-foxy-ros1-bridge
-    ```
-
----
-
-### 2: Catkin workspace
-
----
-
-1. Telepítsük a catkin build tools csomagot:
-
-    ```bash
-    sudo apt update
-    sudo apt-get install python3-catkin-tools python3-osrf-pycommon
+    source ~/dvrk2_ws/install/setup.bash
     ```
 
     ---
-
-
-2. Hozzuk létre a catkin workspace-t:
-
-    ```bash
-    mkdir -p ~/catkin_ws/src
-    cd ~/catkin_ws
-    catkin init
-    ```
     
----
-
-
-### 3: dVRK install
-
----
-
-1. Ubuntu 20.04-en az alábbi csomagokra lesz sükség:
-
-
-    ```bash
-    sudo apt install libxml2-dev libraw1394-dev libncurses5-dev qtcreator swig sox espeak cmake-curses-gui cmake-qt-gui git subversion gfortran libcppunit-dev libqt5xmlpatterns5-dev python3-wstool python3-catkin-tools python3-osrf-pycommon ros-noetic-rviz
-    ```
-    
-    ---
-
-2. Töltsük le a ROS verziók source-olását megkönnyítő scriptet (a VM-eken már le van töltve). Source-oljuk a ROS 1-et:
-
-    ```bash
-    cd 
-    source ros_setup.sh -v 1
-    ```
-
-
-3. Töltsük le és telepítsük a dVRK-t (da Vinci Reserach Kit):
-
-    ```bash
-    cd ~/catkin_ws                     # go in the workspace
-    wstool init src                    # we're going to use wstool to pull all the code from github
-    catkin config --cmake-args -DCMAKE_BUILD_TYPE=Release # all code should be compiled in release mode
-    cd src                             # go in source directory to pull code
-    wstool merge https://raw.githubusercontent.com/jhu-dvrk/dvrk-ros/master/dvrk_ros.rosinstall # or replace master by devel
-    wstool up                          # now wstool knows which repositories to pull, let's get the code
-    cd ~/catkin_ws
-    catkin build --summary             # ... and finally compile everything
-    ```
-    
-    !!! danger
-        **Soha** ne használjuk a `catkin build` és a `catkin_make` parancsokat ugyanabban a workspace-ben!
-
-    ---
-    
-4. Indítsuk el a PSM1 (Patient Side Manipulator) RViz szimulációját. A dVRK konzolon ne felejtsünk el HOME-olni. Indítsuk el a ROS1-ROS2 Bridge-t.
-Tanulmányozzuk a szimulátor működését ROS 2-ből a tanult prancsok
+3Indítsuk el a PSM1 (Patient Side Manipulator) RViz szimulációját. A dVRK konzolon ne felejtsünk el HOME-olni. 
+Tanulmányozzuk a szimulátor működését a tanult prancsok
 (`ros2 topic list`, `ros2 topic echo` `ros2 run rqt_gui rqt_gui`, stb.) használatával. 
 
 
     ```bash
-    source ros_setup.sh -v 2
-    ros2 topic list
-    ros2 topic echo /PSM1/measured_cp
-    ros2 run rqt_gui rqt_gui
+    # dVRK main console
+    ros2 run dvrk_robot dvrk_console_json -j ~/dvrk2_ws/install/sawIntuitiveResearchKitAll/share/sawIntuitiveResearchKit/share/console/console-PSM1_KIN_SIMULATED.json
     ```
 
-
     ```bash
-    source ros_setup.sh -v 1
-    roslaunch dvrk_robot dvrk_arm_rviz.launch arm:=PSM1 config:=/home/$(whoami)/catkin_ws/src/cisst-saw/sawIntuitiveResearchKit/share/console/console-PSM1_KIN_SIMULATED.json
+    # ROS 2 joint and robot state publishers
+    ros2 launch dvrk_model dvrk_state_publisher.launch.py arm:=PSM1
     ```
    
 
     ```bash
-    source ros_setup.sh -v b
-    ros2 run ros1_bridge dynamic_bridge --bridge-all-topics
+    # RViz
+    ros2 run rviz2 rviz2 -d ~/dvrk2_ws/install/dvrk_model/share/dvrk_model/rviz/PSM1.rviz
     ```
 
 
     ```bash
-    source ros_setup.sh -v 2
+    # rqt_gui
     ros2 run rqt_gui rqt_gui
     ```
 
@@ -331,7 +263,7 @@ Tanulmányozzuk a szimulátor működését ROS 2-ből a tanult prancsok
     
     
 
-### 4: PSM subscriber implementálása
+### 2: PSM subscriber implementálása
 
 ---
 
@@ -359,7 +291,7 @@ Tanulmányozzuk a szimulátor működését ROS 2-ből a tanult prancsok
 
     ---
 
-### 5. PSM TCP mozgatása lineáris trajektória mentén
+### 3. PSM TCP mozgatása lineáris trajektória mentén
 
 ---
 
@@ -398,7 +330,7 @@ x, y és z komponensét idő függvényében.
 
     ---
     
-### 6. Dummy marker létrehozása
+### 4. Dummy marker létrehozása
 
 ---
 
@@ -469,7 +401,7 @@ A `frame_id` addattag értéke legyen `PSM1_psm_base_link`. Másoljuk az alábbi
 
     ---
 
-### 7. Marker megfogása
+### 5. Marker megfogása
 
 ---
 
@@ -492,7 +424,7 @@ A `frame_id` addattag értéke legyen `PSM1_psm_base_link`. Másoljuk az alábbi
 
 ## Hasznos linkek
 
-- [Download and compile dVRK](https://github.com/jhu-dvrk/sawIntuitiveResearchKit/wiki/CatkinBuild)
+- [Download and compile dVRK 2](https://github.com/jhu-dvrk/sawIntuitiveResearchKit/wiki/BuildROS2)
 - [Marker examples](https://www.programcreek.com/python/example/88812/visualization_msgs.msg.Marker)
 - [Numpy vector magnitude](https://numpy.org/doc/stable/reference/generated/numpy.linalg.norm.html)
 - [Numpy linspace](https://numpy.org/doc/stable/reference/generated/numpy.linspace.html)

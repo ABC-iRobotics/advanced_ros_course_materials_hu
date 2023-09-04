@@ -14,8 +14,8 @@ Dr. Galambos Péter
 ---
 
 ### Oktatók
-Nagy Tamás    
-[tamas.daniel.nagy@irob.uni-obuda.hu](mailto:tamas.daniel.nagy@irob.uni-obuda.hu)
+Levendovics Tamás   
+[tamas.levendovics@irob.uni-obuda.hu](mailto:tamas.levendovics@irob.uni-obuda.hu)
 
 Détár Borsa    
 [detar.borsa@gmail.com](mailto:detar.borsa@gmail.com)
@@ -27,8 +27,7 @@ Détár Borsa
 
 |           Csoport            | Időpont                | Terem   | 
 |:----------------------------:|------------------------|---------|
-| **1. csoport** _ea. és lab._ | **Péntek 10:45-13:45** | BA.1.10 |                                                                                                                                                                                   
-| **2. csoport** _ea. és lab._ | **Péntek 14:00-17:00** | BA.1.10 |
+| **1. csoport** _ea. és lab._ | **Kedd 11:40-15:10**   | BA.1.10 |
 
 
 ---
@@ -76,11 +75,13 @@ Détár Borsa
 
 A jelenlét az órákon kötelező (min 70%).
 
-A félév elfogadásának feltétele, hogy mind a két ZH, mind a kötelező program értékelése legalább elégséges. A **két ZH közül** az **egyik** az aláíráspótló vizsga alkalmával **pótolható**.
+A félév elfogadásának feltétele, hogy mind a két ZH, mind a kötelező program értékelése legalább elégséges.
+
 
 !!! abstract "Félév végi jegy"
 	$Jegy = (ZH1 + ZH2 + 2 \times KötProg) / 4$ 
 
+A két ZH közül egy a szorgalmi időszak utolsó hetében pótolható. Az évközi jegy pótló alkalmon egy ZH illetve a projekt bemutatása pótolható.
 
 ---
 

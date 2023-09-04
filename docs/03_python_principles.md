@@ -353,7 +353,7 @@ az egyenes mozgást és a fordulást végrehajtó metódusok felhasználásával
 
 - [For loops in python](https://www.w3schools.com/python/python_for_loops.asp)
 - [Some python functions](https://docs.python.org/3.4/library/functions.html)
-- [Turtlesim help](https://docs.ros.org/en/foxy/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html)
+- [Turtlesim help](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html)
 - [atan2](https://en.wikipedia.org/wiki/Atan2)
 
 

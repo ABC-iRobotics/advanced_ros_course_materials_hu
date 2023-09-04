@@ -587,7 +587,7 @@ source ~/ros2_ws/install/setup.bash
 
 ## Hasznos linkek
 
-- [ROS 2 Tutorials](https://docs.ros.org/en/foxy/Tutorials.html)
+- [ROS 2 Tutorials](https://docs.ros.org/en/humble/Tutorials.html)
 - [What is a ROS 2 package?](https://docs.ros.org/en/eloquent/Tutorials/Creating-Your-First-ROS2-Package.html#what-is-a-ros-2-package)
 
 
