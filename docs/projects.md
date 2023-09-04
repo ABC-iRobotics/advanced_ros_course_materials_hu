@@ -203,7 +203,7 @@ Megegyezés alapján.
 
 ## Hasznos linkek
 
-- [TurtleBot3 Simulation](https://emanual.robotis.com/docs/en/platform/turtlebot3/simulation/)
+- [TurtleBot4 Simulation](https://turtlebot.github.io/turtlebot4-user-manual/software/turtlebot4_simulator.html)
 - [TurtleBot3 Tutorial](https://ros2-industrial-workshop.readthedocs.io/en/latest/_source/navigation/ROS2-Turtlebot.html)
 - [AMBF](https://github.com/WPI-AIM/ambf)
 - [My fork of AMBF](https://github.com/TamasDNagy/ambf)
