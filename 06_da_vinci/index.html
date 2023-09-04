@@ -851,14 +851,14 @@ colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE<span class="o">=<
 <hr />
 </li>
 <li>
-<p>A <code>.bashrc</code> fájl végére illesszük be az alábbi sort:
-    <div class="highlight"><pre><span></span><code><span class="nb">source</span> ~/dvrk2_ws/install/setup.bash
-</code></pre></div></p>
+<p>A <code>.bashrc</code> fájl végére illesszük be az alábbi sort:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span> ~/dvrk2_ws/install/setup.bash
+</code></pre></div>
 <hr />
 </li>
 <li>
 <p>Indítsuk el a PSM1 (Patient Side Manipulator) RViz szimulációját. A dVRK konzolon ne felejtsünk el HOME-olni. 
-Tanulmányozzuk a szimulátor működését a tanult prancsok
+Tanulmányozzuk a szimulátor működését a tanult parancsok
 (<code>ros2 topic list</code>, <code>ros2 topic echo</code> <code>ros2 run rqt_gui rqt_gui</code>, stb.) használatával. </p>
 <div class="highlight"><pre><span></span><code><span class="c1"># dVRK main console</span>
 ros2 run dvrk_robot dvrk_console_json -j ~/dvrk2_ws/install/sawIntuitiveResearchKitAll/share/sawIntuitiveResearchKit/share/console/console-PSM1_KIN_SIMULATED.json
