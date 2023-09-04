@@ -856,32 +856,24 @@ colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE<span class="o">=<
 </code></pre></div></p>
 <hr />
 </li>
-</ol>
-<p>3Indítsuk el a PSM1 (Patient Side Manipulator) RViz szimulációját. A dVRK konzolon ne felejtsünk el HOME-olni. 
+<li>
+<p>Indítsuk el a PSM1 (Patient Side Manipulator) RViz szimulációját. A dVRK konzolon ne felejtsünk el HOME-olni. 
 Tanulmányozzuk a szimulátor működését a tanult prancsok
 (<code>ros2 topic list</code>, <code>ros2 topic echo</code> <code>ros2 run rqt_gui rqt_gui</code>, stb.) használatával. </p>
-<pre><code>```bash
-# dVRK main console
+<div class="highlight"><pre><span></span><code><span class="c1"># dVRK main console</span>
 ros2 run dvrk_robot dvrk_console_json -j ~/dvrk2_ws/install/sawIntuitiveResearchKitAll/share/sawIntuitiveResearchKit/share/console/console-PSM1_KIN_SIMULATED.json
-```
-
-```bash
-# ROS 2 joint and robot state publishers
-ros2 launch dvrk_model dvrk_state_publisher.launch.py arm:=PSM1
-```
-
-
-```bash
-# RViz
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># ROS 2 joint and robot state publishers</span>
+ros2 launch dvrk_model dvrk_state_publisher.launch.py arm:<span class="o">=</span>PSM1
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># RViz</span>
 ros2 run rviz2 rviz2 -d ~/dvrk2_ws/install/dvrk_model/share/dvrk_model/rviz/PSM1.rviz
-```
-
-
-```bash
-# rqt_gui
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># rqt_gui</span>
 ros2 run rqt_gui rqt_gui
-```
-</code></pre>
+</code></pre></div>
+</li>
+</ol>
 <hr />
 <h3 id="2-psm-subscriber-implementalasa">2: PSM subscriber implementálása</h3>
 <hr />
