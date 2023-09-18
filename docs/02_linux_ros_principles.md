@@ -9,54 +9,6 @@ author: Nagy Tamás
 
 ## Elmélet
 
----
-
-### Linux principles
-
----
-
-![](https://images.idgesg.net/images/article/2017/05/linux-distros-100724403-large.jpg){:style="width:400px" align=right}
-
-- (Was) the only OS supported by ROS
-- Security
-- Efficieny
-- Open-source
-- Community support
-- User freedom
-- Distributions: **Ubuntu**, Linux Mint, Debian, etc.
-- Terminal usage more dominant
-
-!!! tip "Suggestion"
-    Install **Terminator** terminal emulator:
-    ```bash
-    sudo apt update
-    sudo apt install terminator
-    ```
-
-
----
-
-### Linux commands
-
----
-
-See some basic commands below:
-
-- Run as administrator with `sudo`
-- Manual of command `man`, e.g. `man cp`
-- Package management `apt`, e.g. `apt update`, `apt install`
-- Navigation `cd`
-- List directory contents `ls`
-- Create file `touch`
-- Copy file `cp`
-- Move file `mv`
-- Remove file `rm`
-- Make directory `mkdir`
-- Remove directory `rmdir`
-- Make a file executable `chmod +x <filename>`
-- Safe restart: Crtl + Alt + PrtScr + REISUB
-- If not sure, just google the command
-
 
 ---
 
@@ -81,6 +33,36 @@ See some basic commands below:
 ---
 
 ### ROS principles
+
+---
+
+---
+
+#### ROS node
+
+---
+
+![](https://github.com/ABC-iRobotics/irob-saf/raw/master/docs/irob-autosurg-blockdiagram.png){:style="width:600px" align=right}
+
+- Executable part of ROS:
+    - python scripts
+    - compiled C++ code
+- A process that performs computation
+- Inter-node communication:
+    - ROS topics (streams)
+    - ROS parameter server
+    - Remote Procedure Calls (RPC)
+    - ROS services
+    - ROS actions
+- Meant to operate at a fine-grained scale
+- Typically, a robot control system consists of many nodes, like:
+    - Trajectory planning
+    - Localization
+    - Read sensory data
+    - Process sensory data
+    - Motor control
+    - User interface
+    - etc.
 
 ---
 
@@ -228,31 +210,6 @@ cmake [label=<
 }
 ```
 
----
-
-#### ROS node
-
----
-
-- Executable part of ROS:
-    - python scripts
-    - compiled C++ code
-- A process that performs computation
-- Inter-node communication:
-    - ROS topics (streams)
-    - ROS parameter server
-    - Remote Procedure Calls (RPC)
-    - ROS services
-    - ROS actions
-- Meant to operate at a fine-grained scale
-- Typically, a robot control system consists of many nodes, like:
-    - Trajectory planning
-    - Localization
-    - Read sensory data
-    - Process sensory data
-    - Motor control
-    - User interface
-    - etc.
 
 ---
 
@@ -283,6 +240,56 @@ edge [color=Black, style=solid, arrowhead=open] //All the lines look like this
 ---
 
 
+### Linux principles
+
+---
+
+![](https://images.idgesg.net/images/article/2017/05/linux-distros-100724403-large.jpg){:style="width:400px" align=right}
+
+- (Was) the only OS supported by ROS
+- Security
+- Efficieny
+- Open-source
+- Community support
+- User freedom
+- Distributions: **Ubuntu**, Linux Mint, Debian, etc.
+- Terminal usage more dominant
+
+!!! tip "Suggestion"
+Install **Terminator** terminal emulator:
+```bash
+sudo apt update
+sudo apt install terminator
+```
+
+
+---
+
+### Linux commands
+
+---
+
+See some basic commands below:
+
+- Run as administrator with `sudo`
+- Manual of command `man`, e.g. `man cp`
+- Package management `apt`, e.g. `apt update`, `apt install`
+- Navigation `cd`
+- List directory contents `ls`
+- Create file `touch`
+- Copy file `cp`
+- Move file `mv`
+- Remove file `rm`
+- Make directory `mkdir`
+- Remove directory `rmdir`
+- Make a file executable `chmod +x <filename>`
+- Safe restart: Crtl + Alt + PrtScr + REISUB
+- If not sure, just google the command
+
+
+---
+
+
 
 #### Environmental setup file
 
@@ -304,7 +311,124 @@ source ~/ros2_ws/install/setup.bash
 
 ---
 
-### 1: Turtlesim
+### 1: Linux gyakorlás
+
+---
+
+1. Hozzunk létre egy új mappát a neveddel a Linux home könyvtárban a 
+`mkdir` parancs segítségével.
+
+    ```bash
+    mkdir ~/test_folder
+    ```
+
+    ---
+
+2. Navigáljunk a létrehozott mappába a `cd` parancs használatával.
+
+    ```bash
+    cd ~/test_folder
+    ```
+
+    ---
+
+3. Hozzunk létre egy új Python szkriptfájlt a `touch` parancs segítségével,
+nevezzük el "hello.py"-nek.
+
+    ```bash
+    touch hello.py
+    ```
+
+    ---
+
+4. Nyissuk meg a "hello.py" fájlt a Gedit szövegszerkesztővel a `gedit` 
+parancs segítségével.
+
+    ```bash
+    gedit hello.py
+    ```
+
+    ---
+
+5. Írj egy egyszerű Python programot a "hello.py" fájlba, például:
+
+    ```python
+    #!/usr/bin/python3
+    print("Hello, World!")
+    ```
+
+    ---
+
+6. Mentés után másoljuk a "hello.py" fájlt egy másik néven,
+például "hello_copy.py" a `cp` parancs segítségével.
+
+    ```bash
+    cp hello.py hello_copy.py
+    ```
+
+    ---
+
+7. Ellenőrizzük, hogy a másolat elkészült-e az `ls` parancs használatával.
+
+    ```bash
+    ls
+    ```
+
+    ---
+
+8. Futtassuk a "hello.py" fájlt a `python3` előtaggal.
+
+    ```bash
+    python3 hello.py
+    ```
+
+    ---
+
+9. Készítsünk egy shell szkriptfájlt, majd nyissuk is meg a Gedit segítségével,
+nevezzük el "myscript.sh"-nek.
+
+   
+    ```bash
+    gedit myscript.sh
+    ```
+
+    ---
+
+10. Írjunk egy egyszerű shell szkriptet a "myscript.sh" fájlba, például:
+
+    ```bash
+    #!/bin/bash
+    echo "I make another copy of hello.py!"
+    cp hello.py another_hello_copy.py
+    ```
+
+    ---
+
+11. Adjunk jogosultságot a "myscript.sh" fájlnak a `chmod` parancs segítségével.
+
+    ```bash
+    chmod +x myscript.sh
+    ```
+
+    ---
+
+12. Futtassuk a "myscript.sh" fájlt a `./` előtaggal.
+
+    ```bash
+    ./myscript.sh
+    ```
+
+    ---
+
+13. Ellenőrizzük, hogy az újabb másolat elkészült-e az `ls` parancs használatával.
+
+    ```bash
+    ls
+    ```
+
+---
+
+### 2: Turtlesim
 
 ---
 
@@ -366,7 +490,7 @@ source ~/ros2_ws/install/setup.bash
 
 ---
 
-### 2: ROS 2 workspace létrehozása
+### 3: ROS 2 workspace létrehozása
 
 ---
 
@@ -378,7 +502,7 @@ source ~/ros2_ws/install/setup.bash
 
 ---           
 
-### 3: ROS 2 package létrehozása
+### 4: ROS 2 package létrehozása
 
 ---
 
@@ -433,7 +557,7 @@ source ~/ros2_ws/install/setup.bash
    
 ---   
     
-### 4: Publisher implementálása Python-ban
+### 5: Publisher implementálása Python-ban
 
 ---
 
@@ -509,7 +633,7 @@ source ~/ros2_ws/install/setup.bash
 
 ---
 
-### 5: Subscriber implementálása Python-ban
+### 6: Subscriber implementálása Python-ban
 
 ---
 
