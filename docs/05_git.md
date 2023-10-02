@@ -12,6 +12,12 @@ author: Levendovics Tamás
 --- 
 
 
+!!! warning
+    **ZH1** (ROS alapok, publisher, subscriber. Python alapok. Robotikai alapfogalmak.) **október 17.**
+
+
+
+
 ### Version control, Git
 
 ---

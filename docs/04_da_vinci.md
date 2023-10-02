@@ -9,12 +9,7 @@ author: Levendovics Tamás
 
 ## Elmélet
 
---- 
-
-!!! warning
-	**ZH1** (ROS alapok, publisher, subscriber. Python alapok. Launch, paraméterek, rosbag. Robotikai alapfogalmak.) **április 21.**
-
-
+---
 
 
 ### Merev test mozgása
