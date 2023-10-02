@@ -1,6 +1,6 @@
 ---
 title: Szenzoros adatok gyűjtése és feldolgozása
-author: Nagy Tamás
+author: Levendovics Tamás
 ---
 
 # 08. Szenzoros adatok gyűjtése és feldolgozása

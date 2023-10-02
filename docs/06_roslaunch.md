@@ -1,6 +1,6 @@
 ---
 title: ROS 2 Launch, Param, Bag
-author: Nagy Tamás
+author: Levendovics Tamás
 ---
 
 # 04. ROS 2 Launch, Param, Bag

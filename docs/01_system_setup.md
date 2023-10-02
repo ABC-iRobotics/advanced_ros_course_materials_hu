@@ -1,6 +1,6 @@
 ---
 title: Bevezetés
-author: Nagy Tamás
+author: Levendovics Tamás
 ---
 
 # 01. Bevezetés

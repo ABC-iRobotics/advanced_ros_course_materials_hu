@@ -1,6 +1,6 @@
 ---
 title: Python alapismeretek, ROS Publisher, ROS Subscriber
-author: Nagy Tamás
+author: Levendovics Tamás
 ---
 
 # 03. Python alapismeretek, ROS Publisher, ROS Subscriber

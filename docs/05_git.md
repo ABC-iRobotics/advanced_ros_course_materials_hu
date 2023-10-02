@@ -1,6 +1,6 @@
 ---
 title: Verziókövetés, Git
-author: Nagy Tamás
+author: Levendovics Tamás
 ---
 
 # 05. Verziókövetés, Git

@@ -1,6 +1,6 @@
 ---
 title: Linux, ROS alapismeretek
-author: Nagy Tamás
+author: Levendovics Tamás
 ---
 
 # 02. Linux, ROS alapismeretek

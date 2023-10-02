@@ -1,9 +1,9 @@
 ---
 title: Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben
-author: Nagy Tamás
+author: Levendovics Tamás
 ---
 
-# 06. Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben
+# 04. Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben
 
 ---
 

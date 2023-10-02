@@ -1,6 +1,6 @@
 ---
 title: Kötelező program
-author: Nagy Tamás
+author: Levendovics Tamás
 ---
 
 # Kötelező Program

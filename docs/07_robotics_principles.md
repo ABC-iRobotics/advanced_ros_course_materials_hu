@@ -1,6 +1,6 @@
 ---
 title: Kinematika, inverz kinematika
-author: Nagy Tamás
+author: Levendovics Tamás
 ---
 
 # 07. Kinematika, inverz kienamtika, Szimulált robotkar programozása csukló-, és munkatérben

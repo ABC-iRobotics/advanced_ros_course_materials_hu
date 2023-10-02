@@ -1,6 +1,6 @@
 ---
 title: Fejlett robotprogramozás ROS környezetben - Kurzussal kapcsolatos információk
-author: Nagy Tamás
+author: Levendovics Tamás
 ---
 
 
@@ -40,9 +40,9 @@ Détár Borsa
 |    1.    | szept. 12 | [Követelmények ismertetése. ROS bevezetés. Fejlesztőkörnyezet felállítása.](01_system_setup.md)                                                                                                               | -                |
 |    2.    | szept. 19 | [Fejlesztőkörnyezet felállítása. Linux alapok. ROS 1 és ROS 2. Egyszerű próbakódok futtatása. ROS package. Az alapvető ROS kommunikáció, publisher és subscriber implementálása.](02_linux_ros_principles.md) | -                |
 |    3.    | szept. 26 | [Python alapok. ROS kommunikáció implementációjának gyakorlása, példafeladatok megoldása.](03_python_principles.md)                                                                                           | -                |
-|    4.    | okt. 3    | [ROS 2 Launch, Param, Bag](04_roslaunch.md)                                                                                                                                                                   | -                |
+|    4.    | okt. 3    | [Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben I.](04_da_vinci.md)                                                                                                         | -                |
 |    5.    | okt. 10   | [Verziókövetés, Git.](05_git.md) Projekt labor I.                                                                                                                                                             | -                |
-|    6.    | okt. 17   | [Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben I.](06_da_vinci.md)                                                                                                         | **ZH1**          |
+|    6.    | okt. 17   | [ROS 2 Launch, Param, Bag](06_roslaunch.md)                                                                                                                                                                   | **ZH1**          |
 |    7.    | okt. 24   | [Kinematika, inverz kinematika, szimulált robotkar programozása csukló-, és munkatérben I.](07_robotics_principles.md)                                                                                        | -                |
 |    8.    | okt. 31   | [ROS service, ROS action fogalma, felhasználása I.](08_service_action.md)                                                                                                                                     | -                |
 |    9.    | nov. 7    | Projekt labor II.                                                                                                                                                                                             | -                |

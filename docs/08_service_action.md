@@ -1,6 +1,6 @@
 ---
 title: ROS Action, ROS Service
-author: Nagy Tamás
+author: Levendovics Tamás
 ---
 
 # 08. ROS service, ROS action fogalma, felhasználása
