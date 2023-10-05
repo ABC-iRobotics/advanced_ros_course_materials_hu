@@ -279,7 +279,6 @@ Tanulmányozzuk a szimulátor működését a tanult parancsok
 3. Build-eljünk és futtassuk a node-ot:
 
     ```bash
-    source ros_setup.sh -v 2
     cd ~/ros2_ws
     colcon build --symlink-install
     ros2 run ros2_course psm_grasp 
@@ -414,6 +413,17 @@ A `frame_id` addattag értéke legyen `PSM1_psm_base_link`. Másoljuk az alábbi
         psm.move_tcp_to([0.0, 0.0, -0.12], 0.01, 0.01)
         psm.move_jaw_to(0.0, 0.1, 0.01)
         ```
+
+
+---
+
+### 6. TCP mozgatása körív mentén
+
+---
+
+
+1. Implementáljunk metódust, amely r sugrú körív mentén mozgatja a megfogót.
+
 
 
 ---
