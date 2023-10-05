@@ -613,6 +613,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#6-tcp-mozgatasa-koriv-menten" class="md-nav__link">
+    6. TCP mozgatása körív mentén
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -988,8 +995,7 @@ ros2<span class="w"> </span>run<span class="w"> </span>rqt_gui<span class="w"> <
 </li>
 <li>
 <p>Build-eljünk és futtassuk a node-ot:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>ros_setup.sh<span class="w"> </span>-v<span class="w"> </span><span class="m">2</span>
-<span class="nb">cd</span><span class="w"> </span>~/ros2_ws
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/ros2_ws
 colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
 ros2<span class="w"> </span>run<span class="w"> </span>ros2_course<span class="w"> </span>psm_grasp<span class="w"> </span>
 </code></pre></div>
@@ -1110,6 +1116,12 @@ A <code>frame_id</code> addattag értéke legyen <code>PSM1_psm_base_link</code>
 </code></pre></div></p>
 </div>
 </li>
+</ol>
+<hr />
+<h3 id="6-tcp-mozgatasa-koriv-menten">6. TCP mozgatása körív mentén</h3>
+<hr />
+<ol>
+<li>Implementáljunk metódust, amely r sugrú körív mentén mozgatja a megfogót.</li>
 </ol>
 <hr />
 <h2 id="hasznos-linkek">Hasznos linkek</h2>
