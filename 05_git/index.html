@@ -728,17 +728,17 @@
   
 
 
-<div><h1 id="05-verziokovetes-git">05. Verziókövetés, Git</h1>
-<hr>
+<h1 id="05-verziokovetes-git">05. Verziókövetés, Git</h1>
+<hr />
 <h2 id="elmelet">Elmélet</h2>
-<hr>
+<hr />
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p><strong>ZH1</strong> (ROS alapok, publisher, subscriber. Python alapok. Robotikai alapfogalmak.) <strong>október 17.</strong></p>
 </div>
 <h3 id="version-control-git">Version control, Git</h3>
-<hr>
-<p><img align="right" alt="" src="https://cdn.freebiesupply.com/logos/thumbs/2x/git-logo.png" style="width:300px"></p>
+<hr />
+<p><img align="right" alt="" src="https://cdn.freebiesupply.com/logos/thumbs/2x/git-logo.png" style="width:300px" /></p>
 <ul>
 <li>Track changes in a set of files</li>
 <li>Coordinating work among developers</li>
@@ -747,30 +747,30 @@
 <li>Local and remote repos</li>
 <li>Take snapshots of files by making a <em>commit</em></li>
 </ul>
-<hr>
+<hr />
 <h4 id="install">Install</h4>
-<hr>
+<hr />
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>git
 </code></pre></div>
-<hr>
+<hr />
 <h4 id="basic-commands">Basic commands</h4>
-<hr>
+<hr />
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>init<span class="w">          </span><span class="c1"># Initialize local git repo</span>
 git<span class="w"> </span>add<span class="w"> </span>&lt;file&gt;<span class="w">    </span><span class="c1"># Add file/files to staging area</span>
 git<span class="w"> </span>status<span class="w">        </span><span class="c1"># Check status of working tree and staging area</span>
-git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"What I've done"</span><span class="w">    </span><span class="c1"># Commit changes in index</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;What I&#39;ve done&quot;</span><span class="w">    </span><span class="c1"># Commit changes in index</span>
 git<span class="w"> </span>push<span class="w">          </span><span class="c1"># Push to remote repository</span>
 git<span class="w"> </span>pull<span class="w">          </span><span class="c1"># Pull latest changes from remote repo</span>
 git<span class="w"> </span>branch<span class="w"> </span>&lt;new_branch_name&gt;
 git<span class="w"> </span>checkout<span class="w"> </span>&lt;branch_name&gt;
 git<span class="w"> </span>merge<span class="w"> </span>&lt;branch_name&gt;<span class="w">   </span><span class="c1"># Merge the branch into the current branch</span>
-git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">"Istvan Szabo"</span>
-git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">"istvan.szabo@gmail.com"</span>
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;Istvan Szabo&quot;</span>
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;istvan.szabo@gmail.com&quot;</span>
 </code></pre></div>
-<hr>
+<hr />
 <h4 id="github">GitHub</h4>
-<hr>
-<p><img align="right" alt="" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width:300px"></p>
+<hr />
+<p><img align="right" alt="" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width:300px" /></p>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>remote
 git<span class="w"> </span>clone<span class="w"> </span>&lt;link&gt;<span class="w">   </span><span class="c1"># Copy repo into a new directory</span>
 
@@ -782,23 +782,23 @@ git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span
 <p class="admonition-title">Some alternatives to GitHub</p>
 <p>GitLab, BitBucket, Launchpad, Phabricator </p>
 </div>
-<hr>
+<hr />
 <h2 id="markdown">Markdown</h2>
-<hr>
+<hr />
 <ul>
 <li>Markup language, easy to read</li>
-<li>Text file → Formatted document</li>
+<li>Text file &rarr; Formatted document</li>
 <li>Widespread usag, e.g., blogs, forums, documentations, readme files, GitHub </li>
 <li><a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Markdown Cheatsheet</a></li>
 </ul>
-<hr>
+<hr />
 <h2 id="gyakorlat">Gyakorlat</h2>
-<hr>
+<hr />
 <h3 id="0-github-repo-letrehozasa">0: GitHub repo létrehozása</h3>
 <ol>
 <li>
 <p>Regisztráljunk GitHub-ra, készítsünk egy tokent.</p>
-<hr>
+<hr />
 </li>
 <li>
 <p>Hozzunk létre egy private repo-t GitHub-on a <code>ros2_course</code> package számára.</p>
@@ -807,7 +807,7 @@ git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p><strong>Personal token megjegyzése:</strong> <code>git config --global credential.helper store</code></p>
-<hr>
+<hr />
 </div>
 <ol>
 <li>
@@ -816,12 +816,12 @@ tartalmát GitHUb-ra (a GitHub is segít a repo létrehozása után):</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/ros2_ws/src/ros2_course
 git<span class="w"> </span>init
 git<span class="w"> </span>add<span class="w"> </span>.
-git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Initial commit"</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Initial commit&quot;</span>
 git<span class="w"> </span>branch<span class="w"> </span>-M<span class="w"> </span>main
 git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>&lt;REPO_GITHUB_ADDRESS&gt;.git
 git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>main
 </code></pre></div>
-<hr>
+<hr />
 </li>
 <li>
 <p>Adjunk hozzá egy README.md-t a ros2_course csomaghoz az alábbi tartalommal:</p>
@@ -838,12 +838,12 @@ How to <span class="ge">*build*</span> and use the package.
     cd ~/ros2_ws
     colcon build --symlink-install
 </code></pre></div>
-<hr>
+<hr />
 </li>
 <li>
 <p>Commit-oljunk és push-oljuk a változtatásokat:</p>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>.
-git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Add README"</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add README&quot;</span>
 git<span class="w"> </span>push
 </code></pre></div>
 <div class="admonition tip">
@@ -852,7 +852,7 @@ git<span class="w"> </span>push
 </div>
 </li>
 </ol>
-<hr>
+<hr />
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p><strong>Windows és Linux óra probléma megoldása:</strong> <code>timedatectl set-local-rtc 1 --adjust-system-clock</code></p>
@@ -860,7 +860,7 @@ git<span class="w"> </span>push
 <h2 id="hasznos-linkek">Hasznos linkek</h2>
 <ul>
 <li><a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Markdown Cheatsheet</a></li>
-</ul></div>
+</ul>
 
 
 

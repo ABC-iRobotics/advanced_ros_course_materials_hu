@@ -749,12 +749,12 @@
   
 
 
-<div><h1 id="04-ros-2-launch-param-bag">04. ROS 2 Launch, Param, Bag</h1>
-<hr>
+<h1 id="04-ros-2-launch-param-bag">04. ROS 2 Launch, Param, Bag</h1>
+<hr />
 <h2 id="elmelet">Elmélet</h2>
-<hr>
+<hr />
 <h3 id="ros-2-launch">ROS 2 Launch</h3>
-<hr>
+<hr />
 <ul>
 <li>Launch multiple nodes</li>
 <li>Set arguments</li>
@@ -762,14 +762,14 @@
 <li>React on changes in the state of nodes</li>
 <li>Python, XML and YAML file formats</li>
 </ul>
-<hr>
+<hr />
 <h4 id="usage">Usage</h4>
 <div class="highlight"><pre><span></span><code><span class="w">    </span>ros2<span class="w"> </span>launch<span class="w"> </span>package_name<span class="w"> </span>file.launch
 <span class="w">    </span>ros2<span class="w"> </span>launch<span class="w"> </span>irob_robot<span class="w"> </span>dvrk_server.launch<span class="w"> </span>arm_typ:<span class="o">=</span>PSM1
 </code></pre></div>
-<hr>
+<hr />
 <h3 id="ros-2-parameters">ROS 2 Parameters</h3>
-<hr>
+<hr />
 <ul>
 <li>Configure nodes at startup or during runtime without changing the code</li>
 <li>Associated with individual nodes</li>
@@ -777,9 +777,9 @@
 <li>Available data types: bool, int64, float64, string, byte[], bool[], int64[], float64[] or string[].</li>
 <li>Useful command: <code>ros2 param</code></li>
 </ul>
-<hr>
+<hr />
 <h3 id="ros-2-bag">ROS 2 Bag</h3>
-<hr>
+<hr />
 <ul>
 <li>Record and playback ROS topics</li>
 <li>Command line tool</li>
@@ -790,11 +790,11 @@
 <span class="w">    </span>ros2<span class="w"> </span>bag<span class="w"> </span>info<span class="w"> </span>&lt;filename.bag&gt;
 <span class="w">    </span>ros2<span class="w"> </span>bag<span class="w"> </span>play<span class="w"> </span>&lt;filename.bag&gt;
 </code></pre></div>
-<hr>
+<hr />
 <h2 id="gyakorlat">Gyakorlat</h2>
-<hr>
+<hr />
 <h3 id="1-launch-turtlesim-mimic">1: Launch Turtlesim Mimic</h3>
-<hr>
+<hr />
 <ol>
 <li>
 <p>Hozzuk létre a <code>launch</code> mappát a <code>ros2_course</code> package-en belül,
@@ -802,7 +802,7 @@ ahol a launch fájlokat tárolhatjuk majd:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/ros2_ws/src/ros2_course
 mkdir<span class="w"> </span>launch
 </code></pre></div>
-<hr>
+<hr />
 </li>
 <li>
 <p>Az új <code>launch</code> mappában hozzuk létre a <code>turtlesim_mimic_launch.py</code> fájlt a
@@ -813,29 +813,29 @@ következő taralommal:</p>
 <span class="k">def</span> <span class="nf">generate_launch_description</span><span class="p">():</span>
     <span class="k">return</span> <span class="n">LaunchDescription</span><span class="p">([</span>
         <span class="n">Node</span><span class="p">(</span>
-            <span class="n">package</span><span class="o">=</span><span class="s1">'turtlesim'</span><span class="p">,</span>
-            <span class="n">namespace</span><span class="o">=</span><span class="s1">'turtlesim1'</span><span class="p">,</span>
-            <span class="n">executable</span><span class="o">=</span><span class="s1">'turtlesim_node'</span><span class="p">,</span>
-            <span class="n">name</span><span class="o">=</span><span class="s1">'sim'</span>
+            <span class="n">package</span><span class="o">=</span><span class="s1">&#39;turtlesim&#39;</span><span class="p">,</span>
+            <span class="n">namespace</span><span class="o">=</span><span class="s1">&#39;turtlesim1&#39;</span><span class="p">,</span>
+            <span class="n">executable</span><span class="o">=</span><span class="s1">&#39;turtlesim_node&#39;</span><span class="p">,</span>
+            <span class="n">name</span><span class="o">=</span><span class="s1">&#39;sim&#39;</span>
         <span class="p">),</span>
         <span class="n">Node</span><span class="p">(</span>
-            <span class="n">package</span><span class="o">=</span><span class="s1">'turtlesim'</span><span class="p">,</span>
-            <span class="n">namespace</span><span class="o">=</span><span class="s1">'turtlesim2'</span><span class="p">,</span>
-            <span class="n">executable</span><span class="o">=</span><span class="s1">'turtlesim_node'</span><span class="p">,</span>
-            <span class="n">name</span><span class="o">=</span><span class="s1">'sim'</span>
+            <span class="n">package</span><span class="o">=</span><span class="s1">&#39;turtlesim&#39;</span><span class="p">,</span>
+            <span class="n">namespace</span><span class="o">=</span><span class="s1">&#39;turtlesim2&#39;</span><span class="p">,</span>
+            <span class="n">executable</span><span class="o">=</span><span class="s1">&#39;turtlesim_node&#39;</span><span class="p">,</span>
+            <span class="n">name</span><span class="o">=</span><span class="s1">&#39;sim&#39;</span>
         <span class="p">),</span>
         <span class="n">Node</span><span class="p">(</span>
-            <span class="n">package</span><span class="o">=</span><span class="s1">'turtlesim'</span><span class="p">,</span>
-            <span class="n">executable</span><span class="o">=</span><span class="s1">'mimic'</span><span class="p">,</span>
-            <span class="n">name</span><span class="o">=</span><span class="s1">'mimic'</span><span class="p">,</span>
+            <span class="n">package</span><span class="o">=</span><span class="s1">&#39;turtlesim&#39;</span><span class="p">,</span>
+            <span class="n">executable</span><span class="o">=</span><span class="s1">&#39;mimic&#39;</span><span class="p">,</span>
+            <span class="n">name</span><span class="o">=</span><span class="s1">&#39;mimic&#39;</span><span class="p">,</span>
             <span class="n">remappings</span><span class="o">=</span><span class="p">[</span>
-                <span class="p">(</span><span class="s1">'/input/pose'</span><span class="p">,</span> <span class="s1">'/turtlesim1/turtle1/pose'</span><span class="p">),</span>
-                <span class="p">(</span><span class="s1">'/output/cmd_vel'</span><span class="p">,</span> <span class="s1">'/turtlesim2/turtle1/cmd_vel'</span><span class="p">),</span>
+                <span class="p">(</span><span class="s1">&#39;/input/pose&#39;</span><span class="p">,</span> <span class="s1">&#39;/turtlesim1/turtle1/pose&#39;</span><span class="p">),</span>
+                <span class="p">(</span><span class="s1">&#39;/output/cmd_vel&#39;</span><span class="p">,</span> <span class="s1">&#39;/turtlesim2/turtle1/cmd_vel&#39;</span><span class="p">),</span>
             <span class="p">]</span>
         <span class="p">)</span>
     <span class="p">])</span>
 </code></pre></div>
-<hr>
+<hr />
 </li>
 <li>
 <p>Egészítsük ki a <code>setup.py</code> fájlt az alábbiakkal:</p>
@@ -845,40 +845,40 @@ from<span class="w"> </span>glob<span class="w"> </span>import<span class="w"> <
 <span class="c1"># ...</span>
 
 <span class="nv">data_files</span><span class="o">=[</span>
-<span class="w">    </span><span class="o">(</span><span class="s1">'share/ament_index/resource_index/packages'</span>,
-<span class="w">        </span><span class="o">[</span><span class="s1">'resource/'</span><span class="w"> </span>+<span class="w"> </span>package_name<span class="o">])</span>,
-<span class="w">    </span><span class="o">(</span><span class="s1">'share/'</span><span class="w"> </span>+<span class="w"> </span>package_name,<span class="w"> </span><span class="o">[</span><span class="s1">'package.xml'</span><span class="o">])</span>,
+<span class="w">    </span><span class="o">(</span><span class="s1">&#39;share/ament_index/resource_index/packages&#39;</span>,
+<span class="w">        </span><span class="o">[</span><span class="s1">&#39;resource/&#39;</span><span class="w"> </span>+<span class="w"> </span>package_name<span class="o">])</span>,
+<span class="w">    </span><span class="o">(</span><span class="s1">&#39;share/&#39;</span><span class="w"> </span>+<span class="w"> </span>package_name,<span class="w"> </span><span class="o">[</span><span class="s1">&#39;package.xml&#39;</span><span class="o">])</span>,
 <span class="w">    </span><span class="c1"># Include all launch files.</span>
-<span class="w">    </span><span class="o">(</span>os.path.join<span class="o">(</span><span class="s1">'share'</span>,<span class="w"> </span>package_name<span class="o">)</span>,
-<span class="w">        </span>glob<span class="o">(</span><span class="s1">'launch/*launch.[pxy][yma]*'</span><span class="o">))</span>
+<span class="w">    </span><span class="o">(</span>os.path.join<span class="o">(</span><span class="s1">&#39;share&#39;</span>,<span class="w"> </span>package_name<span class="o">)</span>,
+<span class="w">        </span>glob<span class="o">(</span><span class="s1">&#39;launch/*launch.[pxy][yma]*&#39;</span><span class="o">))</span>
 <span class="o">]</span>,
 </code></pre></div>
-<hr>
+<hr />
 </li>
 <li>
 <p>Adjuk hozzá a <code>ros2launch</code> dependency-t a <code>package.xml</code> fájlhoz:</p>
 <div class="highlight"><pre><span></span><code>&lt;exec_depend&gt;ros2launch&lt;/exec_depend&gt;
 </code></pre></div>
-<hr>
+<hr />
 </li>
 <li>
 <p>Build-eljük a workspace-t:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>ros2_ws
 colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
 </code></pre></div>
-<hr>
+<hr />
 </li>
 <li>
 <p>Indítsuk el a launch fájlt:</p>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>ros2_course<span class="w"> </span>turtlesim_mimic_launch.py
 </code></pre></div>
-<hr>
+<hr />
 </li>
 <li>
 <p>Publikáljunk a topic-ba a parancssorból, új teminál ablakban:</p>
-<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>-r<span class="w"> </span><span class="m">1</span><span class="w"> </span>/turtlesim1/turtle1/cmd_vel<span class="w"> </span>geometry_msgs/msg/Twist<span class="w"> </span><span class="s2">"{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: -1.8}}"</span>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>-r<span class="w"> </span><span class="m">1</span><span class="w"> </span>/turtlesim1/turtle1/cmd_vel<span class="w"> </span>geometry_msgs/msg/Twist<span class="w"> </span><span class="s2">&quot;{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: -1.8}}&quot;</span>
 </code></pre></div>
-<hr>
+<hr />
 </li>
 <li>
 <p>Vizsgáljuk a rendszer működését <code>rqt_gui</code> segítségével:</p>
@@ -886,37 +886,37 @@ colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
 </code></pre></div>
 </li>
 </ol>
-<hr>
+<hr />
 <h3 id="2-launch-turtlesim-goto">2: Launch Turtlesim Goto</h3>
-<hr>
+<hr />
 <ol>
 <li>
 <p>Készítsünk másolatot a <code>turtlesim_mimic_launch.py</code>
 fájlról <code>turtlesim_controller_launch.py</code> névvel.</p>
-<hr>
+<hr />
 </li>
 <li>
 <p>Adjuk hozzá az előző órán megírt <code>turtlesim_controller</code> node-ot a launch fájlhoz.
 Az írányítandó teknőst a <code>namespace</code> vagy a <code>remappings</code> segítségével tudjuk beállítani.</p>
-<hr>
+<hr />
 </li>
 <li>
 <p>Build-eljük a workspace-t:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>ros2_ws
 colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
 </code></pre></div>
-<hr>
+<hr />
 </li>
 <li>
 <p>Indítsuk el az új launch fájlt:</p>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>ros2_course<span class="w"> </span>turtlesim_controller_launch.py
 </code></pre></div>
-<hr>
+<hr />
 </li>
 </ol>
-<hr>
+<hr />
 <h3 id="3-turtlesim-controller-params">3: Turtlesim controller params</h3>
-<hr>
+<hr />
 <ol>
 <li>
 <p>Módosítsuk a <code>turtlesim_controller</code>-t úgy, hogy a lineáris sebesség és a szögsebesség
@@ -926,15 +926,15 @@ ROS paramétereken keresztül legyen állítható. API példa a paraméterekhez:
 
 <span class="k">class</span> <span class="nc">MinimalParam</span><span class="p">(</span><span class="n">rclpy</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">Node</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s1">'minimal_param_node'</span><span class="p">)</span>
-        <span class="c1"># Declare parameter named 'my_parameter' and</span>
-        <span class="c1"># set default value to 'world'</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">declare_parameter</span><span class="p">(</span><span class="s1">'my_parameter'</span><span class="p">,</span> <span class="s1">'world'</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s1">&#39;minimal_param_node&#39;</span><span class="p">)</span>
+        <span class="c1"># Declare parameter named &#39;my_parameter&#39; and</span>
+        <span class="c1"># set default value to &#39;world&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">declare_parameter</span><span class="p">(</span><span class="s1">&#39;my_parameter&#39;</span><span class="p">,</span> <span class="s1">&#39;world&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">timer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_timer</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">timer_callback</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">timer_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">my_param</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_parameter</span><span class="p">(</span><span class="s1">'my_parameter'</span><span class="p">)</span><span class="o">.</span><span class="n">get_parameter_value</span><span class="p">()</span><span class="o">.</span><span class="n">string_value</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'Hello </span><span class="si">%s</span><span class="s1">!'</span> <span class="o">%</span> <span class="n">my_param</span><span class="p">)</span>
+        <span class="n">my_param</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_parameter</span><span class="p">(</span><span class="s1">&#39;my_parameter&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_parameter_value</span><span class="p">()</span><span class="o">.</span><span class="n">string_value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Hello </span><span class="si">%s</span><span class="s1">!&#39;</span> <span class="o">%</span> <span class="n">my_param</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
@@ -942,10 +942,10 @@ ROS paramétereken keresztül legyen állítható. API példa a paraméterekhez:
     <span class="n">node</span> <span class="o">=</span> <span class="n">MinimalParam</span><span class="p">()</span>
     <span class="n">rclpy</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
-<hr>
+<hr />
 </li>
 <li>
 <p>Futtassuk a <code>turtlesim_controller.py</code>-t a korábban megírt launch file segítségével.
@@ -954,7 +954,7 @@ Listázzuk ki a paramétereket. </p>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>param<span class="w"> </span>list
 </code></pre></div>
-<hr>
+<hr />
 </li>
 <li>
 <p>Módosítsuk a sebesség és szögsebesség paramétereket parancssorból az alábbi parancs segítségével:</p>
@@ -963,9 +963,9 @@ ros2<span class="w"> </span>param<span class="w"> </span><span class="nb">set</s
 </code></pre></div>
 </li>
 </ol>
-<hr>
+<hr />
 <h3 id="4-turtlesim-controller-launch-and-substitutions">4: Turtlesim controller launch and substitutions</h3>
-<hr>
+<hr />
 <ol>
 <li>
 <p>Készítsünk másolatot a <code>turtlesim_controller_launch.py</code>-ról <code>turtlesim_controller_param_launch.py</code> néven.
@@ -978,60 +978,60 @@ fájl argumentumaiként legyenek megadhatóak.</p>
 <span class="kn">from</span> <span class="nn">launch.substitutions</span> <span class="kn">import</span> <span class="n">LaunchConfiguration</span><span class="p">,</span> <span class="n">PythonExpression</span>
 
 <span class="k">def</span> <span class="nf">generate_launch_description</span><span class="p">():</span>
-    <span class="n">turtlesim_ns_value</span> <span class="o">=</span> <span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s1">'turtlesim_ns'</span><span class="p">)</span>
-    <span class="n">use_provided_red_value</span> <span class="o">=</span> <span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s1">'use_provided_red'</span><span class="p">)</span>
-    <span class="n">new_background_r_value</span> <span class="o">=</span> <span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s1">'new_background_r'</span><span class="p">)</span>
-    <span class="n">background_g_value</span> <span class="o">=</span> <span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s1">'background_g'</span><span class="p">)</span>
-    <span class="n">background_b_value</span> <span class="o">=</span> <span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s1">'background_b'</span><span class="p">)</span>
+    <span class="n">turtlesim_ns_value</span> <span class="o">=</span> <span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s1">&#39;turtlesim_ns&#39;</span><span class="p">)</span>
+    <span class="n">use_provided_red_value</span> <span class="o">=</span> <span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s1">&#39;use_provided_red&#39;</span><span class="p">)</span>
+    <span class="n">new_background_r_value</span> <span class="o">=</span> <span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s1">&#39;new_background_r&#39;</span><span class="p">)</span>
+    <span class="n">background_g_value</span> <span class="o">=</span> <span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s1">&#39;background_g&#39;</span><span class="p">)</span>
+    <span class="n">background_b_value</span> <span class="o">=</span> <span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s1">&#39;background_b&#39;</span><span class="p">)</span>
 
     <span class="n">turtlesim_ns_launch_arg</span> <span class="o">=</span> <span class="n">DeclareLaunchArgument</span><span class="p">(</span>
-        <span class="s1">'turtlesim_ns'</span><span class="p">,</span>
-        <span class="n">default_value</span><span class="o">=</span><span class="s1">'turtlesim1'</span><span class="p">,</span>
-        <span class="n">description</span><span class="o">=</span><span class="s1">'Namespace for turtle 1'</span>
+        <span class="s1">&#39;turtlesim_ns&#39;</span><span class="p">,</span>
+        <span class="n">default_value</span><span class="o">=</span><span class="s1">&#39;turtlesim1&#39;</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Namespace for turtle 1&#39;</span>
     <span class="p">)</span>
     <span class="n">use_provided_red_launch_arg</span> <span class="o">=</span> <span class="n">DeclareLaunchArgument</span><span class="p">(</span>
-        <span class="s1">'use_provided_red'</span><span class="p">,</span>
-        <span class="n">default_value</span><span class="o">=</span><span class="s1">'False'</span>
+        <span class="s1">&#39;use_provided_red&#39;</span><span class="p">,</span>
+        <span class="n">default_value</span><span class="o">=</span><span class="s1">&#39;False&#39;</span>
     <span class="p">)</span>
     <span class="n">new_background_r_launch_arg</span> <span class="o">=</span> <span class="n">DeclareLaunchArgument</span><span class="p">(</span>
-        <span class="s1">'new_background_r'</span><span class="p">,</span>
-        <span class="n">default_value</span><span class="o">=</span><span class="s1">'200'</span>
+        <span class="s1">&#39;new_background_r&#39;</span><span class="p">,</span>
+        <span class="n">default_value</span><span class="o">=</span><span class="s1">&#39;200&#39;</span>
     <span class="p">)</span>
     <span class="n">background_g_launch_arg</span> <span class="o">=</span> <span class="n">DeclareLaunchArgument</span><span class="p">(</span>
-        <span class="s1">'background_g'</span><span class="p">,</span>
-        <span class="n">default_value</span><span class="o">=</span><span class="s1">'100'</span>
+        <span class="s1">&#39;background_g&#39;</span><span class="p">,</span>
+        <span class="n">default_value</span><span class="o">=</span><span class="s1">&#39;100&#39;</span>
     <span class="p">)</span>
     <span class="n">background_b_launch_arg</span> <span class="o">=</span> <span class="n">DeclareLaunchArgument</span><span class="p">(</span>
-        <span class="s1">'background_b'</span><span class="p">,</span>
-        <span class="n">default_value</span><span class="o">=</span><span class="s1">'100'</span>
+        <span class="s1">&#39;background_b&#39;</span><span class="p">,</span>
+        <span class="n">default_value</span><span class="o">=</span><span class="s1">&#39;100&#39;</span>
     <span class="p">)</span>
 
     <span class="n">turtlesim_node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span>
-        <span class="n">package</span><span class="o">=</span><span class="s1">'turtlesim'</span><span class="p">,</span>
+        <span class="n">package</span><span class="o">=</span><span class="s1">&#39;turtlesim&#39;</span><span class="p">,</span>
         <span class="n">namespace</span><span class="o">=</span><span class="n">turtlesim_ns_value</span><span class="p">,</span>
-        <span class="n">executable</span><span class="o">=</span><span class="s1">'turtlesim_node'</span><span class="p">,</span>
-        <span class="n">name</span><span class="o">=</span><span class="s1">'sim'</span><span class="p">,</span>
+        <span class="n">executable</span><span class="o">=</span><span class="s1">&#39;turtlesim_node&#39;</span><span class="p">,</span>
+        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;sim&#39;</span><span class="p">,</span>
         <span class="n">parameters</span><span class="o">=</span><span class="p">[{</span>
-            <span class="s1">'background_g'</span><span class="p">:</span> <span class="n">background_g_value</span><span class="p">,</span>
-            <span class="s1">'background_b'</span><span class="p">:</span> <span class="n">background_b_value</span><span class="p">,</span>
+            <span class="s1">&#39;background_g&#39;</span><span class="p">:</span> <span class="n">background_g_value</span><span class="p">,</span>
+            <span class="s1">&#39;background_b&#39;</span><span class="p">:</span> <span class="n">background_b_value</span><span class="p">,</span>
         <span class="p">}]</span>
     <span class="p">)</span>
     <span class="n">spawn_turtle</span> <span class="o">=</span> <span class="n">ExecuteProcess</span><span class="p">(</span>
         <span class="n">cmd</span><span class="o">=</span><span class="p">[[</span>
-            <span class="s1">'ros2 service call '</span><span class="p">,</span>
+            <span class="s1">&#39;ros2 service call &#39;</span><span class="p">,</span>
             <span class="n">turtlesim_ns</span><span class="p">,</span>
-            <span class="s1">'/spawn '</span><span class="p">,</span>
-            <span class="s1">'turtlesim/srv/Spawn '</span><span class="p">,</span>
-            <span class="s1">'"{x: 2, y: 2, theta: 0.2}"'</span>
+            <span class="s1">&#39;/spawn &#39;</span><span class="p">,</span>
+            <span class="s1">&#39;turtlesim/srv/Spawn &#39;</span><span class="p">,</span>
+            <span class="s1">&#39;&quot;{x: 2, y: 2, theta: 0.2}&quot;&#39;</span>
         <span class="p">]],</span>
         <span class="n">shell</span><span class="o">=</span><span class="kc">True</span>
     <span class="p">)</span>
     <span class="n">change_background_r</span> <span class="o">=</span> <span class="n">ExecuteProcess</span><span class="p">(</span>
         <span class="n">cmd</span><span class="o">=</span><span class="p">[[</span>
-            <span class="s1">'ros2 param set '</span><span class="p">,</span>
+            <span class="s1">&#39;ros2 param set &#39;</span><span class="p">,</span>
             <span class="n">turtlesim_ns</span><span class="p">,</span>
-            <span class="s1">'/sim background_r '</span><span class="p">,</span>
-            <span class="s1">'120'</span>
+            <span class="s1">&#39;/sim background_r &#39;</span><span class="p">,</span>
+            <span class="s1">&#39;120&#39;</span>
         <span class="p">]],</span>
         <span class="n">shell</span><span class="o">=</span><span class="kc">True</span>
     <span class="p">)</span>
@@ -1039,15 +1039,15 @@ fájl argumentumaiként legyenek megadhatóak.</p>
         <span class="n">condition</span><span class="o">=</span><span class="n">IfCondition</span><span class="p">(</span>
             <span class="n">PythonExpression</span><span class="p">([</span>
                 <span class="n">new_background_r_value</span><span class="p">,</span>
-                <span class="s1">' == 200'</span><span class="p">,</span>
-                <span class="s1">' and '</span><span class="p">,</span>
+                <span class="s1">&#39; == 200&#39;</span><span class="p">,</span>
+                <span class="s1">&#39; and &#39;</span><span class="p">,</span>
                 <span class="n">use_provided_red</span>
             <span class="p">])</span>
         <span class="p">),</span>
         <span class="n">cmd</span><span class="o">=</span><span class="p">[[</span>
-            <span class="s1">'ros2 param set '</span><span class="p">,</span>
+            <span class="s1">&#39;ros2 param set &#39;</span><span class="p">,</span>
             <span class="n">turtlesim_ns_value</span><span class="p">,</span>
-            <span class="s1">'/sim background_r '</span><span class="p">,</span>
+            <span class="s1">&#39;/sim background_r &#39;</span><span class="p">,</span>
             <span class="n">new_background_r</span>
         <span class="p">]],</span>
         <span class="n">shell</span><span class="o">=</span><span class="kc">True</span>
@@ -1066,7 +1066,7 @@ fájl argumentumaiként legyenek megadhatóak.</p>
         <span class="p">)</span>
     <span class="p">])</span>
 </code></pre></div>
-<hr>
+<hr />
 </li>
 <li>
 <p>Build-eljük a workspace-t és futtassuk a <code>turtlesim_controller_param_launch.py</code>-t:</p>
@@ -1074,27 +1074,27 @@ fájl argumentumaiként legyenek megadhatóak.</p>
 colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
 ros2<span class="w"> </span>launch<span class="w"> </span>ros2_course<span class="w"> </span>turtlesim_controller_param_launch.py
 </code></pre></div>
-<hr>
+<hr />
 </li>
 <li>
 <p>Listázzuk ki az új launch fájl argumentumait:</p>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>ros2_course<span class="w"> </span>turtlesim_controller_param_launch.py<span class="w"> </span>--show-args
 </code></pre></div>
-<hr>
+<hr />
 </li>
 <li>
 <p>Futtassuk a launch fájlt az argumentumok beállításával:</p>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>ros2_course<span class="w"> </span>turtlesim_controller_param_launch.py<span class="w"> </span>speed:<span class="o">=</span><span class="m">100</span>.0<span class="w"> </span>omega:<span class="o">=</span><span class="m">60</span>.0
 </code></pre></div>
-<hr>
+<hr />
 </li>
 <li>
 <p>A fenti példa segítségével állítsuk a háttér színét szintén parancssori argumentum(ok) felhasználásával.</p>
 </li>
 </ol>
-<hr>
+<hr />
 <h3 id="5-rosbag">5: Rosbag</h3>
-<hr>
+<hr />
 <ol>
 <li>
 <p>Az előző feladatban implementált program futása közben rögzítsük a topic-ok tartalmát egy rosbag fájlba.</p>
@@ -1103,16 +1103,16 @@ ros2<span class="w"> </span>launch<span class="w"> </span>ros2_course<span class
 <div class="admonition tip">
 <p class="admonition-title">Syntax</p>
 <p>The filename and the topics to record can also be set, e.g.:
-</p><div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>bag<span class="w"> </span>record<span class="w"> </span>-o<span class="w"> </span>turtle_bagfile_1<span class="w"> </span>/turtle1/cmd_vel<span class="w"> </span>/turtle1/pose
-</code></pre></div>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>bag<span class="w"> </span>record<span class="w"> </span>-o<span class="w"> </span>turtle_bagfile_1<span class="w"> </span>/turtle1/cmd_vel<span class="w"> </span>/turtle1/pose
+</code></pre></div></p>
 </div>
-<hr>
+<hr />
 </li>
 <li>
 <p>Használjuk az alábbi parancsot a bag fájl tulajdonságainak lekérdezésére:</p>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>bag<span class="w"> </span>info<span class="w"> </span>&lt;PATH_TO_BAGFILE&gt;
 </code></pre></div>
-<hr>
+<hr />
 </li>
 <li>
 <p>Játsszuk vissza a bag fájlt és jelenítsük meg az egyik teknőc  <code>pose/x</code> értékét grafikonon  <code>rqt_gui</code> segítségével.</p>
@@ -1122,14 +1122,14 @@ ros2<span class="w"> </span>launch<span class="w"> </span>ros2_course<span class
 </code></pre></div>
 </li>
 </ol>
-<hr>
+<hr />
 <h2 id="hasznos-linkek">Hasznos linkek</h2>
 <ul>
 <li><a href="https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Launch-Main.html">ROS 2 Launch Tutorial</a></li>
 <li><a href="https://docs.ros.org/en/rolling/Concepts/About-ROS-2-Parameters.html">ROS 2 Parameters</a></li>
 <li><a href="https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.html">Using ROS 2 parameters in a Class</a></li>
 <li><a href="https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.html">ROS 2 Bag</a></li>
-</ul></div>
+</ul>
 
 
 

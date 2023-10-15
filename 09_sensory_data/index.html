@@ -599,70 +599,70 @@
   
 
 
-<div><h1 id="08-szenzoros-adatok-gyujtese-es-feldolgozasa">08. Szenzoros adatok gyűjtése és feldolgozása</h1>
-<p><img alt="" src="../img/under_construction.png" style="width:400px"></p>
-<hr>
+<h1 id="08-szenzoros-adatok-gyujtese-es-feldolgozasa">08. Szenzoros adatok gyűjtése és feldolgozása</h1>
+<p><img alt="" src="../img/under_construction.png" style="width:400px" /></p>
+<hr />
 <h2 id="gyakorlat">Gyakorlat</h2>
-<hr>
+<hr />
 <div class="admonition note">
 <p class="admonition-title">Thing may change here...</p>
 <p>Ezt a gyakorlatot lehet, hogy le fogjuk cserélni.</p>
 </div>
 <h3 id="1-leo-rover">1: Leo rover</h3>
-<hr>
+<hr />
 <ol>
 <li>
 <p>Installáljuk a Leo rover ROS package-eit:</p>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
 sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-noetic-leo*
 </code></pre></div>
-<hr>
+<hr />
 </li>
 <li>
 <p>A http://wiki.ros.org/leo_gazebo leírás segítségével indítsuk el a gazebo szimulátort a Mars landscape-pel.</p>
-<hr>
+<hr />
 </li>
 <li>
 <p>Indítsunk teleop node-ot, és mozgassuk meg a robotot.</p>
-<hr>
+<hr />
 </li>
 </ol>
 <h3 id="2-kave-a-marson-kepek-rogzitese">2: Kávé a Marson -- képek rögzítése</h3>
-<hr>
+<hr />
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>A Mars rover képet küldött egy különös, kávés bögrének tűnő tárgyról! A feladat, hogy fordítsuk a rovert a bögre felé, majd közelítsük meg, hogy részletesen megvizsgálhassuk.</p>
 </div>
-<p><img alt="" src="../img/coffee.png" style="width:600px"></p>
-<hr>
+<p><img alt="" src="../img/coffee.png" style="width:600px" /></p>
+<hr />
 <ol>
 <li>
 <p>Indítsuk el a Gazebo-t:</p>
 <div class="highlight"><pre><span></span><code><span class="w">    </span>gazebo
 </code></pre></div>
-<hr>
+<hr />
 </li>
 <li>
 <p>Az <code>insert</code> panelen keressük ki a <code>googleresearch/models/cole_hardware_mug_classic_blue</code> modellt, majd helyezzük el a szimulációban. Ez azért kell, hogy később meglegyen a bögre modellje a fáljrendszerünkben.</p>
-<hr>
+<hr />
 </li>
 <li>
 <p>Zárjuk be a Gazebo-t</p>
-<hr>
+<hr />
 </li>
 <li>
 <p>Töltsük le a <code>leo_masryard_coffee.launch</code> és a <code>marsyard_coffe.world</code> fájlokat, majd másoljuk be rendre a <code>catkin_ws/src/ros_course/launch</code> és <code>catkin_ws/src/ros_course/worlds</code> mappákba.</p>
-<hr>
+<hr />
 </li>
 <li>
 <p>A <code>.world</code> fájlokban írjuk át a <code>/home/tamas/.ignition/fuel/fuel...</code> elérési utakat (fájlonként 2x) a sajátunkra.</p>
-<hr>
+<hr />
 </li>
 <li>
 <p>Indítsuk el a szimulátort:</p>
 <div class="highlight"><pre><span></span><code><span class="w">    </span>roslaunch<span class="w"> </span>ros_course<span class="w"> </span>leo_marsyard_coffee.launch
 </code></pre></div>
-<hr>
+<hr />
 </li>
 <li>
 <p>Indítsuk el a teleopot és az <code>rqt_image_view</code>-t:</p>
@@ -674,90 +674,90 @@ sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> <
 <p class="admonition-title">Tip</p>
 <p>Ha a szimulátor futtatása túlságosan megterhelő a PC számára, dolgozhatunk a terrain nélküli <code>leo_gazebo_coffee.launch</code> és <code>gazebo_coffe.world</code> fájlokkal is.</p>
 </div>
-<hr>
+<hr />
 </li>
 <li>
 <p>Mentsünk le egy-egy képet, amin látható, illetve nem látható a kávés bögre. </p>
-<hr>
+<hr />
 </li>
 </ol>
 <h3 id="3-kave-a-marson-offline-kepfeldolgozas">3: Kávé a Marson -- offline képfeldolgozás</h3>
-<hr>
+<hr />
 <ol>
 <li>
 <p>Írjunk Python szkriptet, amely beolvassa és megjeleníti a lementett képeket.</p>
-<hr>
+<hr />
 </li>
 <li>
 <p>Szín alapú szegmentálással (vagy bárhogy máshogy) szegmentáljuk a kávés bögrét.</p>
-<hr>
+<hr />
 </li>
 <li>
 <p>Határozzuk meg a bögre középpontját képi koordinátákban.</p>
-<hr>
+<hr />
 </li>
 <li>
 <p>A szegmentálás zaja gondot okozhat, próbáljuk meg leszűrni.</p>
-<hr>
+<hr />
 </li>
 </ol>
 <h3 id="4-kave-a-marson-online-perception-node">4: Kávé a Marson -- online perception node</h3>
-<hr>
+<hr />
 <ol>
 <li>
 <p>Iratkozzunk fel a <code>/camera/image_raw</code> topicra, majd a <code>cv.imshow()</code> függvény segítségéval jelenítsük meg a kapott képeket.</p>
-<hr>
+<hr />
 </li>
 <li>
 <p>Dolgozzuk be a működő computer vision algoritmusunkat egy ROS node-ba.</p>
-<hr>
+<hr />
 </li>
 <li>
 <p>Publikáljuk új topicban a detektált bögre középpontjának képi koordinátát. Használhatjuk pl. az Int32MultiArray, Point2D típusokat, vagy definiálhatunk sajátot (később szükség lesz a bögre méretére is).</p>
-<hr>
+<hr />
 </li>
 <li>
 <p><em>Bónusz: publikáljuk a maszkot és a maszkolt képet egy-egy Image topicban</em></p>
-<hr>
+<hr />
 </li>
 </ol>
 <h3 id="5-kave-a-marson-operation-logic-node">5: Kávé a Marson -- operation logic node</h3>
-<hr>
+<hr />
 <ol>
 <li>
 <p>Írjunk új ROS node-ot, amely fogadja a perception node üzeneteit, illetve képes a rover mozgásának irányítására.</p>
-<hr>
+<hr />
 </li>
 <li>
 <p>Forgassuk a rovert egy helyben, amíg a bögre a kép közepére nem kerül.</p>
-<hr>
+<hr />
 </li>
 <li>
 <p>Közelítsük meg a bögrét annyira, hogy a látszólagos mérete a kép méretének 50%-át el nem éri.</p>
-<hr>
+<hr />
 </li>
 <li>
 <p>Mentsünk le képet a gyanús objektumról.</p>
-<hr>
+<hr />
 </li>
 </ol>
 <h3 id="51-bonusz">5+1: Bónusz</h3>
-<hr>
+<hr />
 <ol>
 <li>
 <p>Nézzünk szét Gazebo-ban a beilleszthető modellek között (<code>insert</code> panel) és válasszunk egyet, amely valamilyen más módszerrel detektálható a kamera képén (pl. template matching).</p>
-<hr>
+<hr />
 </li>
 <li>
 <p>Módosítsuk úgy a node-okat, hogy ezt az objektumot közelítse meg a rover.</p>
-<hr>
+<hr />
 <div class="admonition warning">
 <p class="admonition-title">Figyelem!</p>
 <p>Az óra végén a forráskódokat mindenkinek fel kell tölteni Moodle-re egy zip archívumba csomagolva!</p>
 </div>
 </li>
 </ol>
-<hr>
+<hr />
 <h2 id="hasznos-linkek">Hasznos linkek</h2>
 <ul>
 <li><a href="">http://wiki.ros.org/leo_gazebo</a></li>
@@ -772,7 +772,7 @@ sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> <
 </code></pre></div>
 </li>
 </ul>
-<p>https://ros2-industrial-workshop.readthedocs.io/en/latest/_source/navigation/ROS2-Cartographer.html</p></div>
+<p>https://ros2-industrial-workshop.readthedocs.io/en/latest/_source/navigation/ROS2-Cartographer.html</p>
 
 
 

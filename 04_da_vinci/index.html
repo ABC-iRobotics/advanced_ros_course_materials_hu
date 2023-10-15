@@ -770,13 +770,13 @@
   
 
 
-<div><h1 id="04-robotikai-alapfogalmak-da-vinci-sebeszrobot-programozasa-szimulalt-kornyezetben">04. Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben</h1>
-<hr>
+<h1 id="04-robotikai-alapfogalmak-da-vinci-sebeszrobot-programozasa-szimulalt-kornyezetben">04. Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben</h1>
+<hr />
 <h2 id="elmelet">Elmélet</h2>
-<hr>
+<hr />
 <h3 id="merev-test-mozgasa">Merev test mozgása</h3>
-<hr>
-<p><img align="right" alt="" src="../img/merev_test_helyzete.png" style="width:200px"></p>
+<hr />
+<p><img align="right" alt="" src="../img/merev_test_helyzete.png" style="width:200px" /></p>
 <div class="admonition abstract">
 <p class="admonition-title">Def. Merev test</p>
 <p>Merevnek tekinthető az a test, mely pontjainak távolsága mozgás során nem változik, vagyis bármely két pontjának távolsága időben állandó.</p>
@@ -785,7 +785,7 @@
 <li>Merev test alakja, térfogata szintén állandó.</li>
 <li>Merev test térbeli helyzete megadható bármely 3 nem egy egyenesbe eső pontjának helyzetével.</li>
 </ul>
-<p><img align="right" alt="" src="../img/merev_test_transzlacio.png" style="width:200px"></p>
+<p><img align="right" alt="" src="../img/merev_test_transzlacio.png" style="width:200px" /></p>
 <ul>
 <li>
 <p>A test <strong>helyzetét</strong> szemléletesebben megadhatjuk egy tetszőleges pontjának 3 koordinátájával (pozíció) és a test orientációjával.</p>
@@ -797,7 +797,7 @@
 <p><strong>Transzlációs mozgás</strong> során a test minden pontja egymással párhuzamos, egybevágó pályát ír le, a test orientációja pedig nem változik.</p>
 </li>
 </ul>
-<p><img align="right" alt="" src="../img/merev_test_rotacio.png" style="width:200px"></p>
+<p><img align="right" alt="" src="../img/merev_test_rotacio.png" style="width:200px" /></p>
 <ul>
 <li>
 <p><strong>Rotáció</strong>  során a forgástengelyen lévő pontok pozíciója nem változik, a test többi pontja pedig a forgástengelyre merőleges síkokban körpályán mozog.</p>
@@ -806,12 +806,12 @@
 <p>A <strong>merev test szabad mozgása</strong> is leírható mint egyidejűleg egy bizonyos <strong>tengely körüli forgás és egy haladó mozgás</strong>.</p>
 </li>
 </ul>
-<hr>
+<hr />
 <h3 id="3d-transzformaciok">3D transzformációk</h3>
-<hr>
+<hr />
 <ul>
 <li><strong>Pozíció:</strong> 3 elemű offszet vektor 
-<img align="right" alt="" src="https://d2t1xqejof9utc.cloudfront.net/pictures/files/19711/original.png?1367580819" style="width:250px"></li>
+<img align="right" alt="" src="https://d2t1xqejof9utc.cloudfront.net/pictures/files/19711/original.png?1367580819" style="width:250px" /></li>
 <li>
 <p><strong>Orientáció:</strong> 3 x 3 rotációs matrix</p>
 <ul>
@@ -844,10 +844,10 @@
 <ul>
 <li><strong>Szabadsági fok</strong> (DoF): egymástól független mennyiségek száma.</li>
 </ul>
-<hr>
+<hr />
 <h3 id="robotikai-alapok">Robotikai alapok</h3>
-<hr>
-<p><img align="right" alt="" src="../img/segments.png" style="width:400px"></p>
+<hr />
+<p><img align="right" alt="" src="../img/segments.png" style="width:400px" /></p>
 <ul>
 <li>Robotok felépítése: <strong>szegmensek</strong> (segment, link) és <strong>csuklók</strong> (joints)</li>
 <li><strong>Munkatér</strong> (task space, cartesian space):  <ul>
@@ -862,17 +862,17 @@
 </ul>
 </li>
 </ul>
-<hr>
+<hr />
 <h3 id="python-libraries">Python libraries</h3>
-<hr>
+<hr />
 <h4 id="numpy">Numpy</h4>
-<hr>
+<hr />
 <ul>
 <li>Python library</li>
 <li>High dimension arrays and matrices</li>
 <li>Mathematical functions</li>
 </ul>
-<p></p><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<p><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="c1"># Creating ndarrays</span>
 <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
@@ -913,7 +913,7 @@
 <span class="n">s</span> <span class="o">=</span> <span class="n">p</span> <span class="o">@</span> <span class="n">q</span>    <span class="c1"># dot product</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">T</span>
 </code></pre></div>
-If not installed:
+If not installed:</p>
 <div class="highlight"><pre><span></span><code>pip3<span class="w"> </span>install<span class="w"> </span>numpy
 </code></pre></div>
 <h4 id="matplotlib">Matplotlib</h4>
@@ -927,11 +927,11 @@ If not installed:
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">24</span><span class="p">)</span>
 <span class="n">C</span><span class="p">,</span> <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'y=cos(x)'</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">'.'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">S</span> <span class="n">label</span><span class="o">=</span><span class="s1">'y=sin(x)'</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">'.'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;y=cos(x)&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">S</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;y=sin(x)&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'x'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'y'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -939,14 +939,14 @@ If not installed:
 <p>If not installed:</p>
 <div class="highlight"><pre><span></span><code>pip3<span class="w"> </span>install<span class="w"> </span>matplotlib
 </code></pre></div>
-<hr>
+<hr />
 <h2 id="gyakorlat">Gyakorlat</h2>
-<hr>
+<hr />
 <iframe width="560" height="315" src="https://www.youtube.com/embed/QksAVT0YMEo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<hr>
+<hr />
 <h3 id="1-dvrk-ros-2-install">1: dVRK ROS 2 install</h3>
-<hr>
+<hr />
 <ol>
 <li>
 <p>Klónozzuk a dVRK-t (da Vinci Reserach Kit) <code>vcs</code> segítségével egy új workspace-be, majd build-eljük:</p>
@@ -957,13 +957,13 @@ vcs<span class="w"> </span>import<span class="w"> </span>--input<span class="w">
 colcon<span class="w"> </span>build<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w">   </span>
 <span class="nb">source</span><span class="w"> </span>~/dvrk2_ws/install/setup.bash
 </code></pre></div>
-<hr>
+<hr />
 </li>
 <li>
 <p>A <code>.bashrc</code> fájl végére illesszük be az alábbi sort:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/dvrk2_ws/install/setup.bash
 </code></pre></div>
-<hr>
+<hr />
 </li>
 <li>
 <p>Indítsuk el a PSM1 (Patient Side Manipulator) RViz szimulációját. A dVRK konzolon ne felejtsünk el HOME-olni. 
@@ -983,20 +983,20 @@ ros2<span class="w"> </span>run<span class="w"> </span>rqt_gui<span class="w"> <
 </code></pre></div>
 </li>
 </ol>
-<hr>
+<hr />
 <h3 id="2-psm-subscriber-implementalasa">2: PSM subscriber implementálása</h3>
-<hr>
+<hr />
 <ol>
 <li>
 <p>Hozzunk létre új python forrásfájlt <code>psm_grasp.py</code> névvel a  <code>~/ros2_ws/src/ros2_course/ros2_course</code> mappában. Adjuk meg az új entry point-ot a <code>setup.py</code>-ban a megszokott módon.</p>
-<hr>
+<hr />
 </li>
 <li>
 <p>Iratkozzunk fel a PSM TCP (Tool Center Point) pozícióját és a csipesz pofái által bezárt szögét publikáló topic-okra.</p>
 <div class="highlight"><pre><span></span><code>/PSM1/measured_cp
 /PSM1/jaw/measured_js
 </code></pre></div>
-<hr>
+<hr />
 </li>
 <li>
 <p>Build-eljünk és futtassuk a node-ot:</p>
@@ -1004,19 +1004,19 @@ ros2<span class="w"> </span>run<span class="w"> </span>rqt_gui<span class="w"> <
 colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
 ros2<span class="w"> </span>run<span class="w"> </span>ros2_course<span class="w"> </span>psm_grasp<span class="w"> </span>
 </code></pre></div>
-<hr>
+<hr />
 </li>
 </ol>
 <h3 id="3-psm-tcp-mozgatasa-linearis-trajektoria-menten">3. PSM TCP mozgatása lineáris trajektória mentén</h3>
-<hr>
-<p><img align="right" alt="" src="../img/PSM_coordinates.png" style="width:350px"></p>
+<hr />
+<p><img align="right" alt="" src="../img/PSM_coordinates.png" style="width:350px" /></p>
 <ol>
 <li>
 <p>A PSM a lenti topicok-ban várja a kívánt TCP pozíciót és a csipesz pofái által bezárt szöget. Hozzunk létre publishereket a <code>psm_grasp.py</code> fájlban ezekhez a topicokhoz.</p>
 <div class="highlight"><pre><span></span><code>/PSM1/servo_cp
 /PSM1/jaw/servo_jp
 </code></pre></div>
-<hr>
+<hr />
 </li>
 <li>
 <p>Írjunk függvényt, amely lineáris trajektória mentén a kívánt pozícióba mozgatja a TCP-t. Küldjük az csipeszt a (0.0, 0.05, -0.12) pozícióba,
@@ -1024,18 +1024,18 @@ az orientációt hagyjuk változatlanul. 0.01s legyen a mintavételi idő. Matpl
 x, y és z komponensét idő függvényében.</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">move_tcp_to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
 </code></pre></div>
-<p><img align="right" alt="" src="../img/lin.png" style="width:700px"></p>
-<hr>
+<p><img align="right" alt="" src="../img/lin.png" style="width:700px" /></p>
+<hr />
 </li>
 <li>
 <p>Írjunk függvényt, amellyel a csipeszt tudjuk nyitni-zárni, szintén lineáris trajektória használatával.</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">move_jaw_to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">omega</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
 </code></pre></div>
-<hr>
+<hr />
 </li>
 </ol>
 <h3 id="4-dummy-marker-letrehozasa">4. Dummy marker létrehozása</h3>
-<hr>
+<hr />
 <ol>
 <li>
 <p>Hozzunk létre új python forrásfájlt <code>dummy_marker.py</code> névvel. Adjuk meg az entry point-ot a <code>setup.py</code>-ban a megszokott módon.
@@ -1047,9 +1047,9 @@ A <code>frame_id</code> addattag értéke legyen <code>PSM1_psm_base_link</code>
 
 <span class="k">class</span> <span class="nc">DummyMarker</span><span class="p">(</span><span class="n">Node</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">position</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s1">'minimal_publisher'</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s1">&#39;minimal_publisher&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">position</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">publisher_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_publisher</span><span class="p">(</span><span class="n">Marker</span><span class="p">,</span> <span class="s1">'dummy_target_marker'</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">publisher_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_publisher</span><span class="p">(</span><span class="n">Marker</span><span class="p">,</span> <span class="s1">&#39;dummy_target_marker&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
         <span class="n">timer_period</span> <span class="o">=</span> <span class="mf">0.1</span>  <span class="c1"># seconds</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">timer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_timer</span><span class="p">(</span><span class="n">timer_period</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">timer_callback</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
@@ -1057,9 +1057,9 @@ A <code>frame_id</code> addattag értéke legyen <code>PSM1_psm_base_link</code>
 
     <span class="k">def</span> <span class="nf">timer_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">marker</span> <span class="o">=</span> <span class="n">Marker</span><span class="p">()</span>
-        <span class="n">marker</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="s1">'PSM1_psm_base_link'</span>
+        <span class="n">marker</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="s1">&#39;PSM1_psm_base_link&#39;</span>
         <span class="n">marker</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">stamp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_clock</span><span class="p">()</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">to_msg</span><span class="p">()</span>
-        <span class="n">marker</span><span class="o">.</span><span class="n">ns</span> <span class="o">=</span> <span class="s2">"dvrk_viz"</span>
+        <span class="n">marker</span><span class="o">.</span><span class="n">ns</span> <span class="o">=</span> <span class="s2">&quot;dvrk_viz&quot;</span>
         <span class="n">marker</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">i</span>
         <span class="n">marker</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">Marker</span><span class="o">.</span><span class="n">SPHERE</span>
         <span class="n">marker</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="n">Marker</span><span class="o">.</span><span class="n">MODIFY</span>
@@ -1073,7 +1073,7 @@ A <code>frame_id</code> addattag értéke legyen <code>PSM1_psm_base_link</code>
         <span class="n">marker</span><span class="o">.</span><span class="n">scale</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mf">0.008</span>
         <span class="n">marker</span><span class="o">.</span><span class="n">scale</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mf">0.008</span>
         <span class="n">marker</span><span class="o">.</span><span class="n">scale</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.008</span>
-        <span class="n">marker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1"># Don't forget to set the alpha!</span>
+        <span class="n">marker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1"># Don&#39;t forget to set the alpha!</span>
         <span class="n">marker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">r</span> <span class="o">=</span> <span class="mf">0.0</span>
         <span class="n">marker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">g</span> <span class="o">=</span> <span class="mf">1.0</span>
         <span class="n">marker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
@@ -1093,49 +1093,49 @@ A <code>frame_id</code> addattag értéke legyen <code>PSM1_psm_base_link</code>
     <span class="n">marker_publisher</span><span class="o">.</span><span class="n">destroy_node</span><span class="p">()</span>
     <span class="n">rclpy</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
-<hr>
+<hr />
 </li>
 <li>
 <p>Futtassuk a node-ot és jelenítsük meg a markert RViz-ben.</p>
-<hr>
+<hr />
 </li>
 </ol>
 <h3 id="5-marker-megfogasa">5. Marker megfogása</h3>
-<hr>
+<hr />
 <ol>
 <li>
 <p>Iratkozzunk fel a marker pozícióját küldő topic-ra a <code>psm_grasp.py</code>-ban.</p>
-<hr>
+<hr />
 </li>
 <li>
 <p>Módosítsuk a <code>psm_grasp.py</code> programot úgy, hogy a csipesszel fogjuk meg a generált markert.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>A használt szimulátor hajlamos rá, hogy bizonyos értékek "beragadjanak", ezért a program elején érdemes az alábbi sorok használatával resetelni a kart:
-</p><div class="highlight"><pre><span></span><code><span class="c1">#Reset the arm</span>
+<div class="highlight"><pre><span></span><code><span class="c1">#Reset the arm</span>
 <span class="n">psm</span><span class="o">.</span><span class="n">move_tcp_to</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.12</span><span class="p">],</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
 <span class="n">psm</span><span class="o">.</span><span class="n">move_jaw_to</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
-</code></pre></div>
+</code></pre></div></p>
 </div>
 </li>
 </ol>
-<hr>
+<hr />
 <h3 id="6-tcp-mozgatasa-koriv-menten">6. TCP mozgatása körív mentén</h3>
-<hr>
+<hr />
 <ol>
 <li>Implementáljunk metódust, amely r sugrú körív mentén mozgatja a megfogót.</li>
 </ol>
-<hr>
+<hr />
 <h2 id="hasznos-linkek">Hasznos linkek</h2>
 <ul>
 <li><a href="https://github.com/jhu-dvrk/sawIntuitiveResearchKit/wiki/BuildROS2">Download and compile dVRK 2</a></li>
 <li><a href="https://www.programcreek.com/python/example/88812/visualization_msgs.msg.Marker">Marker examples</a></li>
 <li><a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.norm.html">Numpy vector magnitude</a></li>
 <li><a href="https://numpy.org/doc/stable/reference/generated/numpy.linspace.html">Numpy linspace</a></li>
-</ul></div>
+</ul>
 
 
 
