@@ -783,16 +783,16 @@
   
 
 
-<h1 id="07-kinematika-inverz-kienamtika-szimulalt-robotkar-programozasa-csuklo-es-munkaterben">07. Kinematika, inverz kienamtika, Szimulált robotkar programozása csukló-, és munkatérben</h1>
-<hr />
-<p><img align="right" alt="" src="../img/under_construction.png" style="width:400px" /></p>
+<div><h1 id="07-kinematika-inverz-kienamtika-szimulalt-robotkar-programozasa-csuklo-es-munkaterben">07. Kinematika, inverz kienamtika, Szimulált robotkar programozása csukló-, és munkatérben</h1>
+<hr>
+<p><img align="right" alt="" src="../img/under_construction.png" style="width:400px"></p>
 <h2 id="ismetles">Ismétlés</h2>
-<hr />
+<hr>
 <h3 id="3d-transzformaciok">3D transzformációk</h3>
-<hr />
+<hr>
 <ul>
 <li><strong>Pozíció:</strong> 3 elemű offszet vektor 
-<img align="right" alt="" src="https://d2t1xqejof9utc.cloudfront.net/pictures/files/19711/original.png?1367580819" style="width:250px" /></li>
+<img align="right" alt="" src="https://d2t1xqejof9utc.cloudfront.net/pictures/files/19711/original.png?1367580819" style="width:250px"></li>
 <li>
 <p><strong>Orientáció:</strong> 3 x 3 rotációs matrix</p>
 <ul>
@@ -825,10 +825,10 @@
 <ul>
 <li><strong>Szabadsági fok</strong> (DoF): egymástól független mennyiségek száma.</li>
 </ul>
-<hr />
+<hr>
 <h3 id="robotikai-alapok">Robotikai alapok</h3>
-<hr />
-<p><img align="right" alt="" src="../img/segments.png" style="width:400px" /></p>
+<hr>
+<p><img align="right" alt="" src="../img/segments.png" style="width:400px"></p>
 <ul>
 <li>Robotok felépítése: <strong>szegmensek</strong> (segment, link) és <strong>csuklók</strong> (joints)</li>
 <li><strong>Munkatér</strong> (task space, cartesian space):  <ul>
@@ -843,11 +843,11 @@
 </ul>
 </li>
 </ul>
-<hr />
+<hr>
 <h2 id="elmelet">Elmélet</h2>
-<hr />
+<hr>
 <h3 id="kinematika-inverz-kinematika">Kinematika, inverz kinematika</h3>
-<hr />
+<hr>
 <h4 id="kinematika">Kinematika</h4>
 <div class="admonition abstract">
 <p class="admonition-title">Def. Kinematika</p>
@@ -864,13 +864,13 @@
 <div class="arithmatex">\[
      T_{TCP,base}(q_1, \cdots, q_n) = T_{TCP,n-1}(q_{n}) \cdot T_{n-1,n-2}(q_{n-1}) \cdots T_{2,1}(q_2) \cdot T_{1,base}(q_1) \cdot base
 \]</div>
-<hr />
+<hr>
 <h4 id="inverz-kinematika">Inverz kinematika</h4>
 <div class="admonition abstract">
 <p class="admonition-title">Def. Inverz kinematika</p>
 <p>Csukló koordináták kiszámítása a (kívánt)  TCP (vagy bármi más) pose eléréséhez.</p>
 </div>
-<hr />
+<hr>
 <h4 id="differencialis-inverz-kinematika">Differenciális inverz kinematika</h4>
 <div class="admonition abstract">
 <p class="admonition-title">Def. Differenciális inverz kinematika</p>
@@ -894,7 +894,7 @@
 \]</div>
 </li>
 </ul>
-<hr />
+<hr>
 <h4 id="inverz-kinematika-jacobi-inverz-felhasznalasaval">Inverz kinematika Jacobi inverz felhasználásával</h4>
 <ol>
 <li>Számítsuk ki a kívánt és az aktuális pozíció különbségét: <span class="arithmatex">\(\Delta\mathbf{r} = \mathbf{r}_{desired} - \mathbf{r}_0\)</span></li>
@@ -902,18 +902,18 @@
 <li>Számítsuk ki <span class="arithmatex">\(\Delta\mathbf{ q}=\mathbf{J}^{-1}(\mathbf{q_0})\cdot \left[\matrix{k_1 \cdot \Delta\mathbf{r} \\ k_2 \cdot \mathbf{\omega}}\right]\)</span>, ahol az inverz lehet pszeudo-inverz, vagy transzponált</li>
 <li><span class="arithmatex">\(\mathbf{q}_{better} = \mathbf{q}_{0} + \Delta\mathbf{q}\)</span></li>
 </ol>
-<hr />
+<hr>
 <h2 id="gyakorlat">Gyakorlat</h2>
-<hr />
+<hr>
 <h3 id="1-doosan2-install">1: Doosan2 install</h3>
-<hr />
+<hr>
 <ol>
 <li>
 <p>Állítsuk vissza a <code>~/.bashrc</code> fájlt ROS2 alapértelmezettre. </p>
 </li>
 <li>
 <p>Telepítsük a dependency-ket.</p>
-<p><img align="right" alt="" src="../img/doosan_rviz.png" style="width:280px" /></p>
+<p><img align="right" alt="" src="../img/doosan_rviz.png" style="width:280px"></p>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
 sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libpoco-dev
 sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>ros-foxy-control-msgs<span class="w"> </span>ros-foxy-realtime-tools<span class="w"> </span>ros-foxy-xacro<span class="w"> </span>ros-foxy-joint-state-publisher-gui
@@ -923,7 +923,7 @@ pip3<span class="w"> </span>install<span class="w"> </span>kinpy
 <p class="admonition-title">Tip</p>
 <p>A <code>kinpy</code> csomag forrását is töltsük le, hasznos lehet az API megértése szempontjából: <a href="">https://pypi.org/project/kinpy/</a></p>
 </div>
-<hr />
+<hr>
 </li>
 <li>
 <p>Clone-ozzuk és build-eljük a repo-t.</p>
@@ -947,16 +947,16 @@ rosdep<span class="w"> </span>update
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>A VM-eken már telepítve van, de itt is frissítsük a repo-t:
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/doosan2_ws/src/doosan-robot2
+</p><div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/doosan2_ws/src/doosan-robot2
 git<span class="w"> </span>pull
 <span class="nb">cd</span><span class="w"> </span>~/doosan2_ws
 colcon<span class="w"> </span>build<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_EXPORT_COMPILE_COMMANDS<span class="o">=</span>ON
-</code></pre></div></p>
+</code></pre></div>
 </div>
 <p>Adjuk hozzá az alábbi sort a <code>~/.bashrc</code> fájlhoz:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/doosan2_ws/install/setup.bash
 </code></pre></div>
-<hr />
+<hr>
 </li>
 <li>
 <p>Teszteljük a szimulátort, új teminál ablakban:</p>
@@ -964,9 +964,9 @@ colcon<span class="w"> </span>build<span class="w"> </span>--cmake-args<span cla
 </code></pre></div>
 </li>
 </ol>
-<hr />
+<hr>
 <h3 id="2-robot-mozgatasa-csukloterben">2: Robot mozgatása csuklótérben</h3>
-<hr />
+<hr>
 <ol>
 <li>
 <p>Hozzunk létre új python forrásfájlt <code>doosan2_controller.py</code> névvel a  <code>~/ros2_ws/src/ros2_course/ros2_course</code> 
@@ -976,27 +976,27 @@ publisher-t a csuklók szögeinek beállítására használható topic-hoz.</p>
 <div class="highlight"><pre><span></span><code>/joint_states
 /joint_cmd
 </code></pre></div>
-<hr />
+<hr>
 </li>
 <li>
 <p>Mozgassuk a robotot <code>q = [0.24, -0.3, 1.55, 0.03, 1.8, 0.5]</code> konfigurációba.</p>
-<hr />
+<hr>
 </li>
 </ol>
 <h3 id="3-kinematika">3. Kinematika</h3>
-<hr />
+<hr>
 <ol>
 <li>
 <p>Importáljuk a <code>kinpy</code> csomagot és olvassuk be a robotot leíró urdf fájlt:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">kinpy</span> <span class="k">as</span> <span class="nn">kp</span>
 
 <span class="bp">self</span><span class="o">.</span><span class="n">chain</span> <span class="o">=</span> <span class="n">kp</span><span class="o">.</span><span class="n">build_serial_chain_from_urdf</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span>
-        <span class="s2">&quot;/home/&lt;USERNAME&gt;/doosan2_ws/src/doosan-robot2/dsr_description2/urdf/a0912.blue.urdf&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span>
-        <span class="s2">&quot;link6&quot;</span><span class="p">)</span>
+        <span class="s2">"/home/&lt;USERNAME&gt;/doosan2_ws/src/doosan-robot2/dsr_description2/urdf/a0912.blue.urdf"</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span>
+        <span class="s2">"link6"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">get_joint_parameter_names</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chain</span><span class="p">)</span>
 </code></pre></div>
-<hr />
+<hr>
 </li>
 <li>
 <p>Számítsuk ki, majd irassuk ki a TCP pozícióját az adott konfigurációban a <code>kinpy</code> csomag segítségével.</p>
@@ -1004,57 +1004,57 @@ publisher-t a csuklók szögeinek beállítására használható topic-hoz.</p>
 </code></pre></div>
 </li>
 </ol>
-<hr />
+<hr>
 <h3 id="4-inverz-kinematika-jacobi-inverz-modszerrel">4: Inverz kinematika Jacobi inverz módszerrel</h3>
-<hr />
+<hr>
 <p>Írjunk metódust, amely az előadásban bemutatott Jakobi inverz módszerrel valósítja meg az inverz kinematikai feladatot a roboton. 
 Az orientációt hagyjuk figyelmen kívül. Mozgassuk a TCP-t a <code>(0.55, 0.05, 0.45)</code> pozícióba. Ábrázoljuk a TCP 
 trajektóriáját Matplotlib segítségével.</p>
 <ol>
 <li>
 <p>Írjunk egy ciklust, melynek megállási feltétele a <code>delta_r</code> megfelelő nagysága és <code>rclpy.ok()</code>.</p>
-<hr />
+<hr>
 </li>
 <li>
 <p>Számítsuk ki a kívánt és a pillanatnyi TCP pozíciók különbségét (<code>delta_r</code>). Skálázzuk <code>k_1</code> konstanssal.</p>
-<hr />
+<hr>
 </li>
 <li>
 <p><code>omega</code> legyen <code>[0.0, 0.0, 0.0]</code> (ignoráljuk az orientációt).</p>
-<hr />
+<hr>
 </li>
 <li>
 <p>Konkatenáljuk <code>delta_r</code> és <code>omega</code>-t.</p>
-<hr />
+<hr>
 </li>
 <li>
 <p>Számítsuk ki a Jacobi mátrixot az adott konfigurációban a <code>kp.jacobian.calc_jacobian(...)</code> függvény segítségével.</p>
-<hr />
+<hr>
 </li>
 <li>
 <p>Számítsuk ki Jacobi mátrix pszeudo-inverzét <code>np.linalg.pinv(...)</code>.</p>
-<hr />
+<hr>
 </li>
 <li>
 <p>A fenti képlet segítségével számítsük ki <code>delta_q</code>-t.</p>
-<hr />
+<hr>
 </li>
 <li>
 <p>Növeljük a csuklószögeket a kapott értékekkel.</p>
-<hr />
+<hr>
 </li>
 </ol>
 <h3 id="bonusz-inverz-kinematika-orientacioval"><em>Bónusz:</em> Inverz kinematika orientációval</h3>
-<hr />
+<hr>
 <p>Egészítsük ki az előző feladat megoldását úgy, hogy az orientációt is figyelembe vesszük az inverz kinematikai számítás során.</p>
-<hr />
+<hr>
 <h2 id="hasznos-linkek">Hasznos linkek</h2>
 <ul>
 <li><a href="https://github.com/doosan-robotics/doosan-robot2">doosan-robot2 github</a></li>
 <li><a href="https://pypi.org/project/kinpy/">https://pypi.org/project/kinpy/</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Axis%E2%80%93angle_representation">https://en.wikipedia.org/wiki/Axis%E2%80%93angle_representation</a></li>
 <li><a href="https://www.rosroboticslearning.com/jacobian">https://www.rosroboticslearning.com/jacobian</a></li>
-</ul>
+</ul></div>
 
 
 

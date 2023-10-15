@@ -722,12 +722,12 @@
   
 
 
-<h1 id="01-bevezetes">01. Bevezetés</h1>
-<hr />
+<div><h1 id="01-bevezetes">01. Bevezetés</h1>
+<hr>
 <h2 id="robot-operating-system-ros-bevezetes">Robot Operating System (ROS) bevezetés</h2>
-<hr />
+<hr>
 <h3 id="a-robot-fogalma">A robot fogalma</h3>
-<p><img align="right" alt="" src="../img/what_is_a_robot_1.png" style="width:300px" /></p>
+<p><img align="right" alt="" src="../img/what_is_a_robot_1.png" style="width:300px"></p>
 <ul>
 <li><strong>Joseph Engelberger, pioneer in industrial robotics:</strong> <em>"I can't define a robot, but I know one when I see one."</em></li>
 <li><strong>Wikipedia:</strong> <em>"A robot is a machine—especially one programmable by a computer— capable of carrying out a complex series of actions automatically. Robots can be guided by an external control device or the control may be embedded within. Robots may be constructed on the lines of human form, but most robots are machines designed to perform a task with no regard to their aesthetics."</em></li>
@@ -735,9 +735,9 @@
 <li><strong>Rodney Brooks, Founder and CTO, Rethink Robotics:</strong> <em>"A robot is some sort of device, wich has sensors those sensors the world, does some sort of computation, decides on an action, and then does that action based on the sensory input, which makes some change out in the world, outside its body. Comment: the part "make some change outside its body" discriminates a washing machine from e.g. a Roomba."</em></li>
 <li><strong>Tamás Haidegger, Encyclopedia of Robotics</strong>: <em>"A robot is a complex mechatronic system enabled with electronics, sensors, actuators and software, executing tasks with a certain degree of autonomy. It may be pre-programmed, teleoperated or carrying out computations to make decisions."</em></li>
 </ul>
-<hr />
+<hr>
 <h3 id="mi-a-ros">Mi a ROS?</h3>
-<p><img align="right" alt="" src="https://moveit.ros.org/assets/images/logo/ROS_logo.png" style="width:300px" /></p>
+<p><img align="right" alt="" src="https://moveit.ros.org/assets/images/logo/ROS_logo.png" style="width:300px"></p>
 <ul>
 <li>Open-source, robotikai célú middleware</li>
 <li>Modularitás, újra-felhasználhatóság (driverek, algoritmusok, library-k, ...)</li>
@@ -746,11 +746,11 @@
 <li>Ubuntu Linux (kivéve ROS 2)</li>
 <li>Népes közösség</li>
 </ul>
-<iframe title="vimeo-player" src="https://player.vimeo.com/video/639236696?h=740f412ce5" width="640" height="360" frameborder="0"    allowfullscreen></iframe>
+<iframe title="vimeo-player" src="https://player.vimeo.com/video/639236696?h=740f412ce5" width="640" height="360" frameborder="0" allowfullscreen></iframe>
 
-<hr />
+<hr>
 <h3 id="tortenet">Történet</h3>
-<p><img align="right" alt="" src="https://www.freshconsulting.com/wp-content/uploads/2022/06/path-planning-1024x693.jpg" style="width:300px" /></p>
+<p><img align="right" alt="" src="https://www.freshconsulting.com/wp-content/uploads/2022/06/path-planning-1024x693.jpg" style="width:300px"></p>
 <ul>
 <li>2000-es évek közepe, Stanford: robotikai célú rugalmas, dinamikus szoftverrendszer prototípusok fejlesztése</li>
 <li>2007, Willow Garage: inkubáció, kialakult a ROS alapja BSD open-source licensz alatt</li>
@@ -758,19 +758,19 @@
 <li>2012: Ipari robotika, ROS-Industrial</li>
 <li>2017: ROS 2</li>
 </ul>
-<hr />
+<hr>
 <h2 id="fejlesztokornyezet-felallitasa-hazi-feladat">Fejlesztőkörnyezet felállítása - Házi feladat</h2>
-<hr />
-<p><img align="right" alt="" src="https://brandslogos.com/wp-content/uploads/thumbs/ubuntu-logo-vector.svg" style="width:400px" /></p>
+<hr>
+<p><img align="right" alt="" src="https://brandslogos.com/wp-content/uploads/thumbs/ubuntu-logo-vector.svg" style="width:400px"></p>
 <p>Ajánlott környezet:</p>
 <ul>
 <li>Ubuntu 22.04</li>
 <li>ROS2 Humble</li>
 <li><em>IDE: QtCreator/CLion/VSCode</em></li>
 </ul>
-<hr />
+<hr>
 <h3 id="ros-2-humble-hawksbill">ROS 2 Humble Hawksbill</h3>
-<p><img align="right" alt="" src="https://www.therobotreport.com/wp-content/uploads/2022/05/ros-humble-hawksbill-featured.jpg" style="width:300px" /></p>
+<p><img align="right" alt="" src="https://www.therobotreport.com/wp-content/uploads/2022/05/ros-humble-hawksbill-featured.jpg" style="width:300px"></p>
 <ol>
 <li>
 <p>Locale beállítása.</p>
@@ -783,7 +783,7 @@ sudo<span class="w"> </span>update-locale<span class="w"> </span><span class="nv
 
 locale<span class="w">  </span><span class="c1"># verify settings</span>
 </code></pre></div>
-<hr />
+<hr>
 </li>
 <li>
 <p>ROS 2 Humble telepítése</p>
@@ -791,28 +791,28 @@ locale<span class="w">  </span><span class="c1"># verify settings</span>
 sudo<span class="w"> </span>add-apt-repository<span class="w"> </span>universe
 sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>curl<span class="w"> </span>-y
 sudo<span class="w"> </span>curl<span class="w"> </span>-sSL<span class="w"> </span>https://raw.githubusercontent.com/ros/rosdistro/master/ros.key<span class="w"> </span>-o<span class="w"> </span>/usr/share/keyrings/ros-archive-keyring.gpg
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb [arch=</span><span class="k">$(</span>dpkg<span class="w"> </span>--print-architecture<span class="k">)</span><span class="s2"> signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu </span><span class="k">$(</span>.<span class="w"> </span>/etc/os-release<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$UBUNTU_CODENAME</span><span class="k">)</span><span class="s2"> main&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/ros2.list<span class="w"> </span>&gt;<span class="w"> </span>/dev/null
+<span class="nb">echo</span><span class="w"> </span><span class="s2">"deb [arch=</span><span class="k">$(</span>dpkg<span class="w"> </span>--print-architecture<span class="k">)</span><span class="s2"> signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu </span><span class="k">$(</span>.<span class="w"> </span>/etc/os-release<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$UBUNTU_CODENAME</span><span class="k">)</span><span class="s2"> main"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/ros2.list<span class="w"> </span>&gt;<span class="w"> </span>/dev/null
 sudo<span class="w"> </span>apt<span class="w"> </span>update
 sudo<span class="w"> </span>apt<span class="w"> </span>upgrade
 sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-desktop
 sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-dev-tools
 </code></pre></div>
-<hr />
+<hr>
 </li>
 <li>
 <p>Ha ezzel megvagyunk, a következő parancssal tesztelhetjük a ROS 2 telepítésünket:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>/opt/ros/humble/setup.bash
 ros2<span class="w"> </span>run<span class="w"> </span>demo_nodes_py<span class="w"> </span>talker
 </code></pre></div>
-<hr />
+<hr>
 </li>
 <li>
 <p>A <code>source</code> parancs a környezeti változók beállításáért felelős, ezt minden új terminálablak megnyitásakor meg kell(ene) adni. Ez a parancs beilleszthető a <code>~/.bashrc</code> fájl végére, amely minden terminálablak megnyitásakor lefut, így nem kell mindig beírnunk (ROS 2 lesz az alapértelmezett):</p>
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;source /opt/ros/humble/setup.bash&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">"source /opt/ros/humble/setup.bash"</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
 </code></pre></div>
 </li>
 </ol>
-<hr />
+<hr>
 <h3 id="tovabbi-csomagok">További csomagok</h3>
 <ol>
 <li>
@@ -821,7 +821,7 @@ ros2<span class="w"> </span>run<span class="w"> </span>demo_nodes_py<span class=
 </code></pre></div>
 </li>
 </ol>
-<hr />
+<hr>
 <h3 id="ide">IDE</h3>
 <ol>
 <li>
@@ -833,30 +833,30 @@ ros2<span class="w"> </span>run<span class="w"> </span>demo_nodes_py<span class=
 sudo<span class="w"> </span>./qtcreator-ros-bionic-latest-offline-installer.run
 </code></pre></div>
 <p>Amikor a telepítő kérdezi, hova telepítse, módosítsuk pl. <code>/home/&lt;USER&gt;/QtCreator</code> mappára. Ha a root-ba teléepítjük, nem fogjuk tudni futtatni. A telepítés után "Qt Creator (4.9.2)" néven keressük.</p>
-<hr />
+<hr>
 </li>
 <li>
 <p>CLion</p>
 <p>A CLion magasfokú ROS integrációval rendelkezik, a kurzus során ennek a használata a leginkább ajánlott. Ingyenes hallgatói licensz az alábbi linken igényelhető: <a href="https://www.jetbrains.com/community/education/#students">https://www.jetbrains.com/community/education/#students</a></p>
 <p>Telepítés után keressük meg a <code>/var/lib/snapd/desktop/applications/clion_clion.desktop</code> fájlt. A megfelelő sort írjuk át erre, így a terminál által beállított környezetet fogja használni az IDE:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">Exec</span><span class="o">=</span>bash<span class="w"> </span>-i<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;/snap/bin/clion&quot;</span><span class="w"> </span>%f
+<div class="highlight"><pre><span></span><code><span class="nv">Exec</span><span class="o">=</span>bash<span class="w"> </span>-i<span class="w"> </span>-c<span class="w"> </span><span class="s2">"/snap/bin/clion"</span><span class="w"> </span>%f
 </code></pre></div>
-<hr />
+<hr>
 </li>
 <li>
 <p>Visual Studio</p>
 <p>A Microsoft Visual Studio szintén támogatja a ROS-hoz készült forráskódokat, ez az IDE is használható a félév során.</p>
 </li>
 </ol>
-<hr />
+<hr>
 <div class="admonition tip">
 <p class="admonition-title">Suggestion</p>
 <p>Install <strong>Terminator</strong> terminal emulator:
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
+</p><div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
 sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>terminator
-</code></pre></div></p>
+</code></pre></div>
 </div>
-<hr />
+<hr>
 <h2 id="hasznos-linkek">Hasznos linkek</h2>
 <ul>
 <li><a href="https://www.ros.org/">https://www.ros.org/</a></li>
@@ -866,7 +866,7 @@ sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> <
 <li><a href="https://www.jetbrains.com/community/education/#students">CLion hallgatói licensz</a></li>
 <li><a href="https://ros-qtc-plugin.readthedocs.io/en/latest/_source/How-to-Install-Users.html">QtCreator + ROS plugin</a></li>
 <li><a href="https://www.youtube.com/watch?v=8XmKGWBV5Nw">IROB virtual tour</a></li>
-</ul>
+</ul></div>
 
 
 
