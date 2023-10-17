@@ -83,6 +83,7 @@ A félév elfogadásának feltétele, hogy mind a két ZH, mind a kötelező pro
 #### B. TurtleBot4
 
 - [TurtleBot4 Simulator Tutorial](https://turtlebot.github.io/turtlebot4-user-manual/software/turtlebot4_simulator.html)
+- [TurtleBot4 GUI Docs](https://turtlebot.github.io/turtlebot4-user-manual/software/turtlebot4_common.html#menu-control)  
 
 ![turtlebot.png](img%2Fturtlebot.png){:style="width:600px"}
 
