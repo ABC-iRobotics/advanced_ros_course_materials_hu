@@ -11,11 +11,11 @@ author: Levendovics Tamás
 
 ---
 
-| Okt. hét | Dátum   | Számonkérés                                      |
-|:--------:|---------|--------------------------------------------------|
-|    6.    | okt. 17 | Kötelező programok ismertetése. Projekt labor I. |
-|    9.    | nov. 7  | Projekt labor II.                                |
-|   14.    | dec. 12 | Kötelező programok bemutatása.                   |
+| Okt. hét | Dátum    | Számonkérés                                      |
+|:--------:|----------|--------------------------------------------------|
+|    8.    | márc. 31 | Kötelező programok ismertetése. Projekt labor I. |
+|   13.    | máj. 26  | Projekt labor II.                                |
+|   14.    | jún. 2   | Kötelező programok bemutatása.                   |
 
 ---
 
@@ -70,7 +70,7 @@ A félév elfogadásának feltétele, hogy mind a két ZH, mind a kötelező pro
 
 ---
 
-### 1. TurtleBot4 
+### 1. TurtleBot3 
 
 
 [TurtleBot3 ROS tutorial](https://ros2-industrial-workshop.readthedocs.io/en/latest/_source/navigation/ROS2-Turtlebot.html)
