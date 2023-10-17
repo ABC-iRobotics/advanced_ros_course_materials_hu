@@ -11,11 +11,11 @@ author: Levendovics Tamás
 
 ---
 
-| Okt. hét | Dátum    | Számonkérés                                      |
-|:--------:|----------|--------------------------------------------------|
-|    8.    | márc. 31 | Kötelező programok ismertetése. Projekt labor I. |
-|   13.    | máj. 26  | Projekt labor II.                                |
-|   14.    | jún. 2   | Kötelező programok bemutatása.                   |
+| Okt. hét | Dátum   | Számonkérés                                      |
+|:--------:|---------|--------------------------------------------------|
+|    6.    | okt. 17 | Kötelező programok ismertetése. Projekt labor I. |
+|    9.    | nov. 7  | Projekt labor II.                                |
+|   14.    | dec. 12 | Kötelező programok bemutatása.                   |
 
 ---
 
@@ -70,70 +70,155 @@ A félév elfogadásának feltétele, hogy mind a két ZH, mind a kötelező pro
 
 ---
 
-### 1. TurtleBot3 
+### 1. Mobil robot
+
+#### A. Playground Robot
+
+- [Gazebo install](https://gazebosim.org/docs/harmonic/install_ubuntu)
+- [Setting up a robot simulation (Gazebo)](https://docs.ros.org/en/humble/Tutorials/Advanced/Simulators/Gazebo/Gazebo.html)
+
+![playground_robot.png](img%2Fplayground_robot.png){:style="width:600px"}
 
 
-[TurtleBot3 ROS tutorial](https://ros2-industrial-workshop.readthedocs.io/en/latest/_source/navigation/ROS2-Turtlebot.html)
+#### B. TurtleBot4
 
+- [TurtleBot4 Simulator Tutorial](https://turtlebot.github.io/turtlebot4-user-manual/software/turtlebot4_simulator.html)
 
+![turtlebot.png](img%2Fturtlebot.png){:style="width:600px"}
+
+#### C. PlatypOUs (ROS 1)
+
+- [PlatypOUs GitHub](https://github.com/ABC-iRobotics/PlatypOUs-Mobile-Robot-Platform)
+
+![](https://www.mdpi.com/sensors/sensors-22-02284/article_deploy/html/images/sensors-22-02284-g001.png){:style="width:600px"}
+
+#### D. Bármilyen mobil robot
 
 ---
 
-#### 1.1. TurtleBot akadály elkerülés
+#### 1.1. Mobil robot akadály elkerülés
 
 
-![turtlebot_world.png](img%2Fturtlebot_world.png){:style="width:380px" align=right}
-
-- **Basic:** Szimulátor élesztése, SLAM tesztelése. ROS node/node-ok implementálása szenzorok adatainak beolvasására és a a robot mozgatására.
+- **Basic:** Szimulátor élesztése. ROS node/node-ok implementálása szenzorok adatainak beolvasására és a a robot mozgatására.
 - **Advanced:** ROS rendszer implementálása akadály felismerésére és az akadályt kikerülő trajektória tervezésére és megvalósítására szimulált környezetben bármely szenzor felhasználásával.
 - **Epic:** Nyűgözz le!
 
 ---
 
-#### 1.2. TurtleBot pályakövetés
-
-![](https://robots.ros.org/assets/img/robots/turtlebot3/turtlebot3.png){:style="width:380px" align=right}
+#### 1.2. Mobil robot pályakövetés
 
 
 
-- **Basic:** Szimulátor élesztése, SLAM tesztelése. ROS node/node-ok implementálása szenzorok adatainak beolvasására és a a robot mozgatására.
+- **Basic:** Szimulátor élesztése. ROS node/node-ok implementálása szenzorok adatainak beolvasására és a a robot mozgatására.
 - **Advanced:** ROS rendszer implementálása pályakövetésre szimulált környezetben bármely szenzor felhasználásával(pl. fal mellett haladás adott távolságra LIDAR segítségével).
 - **Epic:** Nyűgözz le!
-<!--suppress XmlDeprecatedElement -->
-<font size="1"> Image source: https://robots.ros.org/turtlebot3/ </font>
+
 
 
 ---
 
-#### 1.3. TurtleBot objektum követés/visual servoing
+#### 1.3. Mobil robot objektum követés/visual servoing
 
-- **Basic:** Szimulátor élesztése, SLAM tesztelése. ROS node/node-ok implementálása szenzorok adatainak beolvasására és a a robot mozgatására.
+- **Basic:** Szimulátor élesztése. ROS node/node-ok implementálása szenzorok adatainak beolvasására és a a robot mozgatására.
 - **Advanced:** ROS rendszer implementálása objektum megkeresésére/felismerésére és követésére/megközelítésére szimulált környezetben bármely szenzor felhasználásával (pl. visual servoing).
 - **Epic:** Nyűgözz le!
 
 ---
 
-#### 1.4. TurtleBot action library
+#### 1.4. Mobil robot action library
 
-- **Basic:** Szimulátor élesztése, SLAM tesztelése. ROS node/node-ok implementálása szenzorok adatainak beolvasására és a a robot mozgatására.
+- **Basic:** Szimulátor élesztése. ROS node/node-ok implementálása szenzorok adatainak beolvasására és a a robot mozgatására.
 - **Advanced:** Egyszerű műveleteket tartalmazó, ROS action alapú könyvtár és ezeket végrehajtó rendszer implementálása (pl. push object, move to object, turn around).
 - **Epic:** Nyűgözz le!
 
+---
 
+### 2. Quadcopter
+
+- [Gazebo install](https://gazebosim.org/docs/harmonic/install_ubuntu)  
+- [Setting up a robot simulation (Gazebo)](https://docs.ros.org/en/humble/Tutorials/Advanced/Simulators/Gazebo/Gazebo.html)  
+
+
+
+    ```bash
+    ign gazebo -v 4 -r quadcopter.sdf
+    ```
+
+
+![quadcopter.png](img%2Fquadcopter.png){:style="width:600px"}
+
+- **Basic:** Szimulátor élesztése. ROS node/node-ok implementálása szenzorok adatainak beolvasására és a a robot mozgatására.
+- **Advanced:** ROS rendszer implementálása magasság/sebesség szabályozására.
+- **Epic:** Nyűgözz le!
 
 ---
 
-### 2. YouBot
 
-<iframe width="560" height="315" align="right" src="https://www.youtube.com/embed/qvBEQsGvC3M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+### 3. Szabadon választott Gazebo szimuláció
+
+- [Gazebo install](https://gazebosim.org/docs/harmonic/install_ubuntu)  
+- [Setting up a robot simulation (Gazebo)](https://docs.ros.org/en/humble/Tutorials/Advanced/Simulators/Gazebo/Gazebo.html)  
+- [Gazebo World Examples](https://github.com/gazebosim/gz-sim/tree/gz-sim7/examples/worlds)  
+
+![penulum.png](img%2Fpenulum.png){:style="width:600px"}
 
 
-[YouBot controller GitHub](https://github.com/ABC-iRobotics/YoubotDriver/tree/ROS)
+Megegyezés alapján.
 
 ---
 
 
-#### 2.1. YouBot ROS integráció
+### 4. Gazebo szimuláció összeállítása
+
+- [Gazebo install](https://gazebosim.org/docs/harmonic/install_ubuntu)  
+- [Setting up a robot simulation (Gazebo)](https://docs.ros.org/en/humble/Tutorials/Advanced/Simulators/Gazebo/Gazebo.html)  
+- [Gazebo World Examples](https://github.com/gazebosim/gz-sim/tree/gz-sim7/examples/worlds)  
+
+![velocity.png](img%2Fvelocity.png){:style="width:600px"}
+
+Megegyezés alapján.
+
+---
+
+### 5. TurtleSim
+
+- [Turtlesim Tutorial](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html)  
+- [Koch Görbe](https://en.wikipedia.org/wiki/Koch_snowflake)
+
+![turtle_xmas_fast.gif](img%2Fturtle_xmas_fast.gif){:style="width:600px"}
+
+#### 5.1 Turtlesim Fraktál/Szöveg
+
+- **Basic:** Arányos szabályozó implementálása.
+- **Advanced:** Fraktál/szöveg rajzolása.
+- **Epic:** Nyűgözz le!
+
+---
+
+### 6. DVRK 
+
+- [Download and compile dVRK 2](https://github.com/jhu-dvrk/sawIntuitiveResearchKit/wiki/BuildROS2)
+- [Marker examples](https://www.programcreek.com/python/example/88812/visualization_msgs.msg.Marker)
+
+![PSM_coordinates.png](img%2FPSM_coordinates.png){:style="width:600px"}
+
+#### 6.1 DVRK Interaktív Marker
+
+Megfogható, mozgatható marker implementálása a DVRK szimulátorához.
+
+---
+
+### 7. YouBot (Windows)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/qvBEQsGvC3M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+- [YouBot controller GitHub](https://github.com/ABC-iRobotics/YoubotDriver/tree/ROS)
+
+---
+
+
+#### 7.1. YouBot ROS integráció
 
 - **Basic:** YouBot repo build-elése, megismerése
 - **Advanced:** Szimulált robot mozgatása csuklótérben ROS környezetben
@@ -142,56 +227,6 @@ A félév elfogadásának feltétele, hogy mind a két ZH, mind a kötelező pro
 
 ---
 
-### 3. AMBF
-
-[AMBF GitHub](https://github.com/WPI-AIM/ambf)
-
-!!! tip "AMBF build-elése"
-	Fork-oljuk az AMBF csomagot, majd a fork-ot clone-ozzuk:
-	```bash
-	cd ~/ros2_ws/src
-	git clone <MY_AMBF_FORK.git>
-	```
-    Ne az AMBF dokumentációjában javasolt make-et használjuk, hanem colcon-t:
-	```bash
-    cd ~/ros2_ws
-    colcon build --symlink-install
-	```    
-	Így indíthatjukl el a szimulátort:
-	```bash    
-    cd ~/ros2_ws/src/ambf/bin/lin-x86_64
-	./ambf_simulator -l 4
-	```
-
----
-
-
-#### 3.1. da Vinci sebészrobot ROS integrációja AMBF szimulátorban
-
-![ambf_psm.png](img%2Fambf_psm.png){:style="width:200px" align=right}
-
-- **Basic:** Szimulátor élesztése, robot vezérlése joint space-ben és task space-ben (IK már implementálva AMBF-ben) ROS-ból CRTK szerinti topic-okon keresztül
-- **Advanced:** Objektumok detektálása *Peg transfer puzzle*-ben
-- **Epic:** Autonóm manipuláció *Peg transfer*-en és/vagy nyűgözz le!
-
-#### 3.2. KUKA robotkar ROS integrációja AMBF szimulátorban
-
-![ambf_kuka.png](img%2Fambf_kuka.png){:style="width:200px" align=right}
-
-
-- **Basic:** Szimulátor élesztése, robot vezérlése joint space-ben ROS-ból
-- **Advanced:** Trajektóriák generálása joint space-ben
-- **Epic:** Inverz kinematika implementálása és/vagy nyűgözz le!
-
-#### 3.3. PR2 humanoid robot ROS integrációja AMBF szimulátorban
-
-![ambf_pr2.png](img%2Fambf_pr2.png){:style="width:200px" align=right}
-
-- **Basic:** Szimulátor élesztése, robot vezérlése joint space-ben ROS-ból
-- **Advanced:** Robot vezérlése task space-ben, IK?
-- **Epic:** Trajektóriatervezés/Navigáció/Manipuláció és/vagy nyűgözz le!
-
----
 
 ### X. Saját téma
 
@@ -203,15 +238,14 @@ Megegyezés alapján.
 
 ## Hasznos linkek
 
-- [TurtleBot4 Simulation](https://turtlebot.github.io/turtlebot4-user-manual/software/turtlebot4_simulator.html)
-- [TurtleBot3 Tutorial](https://ros2-industrial-workshop.readthedocs.io/en/latest/_source/navigation/ROS2-Turtlebot.html)
-- [AMBF](https://github.com/WPI-AIM/ambf)
-- [My fork of AMBF](https://github.com/TamasDNagy/ambf)
-- [CRTK topics](https://github.com/jhu-cisst/cisst/blob/devel/utils/crtk-port/crtk-ros-commands.dict)
-- [Navigation stack](http://wiki.ros.org/navigation)
-- [Paper on LiDAR SLAM](https://www.hindawi.com/journals/jat/2020/8867937/)
-- [Paper on vSLAM](https://ipsjcva.springeropen.com/articles/10.1186/s41074-017-0027-2)
-- [Paper on Visual Servoing Mobile Robot](https://www.researchgate.net/publication/252057005_An_image_based_visual_servoing_scheme_for_wheeled_mobile_robots)
+- [Gazebo install](https://gazebosim.org/docs/harmonic/install_ubuntu)
+- [Setting up a robot simulation (Gazebo)](https://docs.ros.org/en/humble/Tutorials/Advanced/Simulators/Gazebo/Gazebo.html)
+- [Gazebo World Examples](https://github.com/gazebosim/gz-sim/tree/gz-sim7/examples/worlds)
+- [YouBot controller GitHub](https://github.com/ABC-iRobotics/YoubotDriver/tree/ROS)
+- [Download and compile dVRK 2](https://github.com/jhu-dvrk/sawIntuitiveResearchKit/wiki/BuildROS2)
+- [Marker examples](https://www.programcreek.com/python/example/88812/visualization_msgs.msg.Marker)
+- [Turtlesim Tutorial](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html)
+- [Koch Görbe](https://en.wikipedia.org/wiki/Koch_snowflake)  
 
 
 
