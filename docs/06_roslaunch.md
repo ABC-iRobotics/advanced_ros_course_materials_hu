@@ -294,12 +294,7 @@ fájl argumentumaiként legyenek megadhatóak.
     from launch.substitutions import LaunchConfiguration, PythonExpression
 
     def generate_launch_description():
-        turtlesim_ns_value = LaunchConfiguration('turtlesim_ns')
-        use_provided_red_value = LaunchConfiguration('use_provided_red')
-        new_background_r_value = LaunchConfiguration('new_background_r')
-        background_g_value = LaunchConfiguration('background_g')
-        background_b_value = LaunchConfiguration('background_b')
-    
+            
         turtlesim_ns_launch_arg = DeclareLaunchArgument(
             'turtlesim_ns',
             default_value='turtlesim1',
@@ -321,6 +316,12 @@ fájl argumentumaiként legyenek megadhatóak.
             'background_b',
             default_value='100'
         )
+   
+        turtlesim_ns_value = LaunchConfiguration('turtlesim_ns')
+        use_provided_red_value = LaunchConfiguration('use_provided_red')
+        new_background_r_value = LaunchConfiguration('new_background_r')
+        background_g_value = LaunchConfiguration('background_g')
+        background_b_value = LaunchConfiguration('background_b')
     
         turtlesim_node = Node(
             package='turtlesim',
@@ -332,6 +333,7 @@ fájl argumentumaiként legyenek megadhatóak.
                 'background_b': background_b_value,
             }]
         )
+   
         spawn_turtle = ExecuteProcess(
             cmd=[[
                 'ros2 service call ',
@@ -342,6 +344,7 @@ fájl argumentumaiként legyenek megadhatóak.
             ]],
             shell=True
         )
+   
         change_background_r = ExecuteProcess(
             cmd=[[
                 'ros2 param set ',
@@ -351,6 +354,7 @@ fájl argumentumaiként legyenek megadhatóak.
             ]],
             shell=True
         )
+   
         change_background_r_conditioned = ExecuteProcess(
             condition=IfCondition(
                 PythonExpression([
