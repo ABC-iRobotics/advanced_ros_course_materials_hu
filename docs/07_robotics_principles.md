@@ -143,20 +143,18 @@ $$
 
 ---
 
-### 1: Doosan2 install
+### 1: UR install
 
 ---
 
-1. Állítsuk vissza a `~/.bashrc` fájlt ROS2 alapértelmezettre. 
-
-2. Telepítsük a dependency-ket.
+1. Telepítsük a dependency-ket és a UR driver-t.
 
     ![](img/doosan_rviz.png){:style="width:280px" align=right}
 
     ```bash
     sudo apt update
-    sudo apt-get install libpoco-dev
-    sudo apt-get install ros-foxy-control-msgs ros-foxy-realtime-tools ros-foxy-xacro ros-foxy-joint-state-publisher-gui
+    sudo apt upgrade
+    sudo apt-get install ros-humble-ur python3-pip
     pip3 install kinpy
     ```
     
@@ -166,43 +164,6 @@ $$
         
     ---
     
-3. Clone-ozzuk és build-eljük a repo-t.
-
-    ```bash
-    mkdir -p ~/doosan2_ws/src
-    cd ~/doosan2_ws/src
-    git clone https://github.com/TamasDNagy/doosan-robot2.git
-    git clone https://github.com/ros-controls/ros2_control.git
-    git clone https://github.com/ros-controls/ros2_controllers.git
-    git clone https://github.com/ros-simulation/gazebo_ros2_control.git
-    cd ros2_control && git reset --hard 3dc62e28e3bc8cf636275825526c11d13b554bb6 && cd ..
-    cd ros2_controllers && git reset --hard 83c494f460f1c8675f4fdd6fb8707b87e81cb197 && cd ..
-    cd gazebo_ros2_control && git reset --hard 3dfe04d412d5be4540752e9c1165ccf25d7c51fb && cd ..
-    git clone -b ros2 --single-branch https://github.com/ros-planning/moveit_msgs
-    cd ~/doosan2_ws
-    rosdep update
-    rosdep install --from-paths src --ignore-src --rosdistro foxy -r -y
-    colcon build --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON 
-    . install/setup.bash
-    rosdep update
-    ```
-
-    !!! warning
-        A VM-eken már telepítve van, de itt is frissítsük a repo-t:
-        ```bash
-        cd ~/doosan2_ws/src/doosan-robot2
-        git pull
-        cd ~/doosan2_ws
-        colcon build --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
-        ```
-
-    Adjuk hozzá az alábbi sort a `~/.bashrc` fájlhoz:
-
-    ```bash
-    source ~/doosan2_ws/install/setup.bash
-    ```
-
-    ---
     
 
 4. Teszteljük a szimulátort, új teminál ablakban:
