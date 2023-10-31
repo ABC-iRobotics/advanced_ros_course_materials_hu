@@ -8,10 +8,6 @@ author: Levendovics Tamás
 
 ---
 
-
-![](img/under_construction.png){:style="width:400px" align=right}
-
-
 ## Ismétlés
 
 ---
