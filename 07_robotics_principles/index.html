@@ -956,6 +956,13 @@ from<span class="w"> </span>glob<span class="w"> </span>import<span class="w"> <
 <hr />
 </li>
 <li>
+<p>Build-eljük a workspace-t.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/ros2_ws
+colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
+</code></pre></div>
+<hr />
+</li>
+<li>
 <p>Indítsuk el a szimulátort, mozgassuk a csuklókat a Joint State Publisher GUI segítségével.</p>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>ros2_course<span class="w"> </span>view_ur.launch.py<span class="w"> </span>ur_type:<span class="o">=</span>ur5e
 </code></pre></div>
