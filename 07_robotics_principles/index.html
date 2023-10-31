@@ -664,8 +664,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-doosan2-install" class="md-nav__link">
-    1: Doosan2 install
+  <a href="#1-ur-install" class="md-nav__link">
+    1: UR install
   </a>
   
 </li>
@@ -855,7 +855,7 @@
 </div>
 <ul>
 <li>Kinematikai modell<ul>
-<li>Denavit--Hartenberg (HD) konvenció</li>
+<li>Denavit--Hartenberg (DH) konvenció</li>
 <li>URDF (Unified Robotics Description Format, XML-alapú)</li>
 </ul>
 </li>
@@ -905,18 +905,15 @@
 <hr />
 <h2 id="gyakorlat">Gyakorlat</h2>
 <hr />
-<h3 id="1-doosan2-install">1: Doosan2 install</h3>
+<h3 id="1-ur-install">1: UR install</h3>
 <hr />
 <ol>
 <li>
-<p>Állítsuk vissza a <code>~/.bashrc</code> fájlt ROS2 alapértelmezettre. </p>
-</li>
-<li>
-<p>Telepítsük a dependency-ket.</p>
-<p><img align="right" alt="" src="../img/doosan_rviz.png" style="width:280px" /></p>
+<p>Telepítsük a dependency-ket és a UR driver-t.</p>
+<p><img align="right" alt="" src="../img/ur_rviz.png" style="width:280px" /></p>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
-sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libpoco-dev
-sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>ros-foxy-control-msgs<span class="w"> </span>ros-foxy-realtime-tools<span class="w"> </span>ros-foxy-xacro<span class="w"> </span>ros-foxy-joint-state-publisher-gui
+sudo<span class="w"> </span>apt<span class="w"> </span>upgrade
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>ros-humble-ur<span class="w"> </span>python3-pip
 pip3<span class="w"> </span>install<span class="w"> </span>kinpy
 </code></pre></div>
 <div class="admonition tip">
@@ -926,42 +923,42 @@ pip3<span class="w"> </span>install<span class="w"> </span>kinpy
 <hr />
 </li>
 <li>
-<p>Clone-ozzuk és build-eljük a repo-t.</p>
-<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/doosan2_ws/src
-<span class="nb">cd</span><span class="w"> </span>~/doosan2_ws/src
-git<span class="w"> </span>clone<span class="w"> </span>https://github.com/TamasDNagy/doosan-robot2.git
-git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ros-controls/ros2_control.git
-git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ros-controls/ros2_controllers.git
-git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ros-simulation/gazebo_ros2_control.git
-<span class="nb">cd</span><span class="w"> </span>ros2_control<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>3dc62e28e3bc8cf636275825526c11d13b554bb6<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>..
-<span class="nb">cd</span><span class="w"> </span>ros2_controllers<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>83c494f460f1c8675f4fdd6fb8707b87e81cb197<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>..
-<span class="nb">cd</span><span class="w"> </span>gazebo_ros2_control<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>3dfe04d412d5be4540752e9c1165ccf25d7c51fb<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>..
-git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>ros2<span class="w"> </span>--single-branch<span class="w"> </span>https://github.com/ros-planning/moveit_msgs
-<span class="nb">cd</span><span class="w"> </span>~/doosan2_ws
-rosdep<span class="w"> </span>update
-rosdep<span class="w"> </span>install<span class="w"> </span>--from-paths<span class="w"> </span>src<span class="w"> </span>--ignore-src<span class="w"> </span>--rosdistro<span class="w"> </span>foxy<span class="w"> </span>-r<span class="w"> </span>-y
-colcon<span class="w"> </span>build<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_EXPORT_COMPILE_COMMANDS<span class="o">=</span>ON<span class="w"> </span>
-.<span class="w"> </span>install/setup.bash
-rosdep<span class="w"> </span>update
-</code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>A VM-eken már telepítve van, de itt is frissítsük a repo-t:
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/doosan2_ws/src/doosan-robot2
-git<span class="w"> </span>pull
-<span class="nb">cd</span><span class="w"> </span>~/doosan2_ws
-colcon<span class="w"> </span>build<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_EXPORT_COMPILE_COMMANDS<span class="o">=</span>ON
-</code></pre></div></p>
-</div>
-<p>Adjuk hozzá az alábbi sort a <code>~/.bashrc</code> fájlhoz:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/doosan2_ws/install/setup.bash
+<p>Moodle-ről töltsük le a forrásfájlokatokat tartalmazó zip-et (<code>ur_ros2_course.zip</code>).
+A <code>view_ur.launch.py</code> fájlt másoljuk a <code>ros2_course/launch</code> mappába,
+a <code>topic_latcher.py</code> fájlt pedig a <code>ros2_course/ros2_course</code> mappába.
+Adjuk hozzá az alábbi sorokat a <code>setup.py</code> fájlhoz (launch és entry point):</p>
+<div class="highlight"><pre><span></span><code>import<span class="w"> </span>os
+from<span class="w"> </span>glob<span class="w"> </span>import<span class="w"> </span>glob
+
+<span class="c1"># ...</span>
+
+<span class="nv">data_files</span><span class="o">=[</span>
+<span class="w">    </span><span class="o">(</span><span class="s1">&#39;share/ament_index/resource_index/packages&#39;</span>,
+<span class="w">        </span><span class="o">[</span><span class="s1">&#39;resource/&#39;</span><span class="w"> </span>+<span class="w"> </span>package_name<span class="o">])</span>,
+<span class="w">    </span><span class="o">(</span><span class="s1">&#39;share/&#39;</span><span class="w"> </span>+<span class="w"> </span>package_name,<span class="w"> </span><span class="o">[</span><span class="s1">&#39;package.xml&#39;</span><span class="o">])</span>,
+<span class="w">    </span><span class="c1"># Include all launch files.</span>
+<span class="w">    </span><span class="o">(</span>os.path.join<span class="o">(</span><span class="s1">&#39;share&#39;</span>,<span class="w"> </span>package_name<span class="o">)</span>,
+<span class="w">        </span>glob<span class="o">(</span><span class="s1">&#39;launch/*launch.[pxy][yma]*&#39;</span><span class="o">))</span>
+<span class="o">]</span>,
+
+<span class="c1"># ...</span>
+
+<span class="nv">entry_points</span><span class="o">={</span>
+<span class="s1">&#39;console_scripts&#39;</span>:<span class="w"> </span><span class="o">[</span>
+<span class="w">     </span><span class="c1"># ...</span>
+<span class="w">     </span><span class="s1">&#39;topic_latcher = ros2_course.topic_latcher:main&#39;</span>,
+<span class="o">]</span>,
 </code></pre></div>
 <hr />
 </li>
 <li>
-<p>Teszteljük a szimulátort, új teminál ablakban:</p>
-<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>dsr_launcher2<span class="w"> </span>single_robot_rviz_topic.launch.py<span class="w"> </span>model:<span class="o">=</span>a0912<span class="w"> </span>color:<span class="o">=</span>blue
+<p>Indítsuk el a szimulátort, mozgassuk a csuklókat a Joint State Publisher GUI segítségével.</p>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>ros2_course<span class="w"> </span>view_ur.launch.py<span class="w"> </span>ur_type:<span class="o">=</span>ur5e
 </code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Próbáljunk ki más robotokat is a <code>ur_type</code> argumentum beállításával (ur3, ur3e, ur5, ur5e, ur10, ur10e, ur16e, ur20)</p>
+</div>
 </li>
 </ol>
 <hr />
@@ -969,17 +966,17 @@ colcon<span class="w"> </span>build<span class="w"> </span>--cmake-args<span cla
 <hr />
 <ol>
 <li>
-<p>Hozzunk létre új python forrásfájlt <code>doosan2_controller.py</code> névvel a  <code>~/ros2_ws/src/ros2_course/ros2_course</code> 
+<p>Hozzunk létre új python forrásfájlt <code>ur_controller.py</code> névvel a  <code>~/ros2_ws/src/ros2_course/ros2_course</code> 
 mappában. Adjuk meg az új entry point-ot a <code>setup.py</code>-ban a megszokott módon.
 Iratkozzunk fel a robot csuklószögeit (konfigurációját) publikáló topicra. Hozzunk létre 
 publisher-t a csuklók szögeinek beállítására használható topic-hoz.</p>
 <div class="highlight"><pre><span></span><code>/joint_states
-/joint_cmd
+/set_joint_states
 </code></pre></div>
 <hr />
 </li>
 <li>
-<p>Mozgassuk a robotot <code>q = [0.24, -0.3, 1.55, 0.03, 1.8, 0.5]</code> konfigurációba.</p>
+<p>Mozgassuk a robotot <code>q = [-1.28, 4.41, 1.54, -1.16, -1.56, 0.0]</code> konfigurációba.</p>
 <hr />
 </li>
 </ol>
@@ -987,12 +984,19 @@ publisher-t a csuklók szögeinek beállítására használható topic-hoz.</p>
 <hr />
 <ol>
 <li>
-<p>Importáljuk a <code>kinpy</code> csomagot és olvassuk be a robotot leíró urdf fájlt:</p>
+<p>A szimulátor egy topicban publikálja a robotot leíró urdf-t. Iratkozzunk fel erre a topic-ra.</p>
+<div class="highlight"><pre><span></span><code>/robot_description_latch
+</code></pre></div>
+<hr />
+</li>
+<li>
+<p>Importáljuk a <code>kinpy</code> csomagot és hozzuk létre a kinematikai láncot a robotot leíró urdf alapján
+az előbb implementált callback függvényben:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">kinpy</span> <span class="k">as</span> <span class="nn">kp</span>
 
-<span class="bp">self</span><span class="o">.</span><span class="n">chain</span> <span class="o">=</span> <span class="n">kp</span><span class="o">.</span><span class="n">build_serial_chain_from_urdf</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span>
-        <span class="s2">&quot;/home/&lt;USERNAME&gt;/doosan2_ws/src/doosan-robot2/dsr_description2/urdf/a0912.blue.urdf&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span>
-        <span class="s2">&quot;link6&quot;</span><span class="p">)</span>
+<span class="c1"># ...</span>
+
+<span class="bp">self</span><span class="o">.</span><span class="n">chain</span> <span class="o">=</span> <span class="n">kp</span><span class="o">.</span><span class="n">build_serial_chain_from_urdf</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">desc</span><span class="p">,</span> <span class="s1">&#39;tool0&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">get_joint_parameter_names</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chain</span><span class="p">)</span>
 </code></pre></div>
@@ -1000,7 +1004,7 @@ publisher-t a csuklók szögeinek beállítására használható topic-hoz.</p>
 </li>
 <li>
 <p>Számítsuk ki, majd irassuk ki a TCP pozícióját az adott konfigurációban a <code>kinpy</code> csomag segítségével.</p>
-<div class="highlight"><pre><span></span><code><span class="n">tg</span> <span class="o">=</span> <span class="n">chain</span><span class="o">.</span><span class="n">forward_kinematics</span><span class="p">(</span><span class="n">th1</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">p</span> <span class="o">=</span> <span class="n">chain</span><span class="o">.</span><span class="n">forward_kinematics</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
 </code></pre></div>
 </li>
 </ol>
@@ -1008,8 +1012,7 @@ publisher-t a csuklók szögeinek beállítására használható topic-hoz.</p>
 <h3 id="4-inverz-kinematika-jacobi-inverz-modszerrel">4: Inverz kinematika Jacobi inverz módszerrel</h3>
 <hr />
 <p>Írjunk metódust, amely az előadásban bemutatott Jakobi inverz módszerrel valósítja meg az inverz kinematikai feladatot a roboton. 
-Az orientációt hagyjuk figyelmen kívül. Mozgassuk a TCP-t a <code>(0.55, 0.05, 0.45)</code> pozícióba. Ábrázoljuk a TCP 
-trajektóriáját Matplotlib segítségével.</p>
+Az orientációt hagyjuk figyelmen kívül. Mozgassuk a TCP-t a <code>(0.50, -0.60, 0.20)</code> pozícióba.</p>
 <ol>
 <li>
 <p>Írjunk egy ciklust, melynek megállási feltétele a <code>delta_r</code> megfelelő nagysága és <code>rclpy.ok()</code>.</p>
@@ -1044,6 +1047,24 @@ trajektóriáját Matplotlib segítségével.</p>
 <hr />
 </li>
 </ol>
+<p>Ábrázoljuk a TCP trajektóriáját Matplotlib segítségével.</p>
+<pre><code>```python
+import matplotlib.pyplot as plt
+
+# ...
+
+# Plot trajectory
+ax = plt.figure().add_subplot(projection='3d')
+ax.plot(x, y, z, label='TCP trajectory',  ls='-', marker='.')
+ax.legend()
+ax.set_xlabel('x [m]')
+ax.set_ylabel('y [m]')
+ax.set_zlabel('z [m]')
+plt.show()
+```
+
+---
+</code></pre>
 <h3 id="bonusz-inverz-kinematika-orientacioval"><em>Bónusz:</em> Inverz kinematika orientációval</h3>
 <hr />
 <p>Egészítsük ki az előző feladat megoldását úgy, hogy az orientációt is figyelembe vesszük az inverz kinematikai számítás során.</p>
