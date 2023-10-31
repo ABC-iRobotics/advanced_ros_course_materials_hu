@@ -892,8 +892,13 @@
 <div class="arithmatex">\[
 \left[\matrix{\mathbf{v} \\ \mathbf{\omega}}\right] =\mathbf{J}(\mathbf{q})\cdot \mathbf{\dot{q}}
 \]</div>
+<p>,ahol <span class="arithmatex">\(\mathbf{v}\)</span> a TCP lineáris sebessége, <span class="arithmatex">\(\mathbf{\omega}\)</span> a TCP szögsebessége, <span class="arithmatex">\(\mathbf{q}\)</span> pedig a robot konfigurációja.</p>
 </li>
 </ul>
+<div class="admonition abstract">
+<p class="admonition-title">Def. Konfiguráció</p>
+<p>A robot pillanatnyi csuklószögeiből képzett vektor vagy tömb.</p>
+</div>
 <hr />
 <h4 id="inverz-kinematika-jacobi-inverz-felhasznalasaval">Inverz kinematika Jacobi inverz felhasználásával</h4>
 <ol>
@@ -1062,9 +1067,8 @@ ax.set_ylabel('y [m]')
 ax.set_zlabel('z [m]')
 plt.show()
 ```
-
----
 </code></pre>
+<hr />
 <h3 id="bonusz-inverz-kinematika-orientacioval"><em>Bónusz:</em> Inverz kinematika orientációval</h3>
 <hr />
 <p>Egészítsük ki az előző feladat megoldását úgy, hogy az orientációt is figyelembe vesszük az inverz kinematikai számítás során.</p>
