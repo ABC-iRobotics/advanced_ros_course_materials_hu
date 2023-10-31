@@ -127,6 +127,13 @@ $$
     \left[\matrix{\mathbf{v} \\ \mathbf{\omega}}\right] =\mathbf{J}(\mathbf{q})\cdot \mathbf{\dot{q}}
     $$
 
+    ,ahol $\mathbf{v}$ a TCP lineáris sebessége, $\mathbf{\omega}$ a TCP szögsebessége, $\mathbf{q}$ pedig a robot konfigurációja.
+
+
+!!! abstract "Def. Konfiguráció"
+    A robot pillanatnyi csuklószögeiből képzett vektor vagy tömb.
+
+
 ---
 
 #### Inverz kinematika Jacobi inverz felhasználásával
@@ -325,7 +332,8 @@ Az orientációt hagyjuk figyelmen kívül. Mozgassuk a TCP-t a `(0.50, -0.60, 0
     plt.show()
     ```
    
-    ---
+
+---
 
 ### *Bónusz:* Inverz kinematika orientációval
 
