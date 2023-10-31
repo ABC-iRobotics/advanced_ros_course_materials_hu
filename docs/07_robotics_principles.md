@@ -84,7 +84,7 @@ $$
 
 
 - Kinematikai modell
-    - Denavit--Hartenberg (HD) konvenció
+    - Denavit--Hartenberg (DH) konvenció
     - URDF (Unified Robotics Description Format, XML-alapú)
     
 Ha a segmensekhez rendelt koordináta rendszerek rendre $base, 1, 2, 3, ..., TCP$, a szomszédos $i$ and $i+1$ szegmensek közötti transzfomrációk $T_{i+1,i}(q_{i+1})$ (mely a közbezárt csukló szögének függvénye), a transzfomráció a base frame és a TCP között felírható ($n$ csuklós robotra):
@@ -149,7 +149,7 @@ $$
 
 1. Telepítsük a dependency-ket és a UR driver-t.
 
-    ![](img/doosan_rviz.png){:style="width:280px" align=right}
+    ![](img/ur_rviz.png){:style="width:280px" align=right}
 
     ```bash
     sudo apt update
@@ -164,13 +164,48 @@ $$
         
     ---
     
-    
+2. Moodle-ről töltsük le a forrásfájlokatokat tartalmazó zip-et (`ur_ros2_course.zip`).
+A `view_ur.launch.py` fájlt másoljuk a `ros2_course/launch` mappába,
+a `topic_latcher.py` fájlt pedig a `ros2_course/ros2_course` mappába.
+Adjuk hozzá az alábbi sorokat a `setup.py` fájlhoz (launch és entry point):
 
-4. Teszteljük a szimulátort, új teminál ablakban:
 
     ```bash
-    ros2 launch dsr_launcher2 single_robot_rviz_topic.launch.py model:=a0912 color:=blue
+    import os
+    from glob import glob
+   
+    # ...
+   
+    data_files=[
+        ('share/ament_index/resource_index/packages',
+            ['resource/' + package_name]),
+        ('share/' + package_name, ['package.xml']),
+        # Include all launch files.
+        (os.path.join('share', package_name),
+            glob('launch/*launch.[pxy][yma]*'))
+    ],
+   
+    # ...
+   
+    entry_points={
+    'console_scripts': [
+         # ...
+         'topic_latcher = ros2_course.topic_latcher:main',
+    ],
     ```
+
+
+    ---
+
+3. Indítsuk el a szimulátort, mozgassuk a csuklókat a Joint State Publisher GUI segítségével.
+
+    ```bash
+    ros2 launch ros2_course view_ur.launch.py ur_type:=ur5e
+    ```
+
+    !!! tip
+        Próbáljunk ki más robotokat is a `ur_type` argumentum beállításával (ur3, ur3e, ur5, ur5e, ur10, ur10e, ur16e, ur20)
+
 
 
 ---
@@ -179,19 +214,19 @@ $$
 
 ---
 
-1. Hozzunk létre új python forrásfájlt `doosan2_controller.py` névvel a  `~/ros2_ws/src/ros2_course/ros2_course` 
+1. Hozzunk létre új python forrásfájlt `ur_controller.py` névvel a  `~/ros2_ws/src/ros2_course/ros2_course` 
 mappában. Adjuk meg az új entry point-ot a `setup.py`-ban a megszokott módon.
 Iratkozzunk fel a robot csuklószögeit (konfigurációját) publikáló topicra. Hozzunk létre 
 publisher-t a csuklók szögeinek beállítására használható topic-hoz.
 
     ```bash
     /joint_states
-    /joint_cmd
+    /set_joint_states
     ```
    
     ---
 
-2. Mozgassuk a robotot `q = [0.24, -0.3, 1.55, 0.03, 1.8, 0.5]` konfigurációba.
+2. Mozgassuk a robotot `q = [-1.28, 4.41, 1.54, -1.16, -1.56, 0.0]` konfigurációba.
 
     ---
     
@@ -199,14 +234,24 @@ publisher-t a csuklók szögeinek beállítására használható topic-hoz.
 
 ---
 
-1. Importáljuk a `kinpy` csomagot és olvassuk be a robotot leíró urdf fájlt:
+1. A szimulátor egy topicban publikálja a robotot leíró urdf-t. Iratkozzunk fel erre a topic-ra.
+
+    ```bash
+    /robot_description_latch
+    ```
+
+    ---
+
+
+1. Importáljuk a `kinpy` csomagot és hozzuk létre a kinematikai láncot a robotot leíró urdf alapján
+az előbb implementált callback függvényben:
 
     ```python
     import kinpy as kp
+   
+    # ...
 
-    self.chain = kp.build_serial_chain_from_urdf(open(
-            "/home/<USERNAME>/doosan2_ws/src/doosan-robot2/dsr_description2/urdf/a0912.blue.urdf").read(),
-            "link6")
+    self.chain = kp.build_serial_chain_from_urdf(self.desc, 'tool0')
     print(self.chain.get_joint_parameter_names())
     print(self.chain)
     ```
@@ -216,7 +261,7 @@ publisher-t a csuklók szögeinek beállítására használható topic-hoz.
 2. Számítsuk ki, majd irassuk ki a TCP pozícióját az adott konfigurációban a `kinpy` csomag segítségével.
 
     ```python
-    tg = chain.forward_kinematics(th1)
+    p = chain.forward_kinematics(q)
     ```
     
 ---
@@ -227,8 +272,7 @@ publisher-t a csuklók szögeinek beállítására használható topic-hoz.
 ---
 
 Írjunk metódust, amely az előadásban bemutatott Jakobi inverz módszerrel valósítja meg az inverz kinematikai feladatot a roboton. 
-Az orientációt hagyjuk figyelmen kívül. Mozgassuk a TCP-t a `(0.55, 0.05, 0.45)` pozícióba. Ábrázoljuk a TCP 
-trajektóriáját Matplotlib segítségével.
+Az orientációt hagyjuk figyelmen kívül. Mozgassuk a TCP-t a `(0.50, -0.60, 0.20)` pozícióba.
 
 1.  Írjunk egy ciklust, melynek megállási feltétele a `delta_r` megfelelő nagysága és `rclpy.ok()`.
 
@@ -260,6 +304,27 @@ trajektóriáját Matplotlib segítségével.
 
 8. Növeljük a csuklószögeket a kapott értékekkel.
 
+
+    ---
+
+
+Ábrázoljuk a TCP trajektóriáját Matplotlib segítségével.
+
+    ```python
+    import matplotlib.pyplot as plt
+
+    # ...
+
+    # Plot trajectory
+    ax = plt.figure().add_subplot(projection='3d')
+    ax.plot(x, y, z, label='TCP trajectory',  ls='-', marker='.')
+    ax.legend()
+    ax.set_xlabel('x [m]')
+    ax.set_ylabel('y [m]')
+    ax.set_zlabel('z [m]')
+    plt.show()
+    ```
+   
     ---
 
 ### *Bónusz:* Inverz kinematika orientációval
