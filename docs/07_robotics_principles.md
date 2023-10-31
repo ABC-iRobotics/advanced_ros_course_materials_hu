@@ -317,20 +317,20 @@ Az orientációt hagyjuk figyelmen kívül. Mozgassuk a TCP-t a `(0.50, -0.60, 0
 
 Ábrázoljuk a TCP trajektóriáját Matplotlib segítségével.
 
-    ```python
-    import matplotlib.pyplot as plt
+```python
+import matplotlib.pyplot as plt
 
-    # ...
+# ...
 
-    # Plot trajectory
-    ax = plt.figure().add_subplot(projection='3d')
-    ax.plot(x, y, z, label='TCP trajectory',  ls='-', marker='.')
-    ax.legend()
-    ax.set_xlabel('x [m]')
-    ax.set_ylabel('y [m]')
-    ax.set_zlabel('z [m]')
-    plt.show()
-    ```
+# Plot trajectory
+ax = plt.figure().add_subplot(projection='3d')
+ax.plot(x, y, z, label='TCP trajectory',  ls='-', marker='.')
+ax.legend()
+ax.set_xlabel('x [m]')
+ax.set_ylabel('y [m]')
+ax.set_zlabel('z [m]')
+plt.show()
+```
    
 
 ---
