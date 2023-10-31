@@ -197,10 +197,18 @@ Adjuk hozzá az alábbi sorokat a `setup.py` fájlhoz (launch és entry point):
     ],
     ```
 
+    ---
+
+3. Build-eljük a workspace-t.
+
+    ```bash
+    cd ~/ros2_ws
+    colcon build --symlink-install
+    ```
 
     ---
 
-3. Indítsuk el a szimulátort, mozgassuk a csuklókat a Joint State Publisher GUI segítségével.
+4. Indítsuk el a szimulátort, mozgassuk a csuklókat a Joint State Publisher GUI segítségével.
 
     ```bash
     ros2 launch ros2_course view_ur.launch.py ur_type:=ur5e
