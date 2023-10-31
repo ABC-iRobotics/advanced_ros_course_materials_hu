@@ -346,7 +346,9 @@ Egészítsük ki az előző feladat megoldását úgy, hogy az orientációt is 
 
 ## Hasznos linkek
 
-- [doosan-robot2 github](https://github.com/doosan-robotics/doosan-robot2)
+- [https://github.com/UniversalRobots/Universal_Robots_ROS2_Driver/tree/humble]()
+- [https://docs.ros.org/en/ros2_packages/humble/api/ur_robot_driver/usage.html#usage-with-official-ur-simulator]()
+- [https://github.com/UniversalRobots/Universal_Robots_Client_Library]()
 - [https://pypi.org/project/kinpy/](https://pypi.org/project/kinpy/)
 - [https://en.wikipedia.org/wiki/Axis%E2%80%93angle_representation](https://en.wikipedia.org/wiki/Axis%E2%80%93angle_representation)
 - [https://www.rosroboticslearning.com/jacobian](https://www.rosroboticslearning.com/jacobian)
