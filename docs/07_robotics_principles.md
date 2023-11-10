@@ -199,7 +199,18 @@ Adjuk hozzá az alábbi sorokat a `setup.py` fájlhoz (launch és entry point):
 
     ---
 
-3. Build-eljük a workspace-t.
+
+3. Adjuk hozzá `ros2launch` dependency-t a `package.xml` fájlhoz:
+
+    ```bash
+    <exec_depend>ros2launch</exec_depend>
+    ```
+
+
+    ---
+
+
+4. Build-eljük a workspace-t.
 
     ```bash
     cd ~/ros2_ws
@@ -208,7 +219,7 @@ Adjuk hozzá az alábbi sorokat a `setup.py` fájlhoz (launch és entry point):
 
     ---
 
-4. Indítsuk el a szimulátort, mozgassuk a csuklókat a Joint State Publisher GUI segítségével.
+5. Indítsuk el a szimulátort, mozgassuk a csuklókat a Joint State Publisher GUI segítségével.
 
     ```bash
     ros2 launch ros2_course view_ur.launch.py ur_type:=ur5e
