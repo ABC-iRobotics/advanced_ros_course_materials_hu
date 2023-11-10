@@ -956,6 +956,12 @@ from<span class="w"> </span>glob<span class="w"> </span>import<span class="w"> <
 <hr />
 </li>
 <li>
+<p>Adjuk hozzá <code>ros2launch</code> dependency-t a <code>package.xml</code> fájlhoz:</p>
+<div class="highlight"><pre><span></span><code>&lt;exec_depend&gt;ros2launch&lt;/exec_depend&gt;
+</code></pre></div>
+<hr />
+</li>
+<li>
 <p>Build-eljük a workspace-t.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/ros2_ws
 colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
