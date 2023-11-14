@@ -6,6 +6,11 @@ author: Levendovics Tamás
 # 06. Kinematika, inverz kienamtika, Szimulált robotkar programozása csukló-, és munkatérben
 
 
+!!! warning
+    **ZH1** (ROS alapok, publisher, subscriber. Python alapok. Robotikai alapfogalmak.) **október 17.**
+
+
+
 ---
 
 ## Ismétlés
