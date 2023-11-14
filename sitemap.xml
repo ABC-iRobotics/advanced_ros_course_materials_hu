@@ -26,17 +26,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://abc-irobotics.github.io/advanced_ros_course_materials_hu/05_git/</loc>
+         <loc>https://abc-irobotics.github.io/advanced_ros_course_materials_hu/05_roslaunch/</loc>
          <lastmod>2023-11-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://abc-irobotics.github.io/advanced_ros_course_materials_hu/06_roslaunch/</loc>
+         <loc>https://abc-irobotics.github.io/advanced_ros_course_materials_hu/06_robotics_principles/</loc>
          <lastmod>2023-11-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://abc-irobotics.github.io/advanced_ros_course_materials_hu/07_robotics_principles/</loc>
+         <loc>https://abc-irobotics.github.io/advanced_ros_course_materials_hu/07_git/</loc>
          <lastmod>2023-11-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
