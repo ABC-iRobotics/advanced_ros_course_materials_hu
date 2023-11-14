@@ -3,7 +3,7 @@ title: Verziókövetés, Git
 author: Levendovics Tamás
 ---
 
-# 05. Verziókövetés, Git
+# 07. Verziókövetés, Git
 
 ---
 
