@@ -12,7 +12,7 @@ author: Levendovics Tamás
 --- 
 
 !!! warning
-	**ZH2** **május 26.** **10:45** **F.05 terem**
+	**ZH2** **december 5.** **11:40** **110. terem**
 
 
 ### ROS Service
