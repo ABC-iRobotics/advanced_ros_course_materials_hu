@@ -169,41 +169,14 @@ dvrk_PSM1->grasp_server [label="   measured_cp\n    jaw/measured_js"]
 
 ---
 
-#### 2.1: dVRK ROS2 install
+#### 2.1: dVRK ROS2
 
 ---
 
 ![](img/PSM_coordinates.png){:style="width:350px" align=right}
 
 
-
-1. Ubuntu 20.04-en az alábbi csomagokra lesz sükség:
-
-
-
-    ```bash
-    sudo apt install python3-vcstool python3-colcon-common-extensions python3-pykdl libxml2-dev libraw1394-dev libncurses5-dev qtcreator swig sox espeak cmake-curses-gui cmake-qt-gui git subversion gfortran libcppunit-dev libqt5xmlpatterns5-dev libbluetooth-dev ros-foxy-joint-state-publisher* ros-foxy-xacro
-    ```
-
-
-    ---
-
-
-2. Clone-ozzuk a dVRK ROS2 csomagokat  `vcs`-sel, majd build-eljük:
-
-
-    ```bash
-    cd ~/ros2_ws/src                
-    vcs import --input https://raw.githubusercontent.com/jhu-dvrk/dvrk_robot_ros2/main/dvrk.vcs --recursive
-    cd ~/ros2_ws
-    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release   
-    source ~/ros2_ws/install/setup.bash
-    ```
-    
-
-    ---
-    
-3. Indítsuk el a PSM1 RViz szimulációját. A dVRK konzolon ne felejtsünk el HOME-olni.
+1. Indítsuk el a PSM1 RViz szimulációját. A dVRK konzolon ne felejtsünk el HOME-olni.
 
 
     ```bash
@@ -235,7 +208,7 @@ dvrk_PSM1->grasp_server [label="   measured_cp\n    jaw/measured_js"]
 
     ---
 
-4. Tanulmányozzuk a szimulátor működését ROS 2-ből a tanult prancsok
+2. Tanulmányozzuk a szimulátor működését ROS a tanult prancsok
 (`ros2 topic list`, `ros2 topic echo` `ros2 run rqt_gui rqt_gui`, stb.) használatával. 
 
 
@@ -270,7 +243,7 @@ dvrk_PSM1->grasp_server [label="   measured_cp\n    jaw/measured_js"]
 
     ---
 
-3. Adjuk hozzá a következőt a `CMakeLists.txt`-hez:
+3. Adjuk hozzá a következőt a `CMakeLists.txt`-hez az `ament_package()` sor elé:
 
     ```cmake
     rosidl_generate_interfaces(${PROJECT_NAME}
@@ -337,10 +310,6 @@ megragadja a goal-ban szerepló koordinátákon található tárgyat (a dummy ma
     !!! tip "CLion interpreter"
         CLion-ban az interpreterhez adjuk hozzá a
         `/home/tamas/ros2_ws/install/ros2_course_msgs/lib/python3.8/site-packages` elérési utat.
-
-
-    !!! warning "measured_cp és servo_cp topic-ok dVRK ROS 2-ben"
-        DVRK ROS 2-ben változott a topic-ok típusa: `geometry_msgs/msg/PoseStamped`.
 
 
     ---
