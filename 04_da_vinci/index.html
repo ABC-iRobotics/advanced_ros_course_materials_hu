@@ -952,8 +952,7 @@ If not installed:</p>
 <p>Klónozzuk a dVRK-t (da Vinci Reserach Kit) <code>vcs</code> segítségével egy új workspace-be, majd build-eljük:</p>
 <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/dvrk2_ws/src
 <span class="nb">cd</span><span class="w"> </span>~/dvrk2_ws/src<span class="w">                </span>
-vcs<span class="w"> </span>import<span class="w"> </span>--input<span class="w"> </span>https://raw.githubusercontent.com/jhu-dvrk/dvrk_robot_ros2/main/dvrk.vcs<span class="w"> </span>--recursive
-<span class="nb">cd</span><span class="w"> </span>~/dvrk2_ws
+vcs<span class="w"> </span>import<span class="w"> </span>--input<span class="w"> </span>https://raw.githubusercontent.com/jhu-dvrk/dvrk_robot_ros2/devel/dvrk-2.2.vcs<span class="w"> </span>--recursive<span class="w">    </span><span class="nb">cd</span><span class="w"> </span>~/dvrk2_ws
 colcon<span class="w"> </span>build<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w">   </span>
 <span class="nb">source</span><span class="w"> </span>~/dvrk2_ws/install/setup.bash
 </code></pre></div>
