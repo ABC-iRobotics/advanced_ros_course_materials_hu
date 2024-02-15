@@ -662,48 +662,52 @@
 <li>ROS2 Humble</li>
 <li><em>IDE: QtCreator/CLion/VSCode</em></li>
 </ul>
+<div class="admonition tip">
+<p class="admonition-title">Suggestion</p>
+<p>Ha ragaszkodunk a Windows-hoz: WSL (Windows Subsystem for Linux): <a href="https://docs.ros.org/en/humble/Tutorials/Advanced/Simulators/Webots/Installation-Windows.html">https://docs.ros.org/en/humble/Tutorials/Advanced/Simulators/Webots/Installation-Windows.html</a></p>
+</div>
+<p>```</p>
 <hr />
 <h3 id="ros-2-humble-hawksbill">ROS 2 Humble Hawksbill</h3>
 <p><img align="right" alt="" src="https://www.therobotreport.com/wp-content/uploads/2022/05/ros-humble-hawksbill-featured.jpg" style="width:300px" /></p>
 <ol>
 <li>
 <p>Locale beállítása.</p>
-<div class="highlight"><pre><span></span><code>locale  <span class="c1"># check for UTF-8</span>
-
-sudo apt update <span class="o">&amp;&amp;</span> sudo apt install locales
+<p>```bash
+locale  # check for UTF-8</p>
+<p>sudo apt update &amp;&amp; sudo apt install locales
 sudo locale-gen en_US en_US.UTF-8
-sudo update-locale <span class="nv">LC_ALL</span><span class="o">=</span>en_US.UTF-8 <span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8
-<span class="nb">export</span> <span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8
-
-locale  <span class="c1"># verify settings</span>
-</code></pre></div>
+sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+export LANG=en_US.UTF-8</p>
+<p>locale  # verify settings
+```</p>
 <hr />
 </li>
 <li>
 <p>ROS 2 Humble telepítése</p>
-<div class="highlight"><pre><span></span><code>sudo apt install software-properties-common
+<p><code>bash
+sudo apt install software-properties-common
 sudo add-apt-repository universe
-sudo apt update <span class="o">&amp;&amp;</span> sudo apt install curl -y
+sudo apt update &amp;&amp; sudo apt install curl -y
 sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
-<span class="nb">echo</span> <span class="s2">&quot;deb [arch=</span><span class="k">$(</span>dpkg --print-architecture<span class="k">)</span><span class="s2"> signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu </span><span class="k">$(</span>. /etc/os-release <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="nv">$UBUNTU_CODENAME</span><span class="k">)</span><span class="s2"> main&quot;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/ros2.list &gt; /dev/null
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release &amp;&amp; echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list &gt; /dev/null
 sudo apt update
 sudo apt upgrade
 sudo apt install ros-humble-desktop
-sudo apt install ros-dev-tools
-</code></pre></div>
+sudo apt install ros-dev-tools</code></p>
 <hr />
 </li>
 <li>
 <p>Ha ezzel megvagyunk, a következő parancssal tesztelhetjük a ROS 2 telepítésünket:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/humble/setup.bash
-ros2 run demo_nodes_py talker
-</code></pre></div>
+<p><code>bash
+source /opt/ros/humble/setup.bash
+ros2 run demo_nodes_py talker</code></p>
 <hr />
 </li>
 <li>
 <p>A <code>source</code> parancs a környezeti változók beállításáért felelős, ezt minden új terminálablak megnyitásakor meg kell(ene) adni. Ez a parancs beilleszthető a <code>~/.bashrc</code> fájl végére, amely minden terminálablak megnyitásakor lefut, így nem kell mindig beírnunk (ROS 2 lesz az alapértelmezett):</p>
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">&quot;source /opt/ros/humble/setup.bash&quot;</span> &gt;&gt; ~/.bashrc
-</code></pre></div>
+<p><code>bash
+echo "source /opt/ros/humble/setup.bash" &gt;&gt; ~/.bashrc</code></p>
 </li>
 </ol>
 <hr />
@@ -711,8 +715,8 @@ ros2 run demo_nodes_py talker
 <ol>
 <li>
 <p>Az alábbi csomagokra is szükség lesz a félév során, így ezeket is érdemes feltelepíteni:</p>
-<div class="highlight"><pre><span></span><code>sudo apt install libxml2-dev libraw1394-dev libncurses5-dev qtcreator swig sox espeak cmake-curses-gui cmake-qt-gui git subversion gfortran libcppunit-dev libqt5xmlpatterns5-dev python3-osrf-pycommon libasound2-dev libgl1-mesa-dev xorg-dev python3-vcstool python3-colcon-common-extensions python3-pykdl libxml2-dev libraw1394-dev libncurses5-dev qtcreator swig sox espeak cmake-curses-gui cmake-qt-gui git subversion gfortran libcppunit-dev libqt5xmlpatterns5-dev libbluetooth-dev ros-humble-joint-state-publisher* ros-humble-xacro gfortran-9
-</code></pre></div>
+<p><code>bash
+sudo apt install libxml2-dev libraw1394-dev libncurses5-dev qtcreator swig sox espeak cmake-curses-gui cmake-qt-gui git subversion gfortran libcppunit-dev libqt5xmlpatterns5-dev python3-osrf-pycommon libasound2-dev libgl1-mesa-dev xorg-dev python3-vcstool python3-colcon-common-extensions python3-pykdl libxml2-dev libraw1394-dev libncurses5-dev qtcreator swig sox espeak cmake-curses-gui cmake-qt-gui git subversion gfortran libcppunit-dev libqt5xmlpatterns5-dev libbluetooth-dev ros-humble-joint-state-publisher* ros-humble-xacro gfortran-9</code></p>
 </li>
 </ol>
 <hr />
@@ -723,9 +727,9 @@ ros2 run demo_nodes_py talker
 <p>ROS csomagok fejlesztéséhez jelenleg az egyik leginkább használható IDE a QtCreator, melyhez ROS plugin is készült. Az installer az alábbi linken elérhető. A "18.04 <strong>offline</strong> installer"-t érdemes használni, ez működik Ubunutu 22.04-en is.</p>
 <p><a href="https://ros-qtc-plugin.readthedocs.io/en/latest/_source/How-to-Install-Users.html">https://ros-qtc-plugin.readthedocs.io/en/latest/_source/How-to-Install-Users.html</a></p>
 <p>Ha letöltöttük, az IDE az alábbi paranccsal telepíthető (fontos, hogy <code>cd</code>zzünk be a letöltés helyére):</p>
-<div class="highlight"><pre><span></span><code>chmod +x qtcreator-ros-bionic-latest-offline-installer.run
-sudo ./qtcreator-ros-bionic-latest-offline-installer.run
-</code></pre></div>
+<p><code>bash
+chmod +x qtcreator-ros-bionic-latest-offline-installer.run
+sudo ./qtcreator-ros-bionic-latest-offline-installer.run</code></p>
 <p>Amikor a telepítő kérdezi, hova telepítse, módosítsuk pl. <code>/home/&lt;USER&gt;/QtCreator</code> mappára. Ha a root-ba teléepítjük, nem fogjuk tudni futtatni. A telepítés után "Qt Creator (4.9.2)" néven keressük.</p>
 <hr />
 </li>
@@ -733,8 +737,8 @@ sudo ./qtcreator-ros-bionic-latest-offline-installer.run
 <p>CLion</p>
 <p>A CLion magasfokú ROS integrációval rendelkezik, a kurzus során ennek a használata a leginkább ajánlott. Ingyenes hallgatói licensz az alábbi linken igényelhető: <a href="https://www.jetbrains.com/community/education/#students">https://www.jetbrains.com/community/education/#students</a></p>
 <p>Telepítés után keressük meg a <code>/var/lib/snapd/desktop/applications/clion_clion.desktop</code> fájlt. A megfelelő sort írjuk át erre, így a terminál által beállított környezetet fogja használni az IDE:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">Exec</span><span class="o">=</span>bash -i -c <span class="s2">&quot;/snap/bin/clion&quot;</span> %f
-</code></pre></div>
+<p><code>bash
+Exec=bash -i -c "/snap/bin/clion" %f</code></p>
 <hr />
 </li>
 <li>
@@ -746,9 +750,9 @@ sudo ./qtcreator-ros-bionic-latest-offline-installer.run
 <div class="admonition tip">
 <p class="admonition-title">Suggestion</p>
 <p>Install <strong>Terminator</strong> terminal emulator:
-<div class="highlight"><pre><span></span><code>sudo apt update
-sudo apt install terminator
-</code></pre></div></p>
+<code>bash
+sudo apt update
+sudo apt install terminator</code></p>
 </div>
 <hr />
 <h2 id="hasznos-linkek">Hasznos linkek</h2>
@@ -759,6 +763,7 @@ sudo apt install terminator
 <li><a href="http://wiki.ros.org/ROS/Tutorials">http://wiki.ros.org/ROS/Tutorials</a></li>
 <li><a href="https://www.jetbrains.com/community/education/#students">CLion hallgatói licensz</a></li>
 <li><a href="https://ros-qtc-plugin.readthedocs.io/en/latest/_source/How-to-Install-Users.html">QtCreator + ROS plugin</a></li>
+<li><a href="https://docs.ros.org/en/humble/Tutorials/Advanced/Simulators/Webots/Installation-Windows.html">ROS 2 Humble installation on WSL</a></li>
 </ul>
 
 
