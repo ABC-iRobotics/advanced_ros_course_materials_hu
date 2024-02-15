@@ -25,9 +25,10 @@ Détár Borsa
 ## Órarendi információk
 
 
-|           Csoport            | Időpont                | Terem   | 
-|:----------------------------:|------------------------|---------|
-| **1. csoport** _ea. és lab._ | **Kedd 11:40-15:10**   | BA.1.10 |
+|    Csoport     | Időpont                | Terem   | 
+|:--------------:|------------------------|---------|
+| **1. csoport** | **Péntek 11:40-14:15** | BA.1.10 |
+| **2. csoport** | **Péntek 14:25-17:00** | BA.1.10 |
 
 
 ---
@@ -35,22 +36,23 @@ Détár Borsa
 ## Féléves ütemezés
 
 
-| Okt. hét | Dátum     | Témakör                                                                                                                                                                                                       | Számonkérés      |
-|:--------:|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------|
-|    1.    | szept. 12 | [Követelmények ismertetése. ROS bevezetés. Fejlesztőkörnyezet felállítása.](01_system_setup.md)                                                                                                               | -                |
-|    2.    | szept. 19 | [Fejlesztőkörnyezet felállítása. Linux alapok. ROS 1 és ROS 2. Egyszerű próbakódok futtatása. ROS package. Az alapvető ROS kommunikáció, publisher és subscriber implementálása.](02_linux_ros_principles.md) | -                |
-|    3.    | szept. 26 | [Python alapok. ROS kommunikáció implementációjának gyakorlása, példafeladatok megoldása.](03_python_principles.md)                                                                                           | -                |
-|    4.    | okt. 3    | [Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben I.](04_da_vinci.md)                                                                                                         | -                |
-|    5.    | okt. 10   | [Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben II.](04_da_vinci.md)                                                                                                        | -                |
-|    6.    | okt. 17   | [Verziókövetés, Git.](05_git.md) Projekt labor I.                                                                                                                                                             | **ZH1**          |
-|    7.    | okt. 24   | [ROS 2 Launch, Param, Bag](06_roslaunch.md)                                                                                                                                                                   | -                |
-|    8.    | okt. 31   | [Kinematika, inverz kinematika, szimulált robotkar programozása csukló-, és munkatérben I.](07_robotics_principles.md)                                                                                        | -                |
-|    9.    | nov. 7    | Projekt labor II.                                                                                                                                                                                             | -                |
-|   10.    | nov. 14   | [ROS service, ROS action fogalma, felhasználása I.](08_service_action.md)                                                                                                                                     | -                |
-|   12.    | nov. 28   | Kálmán-szűrő. Szenzoros adatok gyűjtése és feldolgozása ROS környezetben. Odometria-IMU szenzorfúzió implementációja mobil robot platformra.                                                                  | -                |
-|   13.    | dec. 5    | -                                                                                                                                                                                                             | **ZH2**          |
-|   14.    | dec. 12   | Kötelező programok bemutatása.                                                                                                                                                                                | **Pót ZH**       |
-|  14+1.   | dec. 19   | -                                                                                                                                                                                                             | **Aláíráspótló** |
+| Okt. hét | Dátum    | Témakör                                                                                                                                                                                                       | Számonkérés                   |
+|:--------:|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------|
+|    1.    | febr. 16 | [Követelmények ismertetése. ROS bevezetés. Fejlesztőkörnyezet felállítása.](01_system_setup.md)                                                                                                               | -                             |
+|    2.    | febr. 23 | [Fejlesztőkörnyezet felállítása. Linux alapok. ROS 1 és ROS 2. Egyszerű próbakódok futtatása. ROS package. Az alapvető ROS kommunikáció, publisher és subscriber implementálása.](02_linux_ros_principles.md) | -                             |
+|    3.    | márc. 1  | [Python alapok. ROS kommunikáció implementációjának gyakorlása, példafeladatok megoldása.](03_python_principles.md)                                                                                           | -                             |
+|    4.    | márc. 8  | [Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben.](04_da_vinci.md)                                                                                                           | -                             |
+|    5.    | márc. 15 | Szünet.                                                                                                                                                                                                       | -                             |
+|    6.    | márc. 22 | Projekt labor I. [Verziókövetés, Git.](05_git.md) *(Laboron a jelenlét opcionális)*                                                                                                                           | **ZH1** **(10:45, F.05.)**    |
+|    7.    | márc. 29 | Rektori szünet.                                                                                                                                                                                               | -                             |
+|    8.    | ápr. 5   | [ROS 2 Launch, Param, Bag](06_roslaunch.md)                                                                                                                                                                   | -                             |
+|    9.    | ápr. 12  | [Kinematika, inverz kinematika, szimulált robotkar programozása csukló-, és munkatérben.](07_robotics_principles.md)                                                                                          | -                             |
+|   10.    | ápr. 19  | [ROS service, ROS action fogalma, felhasználása.](08_service_action.md)                                                                                                                                       | -                             |
+|   11.    | ápr. 26  | Kálmán-szűrő. Szenzoros adatok gyűjtése és feldolgozása ROS környezetben. Odometria-IMU szenzorfúzió implementációja mobil robot platformra.                                                                  | -                             |
+|   12.    | máj. 3   | Projekt labor II.  *(Laboron a jelenlét opcionális)*                                                                                                                                                          | **ZH2** **(10:45, F.05.)**    |
+|   13.    | máj. 10  | Kötelező programok bemutatása.                                                                                                                                                                                | **Pót ZH** **(10:45, F.05.)** |
+|   14.    | máj. 17  | Rektori szünet.                                                                                                                                                                                               | -                             |
+|  14+1.   | máj. 24  | -                                                                                                                                                                                                             | **Aláíráspótló**              |
 
 
 !!! warning
@@ -73,7 +75,7 @@ Détár Borsa
 
 ### Évközi jegy
 
-A jelenlét az órákon kötelező (min 70%).
+A jelenlét az órákon kötelező (min 70%, vagyis maximum 2 igazolatlan hiányzás).
 
 A félév elfogadásának feltétele, hogy mind a két ZH, mind a kötelező program értékelése legalább elégséges.
 

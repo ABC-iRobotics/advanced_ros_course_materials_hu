@@ -11,11 +11,11 @@ author: Levendovics Tamás
 
 ---
 
-| Okt. hét | Dátum   | Számonkérés                                      |
-|:--------:|---------|--------------------------------------------------|
-|    6.    | okt. 17 | Kötelező programok ismertetése. Projekt labor I. |
-|    9.    | nov. 7  | Projekt labor II.                                |
-|   14.    | dec. 12 | Kötelező programok bemutatása.                   |
+| Okt. hét | Dátum     | Számonkérés                                      |
+|:--------:|-----------|--------------------------------------------------|
+|    6.    | márc. 22  | Kötelező programok ismertetése. Projekt labor I. |
+|   12.    | máj. 3    | Projekt labor II.                                |
+|   13.    | máj. 10   | Kötelező programok bemutatása.                   |
 
 ---
 
@@ -161,7 +161,7 @@ A félév elfogadásának feltétele, hogy mind a két ZH, mind a kötelező pro
 - [Setting up a robot simulation (Gazebo)](https://docs.ros.org/en/humble/Tutorials/Advanced/Simulators/Gazebo/Gazebo.html)  
 - [Gazebo World Examples](https://github.com/gazebosim/gz-sim/tree/gz-sim7/examples/worlds)  
 
-![penulum.png](img%2Fpenulum.png){:style="width:600px"}
+![pendulum.png](img%2Fpendulum.png){:style="width:600px"}
 
 
 Megegyezés alapján.
