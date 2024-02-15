@@ -27,14 +27,15 @@ author: Levendovics Tamás
 
 ![](https://moveit.ros.org/assets/images/logo/ROS_logo.png){:style="width:300px" align=right}
 
+<iframe title="vimeo-player" src="https://player.vimeo.com/video/639236696?h=740f412ce5" width="640" height="360" frameborder="0"    allowfullscreen></iframe>
+
+
 - Open-source, robotikai célú middleware
 - Modularitás, újra-felhasználhatóság (driverek, algoritmusok, library-k, ...)
 - Hardware absztrakció, ROS API
 - C++ és Python támogatás
 - Ubuntu Linux (kivéve ROS 2)
 - Népes közösség
-
-<iframe title="vimeo-player" src="https://player.vimeo.com/video/639236696?h=740f412ce5" width="640" height="360" frameborder="0"    allowfullscreen></iframe>
 
 
 ---
@@ -198,7 +199,6 @@ Ajánlott környezet:
 - [http://wiki.ros.org/ROS/Tutorials](http://wiki.ros.org/ROS/Tutorials)
 - [CLion hallgatói licensz](https://www.jetbrains.com/community/education/#students)
 - [QtCreator + ROS plugin](https://ros-qtc-plugin.readthedocs.io/en/latest/_source/How-to-Install-Users.html)
-- [IROB virtual tour](https://www.youtube.com/watch?v=8XmKGWBV5Nw)
 
 
 
