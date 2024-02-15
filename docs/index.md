@@ -75,7 +75,7 @@ Détár Borsa
 
 ### Évközi jegy
 
-A jelenlét az órákon kötelező (min 70%, vagyis maximum 2 igazolatlan hiányzás).
+A jelenlét az órákon kötelező (min 70%, vagyis maximum 3 igazolatlan hiányzás).
 
 A félév elfogadásának feltétele, hogy mind a két ZH, mind a kötelező program értékelése legalább elégséges.
 
