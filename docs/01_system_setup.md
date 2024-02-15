@@ -67,6 +67,11 @@ Ajánlott környezet:
 - ROS2 Humble
 - *IDE: QtCreator/CLion/VSCode*
 
+!!! tip "Suggestion"
+    Ha ragaszkodunk a Windows-hoz: WSL (Windows Subsystem for Linux): [https://docs.ros.org/en/humble/Tutorials/Advanced/Simulators/Webots/Installation-Windows.html](https://docs.ros.org/en/humble/Tutorials/Advanced/Simulators/Webots/Installation-Windows.html)
+
+```
+
 
 
 ---
@@ -199,6 +204,7 @@ Ajánlott környezet:
 - [http://wiki.ros.org/ROS/Tutorials](http://wiki.ros.org/ROS/Tutorials)
 - [CLion hallgatói licensz](https://www.jetbrains.com/community/education/#students)
 - [QtCreator + ROS plugin](https://ros-qtc-plugin.readthedocs.io/en/latest/_source/How-to-Install-Users.html)
+- [ROS 2 Humble installation on WSL](https://docs.ros.org/en/humble/Tutorials/Advanced/Simulators/Webots/Installation-Windows.html)
 
 
 
