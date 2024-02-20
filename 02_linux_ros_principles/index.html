@@ -878,7 +878,7 @@ sudo apt install terminator
 <hr />
 <ol>
 <li>
-<p>Hozzunk létre egy új mappát a neveddel a Linux home könyvtárban a 
+<p>Hozzunk létre egy új mappát a home könyvtárban a 
 <code>mkdir</code> parancs segítségével.</p>
 <div class="highlight"><pre><span></span><code>mkdir ~/test_folder
 </code></pre></div>
@@ -891,29 +891,28 @@ sudo apt install terminator
 <hr />
 </li>
 <li>
-<p>Hozzunk létre egy új Python szkriptfájlt a <code>touch</code> parancs segítségével,
+<p>Hozzunk létre egy új Python fájlt a <code>touch</code> parancs segítségével,
 nevezzük el "hello.py"-nek.</p>
 <div class="highlight"><pre><span></span><code>touch hello.py
 </code></pre></div>
 <hr />
 </li>
 <li>
-<p>Nyissuk meg a "hello.py" fájlt a Gedit szövegszerkesztővel a <code>gedit</code> 
-parancs segítségével.</p>
+<p>Nyissuk meg a "hello.py" fájlt a Gedit szövegszerkesztővel, használjuk a <code>gedit</code> 
+parancsot.</p>
 <div class="highlight"><pre><span></span><code>gedit hello.py
 </code></pre></div>
 <hr />
 </li>
 <li>
-<p>Írj egy egyszerű Python programot a "hello.py" fájlba, például:</p>
+<p>Írjunk egy egyszerű Python programot a "hello.py" fájlba, például:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/python3</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
 </code></pre></div>
 <hr />
 </li>
 <li>
-<p>Mentés után másoljuk a "hello.py" fájlt egy másik néven,
-például "hello_copy.py" a <code>cp</code> parancs segítségével.</p>
+<p>Mentés után készítsünk másolatot a "hello.py" fájlból egy másik néven (pl.: "hello_copy.py") a <code>cp</code> parancs segítségével.</p>
 <div class="highlight"><pre><span></span><code>cp hello.py hello_copy.py
 </code></pre></div>
 <hr />
@@ -931,14 +930,14 @@ például "hello_copy.py" a <code>cp</code> parancs segítségével.</p>
 <hr />
 </li>
 <li>
-<p>Készítsünk egy shell szkriptfájlt, majd nyissuk is meg a Gedit segítségével,
-nevezzük el "myscript.sh"-nek.</p>
+<p>Készítsünk egy shell szkriptfájlt, majd nyissuk is meg a Gedit segítségével.
+Nevezzük el "myscript.sh"-nek.</p>
 <div class="highlight"><pre><span></span><code>gedit myscript.sh
 </code></pre></div>
 <hr />
 </li>
 <li>
-<p>Írjunk egy egyszerű shell szkriptet a "myscript.sh" fájlba, például:</p>
+<p>Írjunk egy egyszerű shell szkriptet a <code>myscript.sh</code> fájlba, például:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="nb">echo</span> <span class="s2">&quot;I make another copy of hello.py!&quot;</span>
 cp hello.py another_hello_copy.py
@@ -946,13 +945,13 @@ cp hello.py another_hello_copy.py
 <hr />
 </li>
 <li>
-<p>Adjunk jogosultságot a "myscript.sh" fájlnak a <code>chmod</code> parancs segítségével.</p>
+<p>Adjunk futtatási jogosultságot a <code>myscript.sh</code> fájlnak a <code>chmod</code> parancs segítségével.</p>
 <div class="highlight"><pre><span></span><code>chmod +x myscript.sh
 </code></pre></div>
 <hr />
 </li>
 <li>
-<p>Futtassuk a "myscript.sh" fájlt a <code>./</code> előtaggal.</p>
+<p>Futtassuk a <code>myscript.sh</code> fájlt a <code>./</code> előtaggal.</p>
 <div class="highlight"><pre><span></span><code>./myscript.sh
 </code></pre></div>
 <hr />

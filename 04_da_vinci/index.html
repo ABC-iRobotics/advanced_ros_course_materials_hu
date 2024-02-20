@@ -846,7 +846,7 @@ If not installed:</p>
 <p>Klónozzuk a dVRK-t (da Vinci Reserach Kit) <code>vcs</code> segítségével egy új workspace-be, majd build-eljük:</p>
 <div class="highlight"><pre><span></span><code>mkdir -p ~/dvrk2_ws/src
 <span class="nb">cd</span> ~/dvrk2_ws/src                
-vcs import --input https://raw.githubusercontent.com/jhu-dvrk/dvrk_robot_ros2/main/dvrk.vcs --recursive
+vcs import --recursive --input https://raw.githubusercontent.com/jhu-dvrk/dvrk-github-workflow/main/vcs/ros2-dvrk-2.2.1.vcs
 <span class="nb">cd</span> ~/dvrk2_ws
 colcon build --cmake-args -DCMAKE_BUILD_TYPE<span class="o">=</span>Release   
 <span class="nb">source</span> ~/dvrk2_ws/install/setup.bash
