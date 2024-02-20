@@ -315,7 +315,7 @@ source ~/ros2_ws/install/setup.bash
 
 ---
 
-1. Hozzunk létre egy új mappát a neveddel a Linux home könyvtárban a 
+1. Hozzunk létre egy új mappát a home könyvtárban a 
 `mkdir` parancs segítségével.
 
     ```bash
@@ -332,7 +332,7 @@ source ~/ros2_ws/install/setup.bash
 
     ---
 
-3. Hozzunk létre egy új Python szkriptfájlt a `touch` parancs segítségével,
+3. Hozzunk létre egy új Python fájlt a `touch` parancs segítségével,
 nevezzük el "hello.py"-nek.
 
     ```bash
@@ -341,8 +341,8 @@ nevezzük el "hello.py"-nek.
 
     ---
 
-4. Nyissuk meg a "hello.py" fájlt a Gedit szövegszerkesztővel a `gedit` 
-parancs segítségével.
+4. Nyissuk meg a "hello.py" fájlt a Gedit szövegszerkesztővel, használjuk a `gedit` 
+parancsot.
 
     ```bash
     gedit hello.py
@@ -350,7 +350,7 @@ parancs segítségével.
 
     ---
 
-5. Írj egy egyszerű Python programot a "hello.py" fájlba, például:
+5. Írjunk egy egyszerű Python programot a "hello.py" fájlba, például:
 
     ```python
     #!/usr/bin/python3
@@ -359,8 +359,7 @@ parancs segítségével.
 
     ---
 
-6. Mentés után másoljuk a "hello.py" fájlt egy másik néven,
-például "hello_copy.py" a `cp` parancs segítségével.
+6. Mentés után készítsünk másolatot a "hello.py" fájlból egy másik néven (pl.: "hello_copy.py") a `cp` parancs segítségével.
 
     ```bash
     cp hello.py hello_copy.py
@@ -384,8 +383,8 @@ például "hello_copy.py" a `cp` parancs segítségével.
 
     ---
 
-9. Készítsünk egy shell szkriptfájlt, majd nyissuk is meg a Gedit segítségével,
-nevezzük el "myscript.sh"-nek.
+9. Készítsünk egy shell szkriptfájlt, majd nyissuk is meg a Gedit segítségével.
+Nevezzük el "myscript.sh"-nek.
 
    
     ```bash
@@ -394,7 +393,7 @@ nevezzük el "myscript.sh"-nek.
 
     ---
 
-10. Írjunk egy egyszerű shell szkriptet a "myscript.sh" fájlba, például:
+10. Írjunk egy egyszerű shell szkriptet a `myscript.sh` fájlba, például:
 
     ```bash
     #!/bin/bash
@@ -404,7 +403,7 @@ nevezzük el "myscript.sh"-nek.
 
     ---
 
-11. Adjunk jogosultságot a "myscript.sh" fájlnak a `chmod` parancs segítségével.
+11. Adjunk futtatási jogosultságot a `myscript.sh` fájlnak a `chmod` parancs segítségével.
 
     ```bash
     chmod +x myscript.sh
@@ -412,7 +411,7 @@ nevezzük el "myscript.sh"-nek.
 
     ---
 
-12. Futtassuk a "myscript.sh" fájlt a `./` előtaggal.
+12. Futtassuk a `myscript.sh` fájlt a `./` előtaggal.
 
     ```bash
     ./myscript.sh

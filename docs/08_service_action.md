@@ -167,73 +167,7 @@ dvrk_PSM1->grasp_server [label="   measured_cp\n    jaw/measured_js"]
 }
 ```
 
----
-
-#### 2.1: dVRK ROS2 install
-
----
-
-![](img/PSM_coordinates.png){:style="width:350px" align=right}
-
-
-
-1. Ubuntu 20.04-en az alábbi csomagokra lesz sükség:
-
-
-
-    ```bash
-    sudo apt install python3-vcstool python3-colcon-common-extensions python3-pykdl libxml2-dev libraw1394-dev libncurses5-dev qtcreator swig sox espeak cmake-curses-gui cmake-qt-gui git subversion gfortran libcppunit-dev libqt5xmlpatterns5-dev libbluetooth-dev ros-foxy-joint-state-publisher* ros-foxy-xacro
-    ```
-
-
-    ---
-
-
-2. Clone-ozzuk a dVRK ROS2 csomagokat  `vcs`-sel, majd build-eljük:
-
-
-    ```bash
-    cd ~/ros2_ws/src                
-    vcs import --input https://raw.githubusercontent.com/jhu-dvrk/dvrk_robot_ros2/main/dvrk.vcs --recursive
-    cd ~/ros2_ws
-    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release   
-    source ~/ros2_ws/install/setup.bash
-    ```
-    
-
-    ---
-    
-3. Indítsuk el a PSM1 RViz szimulációját. A dVRK konzolon ne felejtsünk el HOME-olni.
-
-
-    ```bash
-    # dVRK main console
-    ros2 run dvrk_robot dvrk_console_json -j ~/ros2_ws/install/sawIntuitiveResearchKitAll/share/sawIntuitiveResearchKit/share/console/console-PSM1_KIN_SIMULATED.json
-    ```
-
-    ```bash
-    # ROS 2 joint and robot state publishers
-    ros2 launch dvrk_model dvrk_state_publisher.launch.py arm:=PSM1
-    ```
-
-    ```bash
-    # RViz
-    ros2 run rviz2 rviz2 -d ~/ros2_ws/install/dvrk_model/share/dvrk_model/rviz/PSM1.rviz
-    ```
-
-    !!! tip "URDF-fel kapcsolatos hibák esetén"
-        ```bash
-        locale  # check for UTF-8
-
-        sudo apt update && sudo apt install locales
-        sudo locale-gen en_US en_US.UTF-8
-        sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
-        export LANG=en_US.UTF-8
-
-        locale  # verify settings
-        ```
-
-    ---
+  
 
 4. Tanulmányozzuk a szimulátor működését ROS 2-ből a tanult prancsok
 (`ros2 topic list`, `ros2 topic echo` `ros2 run rqt_gui rqt_gui`, stb.) használatával. 
@@ -345,7 +279,23 @@ megragadja a goal-ban szerepló koordinátákon található tárgyat (a dummy ma
 
     ---
 
-3. Futtassuk az action server-t és teszteljük a működését parancssorból:
+3. Futtassuk a PSM1 RViz szimulációját és az action server-t és teszteljük a működését parancssorból:
+
+    ```bash
+    # dVRK main console
+    ros2 run dvrk_robot dvrk_console_json -j ~/dvrk2_ws/install/sawIntuitiveResearchKitAll/share/sawIntuitiveResearchKit/share/console/console-PSM1_KIN_SIMULATED.json
+    ```
+
+    ```bash
+    # ROS 2 joint and robot state publishers
+    ros2 launch dvrk_model dvrk_state_publisher.launch.py arm:=PSM1
+    ```
+   
+
+    ```bash
+    # RViz
+    ros2 run rviz2 rviz2 -d ~/dvrk2_ws/install/dvrk_model/share/dvrk_model/rviz/PSM1.rviz
+    ```
 
 
     ```bash

@@ -169,7 +169,7 @@ $$
 4. Teszteljük a szimulátort, új teminál ablakban:
 
     ```bash
-    ros2 launch dsr_launcher2 single_robot_rviz_topic.launch.py model:=a0912 color:=blue
+    ros2 launch ur_description view_ur.launch.py ur_type:=ur5e
     ```
 
 
@@ -179,7 +179,7 @@ $$
 
 ---
 
-1. Hozzunk létre új python forrásfájlt `doosan2_controller.py` névvel a  `~/ros2_ws/src/ros2_course/ros2_course` 
+1. Hozzunk létre új python forrásfájlt `ur_controller.py` névvel a  `~/ros2_ws/src/ros2_course/ros2_course` 
 mappában. Adjuk meg az új entry point-ot a `setup.py`-ban a megszokott módon.
 Iratkozzunk fel a robot csuklószögeit (konfigurációját) publikáló topicra. Hozzunk létre 
 publisher-t a csuklók szögeinek beállítására használható topic-hoz.
@@ -204,9 +204,7 @@ publisher-t a csuklók szögeinek beállítására használható topic-hoz.
     ```python
     import kinpy as kp
 
-    self.chain = kp.build_serial_chain_from_urdf(open(
-            "/home/<USERNAME>/doosan2_ws/src/doosan-robot2/dsr_description2/urdf/a0912.blue.urdf").read(),
-            "link6")
+    chain = kp.build_serial_chain_from_urdf(descriprion, 'tool0')
     print(self.chain.get_joint_parameter_names())
     print(self.chain)
     ```
@@ -273,7 +271,7 @@ Egészítsük ki az előző feladat megoldását úgy, hogy az orientációt is 
 
 ## Hasznos linkek
 
-- [doosan-robot2 github](https://github.com/doosan-robotics/doosan-robot2)
+- [ros-humble-ur documentation](https://docs.ros.org/en/humble/p/ur_robot_driver/)
 - [https://pypi.org/project/kinpy/](https://pypi.org/project/kinpy/)
 - [https://en.wikipedia.org/wiki/Axis%E2%80%93angle_representation](https://en.wikipedia.org/wiki/Axis%E2%80%93angle_representation)
 - [https://www.rosroboticslearning.com/jacobian](https://www.rosroboticslearning.com/jacobian)
