@@ -10,6 +10,7 @@ author: Levendovics Tamás
     **ZH1** (ROS alapok, publisher, subscriber. Python alapok. Robotikai alapfogalmak.) **október 17.**
 
 
+![](img/under_construction.png){:style="width:400px" align=right}
 
 ---
 
@@ -366,6 +367,7 @@ Egészítsük ki az előző feladat megoldását úgy, hogy az orientációt is 
 
 ## Hasznos linkek
 
+- [ros-humble-ur documentation](https://docs.ros.org/en/humble/p/ur_robot_driver/)
 - [https://github.com/UniversalRobots/Universal_Robots_ROS2_Driver/tree/humble]()
 - [https://docs.ros.org/en/ros2_packages/humble/api/ur_robot_driver/usage.html#usage-with-official-ur-simulator]()
 - [https://github.com/UniversalRobots/Universal_Robots_Client_Library]()

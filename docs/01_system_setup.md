@@ -13,7 +13,7 @@ author: Levendovics Tamás
 
 ### A robot fogalma
 
-![](img/what_is_a_robot_1.png){:style="width:300px" align=right}
+![](img/what_is_a_robot_1.png){:style="width:300px"}
 
 - **Joseph Engelberger, pioneer in industrial robotics:** *"I can't define a robot, but I know one when I see one."*
 - **Wikipedia:** *"A robot is a machine—especially one programmable by a computer— capable of carrying out a complex series of actions automatically. Robots can be guided by an external control device or the control may be embedded within. Robots may be constructed on the lines of human form, but most robots are machines designed to perform a task with no regard to their aesthetics."*
@@ -27,14 +27,15 @@ author: Levendovics Tamás
 
 ![](https://moveit.ros.org/assets/images/logo/ROS_logo.png){:style="width:300px" align=right}
 
+<iframe title="vimeo-player" src="https://player.vimeo.com/video/639236696?h=740f412ce5" width="640" height="360" frameborder="0"    allowfullscreen></iframe>
+
+
 - Open-source, robotikai célú middleware
 - Modularitás, újra-felhasználhatóság (driverek, algoritmusok, library-k, ...)
 - Hardware absztrakció, ROS API
 - C++ és Python támogatás
 - Ubuntu Linux (kivéve ROS 2)
 - Népes közösség
-
-<iframe title="vimeo-player" src="https://player.vimeo.com/video/639236696?h=740f412ce5" width="640" height="360" frameborder="0"    allowfullscreen></iframe>
 
 
 ---
@@ -65,6 +66,9 @@ Ajánlott környezet:
 - Ubuntu 22.04
 - ROS2 Humble
 - *IDE: QtCreator/CLion/VSCode*
+
+!!! tip "Suggestion"
+    Ha ragaszkodunk a Windows-hoz: WSL (Windows Subsystem for Linux): [https://docs.ros.org/en/humble/Tutorials/Advanced/Simulators/Webots/Installation-Windows.html](https://docs.ros.org/en/humble/Tutorials/Advanced/Simulators/Webots/Installation-Windows.html)
 
 
 
@@ -198,7 +202,7 @@ Ajánlott környezet:
 - [http://wiki.ros.org/ROS/Tutorials](http://wiki.ros.org/ROS/Tutorials)
 - [CLion hallgatói licensz](https://www.jetbrains.com/community/education/#students)
 - [QtCreator + ROS plugin](https://ros-qtc-plugin.readthedocs.io/en/latest/_source/How-to-Install-Users.html)
-- [IROB virtual tour](https://www.youtube.com/watch?v=8XmKGWBV5Nw)
+- [ROS 2 Humble installation on WSL](https://docs.ros.org/en/humble/Tutorials/Advanced/Simulators/Webots/Installation-Windows.html)
 
 
 
