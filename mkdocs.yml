@@ -12,9 +12,9 @@ nav:
         - 2. Linux, ROS alapismeretek: 02_linux_ros_principles.md
         - 3. Python alapismeretek,  ROS Publisher, ROS Subscriber: 03_python_principles.md
         - 4. Robotikai alapismeretek, Sebészrobot programozása: 04_da_vinci.md
-        - 5. ROS 2 Launch, Param, Bag: 05_roslaunch.md
-        - 6. Kinematika, inverz kinematika: 06_robotics_principles.md
-        - 7. Verziókövetés, Git: 07_git.md
+        - 5. Verziókövetés, Git: 05_git.md
+        - 6. ROS 2 Launch, Param, Bag: 06_roslaunch.md
+        - 7. Kinematika, inverz kinematika: 07_robotics_principles.md
         - 8. ROS 2 Service, ROS 2 Action: 08_service_action.md
     - Kötelező program: projects.md
     

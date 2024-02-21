@@ -3,7 +3,7 @@ title: Kinematika, inverz kinematika
 author: Levendovics Tamás
 ---
 
-# 06. Kinematika, inverz kienamtika, Szimulált robotkar programozása csukló-, és munkatérben
+# 07. Kinematika, inverz kienamtika, Szimulált robotkar programozása csukló-, és munkatérben
 
 
 !!! warning
