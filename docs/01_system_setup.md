@@ -13,7 +13,7 @@ author: Levendovics Tamás
 
 ### A robot fogalma
 
-![](img/what_is_a_robot_1.png){:style="width:300px"}
+![](img/what_is_a_robot_2.webp){:style="width:1024"}
 
 - **Joseph Engelberger, pioneer in industrial robotics:** *"I can't define a robot, but I know one when I see one."*
 - **Wikipedia:** *"A robot is a machine—especially one programmable by a computer— capable of carrying out a complex series of actions automatically. Robots can be guided by an external control device or the control may be embedded within. Robots may be constructed on the lines of human form, but most robots are machines designed to perform a task with no regard to their aesthetics."*
