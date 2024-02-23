@@ -530,11 +530,13 @@ Nevezzük el "myscript.sh"-nek.
    
     ---
 
-4. A `~/.bashrc` fájl végére illesszük be az alábbi sort:
+4. A `~/.bashrc` fájl végére illesszük be az alábbi sorokat:
 
     ```bash
     source ~/ros2_ws/install/setup.bash
+    export ROS_DOMAIN_ID=12
     ```
+   
 
     !!! note "Importálás QtCreator-ba"
         New file or project &rarr; Other project &rarr; ROS Workspace. Válasszuk ki a Colcon-t, mint Build System, és a `ros2_ws`-t, mint Worksapce path.
