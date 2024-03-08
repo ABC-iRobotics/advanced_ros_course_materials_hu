@@ -209,8 +209,16 @@ pip3 install matplotlib
 
 ---
 
+1. Telepítsük az alábbi dependency-ket:
 
-1. Klónozzuk a dVRK-t (da Vinci Reserach Kit) `vcs` segítségével egy új workspace-be, majd build-eljük:
+    ```bash
+    sudo apt install python3-vcstool python3-colcon-common-extensions python3-pykdl libxml2-dev libraw1394-dev libncurses5-dev qtcreator swig sox espeak cmake-curses-gui cmake-qt-gui git subversion gfortran libcppunit-dev libqt5xmlpatterns5-dev libbluetooth-dev libhidapi-dev python3-pyudev gfortran-9 ros-humble-joint-state-publisher* ros-humble-xacro
+    ```
+
+
+    ---
+
+2. Klónozzuk a dVRK-t (da Vinci Reserach Kit) `vcs` segítségével egy új workspace-be, majd build-eljük:
 
     ```bash
     mkdir -p ~/dvrk2_ws/src
@@ -223,7 +231,7 @@ pip3 install matplotlib
 
     ---
  
-2. A `.bashrc` fájl végére illesszük be az alábbi sort:
+3. A `.bashrc` fájl végére illesszük be az alábbi sort:
 
     ```bash
     source ~/dvrk2_ws/install/setup.bash
@@ -231,7 +239,7 @@ pip3 install matplotlib
 
     ---
     
-3. Indítsuk el a PSM1 (Patient Side Manipulator) RViz szimulációját. A dVRK konzolon ne felejtsünk el HOME-olni. 
+4. Indítsuk el a PSM1 (Patient Side Manipulator) RViz szimulációját. A dVRK konzolon ne felejtsünk el HOME-olni. 
 Tanulmányozzuk a szimulátor működését a tanult parancsok
 (`ros2 topic list`, `ros2 topic echo` `ros2 run rqt_gui rqt_gui`, stb.) használatával. 
 
