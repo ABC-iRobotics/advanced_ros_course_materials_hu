@@ -5,10 +5,6 @@ author: Levendovics Tamás
 
 # 07. Kinematika, inverz kienamtika, Szimulált robotkar programozása csukló-, és munkatérben
 
-
-
-![](img/under_construction.png){:style="width:400px" align=right}
-
 ---
 
 ## Ismétlés
