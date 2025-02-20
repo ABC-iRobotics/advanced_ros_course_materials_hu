@@ -13,7 +13,7 @@ author: Levendovics Tamás
 
 ### A robot fogalma
 
-![](img/what_is_a_robot_2.webp){:style="width:1024"}
+![](img/what_is_a_robot_2.webp){:style="width:512"}
 
 - **Joseph Engelberger, pioneer in industrial robotics:** *"I can't define a robot, but I know one when I see one."*
 - **Wikipedia:** *"A robot is a machine—especially one programmable by a computer— capable of carrying out a complex series of actions automatically. Robots can be guided by an external control device or the control may be embedded within. Robots may be constructed on the lines of human form, but most robots are machines designed to perform a task with no regard to their aesthetics."*
@@ -68,8 +68,7 @@ Ajánlott környezet:
 - *IDE: QtCreator/CLion/VSCode*
 
 !!! tip "Suggestion"
-    Ha ragaszkodunk a Windows-hoz: WSL (Windows Subsystem for Linux): [https://docs.ros.org/en/humble/Tutorials/Advanced/Simulators/Webots/Installation-Windows.html](https://docs.ros.org/en/humble/Tutorials/Advanced/Simulators/Webots/Installation-Windows.html)
-
+    Aki nem szeretne natív Linuxot telepíteni: WSL (Windows Subsystem for Linux) --- szintén Ubuntu 22.04 + ROS 2 Humble
 
 
 ---
