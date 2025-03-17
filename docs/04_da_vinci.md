@@ -339,11 +339,22 @@ x, y és z komponensét idő függvényében.
     
 ### 4. Dummy marker létrehozása
 
+
+
 ---
 
-1. Hozzunk létre új python forrásfájlt `dummy_marker.py` névvel. Adjuk meg az entry point-ot a `setup.py`-ban a megszokott módon.
-Implementájunk python programot, amely markert publikál (-0.05, 0.08, -0.14) pozícióval `dummy_target_marker` nevű topic-ban.
-A `frame_id` addattag értéke legyen `PSM1_psm_base_link`. Másoljuk az alábbi kódot a `dummy_marker.py` fájlba:
+1. Definiáljunk egy új koordináta rendszert `camera` névvel, majd ellenőrizzük a koordináta rendszereket:
+
+    ```bash
+    ros2 run tf2_ros static_transform_publisher --frame-id world --child-frame-id camera --x 0 --y 0 --z 0 --qx 0 --qy 0 --qz 0 --qw 1
+    ros2 run tf2_tools view_frames 
+    ```
+
+    ---
+
+2. Hozzunk létre új python forrásfájlt `dummy_marker.py` névvel. Adjuk meg az entry point-ot a `setup.py`-ban a megszokott módon.
+Implementájunk python programot, amely markert publikál (0.00687728, 0.06412506, 0.27155235) pozícióval `dummy_target_marker` nevű topic-ban.
+A `frame_id` addattag értéke legyen `camera`. Másoljuk az alábbi kódot a `dummy_marker.py` fájlba:
 
     ```python
     import rclpy
@@ -362,7 +373,7 @@ A `frame_id` addattag értéke legyen `PSM1_psm_base_link`. Másoljuk az alábbi
     
         def timer_callback(self):
             marker = Marker()
-            marker.header.frame_id = 'PSM1_psm_base_link'
+            marker.header.frame_id = 'camera'
             marker.header.stamp = self.get_clock().now().to_msg()
             marker.ns = "dvrk_viz"
             marker.id = self.i
@@ -389,7 +400,7 @@ A `frame_id` addattag értéke legyen `PSM1_psm_base_link`. Másoljuk az alábbi
    
     def main(args=None):
         rclpy.init(args=args)
-        marker_publisher = DummyMarker([-0.05, 0.08, -0.12])
+        marker_publisher = DummyMarker([0.00687728, 0.06412506, 0.27155235])
         rclpy.spin(marker_publisher)
     
         # Destroy the node explicitly
@@ -404,9 +415,18 @@ A `frame_id` addattag értéke legyen `PSM1_psm_base_link`. Másoljuk az alábbi
 
     ---
 
-2. Futtassuk a node-ot és jelenítsük meg a markert RViz-ben.
+3. Futtassuk a node-ot és jelenítsük meg a markert RViz-ben.
 
     ---
+
+4. Adjuk meg a `camera` és a `PSM1_psm_base_link` koordináta rendszerek közötti trenszformációt, majd ellenőrizzük újra a koordináta rendszereket:
+
+    ```bash
+    ros2 run tf2_ros static_transform_publisher --frame-id PSM1_psm_base_link --child-frame-id camera --x 0.18 --y 0.03 --z 0.01 --roll 2.70526034 --pitch -0.78539816 --yaw -2.53072742
+    ros2 run tf2_tools view_frames 
+    ```
+
+---
 
 ### 5. Marker megfogása
 
@@ -416,7 +436,7 @@ A `frame_id` addattag értéke legyen `PSM1_psm_base_link`. Másoljuk az alábbi
 
     ---
 
-2. Módosítsuk a `psm_grasp.py` programot úgy, hogy a csipesszel fogjuk meg a generált markert.
+2. Módosítsuk a `psm_grasp.py` programot úgy, hogy a csipesszel fogjuk meg a generált markert. 
 
     !!! note
         A használt szimulátor hajlamos rá, hogy bizonyos értékek "beragadjanak", ezért a program elején érdemes az alábbi sorok használatával resetelni a kart:
@@ -425,6 +445,24 @@ A `frame_id` addattag értéke legyen `PSM1_psm_base_link`. Másoljuk az alábbi
         psm.move_tcp_to([0.0, 0.0, -0.12], 0.01, 0.01)
         psm.move_jaw_to(0.0, 0.1, 0.01)
         ```
+
+    ---
+
+
+3. Számoljuk át a kapott marker pozíciókat a `camera` koordináta rendszerből a `PSM1_psm_base_link` koordináta rendszerbe, hogy helyes legyen a megfogás pozíciója. A koordináta rendszerek közötti transzformáció:
+
+    $$
+    roll=155^{\circ}, pitch=-45^{\circ}, yaw=-145^{\circ}, \mathbf{t}_{base,cam} = \left[\matrix{0.18 \\ 0.03 \\ 0.01\\ }\right]
+    $$
+
+    ```python
+    t_base_cam = np.array([0.18, 0.03, 0.01])
+    R_base_cam = R.from_euler('xyz', [155.0, -45.0, -145.0], degrees=True).as_matrix()
+    ```
+
+    ---
+
+4. Implementáljuk a számítást homogén koordinéták segítségével is. Készítsünk homogén transzformációs mátrixot a megadott értékekből. Alkalmazzuk a transzformációt a `camera` koordináta rendszerben kapott pozícióra.
 
 
 ---
