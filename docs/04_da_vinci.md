@@ -462,7 +462,7 @@ A `frame_id` addattag értéke legyen `camera`. Másoljuk az alábbi kódot a `d
 
     ---
 
-4. Implementáljuk a számítást homogén koordinéták segítségével is. Készítsünk homogén transzformációs mátrixot a megadott értékekből. Alkalmazzuk a transzformációt a `camera` koordináta rendszerben kapott pozícióra.
+4. Implementáljuk a számítást homogén koordináták segítségével is. Készítsünk homogén transzformációs mátrixot a megadott értékekből. Alkalmazzuk a transzformációt a `camera` koordináta rendszerben kapott pozícióra.
 
 
 ---
