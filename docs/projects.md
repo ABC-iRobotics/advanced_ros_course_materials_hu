@@ -14,8 +14,8 @@ author: Levendovics Tamás
 | Okt. hét | Dátum    | Számonkérés                                      |
 |:--------:|----------|--------------------------------------------------|
 |    6.    | márc. 28 | Kötelező programok ismertetése. Projekt labor I. |
-|   14.    | máj. 23  | Projekt labor II.                                |
-|   13.    | máj. 30  | Kötelező programok bemutatása.                   |
+|   13.    | máj. 16  | Projekt labor II.                                |
+|   14.    | máj. 23  | Kötelező programok bemutatása.                   |
 
 ---
 
