@@ -8,13 +8,13 @@ author: Levendovics Tamás
 
 ---
 ### Tárgyfelelős
-Dr. Galambos Péter    
+Prof. Dr. Galambos Péter    
 [peter.galambos@irob.uni-obuda.hu](mailto:peter.galambos@irob.uni-obuda.hu)
 
 ---
 
 ### Oktatók
-Levendovics Tamás   
+Dr. Levendovics Tamás   
 [tamas.levendovics@irob.uni-obuda.hu](mailto:tamas.levendovics@irob.uni-obuda.hu)
 
 Détár Borsa    
