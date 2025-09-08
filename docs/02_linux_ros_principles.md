@@ -244,7 +244,7 @@ edge [color=Black, style=solid, arrowhead=open] //All the lines look like this
 
 ---
 
-![](https://images.idgesg.net/images/article/2017/05/linux-distros-100724403-large.jpg){:style="width:400px" align=right}
+![](https://amazingrdp.com/wp-content/uploads/2021/07/linux-distros-100724403-large.jpg){:style="width:400px" align=right}
 
 - (Was) the only OS supported by ROS
 - Security
