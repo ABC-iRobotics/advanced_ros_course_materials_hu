@@ -6,7 +6,7 @@ repo_url: https://github.com/ABC-iRobotics/advanced_ros_course_materials_hu
 
 
 nav:
-    - Kezdőlap: index.md
+    - Kurzusinformációk: index.md
     #- Tananyagok:
     - 1. Bevezetés, Fejlesztőkörnyezet: 01_system_setup.md
     - 2. Linux, ROS alapismeretek: 02_linux_ros_principles.md
