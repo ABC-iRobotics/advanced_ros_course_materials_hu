@@ -572,10 +572,10 @@ Nevezzük el "myscript.sh"-nek.
     from std_msgs.msg import String
     
     
-    class MinimalPublisher(Node):
+    class Talker(Node):
     
         def __init__(self):
-            super().__init__('minimal_publisher')
+            super().__init__('talker')
             self.publisher_ = self.create_publisher(String, 'chatter', 10)
             timer_period = 0.5  # seconds
             self.timer = self.create_timer(timer_period, self.timer_callback)
@@ -591,13 +591,13 @@ Nevezzük el "myscript.sh"-nek.
     
     def main(args=None):
         rclpy.init(args=args)
-        minimal_publisher = MinimalPublisher()
-        rclpy.spin(minimal_publisher)
+        talker = Talker()
+        rclpy.spin(talker)
     
         # Destroy the node explicitly
         # (optional - otherwise it will be done automatically
         # when the garbage collector destroys the node object)
-        minimal_publisher.destroy_node()
+        talker.destroy_node()
         rclpy.shutdown()
     
     
@@ -646,10 +646,10 @@ Nevezzük el "myscript.sh"-nek.
     from std_msgs.msg import String
 
 
-    class MinimalSubscriber(Node):
+    class Listener(Node):
 
         def __init__(self):
-            super().__init__('minimal_subscriber')
+            super().__init__('listener')
             self.subscription = self.create_subscription(
                 String,
                 'chatter',
@@ -663,13 +663,13 @@ Nevezzük el "myscript.sh"-nek.
 
     def main(args=None):
         rclpy.init(args=args)
-        minimal_subscriber = MinimalSubscriber()
-        rclpy.spin(minimal_subscriber)
+        listener = Listener()
+        rclpy.spin(listener)
 
         # Destroy the node explicitly
         # (optional - otherwise it will be done automatically
         # when the garbage collector destroys the node object)
-        minimal_subscriber.destroy_node()
+        listener.destroy_node()
         rclpy.shutdown()
 
     if __name__ == '__main__':
