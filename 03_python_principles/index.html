@@ -800,7 +800,7 @@ Egy kis segítség az API használatához:</p>
 <span class="n">when</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_clock</span><span class="p">()</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">+</span> <span class="n">rclpy</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">Duration</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="n">T</span><span class="p">)</span>
 
 <span class="c1"># Publish msg while the calculated time is up</span>
-<span class="k">while</span> <span class="p">(</span><span class="n">some</span> <span class="n">condition</span><span class="o">...</span><span class="p">)</span> <span class="ow">and</span> <span class="n">rclpy</span><span class="o">.</span><span class="n">ok</span><span class="p">():</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">some</span> <span class="n">condition</span><span class="o">...</span> <span class="ow">and</span> <span class="n">rclpy</span><span class="o">.</span><span class="n">ok</span><span class="p">()):</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">twist_pub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">vel_msg</span><span class="p">)</span>
     <span class="c1"># self.get_logger().info(&#39;On its way...&#39;)</span>
     <span class="n">rclpy</span><span class="o">.</span><span class="n">spin_once</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>   <span class="c1"># loop rate</span>
