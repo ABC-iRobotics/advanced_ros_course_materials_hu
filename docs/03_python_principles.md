@@ -200,7 +200,7 @@ Egy kis segítség az API használatához:
     when = self.get_clock().now() + rclpy.time.Duration(seconds=T)
 
     # Publish msg while the calculated time is up
-    while (some condition...) and rclpy.ok():
+    while (some condition... and rclpy.ok()):
         self.twist_pub.publish(vel_msg)
         # self.get_logger().info('On its way...')
         rclpy.spin_once(self)   # loop rate
