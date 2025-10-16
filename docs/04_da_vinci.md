@@ -6,7 +6,7 @@ author: Levendovics Tamás
 # 04. Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben
 
 !!! warning
-    **ZH1** (ROS alapok, publisher, subscriber. Python alapok. Robotikai alapfogalmak.) **március 28. 10:45, BA.1.10**
+    **ZH1** (ROS alapok, publisher, subscriber. Python alapok. Robotikai alapfogalmak.) **október 18. 12:35, BA.1.10**
 
 
 ---
@@ -333,7 +333,14 @@ x, y és z komponensét idő függvényében.
     ```python
     def move_jaw_to(self, target, omega, dt):
     ```
-    
+
+    !!! note
+        A használt szimulátor hajlamos rá, hogy bizonyos értékek "beragadjanak", ezért a program elején érdemes az alábbi sorok használatával resetelni a kart:
+        ```python
+        #Reset the arm
+        psm.move_tcp_to([0.0, 0.0, -0.12], 0.01, 0.01)
+        psm.move_jaw_to(0.0, 0.1, 0.01)
+        ```
 
     ---
     
@@ -438,15 +445,7 @@ A `frame_id` addattag értéke legyen `camera`. Másoljuk az alábbi kódot a `d
 
 2. Módosítsuk a `psm_grasp.py` programot úgy, hogy a csipesszel fogjuk meg a generált markert. 
 
-    !!! note
-        A használt szimulátor hajlamos rá, hogy bizonyos értékek "beragadjanak", ezért a program elején érdemes az alábbi sorok használatával resetelni a kart:
-        ```python
-        #Reset the arm
-        psm.move_tcp_to([0.0, 0.0, -0.12], 0.01, 0.01)
-        psm.move_jaw_to(0.0, 0.1, 0.01)
-        ```
 
-    ---
 
 
 3. Számoljuk át a kapott marker pozíciókat a `camera` koordináta rendszerből a `PSM1_psm_base_link` koordináta rendszerbe, hogy helyes legyen a megfogás pozíciója. A koordináta rendszerek közötti transzformáció:
