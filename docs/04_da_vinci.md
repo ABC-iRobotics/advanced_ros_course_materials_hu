@@ -370,13 +370,14 @@ A `frame_id` addattag értéke legyen `camera`. Másoljuk az alábbi kódot a `d
     
     class DummyMarker(Node):
         def __init__(self, position):
-            super().__init__('minimal_publisher')
+            super().__init__('dummy_target_publisher')
             self.position = position
             self.publisher_ = self.create_publisher(Marker, 'dummy_target_marker', 10)
             timer_period = 0.1  # seconds
             self.timer = self.create_timer(timer_period, self.timer_callback)
             self.i = 0
             i = 0
+        self.get_logger().info('dummy_target_publisher node started.')
     
         def timer_callback(self):
             marker = Marker()
