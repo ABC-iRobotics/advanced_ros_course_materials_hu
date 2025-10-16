@@ -377,7 +377,7 @@ A `frame_id` addattag értéke legyen `camera`. Másoljuk az alábbi kódot a `d
             self.timer = self.create_timer(timer_period, self.timer_callback)
             self.i = 0
             i = 0
-        self.get_logger().info('dummy_target_publisher node started.')
+            self.get_logger().info('dummy_target_publisher node started.')
     
         def timer_callback(self):
             marker = Marker()
