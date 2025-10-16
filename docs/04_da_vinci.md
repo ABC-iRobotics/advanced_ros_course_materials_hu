@@ -456,6 +456,8 @@ A `frame_id` addattag értéke legyen `camera`. Másoljuk az alábbi kódot a `d
     $$
 
     ```python
+    from scipy.spatial.transform import Rotation as R
+    #
     t_base_cam = np.array([0.18, 0.03, 0.01])
     R_base_cam = R.from_euler('xyz', [155.0, -45.0, -145.0], degrees=True).as_matrix()
     ```
