@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.50">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.2">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.a40c8224.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.d7758b05.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -292,6 +292,7 @@
   
   <span class="md-ellipsis">
     Kurzusinformációk
+    
   </span>
   
 
@@ -312,6 +313,7 @@
   
   <span class="md-ellipsis">
     1. Bevezetés, Fejlesztőkörnyezet
+    
   </span>
   
 
@@ -332,6 +334,7 @@
   
   <span class="md-ellipsis">
     2. Linux, ROS alapismeretek
+    
   </span>
   
 
@@ -352,6 +355,7 @@
   
   <span class="md-ellipsis">
     3. Python alapismeretek,  ROS Publisher, ROS Subscriber
+    
   </span>
   
 
@@ -381,6 +385,7 @@
   
   <span class="md-ellipsis">
     4. Robotikai alapismeretek, Sebészrobot programozása
+    
   </span>
   
 
@@ -392,6 +397,7 @@
   
   <span class="md-ellipsis">
     4. Robotikai alapismeretek, Sebészrobot programozása
+    
   </span>
   
 
@@ -585,6 +591,7 @@
   
   <span class="md-ellipsis">
     5. Verziókövetés, Git
+    
   </span>
   
 
@@ -605,6 +612,7 @@
   
   <span class="md-ellipsis">
     6. ROS 2 Launch, Param, Bag
+    
   </span>
   
 
@@ -625,6 +633,7 @@
   
   <span class="md-ellipsis">
     7. Kinematika, inverz kinematika
+    
   </span>
   
 
@@ -645,6 +654,7 @@
   
   <span class="md-ellipsis">
     8. ROS 2 Service, ROS 2 Action
+    
   </span>
   
 
@@ -665,6 +675,7 @@
   
   <span class="md-ellipsis">
     Kötelező program
+    
   </span>
   
 
@@ -687,6 +698,7 @@
                 
                   
 
+
   
   
 
@@ -694,7 +706,7 @@
 <h1 id="04-robotikai-alapfogalmak-da-vinci-sebeszrobot-programozasa-szimulalt-kornyezetben">04. Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben</h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p><strong>ZH1</strong> (ROS alapok, publisher, subscriber. Python alapok. Robotikai alapfogalmak.) <strong>március 28. 10:45, BA.1.10</strong></p>
+<p><strong>ZH1</strong> (ROS alapok, publisher, subscriber. Python alapok. Robotikai alapfogalmak.) <strong>október 18. 12:35, BA.1.10</strong></p>
 </div>
 <hr />
 <h2 id="elmelet">Elmélet</h2>
@@ -962,6 +974,14 @@ x, y és z komponensét idő függvényében.</p>
 <p>Írjunk függvényt, amellyel a csipeszt tudjuk nyitni-zárni, szintén lineáris trajektória használatával.</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">move_jaw_to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">omega</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
 </code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A használt szimulátor hajlamos rá, hogy bizonyos értékek "beragadjanak", ezért a program elején érdemes az alábbi sorok használatával resetelni a kart:
+<div class="highlight"><pre><span></span><code><span class="c1">#Reset the arm</span>
+<span class="n">psm</span><span class="o">.</span><span class="n">move_tcp_to</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.12</span><span class="p">],</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+<span class="n">psm</span><span class="o">.</span><span class="n">move_jaw_to</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+</code></pre></div></p>
+</div>
 <hr />
 </li>
 </ol>
@@ -1057,15 +1077,6 @@ ros2<span class="w"> </span>run<span class="w"> </span>tf2_tools<span class="w">
 </li>
 <li>
 <p>Módosítsuk a <code>psm_grasp.py</code> programot úgy, hogy a csipesszel fogjuk meg a generált markert. </p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>A használt szimulátor hajlamos rá, hogy bizonyos értékek "beragadjanak", ezért a program elején érdemes az alábbi sorok használatával resetelni a kart:
-<div class="highlight"><pre><span></span><code><span class="c1">#Reset the arm</span>
-<span class="n">psm</span><span class="o">.</span><span class="n">move_tcp_to</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.12</span><span class="p">],</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
-<span class="n">psm</span><span class="o">.</span><span class="n">move_jaw_to</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
-</code></pre></div></p>
-</div>
-<hr />
 </li>
 <li>
 <p>Számoljuk át a kapott marker pozíciókat a <code>camera</code> koordináta rendszerből a <code>PSM1_psm_base_link</code> koordináta rendszerbe, hogy helyes legyen a megfogás pozíciója. A koordináta rendszerek közötti transzformáció:</p>
@@ -1151,7 +1162,7 @@ roll=155^{\circ}, pitch=-45^{\circ}, yaw=-145^{\circ}, \mathbf{t}_{base,cam} = \
     <script id="__config" type="application/json">{"base": "..", "features": ["toc.integrate"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "V\u00e1g\u00f3lapra m\u00e1solva", "clipboard.copy": "M\u00e1sol\u00e1s v\u00e1g\u00f3lapra", "search.result.more.one": "1 tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.more.other": "# tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.none": "Nincs tal\u00e1lat", "search.result.one": "1 egyez\u0151 dokumentum", "search.result.other": "# egyez\u0151 dokumentum", "search.result.placeholder": "Keres\u00e9shez \u00edrj ide valamit", "search.result.term.missing": "\u00dcres", "select.version": "Verzi\u00f3v\u00e1lt\u00e1s"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.60a45f97.min.js"></script>
+      <script src="../assets/javascripts/bundle.f13b1293.min.js"></script>
       
         <script src="../javascripts/mathjax.js"></script>
       
