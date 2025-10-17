@@ -1089,11 +1089,18 @@ roll=155^{\circ}, pitch=-45^{\circ}, yaw=-145^{\circ}, \mathbf{t}_{base,cam} = \
 <span class="n">t_base_cam</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.18</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">])</span>
 <span class="n">R_base_cam</span> <span class="o">=</span> <span class="n">R</span><span class="o">.</span><span class="n">from_euler</span><span class="p">(</span><span class="s1">&#39;xyz&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mf">155.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">45.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">145.0</span><span class="p">],</span> <span class="n">degrees</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">()</span>
 </code></pre></div>
-<hr />
 </li>
-<li>
-<p>Implementáljuk a számítást homogén koordináták segítségével is. Készítsünk homogén transzformációs mátrixot a megadott értékekből. Alkalmazzuk a transzformációt a <code>camera</code> koordináta rendszerben kapott pozícióra.</p>
-</li>
+</ol>
+<p>!!! note
+       Scipy Rotation nélkül:
+       <div class="highlight"><pre><span></span><code><span class="n">R_base_cam</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mf">0.57922797</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.27504447</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.76736269</span><span class="p">],</span>
+                         <span class="p">[</span><span class="o">-</span><span class="mf">0.40557979</span><span class="p">,</span>  <span class="mf">0.9138093</span><span class="p">,</span>  <span class="o">-</span><span class="mf">0.02139151</span><span class="p">],</span>
+                         <span class="p">[</span> <span class="mf">0.70710678</span><span class="p">,</span>  <span class="mf">0.29883624</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.64085638</span><span class="p">]])</span>
+</code></pre></div></p>
+<pre><code>---
+</code></pre>
+<ol>
+<li>Implementáljuk a számítást homogén koordináták segítségével is. Készítsünk homogén transzformációs mátrixot a megadott értékekből. Alkalmazzuk a transzformációt a <code>camera</code> koordináta rendszerben kapott pozícióra.</li>
 </ol>
 <hr />
 <h3 id="6-tcp-mozgatasa-koriv-menten">6. TCP mozgatása körív mentén</h3>
