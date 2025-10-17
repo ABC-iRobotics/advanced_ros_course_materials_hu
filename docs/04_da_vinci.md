@@ -462,13 +462,13 @@ A `frame_id` addattag értéke legyen `camera`. Másoljuk az alábbi kódot a `d
     R_base_cam = R.from_euler('xyz', [155.0, -45.0, -145.0], degrees=True).as_matrix()
     ```
 
-   !!! note
-       Scipy Rotation nélkül:
-       ```python
-       R_base_cam = np.array([[-0.57922797, -0.27504447, -0.76736269],
+    !!! note
+        Scipy Rotation nélkül:
+        ```python
+        R_base_cam = np.array([[-0.57922797, -0.27504447, -0.76736269],
                                 [-0.40557979,  0.9138093,  -0.02139151],
                                 [ 0.70710678,  0.29883624, -0.64085638]])
-       ```
+        ```
 
 
 
