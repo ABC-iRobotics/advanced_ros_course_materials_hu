@@ -176,7 +176,7 @@ dvrk_PSM1->grasp_server [label="   measured_cp\n    jaw/measured_js"]
 ![](img/PSM_coordinates.png){:style="width:350px" align=right}
 
 
-1. Indítsuk el a PSM1 RViz szimulációját. A dVRK konzolon ne felejtsünk el HOME-olni.
+1. Indítsuk el a PSM1 RViz szimulációját és a dummy markert. A dVRK konzolon ne felejtsünk el HOME-olni.
 
 
     ```bash
@@ -193,6 +193,14 @@ dvrk_PSM1->grasp_server [label="   measured_cp\n    jaw/measured_js"]
     ```bash
     # RViz
     ros2 run rviz2 rviz2 -d ~/dvrk2_ws/install/dvrk_model/share/dvrk_model/rviz/PSM1.rviz
+    ```
+
+    ```bash
+    ros2 run tf2_ros static_transform_publisher --frame-id PSM1_psm_base_link --child-frame-id camera --x 0.18 --y 0.03 --z 0.01 --roll 2.70526034 --pitch -0.78539816 --yaw -2.53072742
+    ```
+
+    ```bash
+    ros2 run ros2_course dummy_marker
     ```
 
     !!! tip "URDF-fel kapcsolatos hibák esetén"
