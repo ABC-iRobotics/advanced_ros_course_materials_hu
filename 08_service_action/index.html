@@ -825,7 +825,7 @@ bontani az alább ábra szerint.</p>
 <p><img align="right" alt="" src="../img/PSM_coordinates.png" style="width:350px" /></p>
 <ol>
 <li>
-<p>Indítsuk el a PSM1 RViz szimulációját. A dVRK konzolon ne felejtsünk el HOME-olni.</p>
+<p>Indítsuk el a PSM1 RViz szimulációját és a dummy markert. A dVRK konzolon ne felejtsünk el HOME-olni.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># dVRK main console</span>
 ros2<span class="w"> </span>run<span class="w"> </span>dvrk_robot<span class="w"> </span>dvrk_console_json<span class="w"> </span>-j<span class="w"> </span>~/dvrk2_ws/install/sawIntuitiveResearchKitAll/share/sawIntuitiveResearchKit/share/console/console-PSM1_KIN_SIMULATED.json
 </code></pre></div>
@@ -834,6 +834,10 @@ ros2<span class="w"> </span>launch<span class="w"> </span>dvrk_model<span class=
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1"># RViz</span>
 ros2<span class="w"> </span>run<span class="w"> </span>rviz2<span class="w"> </span>rviz2<span class="w"> </span>-d<span class="w"> </span>~/dvrk2_ws/install/dvrk_model/share/dvrk_model/rviz/PSM1.rviz
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>run<span class="w"> </span>tf2_ros<span class="w"> </span>static_transform_publisher<span class="w"> </span>--frame-id<span class="w"> </span>PSM1_psm_base_link<span class="w"> </span>--child-frame-id<span class="w"> </span>camera<span class="w"> </span>--x<span class="w"> </span><span class="m">0</span>.18<span class="w"> </span>--y<span class="w"> </span><span class="m">0</span>.03<span class="w"> </span>--z<span class="w"> </span><span class="m">0</span>.01<span class="w"> </span>--roll<span class="w"> </span><span class="m">2</span>.70526034<span class="w"> </span>--pitch<span class="w"> </span>-0.78539816<span class="w"> </span>--yaw<span class="w"> </span>-2.53072742
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>run<span class="w"> </span>ros2_course<span class="w"> </span>dummy_marker
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">URDF-fel kapcsolatos hibák esetén</p>
