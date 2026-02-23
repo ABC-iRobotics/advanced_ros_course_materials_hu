@@ -92,7 +92,7 @@ A félév elfogadásának feltétele, hogy mind a két ZH, mind a kötelező pro
 
 - [PlatypOUs GitHub](https://github.com/ABC-iRobotics/PlatypOUs-Mobile-Robot-Platform)
 
-![](https://www.mdpi.com/sensors/sensors-22-02284/article_deploy/html/images/sensors-22-02284-g001.png){:style="width:600px"}
+![](https://rosz.uni-obuda.hu/wp-content/uploads/2023/08/PICT_20211008_160426-1024x684.jpg){:style="width:600px"}
 
 #### D. Bármilyen mobil robot
 
