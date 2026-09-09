@@ -63,20 +63,20 @@ author: Levendovics Tamás
 
 Ajánlott környezet:
     
-- Ubuntu 22.04
-- ROS2 Humble
+- Ubuntu 24.04
+- ROS2 Jazzy
 - *IDE: QtCreator/CLion/VSCode*
 
 !!! tip "Suggestion"
-    Aki nem szeretne natív Linuxot telepíteni: WSL (Windows Subsystem for Linux) --- szintén Ubuntu 22.04 + ROS 2 Humble
+    Aki nem szeretne natív Linuxot telepíteni: WSL (Windows Subsystem for Linux) --- szintén Ubuntu 24.04 + ROS 2 Jazzy
 
 
 ---
 
 
-### ROS 2 Humble Hawksbill
+### ROS 2 Jazzy Jalisco
 
-![](https://www.therobotreport.com/wp-content/uploads/2022/05/ros-humble-hawksbill-featured.jpg){:style="width:300px" align=right}
+![](https://images.squarespace-cdn.com/content/v1/606d378755a86f589aa297b7/1717136168404-CV7O6LD1M56PNET8G161/JazzyJalisco_Final.png){:style="width:300px" align=right}
 
 
 1. Locale beállítása.
@@ -94,19 +94,19 @@ Ajánlott környezet:
    
     ---
 
-2. ROS 2 Humble telepítése
+2. ROS 2 Jazzy telepítése
 
 
     ```bash
     sudo apt install software-properties-common
     sudo add-apt-repository universe
     sudo apt update && sudo apt install curl -y
-    sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
-    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
-    sudo apt update
-    sudo apt upgrade
-    sudo apt install ros-humble-desktop
-    sudo apt install ros-dev-tools
+    export ROS_APT_SOURCE_VERSION=$(curl -s https://api.github.com/repos/ros-infrastructure/ros-apt-source/releases/latest | grep -F "tag_name" | awk -F'"' '{print $4}')
+    curl -L -o /tmp/ros2-apt-source.deb "https://github.com/ros-infrastructure/ros-apt-source/releases/download/${ROS_APT_SOURCE_VERSION}/ros2-apt-source_${ROS_APT_SOURCE_VERSION}.$(. /etc/os-release && echo ${UBUNTU_CODENAME:-${VERSION_CODENAME}})_all.deb"
+    sudo dpkg -i /tmp/ros2-apt-source.deb
+    sudo apt update && sudo apt install ros-dev-tools
+    sudo apt update && sudo apt upgrade
+    sudo apt install ros-jazzy-desktop
     ```
 
     ---
@@ -115,7 +115,7 @@ Ajánlott környezet:
 
 
     ```bash
-    source /opt/ros/humble/setup.bash
+    source /opt/ros/jazzy/setup.bash
     ros2 run demo_nodes_py talker
     ```
 
@@ -125,7 +125,7 @@ Ajánlott környezet:
 
 
     ```bash
-    echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
+    echo "source /opt/ros/jazzy/setup.bash" >> ~/.bashrc
     ```
     
 ---
@@ -137,7 +137,7 @@ Ajánlott környezet:
 
 
     ```bash
-    sudo apt install libxml2-dev libraw1394-dev libncurses5-dev qtcreator swig sox espeak cmake-curses-gui cmake-qt-gui git subversion gfortran libcppunit-dev libqt5xmlpatterns5-dev python3-osrf-pycommon libasound2-dev libgl1-mesa-dev xorg-dev python3-vcstool python3-colcon-common-extensions python3-pykdl python3-pyudev libxml2-dev libraw1394-dev libncurses5-dev qtcreator swig sox espeak cmake-curses-gui cmake-qt-gui git subversion gfortran libcppunit-dev libqt5xmlpatterns5-dev libbluetooth-dev ros-humble-joint-state-publisher* ros-humble-xacro gfortran-9
+    sudo apt install libxml2-dev libraw1394-dev libncurses5-dev qtcreator swig sox espeak cmake-curses-gui cmake-qt-gui git subversion gfortran libcppunit-dev libqt5xmlpatterns5-dev python3-osrf-pycommon libasound2-dev libgl1-mesa-dev xorg-dev python3-vcstool python3-colcon-common-extensions python3-pykdl python3-pyudev libxml2-dev libraw1394-dev libncurses5-dev qtcreator swig sox espeak cmake-curses-gui cmake-qt-gui git subversion gfortran libcppunit-dev libqt5xmlpatterns5-dev libbluetooth-dev ros-jazzy-joint-state-publisher* ros-jazzy-xacro gfortran-9
     ```
 
 ---
@@ -196,12 +196,12 @@ Ajánlott környezet:
 ## Hasznos linkek
 
 - [https://www.ros.org/](https://www.ros.org/)
-- [ROS 2 Humble installation](https://docs.ros.org/en/humble/Installation.html)
+- [ROS 2 Jazzy installation](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html#install-ros-2)
 - [ROS Distributions](http://wiki.ros.org/Distributions)
 - [http://wiki.ros.org/ROS/Tutorials](http://wiki.ros.org/ROS/Tutorials)
 - [CLion hallgatói licensz](https://www.jetbrains.com/community/education/#students)
 - [QtCreator + ROS plugin](https://ros-qtc-plugin.readthedocs.io/en/latest/_source/How-to-Install-Users.html)
-- [ROS 2 Humble installation on WSL](https://docs.ros.org/en/humble/Tutorials/Advanced/Simulators/Webots/Installation-Windows.html)
+- [ROS 2 Jazzy installation on WSL](https://docs.ros.org/en/jazzy/Tutorials/Advanced/Simulators/Webots/Installation-Windows.html)
 
 
 

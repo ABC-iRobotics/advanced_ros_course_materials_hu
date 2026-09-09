@@ -156,7 +156,7 @@ $$
     ```bash
     sudo apt update
     sudo apt upgrade
-    sudo apt-get install ros-humble-ur python3-pip
+    sudo apt-get install ros-jazzy-ur python3-pip
     pip3 install kinpy
     ```
     
@@ -221,6 +221,7 @@ Adjuk hozzá az alábbi sorokat a `setup.py` fájlhoz (launch és entry point):
 5. Indítsuk el a szimulátort, mozgassuk a csuklókat a Joint State Publisher GUI segítségével.
 
     ```bash
+    ros2 launch ur_description view_ur.launch.py ur_type:=ur5e
     ros2 launch ros2_course view_ur.launch.py ur_type:=ur5e
     ```
 
@@ -360,7 +361,7 @@ Egészítsük ki az előző feladat megoldását úgy, hogy az orientációt is 
 
 ## Hasznos linkek
 
-- [ros-humble-ur documentation](https://docs.ros.org/en/humble/p/ur_robot_driver/)
+- [ros-jazzy-ur documentation](https://docs.ros.org/en/jazzy/p/ur_robot_driver/)
 - [https://github.com/UniversalRobots/Universal_Robots_ROS2_Driver/tree/humble]()
 - [https://docs.ros.org/en/ros2_packages/humble/api/ur_robot_driver/usage.html#usage-with-official-ur-simulator]()
 - [https://github.com/UniversalRobots/Universal_Robots_Client_Library]()

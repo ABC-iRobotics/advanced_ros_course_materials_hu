@@ -212,7 +212,9 @@ pip3 install matplotlib
 1. Telepítsük az alábbi dependency-ket:
 
     ```bash
-    sudo apt install python3-vcstool python3-colcon-common-extensions python3-pykdl libxml2-dev libraw1394-dev libncurses5-dev qtcreator swig sox espeak cmake-curses-gui cmake-qt-gui git subversion gfortran libcppunit-dev libqt5xmlpatterns5-dev libbluetooth-dev libhidapi-dev python3-pyudev gfortran-9 ros-humble-joint-state-publisher* ros-humble-xacro
+    sudo apt install libraw1394-dev libncurses5-dev qtcreator swig sox espeak cmake-curses-gui cmake-qt-gui git subversion libcppunit-dev qt6-base-dev qt6-5compat-dev qt6-tools-dev qt6-declarative-dev qt6-svg-dev libgl-dev libegl-dev libhidapi-dev python3-pyudev libgraphviz-dev # dVRK
+    sudo apt install ros-jazzy-joint-state-publisher* ros-jazzy-xacro ros-jazzy-camera-info-manager ros-jazzy-image-transport ros-jazzy-image-transport-plugins # ROS
+    sudo apt install libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libcairo2-dev libjsoncpp-dev python3-opencv python3-numpy libgtk-3-dev libgtkmm-3.0-dev # stereo viewer & data collection    
     ```
 
 
@@ -223,8 +225,7 @@ pip3 install matplotlib
     ```bash
     mkdir -p ~/dvrk2_ws/src
     cd ~/dvrk2_ws/src                
-    vcs import --recursive --input https://raw.githubusercontent.com/jhu-dvrk/dvrk-github-workflow/main/vcs/ros2-dvrk-2.2.1.vcs
-    cd ~/dvrk2_ws
+    vcs import --input https://raw.githubusercontent.com/jhu-saw/vcs/main/ros2-dvrk-main.vcs --recursive    cd ~/dvrk2_ws
     colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release   
     source ~/dvrk2_ws/install/setup.bash
     ```
@@ -245,26 +246,10 @@ Tanulmányozzuk a szimulátor működését a tanult parancsok
 
 
     ```bash
-    # dVRK main console
-    ros2 run dvrk_robot dvrk_console_json -j ~/dvrk2_ws/install/sawIntuitiveResearchKitAll/share/sawIntuitiveResearchKit/share/console/console-PSM1_KIN_SIMULATED.json
+    # dVRK patient cart
+    ros2 launch dvrk_model patient_cart.launch.py generation:=Classic    
     ```
 
-    ```bash
-    # ROS 2 joint and robot state publishers
-    ros2 launch dvrk_model dvrk_state_publisher.launch.py arm:=PSM1
-    ```
-   
-
-    ```bash
-    # RViz
-    ros2 run rviz2 rviz2 -d ~/dvrk2_ws/install/dvrk_model/share/dvrk_model/rviz/PSM1.rviz
-    ```
-
-
-    ```bash
-    # rqt_gui
-    ros2 run rqt_gui rqt_gui
-    ```
 
 ---
 
@@ -493,7 +478,7 @@ A `frame_id` addattag értéke legyen `camera`. Másoljuk az alábbi kódot a `d
 
 ## Hasznos linkek
 
-- [Download and compile dVRK 2](https://github.com/jhu-dvrk/sawIntuitiveResearchKit/wiki/BuildROS2)
+- [Download and compile dVRK 2](https://dvrk.readthedocs.io/main/pages/software/compilation/ros2.html)
 - [Marker examples](https://www.programcreek.com/python/example/88812/visualization_msgs.msg.Marker)
 - [Numpy vector magnitude](https://numpy.org/doc/stable/reference/generated/numpy.linalg.norm.html)
 - [Numpy linspace](https://numpy.org/doc/stable/reference/generated/numpy.linspace.html)
