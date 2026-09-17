@@ -542,7 +542,7 @@ Nevezzük el "myscript.sh"-nek.
         New file or project &rarr; Other project &rarr; ROS Workspace. Válasszuk ki a Colcon-t, mint Build System, és a `ros2_ws`-t, mint Worksapce path.
 
     !!! note "Importálás CLion-ba"
-        Állítsuk be a Python interpretert Python 3.10-re, `/usr/bin/python3.10`. Adjuk hozzá akövetkező elérési utat: `/opt/ros/humble/lib/python3.10/site-packages`. Hozzuk létre a `compile_commands.json` fájlt a `~/ros2_ws/build` könyvtárban az alábbi tartalommal:
+        Állítsuk be a Python interpretert Python 3.12-re, `/usr/bin/python3.12`. Adjuk hozzá akövetkező elérési utat: `/opt/ros/jazzy/lib/python3.12/site-packages`. Hozzuk létre a `compile_commands.json` fájlt a `~/ros2_ws/build` könyvtárban az alábbi tartalommal:
         ```bash
         [
         ]
