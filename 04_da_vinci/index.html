@@ -598,10 +598,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-dummy-marker-letrehozasa" class="md-nav__link">
+  <a href="#4-dummy-target-letrehozasa" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Dummy marker létrehozása
+        4. Dummy target létrehozása
       
     </span>
   </a>
@@ -1019,11 +1019,17 @@ colcon<span class="w"> </span>build<span class="w"> </span>--cmake-args<span cla
 <p>Indítsuk el a PSM1 (Patient Side Manipulator) RViz szimulációját. A dVRK konzolon ne felejtsünk el HOME-olni. 
 Tanulmányozzuk a szimulátor működését a tanult parancsok
 (<code>ros2 topic list</code>, <code>ros2 topic echo</code> <code>ros2 run rqt_gui rqt_gui</code>, stb.) használatával. </p>
-<div class="highlight"><pre><span></span><code><span class="c1"># dVRK patient cart</span>
-ros2<span class="w"> </span>launch<span class="w"> </span>dvrk_model<span class="w"> </span>patient_cart.launch.py<span class="w"> </span>generation:<span class="o">=</span>Classic<span class="w">    </span>
+<div class="highlight"><pre><span></span><code><span class="c1"># PSM1 Classic</span>
+ros2<span class="w"> </span>launch<span class="w"> </span>dvrk_model<span class="w"> </span>arm.launch.py<span class="w"> </span>arm:<span class="o">=</span>PSM1<span class="w"> </span>generation:<span class="o">=</span>Classic
 </code></pre></div>
 </li>
 </ol>
+<p>vagy</p>
+<pre><code>```bash
+# dVRK patient cart
+ros2 launch dvrk_model patient_cart.launch.py generation:=Classic    
+```
+</code></pre>
 <hr />
 <h3 id="2-psm-subscriber-implementalasa">2: PSM subscriber implementálása</h3>
 <hr />
@@ -1083,7 +1089,7 @@ x, y és z komponensét idő függvényében.</p>
 <hr />
 </li>
 </ol>
-<h3 id="4-dummy-marker-letrehozasa">4. Dummy marker létrehozása</h3>
+<h3 id="4-dummy-target-letrehozasa">4. Dummy target létrehozása</h3>
 <hr />
 <ol>
 <li>
@@ -1094,14 +1100,14 @@ ros2<span class="w"> </span>run<span class="w"> </span>tf2_tools<span class="w">
 <hr />
 </li>
 <li>
-<p>Hozzunk létre új python forrásfájlt <code>dummy_marker.py</code> névvel. Adjuk meg az entry point-ot a <code>setup.py</code>-ban a megszokott módon.
+<p>Hozzunk létre új python forrásfájlt <code>dummy_target_publisher.py</code> névvel. Adjuk meg az entry point-ot a <code>setup.py</code>-ban a megszokott módon.
 Implementájunk python programot, amely markert publikál (0.00687728, 0.06412506, 0.27155235) pozícióval <code>dummy_target_marker</code> nevű topic-ban.
-A <code>frame_id</code> addattag értéke legyen <code>camera</code>. Másoljuk az alábbi kódot a <code>dummy_marker.py</code> fájlba:</p>
+A <code>frame_id</code> addattag értéke legyen <code>camera</code>. Másoljuk az alábbi kódot a <code>dummy_target_publisher.py</code> fájlba:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">rclpy</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">rclpy.node</span><span class="w"> </span><span class="kn">import</span> <span class="n">Node</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">visualization_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">Marker</span>
 
-<span class="k">class</span><span class="w"> </span><span class="nc">DummyMarker</span><span class="p">(</span><span class="n">Node</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">DummyTargetPublisher</span><span class="p">(</span><span class="n">Node</span><span class="p">):</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">position</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s1">&#39;dummy_target_publisher&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">position</span>
@@ -1111,6 +1117,7 @@ A <code>frame_id</code> addattag értéke legyen <code>camera</code>. Másoljuk 
         <span class="bp">self</span><span class="o">.</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;dummy_target_publisher node started.&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Publishing marker msg.&#39;</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">timer_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">marker</span> <span class="o">=</span> <span class="n">Marker</span><span class="p">()</span>
@@ -1141,7 +1148,7 @@ A <code>frame_id</code> addattag értéke legyen <code>camera</code>. Másoljuk 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="n">rclpy</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
-    <span class="n">marker_publisher</span> <span class="o">=</span> <span class="n">DummyMarker</span><span class="p">([</span><span class="mf">0.00687728</span><span class="p">,</span> <span class="mf">0.06412506</span><span class="p">,</span> <span class="mf">0.27155235</span><span class="p">])</span>
+    <span class="n">marker_publisher</span> <span class="o">=</span> <span class="n">DummyTargetPublisher</span><span class="p">([</span><span class="mf">0.00687728</span><span class="p">,</span> <span class="mf">0.06412506</span><span class="p">,</span> <span class="mf">0.27155235</span><span class="p">])</span>
     <span class="n">rclpy</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">marker_publisher</span><span class="p">)</span>
 
     <span class="c1"># Destroy the node explicitly</span>
@@ -1160,8 +1167,8 @@ A <code>frame_id</code> addattag értéke legyen <code>camera</code>. Másoljuk 
 <hr />
 </li>
 <li>
-<p>Adjuk meg a <code>camera</code> és a <code>PSM1_psm_base_link</code> koordináta rendszerek közötti trenszformációt, majd ellenőrizzük újra a koordináta rendszereket:</p>
-<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>run<span class="w"> </span>tf2_ros<span class="w"> </span>static_transform_publisher<span class="w"> </span>--frame-id<span class="w"> </span>PSM1_psm_base_link<span class="w"> </span>--child-frame-id<span class="w"> </span>camera<span class="w"> </span>--x<span class="w"> </span><span class="m">0</span>.18<span class="w"> </span>--y<span class="w"> </span><span class="m">0</span>.03<span class="w"> </span>--z<span class="w"> </span><span class="m">0</span>.01<span class="w"> </span>--roll<span class="w"> </span><span class="m">2</span>.70526034<span class="w"> </span>--pitch<span class="w"> </span>-0.78539816<span class="w"> </span>--yaw<span class="w"> </span>-2.53072742
+<p>Adjuk meg a <code>camera</code> és a <code>PSM1_base_link</code> koordináta rendszerek közötti trenszformációt, majd ellenőrizzük újra a koordináta rendszereket:</p>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>run<span class="w"> </span>tf2_ros<span class="w"> </span>static_transform_publisher<span class="w"> </span>--frame-id<span class="w"> </span>PSM1_base_link<span class="w"> </span>--child-frame-id<span class="w"> </span>camera<span class="w"> </span>--x<span class="w"> </span><span class="m">0</span>.18<span class="w"> </span>--y<span class="w"> </span><span class="m">0</span>.03<span class="w"> </span>--z<span class="w"> </span><span class="m">0</span>.01<span class="w"> </span>--roll<span class="w"> </span><span class="m">2</span>.70526034<span class="w"> </span>--pitch<span class="w"> </span>-0.78539816<span class="w"> </span>--yaw<span class="w"> </span>-2.53072742
 ros2<span class="w"> </span>run<span class="w"> </span>tf2_tools<span class="w"> </span>view_frames<span class="w"> </span>
 </code></pre></div>
 </li>
@@ -1178,7 +1185,7 @@ ros2<span class="w"> </span>run<span class="w"> </span>tf2_tools<span class="w">
 <p>Módosítsuk a <code>psm_grasp.py</code> programot úgy, hogy a csipesszel fogjuk meg a generált markert. </p>
 </li>
 <li>
-<p>Számoljuk át a kapott marker pozíciókat a <code>camera</code> koordináta rendszerből a <code>PSM1_psm_base_link</code> koordináta rendszerbe, hogy helyes legyen a megfogás pozíciója. A koordináta rendszerek közötti transzformáció:</p>
+<p>Számoljuk át a kapott marker pozíciókat a <code>camera</code> koordináta rendszerből a <code>PSM1_base_link</code> koordináta rendszerbe, hogy helyes legyen a megfogás pozíciója. A koordináta rendszerek közötti transzformáció:</p>
 <div class="arithmatex">\[
 roll=155^{\circ}, pitch=-45^{\circ}, yaw=-145^{\circ}, \mathbf{t}_{base,cam} = \left[\matrix{0.18 \\ 0.03 \\ 0.01\\ }\right]
 \]</div>
@@ -1211,6 +1218,7 @@ roll=155^{\circ}, pitch=-45^{\circ}, yaw=-145^{\circ}, \mathbf{t}_{base,cam} = \
 <h2 id="hasznos-linkek">Hasznos linkek</h2>
 <ul>
 <li><a href="https://dvrk.readthedocs.io/main/pages/software/compilation/ros2.html">Download and compile dVRK 2</a></li>
+<li><a href="https://dvrk.readthedocs.io/main/pages/usage/simulation.html#usage-simulation">DVRK Simulation usage</a></li>
 <li><a href="https://www.programcreek.com/python/example/88812/visualization_msgs.msg.Marker">Marker examples</a></li>
 <li><a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.norm.html">Numpy vector magnitude</a></li>
 <li><a href="https://numpy.org/doc/stable/reference/generated/numpy.linspace.html">Numpy linspace</a></li>
