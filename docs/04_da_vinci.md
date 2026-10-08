@@ -6,7 +6,7 @@ author: Levendovics Tamás
 # 04. Robotikai alapfogalmak, da Vinci sebészrobot programozása szimulált környezetben
 
 !!! warning
-    **ZH1** (ROS alapok, publisher, subscriber. Python alapok. Robotikai alapfogalmak.) **október 18. 12:35, BA.1.10**
+    **ZH1** (ROS alapok, publisher, subscriber. Python alapok. Robotikai alapfogalmak.) **október 30. 10:45, F.04**
 
 
 ---

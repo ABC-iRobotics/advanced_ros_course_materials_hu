@@ -13,10 +13,10 @@ author: Levendovics Tamás
 
 | Okt. hét | Dátum    | Számonkérés                     |
 |:--------:|----------|---------------------------------|
-|    1.    | szep. 12 | Kötelező programok ismertetése. |
-|    7.    | okt. 24  | Projekt labor I.                |
-|   13.    | dec. 5   | Projekt labor II.               |
-|   14.    | máj. 23  | Kötelező programok bemutatása.  |
+|    1.    | szep. 11 | Kötelező programok ismertetése. |
+|    8.    | okt. 30  | Projekt labor I.                |
+|   13.    | dec. 4   | Projekt labor II.               |
+|   14.    | dec. 11  | Kötelező programok bemutatása.  |
 
 ---
 
