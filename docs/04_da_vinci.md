@@ -246,6 +246,14 @@ Tanulmányozzuk a szimulátor működését a tanult parancsok
 
 
     ```bash
+    # PSM1 Classic
+    ros2 launch dvrk_model arm.launch.py arm:=PSM1 generation:=Classic
+    ```
+
+vagy
+
+
+    ```bash
     # dVRK patient cart
     ros2 launch dvrk_model patient_cart.launch.py generation:=Classic    
     ```
@@ -329,7 +337,7 @@ x, y és z komponensét idő függvényében.
 
     ---
     
-### 4. Dummy marker létrehozása
+### 4. Dummy target létrehozása
 
 
 
@@ -344,16 +352,16 @@ x, y és z komponensét idő függvényében.
 
     ---
 
-2. Hozzunk létre új python forrásfájlt `dummy_marker.py` névvel. Adjuk meg az entry point-ot a `setup.py`-ban a megszokott módon.
+2. Hozzunk létre új python forrásfájlt `dummy_target_publisher.py` névvel. Adjuk meg az entry point-ot a `setup.py`-ban a megszokott módon.
 Implementájunk python programot, amely markert publikál (0.00687728, 0.06412506, 0.27155235) pozícióval `dummy_target_marker` nevű topic-ban.
-A `frame_id` addattag értéke legyen `camera`. Másoljuk az alábbi kódot a `dummy_marker.py` fájlba:
+A `frame_id` addattag értéke legyen `camera`. Másoljuk az alábbi kódot a `dummy_target_publisher.py` fájlba:
 
     ```python
     import rclpy
     from rclpy.node import Node
     from visualization_msgs.msg import Marker
     
-    class DummyMarker(Node):
+    class DummyTargetPublisher(Node):
         def __init__(self, position):
             super().__init__('dummy_target_publisher')
             self.position = position
@@ -363,6 +371,7 @@ A `frame_id` addattag értéke legyen `camera`. Másoljuk az alábbi kódot a `d
             self.i = 0
             i = 0
             self.get_logger().info('dummy_target_publisher node started.')
+            self.get_logger().info('Publishing marker msg.')
     
         def timer_callback(self):
             marker = Marker()
@@ -393,7 +402,7 @@ A `frame_id` addattag értéke legyen `camera`. Másoljuk az alábbi kódot a `d
    
     def main(args=None):
         rclpy.init(args=args)
-        marker_publisher = DummyMarker([0.00687728, 0.06412506, 0.27155235])
+        marker_publisher = DummyTargetPublisher([0.00687728, 0.06412506, 0.27155235])
         rclpy.spin(marker_publisher)
     
         # Destroy the node explicitly
@@ -412,10 +421,10 @@ A `frame_id` addattag értéke legyen `camera`. Másoljuk az alábbi kódot a `d
 
     ---
 
-4. Adjuk meg a `camera` és a `PSM1_psm_base_link` koordináta rendszerek közötti trenszformációt, majd ellenőrizzük újra a koordináta rendszereket:
+4. Adjuk meg a `camera` és a `PSM1_base_link` koordináta rendszerek közötti trenszformációt, majd ellenőrizzük újra a koordináta rendszereket:
 
     ```bash
-    ros2 run tf2_ros static_transform_publisher --frame-id PSM1_psm_base_link --child-frame-id camera --x 0.18 --y 0.03 --z 0.01 --roll 2.70526034 --pitch -0.78539816 --yaw -2.53072742
+    ros2 run tf2_ros static_transform_publisher --frame-id PSM1_base_link --child-frame-id camera --x 0.18 --y 0.03 --z 0.01 --roll 2.70526034 --pitch -0.78539816 --yaw -2.53072742
     ros2 run tf2_tools view_frames 
     ```
 
@@ -434,7 +443,7 @@ A `frame_id` addattag értéke legyen `camera`. Másoljuk az alábbi kódot a `d
 
 
 
-3. Számoljuk át a kapott marker pozíciókat a `camera` koordináta rendszerből a `PSM1_psm_base_link` koordináta rendszerbe, hogy helyes legyen a megfogás pozíciója. A koordináta rendszerek közötti transzformáció:
+3. Számoljuk át a kapott marker pozíciókat a `camera` koordináta rendszerből a `PSM1_base_link` koordináta rendszerbe, hogy helyes legyen a megfogás pozíciója. A koordináta rendszerek közötti transzformáció:
 
     $$
     roll=155^{\circ}, pitch=-45^{\circ}, yaw=-145^{\circ}, \mathbf{t}_{base,cam} = \left[\matrix{0.18 \\ 0.03 \\ 0.01\\ }\right]
@@ -479,6 +488,7 @@ A `frame_id` addattag értéke legyen `camera`. Másoljuk az alábbi kódot a `d
 ## Hasznos linkek
 
 - [Download and compile dVRK 2](https://dvrk.readthedocs.io/main/pages/software/compilation/ros2.html)
+- [DVRK Simulation usage](https://dvrk.readthedocs.io/main/pages/usage/simulation.html#usage-simulation)
 - [Marker examples](https://www.programcreek.com/python/example/88812/visualization_msgs.msg.Marker)
 - [Numpy vector magnitude](https://numpy.org/doc/stable/reference/generated/numpy.linalg.norm.html)
 - [Numpy linspace](https://numpy.org/doc/stable/reference/generated/numpy.linspace.html)
