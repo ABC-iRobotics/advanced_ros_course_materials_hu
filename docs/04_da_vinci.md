@@ -266,8 +266,6 @@ Tanulmányozzuk a szimulátor működését a tanult parancsok
         ```
 
 
-ros2 topic pub --once /PSM1/hold std_msgs/msg/Empty '{}'
-
 
 ---
 
