@@ -1027,8 +1027,15 @@ ros2<span class="w"> </span>launch<span class="w"> </span>dvrk_model<span class=
 <div class="highlight"><pre><span></span><code><span class="c1"># dVRK patient cart</span>
 ros2<span class="w"> </span>launch<span class="w"> </span>dvrk_model<span class="w"> </span>patient_cart.launch.py<span class="w"> </span>generation:<span class="o">=</span>Classic<span class="w">    </span>
 </code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A használt szimulátor hajlamos rá, hogy bizonyos értékek "beragadjanak", hard reset:
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>--once<span class="w"> </span>/PSM1/hold<span class="w"> </span>std_msgs/msg/Empty<span class="w"> </span><span class="s1">&#39;{}&#39;</span>
+</code></pre></div></p>
+</div>
 </li>
 </ol>
+<p>ros2 topic pub --once /PSM1/hold std_msgs/msg/Empty '{}'</p>
 <hr />
 <h3 id="2-psm-subscriber-implementalasa">2: PSM subscriber implementálása</h3>
 <hr />
@@ -1079,7 +1086,7 @@ x, y és z komponensét idő függvényében.</p>
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>A használt szimulátor hajlamos rá, hogy bizonyos értékek "beragadjanak", ezért a program elején érdemes az alábbi sorok használatával resetelni a kart:
+<p>A program elején érdemes az alábbi sorok használatával resetelni a kart:
 <div class="highlight"><pre><span></span><code><span class="c1">#Reset the arm</span>
 <span class="n">psm</span><span class="o">.</span><span class="n">move_tcp_to</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.12</span><span class="p">],</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
 <span class="n">psm</span><span class="o">.</span><span class="n">move_jaw_to</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
