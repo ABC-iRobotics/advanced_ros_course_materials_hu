@@ -1003,7 +1003,8 @@ sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> <
 <p>Klónozzuk a dVRK-t (da Vinci Reserach Kit) <code>vcs</code> segítségével egy új workspace-be, majd build-eljük:</p>
 <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/dvrk2_ws/src
 <span class="nb">cd</span><span class="w"> </span>~/dvrk2_ws/src<span class="w">                </span>
-vcs<span class="w"> </span>import<span class="w"> </span>--input<span class="w"> </span>https://raw.githubusercontent.com/jhu-saw/vcs/main/ros2-dvrk-main.vcs<span class="w"> </span>--recursive<span class="w">    </span><span class="nb">cd</span><span class="w"> </span>~/dvrk2_ws
+vcs<span class="w"> </span>import<span class="w"> </span>--input<span class="w"> </span>https://raw.githubusercontent.com/jhu-saw/vcs/main/ros2-dvrk-main.vcs<span class="w"> </span>--recursive
+<span class="nb">cd</span><span class="w"> </span>~/dvrk2_ws
 colcon<span class="w"> </span>build<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w">   </span>
 <span class="nb">source</span><span class="w"> </span>~/dvrk2_ws/install/setup.bash
 </code></pre></div>
@@ -1022,14 +1023,12 @@ Tanulmányozzuk a szimulátor működését a tanult parancsok
 <div class="highlight"><pre><span></span><code><span class="c1"># PSM1 Classic</span>
 ros2<span class="w"> </span>launch<span class="w"> </span>dvrk_model<span class="w"> </span>arm.launch.py<span class="w"> </span>arm:<span class="o">=</span>PSM1<span class="w"> </span>generation:<span class="o">=</span>Classic
 </code></pre></div>
+<p>vagy</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># dVRK patient cart</span>
+ros2<span class="w"> </span>launch<span class="w"> </span>dvrk_model<span class="w"> </span>patient_cart.launch.py<span class="w"> </span>generation:<span class="o">=</span>Classic<span class="w">    </span>
+</code></pre></div>
 </li>
 </ol>
-<p>vagy</p>
-<pre><code>```bash
-# dVRK patient cart
-ros2 launch dvrk_model patient_cart.launch.py generation:=Classic    
-```
-</code></pre>
 <hr />
 <h3 id="2-psm-subscriber-implementalasa">2: PSM subscriber implementálása</h3>
 <hr />
