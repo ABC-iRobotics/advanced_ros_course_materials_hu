@@ -225,7 +225,8 @@ pip3 install matplotlib
     ```bash
     mkdir -p ~/dvrk2_ws/src
     cd ~/dvrk2_ws/src                
-    vcs import --input https://raw.githubusercontent.com/jhu-saw/vcs/main/ros2-dvrk-main.vcs --recursive    cd ~/dvrk2_ws
+    vcs import --input https://raw.githubusercontent.com/jhu-saw/vcs/main/ros2-dvrk-main.vcs --recursive
+    cd ~/dvrk2_ws
     colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release   
     source ~/dvrk2_ws/install/setup.bash
     ```
@@ -250,7 +251,7 @@ Tanulmányozzuk a szimulátor működését a tanult parancsok
     ros2 launch dvrk_model arm.launch.py arm:=PSM1 generation:=Classic
     ```
 
-vagy
+    vagy
 
 
     ```bash
