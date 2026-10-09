@@ -212,7 +212,7 @@ pip3 install matplotlib
 1. Telepítsük az alábbi dependency-ket:
 
     ```bash
-    sudo apt install libraw1394-dev libncurses5-dev qtcreator swig sox espeak cmake-curses-gui cmake-qt-gui git subversion libcppunit-dev qt6-base-dev qt6-5compat-dev qt6-tools-dev qt6-declarative-dev qt6-svg-dev libgl-dev libegl-dev libhidapi-dev python3-pyudev libgraphviz-dev # dVRK
+    sudo apt install git-lfs libraw1394-dev libncurses5-dev qtcreator swig sox espeak cmake-curses-gui cmake-qt-gui git subversion libcppunit-dev qt6-base-dev qt6-5compat-dev qt6-tools-dev qt6-declarative-dev qt6-svg-dev libgl-dev libegl-dev libhidapi-dev python3-pyudev libgraphviz-dev # dVRK
     sudo apt install ros-jazzy-joint-state-publisher* ros-jazzy-xacro ros-jazzy-camera-info-manager ros-jazzy-image-transport ros-jazzy-image-transport-plugins # ROS
     sudo apt install libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libcairo2-dev libjsoncpp-dev python3-opencv python3-numpy libgtk-3-dev libgtkmm-3.0-dev # stereo viewer & data collection    
     ```
