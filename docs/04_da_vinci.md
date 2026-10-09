@@ -259,6 +259,15 @@ Tanulmányozzuk a szimulátor működését a tanult parancsok
     ros2 launch dvrk_model patient_cart.launch.py generation:=Classic    
     ```
 
+    !!! note
+        A használt szimulátor hajlamos rá, hogy bizonyos értékek "beragadjanak", hard reset:
+        ```bash
+        ros2 topic pub --once /PSM1/hold std_msgs/msg/Empty '{}'
+        ```
+
+
+ros2 topic pub --once /PSM1/hold std_msgs/msg/Empty '{}'
+
 
 ---
 
@@ -329,7 +338,7 @@ x, y és z komponensét idő függvényében.
     ```
 
     !!! note
-        A használt szimulátor hajlamos rá, hogy bizonyos értékek "beragadjanak", ezért a program elején érdemes az alábbi sorok használatával resetelni a kart:
+        A program elején érdemes az alábbi sorok használatával resetelni a kart:
         ```python
         #Reset the arm
         psm.move_tcp_to([0.0, 0.0, -0.12], 0.01, 0.01)
