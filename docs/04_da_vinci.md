@@ -100,6 +100,10 @@ $$
     -  csukló koordináták, sebességek, gyorsulások, nyomatékok...
 
 
+!!! abstract "Def. Konfiguráció"
+    A robot pillanatnyi csuklószögeiből képzett vektor vagy tömb.
+
+
 ---
 
 ### Python libraries
