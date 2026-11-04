@@ -3,7 +3,7 @@ title: ROS Action, ROS Service
 author: Levendovics Tamás
 ---
 
-# 08. ROS service, ROS action fogalma, felhasználása
+# 07. ROS service, ROS action fogalma, felhasználása
 
 ---
 

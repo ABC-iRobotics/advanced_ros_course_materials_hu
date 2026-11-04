@@ -14,8 +14,8 @@ nav:
     - 4. Robotikai alapismeretek, Sebészrobot programozása: 04_da_vinci.md
     - 5. Verziókövetés, Git: 05_git.md
     - 6. ROS 2 Launch, Param, Bag: 06_roslaunch.md
-    - 7. Kinematika, inverz kinematika: 07_robotics_principles.md
-    - 8. ROS 2 Service, ROS 2 Action: 08_service_action.md
+    - 7. ROS 2 Service, ROS 2 Action: 07_service_action.md
+    - 8. Kinematika, inverz kinematika: 08_robotics_principles.md
     - Kötelező program: projects.md
     
 
