@@ -15,10 +15,6 @@
         <link rel="canonical" href="https://abc-irobotics.github.io/advanced_ros_course_materials_hu/07_service_action/">
       
       
-        <link rel="prev" href="../06_roslaunch/">
-      
-      
-        <link rel="next" href="../08_robotics_principles/">
       
       
         
@@ -482,37 +478,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    7. ROS 2 Service, ROS 2 Action
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../07_service_action_lite/" class="md-nav__link">
         
   
   
@@ -528,221 +497,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Tartalomjegyzék">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Tartalomjegyzék
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#elmelet" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Elmélet
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Elmélet">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ros-service" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ROS Service
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="ROS Service">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ros-srv-files" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ROS .srv files
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ros-action" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ROS Action
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="ROS Action">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ros-action-files" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ROS .action files
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#building-custom-interfaces-msg-srv-and-action-files" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Building custom interfaces (.msg , .srv and .action files)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#gyakorlat" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Gyakorlat
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Gyakorlat">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-actions-with-turtlesim" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1: Actions with Turtlesim
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-psm-grasp-action" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2: PSM grasp action
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2: PSM grasp action">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#21-dvrk-ros2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.1: dVRK ROS2
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#22-grasp-action-letrehozasa" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.2: Grasp action létrehozása
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#22-grasp-server-implementalasa" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.2: Grasp server implementálása
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#23-grasp-client-implementalasa" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.3: Grasp client implementálása
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-isprime-service" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. IsPrime service
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#hasznos-linkek" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Hasznos linkek
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1046,7 +800,7 @@ megragadja a goal-ban szerepló koordinátákon található tárgyat (a dummy ma
 ros2<span class="w"> </span>action<span class="w"> </span>list<span class="w"> </span>-t
 ros2<span class="w"> </span>action<span class="w"> </span>info<span class="w"> </span>/grasp
 ros2<span class="w"> </span>interface<span class="w"> </span>show<span class="w"> </span>ros2_course_msgs/action/Grasp
-ros2<span class="w"> </span>action<span class="w"> </span>send_goal<span class="w"> </span>--feedback<span class="w"> </span>/grasp<span class="w"> </span>ros2_course_msgs/action/Grasp<span class="w"> </span><span class="s2">&quot;{grasp_pos: {x: 0.0, y: 0.0, z: -0.18}}&quot;</span>
+ros2<span class="w"> </span>action<span class="w"> </span>send_goal<span class="w"> </span>--feedback<span class="w"> </span>/grasp<span class="w"> </span>ros2_course_msgs/action/Grasp<span class="w"> </span><span class="s2">&quot;{grasp_pos: {x: -0.018, y: 0.034, z: 0.26}}&quot;</span>
 </code></pre></div>
 </li>
 </ol>
@@ -1069,8 +823,8 @@ megragadására.</p>
 <hr />
 </li>
 <li>
-<p>Futtassuk az action client-et (<code>grasp_client</code>) és a <code>dummy_marker</code>-t:</p>
-<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>run<span class="w"> </span>ros2_course<span class="w"> </span>dummy_marker
+<p>Futtassuk az action client-et (<code>grasp_client</code>) és a <code>dummy_target_publisher</code>-t:</p>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>run<span class="w"> </span>ros2_course<span class="w"> </span>dummy_target_publisher
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>run<span class="w"> </span>ros2_course<span class="w"> </span>grasp_client
 </code></pre></div>
