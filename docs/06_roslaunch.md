@@ -84,7 +84,6 @@ ahol a launch fájlokat tárolhatjuk majd:
     mkdir launch
     ```
 
-    ---   
 
 2. Az új `launch` mappában hozzuk létre a `turtlesim_mimic_launch.py` fájlt a
 következő taralommal:
@@ -119,8 +118,7 @@ következő taralommal:
         ])
     ```
 
-
-    ---
+   
 
 3. Egészítsük ki a `setup.py` fájlt az alábbiakkal:
 
@@ -140,7 +138,7 @@ következő taralommal:
     ],
     ```
 
-    ---
+ 
 
 4. Adjuk hozzá a `ros2launch` dependency-t a `package.xml` fájlhoz:
 
@@ -148,7 +146,6 @@ következő taralommal:
     <exec_depend>ros2launch</exec_depend>
     ```
 
-    ---
 
 5. Build-eljük a workspace-t:
 
@@ -158,7 +155,7 @@ következő taralommal:
     ```
 
 
-    ---
+  
    
     
 6. Indítsuk el a launch fájlt:
@@ -167,7 +164,7 @@ következő taralommal:
     ros2 launch ros2_course turtlesim_mimic_launch.py
     ```
 
-    ---
+
 
 7. Publikáljunk a topic-ba a parancssorból, új teminál ablakban:
 
@@ -175,7 +172,7 @@ következő taralommal:
     ros2 topic pub -r 1 /turtlesim1/turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: -1.8}}"
     ```
 
-    ---
+
 
 8. Vizsgáljuk a rendszer működését `rqt_gui` segítségével:
 
@@ -192,30 +189,28 @@ következő taralommal:
 1. Készítsünk másolatot a `turtlesim_mimic_launch.py`
 fájlról `turtlesim_controller_launch.py` névvel.
 
-    ---
+ 
 
 2. Adjuk hozzá az előző órán megírt `turtlesim_controller` node-ot a launch fájlhoz.
 Az írányítandó teknőst a `namespace` vagy a `remappings` segítségével tudjuk beállítani.
 
-    ---
+  
 
-5. Build-eljük a workspace-t:
+3. Build-eljük a workspace-t:
 
     ```bash
     cd ros2_ws
     colcon build --symlink-install
     ```
 
+   
 
-    ---
-
-6. Indítsuk el az új launch fájlt:
+4. Indítsuk el az új launch fájlt:
 
     ```bash
     ros2 launch ros2_course turtlesim_controller_launch.py
     ```
 
-    ---
 
 ---
     
@@ -254,7 +249,7 @@ ROS paramétereken keresztül legyen állítható. API példa a paraméterekhez:
     ```
 
 
-    ---
+
     
 2. Futtassuk a `turtlesim_controller.py`-t a korábban megírt launch file segítségével.
 Listázzuk ki a paramétereket. 
@@ -267,7 +262,7 @@ Listázzuk ki a paramétereket.
     ros2 param list
     ```
 
-    ---
+
     
 3. Módosítsuk a sebesség és szögsebesség paramétereket parancssorból az alábbi parancs segítségével:
 
@@ -388,7 +383,7 @@ fájl argumentumaiként legyenek megadhatóak.
     ```
 
 
-    ---
+  
 
 2. Build-eljük a workspace-t és futtassuk a `turtlesim_controller_param_launch.py`-t:
 
@@ -398,7 +393,7 @@ fájl argumentumaiként legyenek megadhatóak.
     ros2 launch ros2_course turtlesim_controller_param_launch.py
     ```
 
-    ---
+ 
 
 3. Listázzuk ki az új launch fájl argumentumait:
 
@@ -406,7 +401,7 @@ fájl argumentumaiként legyenek megadhatóak.
     ros2 launch ros2_course turtlesim_controller_param_launch.py --show-args
     ```
    
-    ---
+   
 
 4. Futtassuk a launch fájlt az argumentumok beállításával:
 
@@ -414,7 +409,7 @@ fájl argumentumaiként legyenek megadhatóak.
     ros2 launch ros2_course turtlesim_controller_param_launch.py speed:=100.0 omega:=60.0
     ```
 
-    ---
+
 
 5. A fenti példa segítségével állítsuk a háttér színét szintén parancssori argumentum(ok) felhasználásával.
 
@@ -436,7 +431,7 @@ fájl argumentumaiként legyenek megadhatóak.
         ros2 bag record -o turtle_bagfile_1 /turtle1/cmd_vel /turtle1/pose
         ```
     
-    ---
+
 
 2. Használjuk az alábbi parancsot a bag fájl tulajdonságainak lekérdezésére:
 
@@ -444,9 +439,9 @@ fájl argumentumaiként legyenek megadhatóak.
     ros2 bag info <PATH_TO_BAGFILE>
     ```
 
-    ---
+   
 
-4. Játsszuk vissza a bag fájlt és jelenítsük meg az egyik teknőc  `pose/x` értékét grafikonon  `rqt_gui` segítségével.
+3. Játsszuk vissza a bag fájlt és jelenítsük meg az egyik teknőc  `pose/x` értékét grafikonon  `rqt_gui` segítségével.
 
     ```bash
     ros2 bag info <PATH_TO_BAGFILE>
