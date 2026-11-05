@@ -96,36 +96,37 @@ float32 percent_complete
 
 ### 1. ROS Service-ek használata Turtlesimben
 
-**1.** Indítsunk el egy Turtlesim szimulátort, majd külön terminálban a billentyűzetes vezérlést:
+1. Indítsunk el egy Turtlesim szimulátort, majd külön terminálban a billentyűzetes vezérlést:
 
-```bash
-ros2 run turtlesim turtlesim_node
-```
+    ```bash
+    ros2 run turtlesim turtlesim_node
+    ```
 
-```bash
-ros2 run turtlesim turtle_teleop_key
-```
+    ```bash
+    ros2 run turtlesim turtle_teleop_key
+    ```
 
-**2.** Vizsgáljuk meg az elérhető Service-eket és a hozzájuk tartozó interfészeket:
 
-```bash
-ros2 service list -t
-ros2 service type /spawn
-ros2 interface show turtlesim/srv/Spawn
-ros2 node info /turtlesim
-```
+2. Vizsgáljuk meg az elérhető Service-eket és a hozzájuk tartozó interfészeket:
 
-**3.** Hozzunk létre egy második teknőst a `(2.0, 2.0)` pozícióban:
+    ```bash
+    ros2 service list -t
+    ros2 service type /spawn
+    ros2 interface show turtlesim/srv/Spawn
+    ros2 node info /turtlesim
+    ```
 
-```bash
-ros2 service call /spawn turtlesim/srv/Spawn "{x: 2.0, y: 2.0, theta: 0.0, name: 'turtle2'}"
-```
+3. Hozzunk létre egy második teknőst a `(2.0, 2.0)` pozícióban:
 
-Figyeljük meg a választ, majd töröljük a második teknőst:
+    ```bash
+    ros2 service call /spawn turtlesim/srv/Spawn "{x: 2.0, y: 2.0, theta: 0.0, name: 'turtle2'}"
+    ```
 
-```bash
-ros2 service call /kill turtlesim/srv/Kill "{name: 'turtle2'}"
-```
+4. Figyeljük meg a választ, majd töröljük a második teknőst:
+
+    ```bash
+    ros2 service call /kill turtlesim/srv/Kill "{name: 'turtle2'}"
+    ```
 
 
 ---
@@ -136,106 +137,106 @@ Készítsünk olyan ROS node-ot, amely a `/turtle1/pose` topicról olvassa a tek
 
 A szerver a `std_srvs/srv/Trigger` típust használja: a kérés üres, a válasz `success` mezője jelzi a feltétel teljesülését, a `message` pedig a mért távolságot tartalmazza.
 
-**1.** Hozzuk létre a `position_checker.py` fájlt a meglévő `ros2_course` Python-csomagban. Adjuk hozzá az új entry point-ot a `setup.py`-hoz.
+1. Hozzuk létre a `position_checker.py` fájlt a meglévő `ros2_course` Python-csomagban. Adjuk hozzá az új entry point-ot a `setup.py`-hoz.
 
-```python
-import math
-import rclpy
-from rclpy.node import Node
-from turtlesim.msg import Pose
-from std_srvs.srv import Trigger
+    ```python
+    import math
+    import rclpy
+    from rclpy.node import Node
+    from turtlesim.msg import Pose
+    from std_srvs.srv import Trigger
 
 
-class PositionChecker(Node):
+    class PositionChecker(Node):
 
-    def __init__(self):
-        super().__init__('position_checker')
+        def __init__(self):
+            super().__init__('position_checker')
 
-        self.pose = None
+            self.pose = None
 
-        # Subscriber: aktuális teknőspozíció
-        self.pose_sub = self.create_subscription(
-            Pose,
-            '/turtle1/pose',
-            self.pose_callback,
-            10
-        )
+            # Subscriber: aktuális teknőspozíció
+            self.pose_sub = self.create_subscription(
+                Pose,
+                '/turtle1/pose',
+                self.pose_callback,
+                10
+            )
 
-        # Service Server
-        self.service = self.create_service(
-            Trigger,
-            '/check_position',
-            self.check_position_callback
-        )
+            # Service Server
+            self.service = self.create_service(
+                Trigger,
+                '/check_position',
+                self.check_position_callback
+            )
 
-    def pose_callback(self, msg):
-        self.pose = msg
+        def pose_callback(self, msg):
+            self.pose = msg
 
-    def check_position_callback(self, request, response):
-        if self.pose is None:
-            response.success = False
-            response.message = 'No pose received.'
+        def check_position_callback(self, request, response):
+            if self.pose is None:
+                response.success = False
+                response.message = 'No pose received.'
+                return response
+
+            # TODO 1: számítsuk ki a távolságot az (5.5, 5.5) ponttól!
+            distance = ...
+
+            # TODO 2: igaz-e, hogy a távolság legfeljebb 2.0?
+            response.success = ...
+            response.message = f'Distance: {distance:.2f}'
+
             return response
 
-        # TODO 1: számítsuk ki a távolságot az (5.5, 5.5) ponttól!
-        distance = ...
 
-        # TODO 2: igaz-e, hogy a távolság legfeljebb 2.0?
-        response.success = ...
-        response.message = f'Distance: {distance:.2f}'
+    def main(args=None):
+        rclpy.init(args=args)
+        node = PositionChecker()
 
-        return response
-
-
-def main(args=None):
-    rclpy.init(args=args)
-    node = PositionChecker()
-
-    try:
-        rclpy.spin(node)
-    except KeyboardInterrupt:
-        pass
-    finally:
-        node.destroy_node()
-        if rclpy.ok():
-            rclpy.shutdown()
+        try:
+            rclpy.spin(node)
+        except KeyboardInterrupt:
+            pass
+        finally:
+            node.destroy_node()
+            if rclpy.ok():
+                rclpy.shutdown()
 
 
-if __name__ == '__main__':
-    main()
-```
+    if __name__ == '__main__':
+        main()
+    ```
 
-**2.** Egészítsük ki a két `TODO` sort! 
+2. Egészítsük ki a két `TODO` sort! 
 
 
-**3.** Győződjünk meg róla, hogy a `package.xml` tartalmazza a futásidejű függőségeket:
+3. Győződjünk meg róla, hogy a `package.xml` tartalmazza a futásidejű függőségeket:
 
-```xml
-<exec_depend>rclpy</exec_depend>
-<exec_depend>turtlesim</exec_depend>
-<exec_depend>std_srvs</exec_depend>
-```
+    ```xml
+    <exec_depend>rclpy</exec_depend>
+    <exec_depend>turtlesim</exec_depend>
+    <exec_depend>std_srvs</exec_depend>
+    ```
 
-**4.** Fordítsuk a csomagot, majd futtassuk az új node-ot (a Turtlesim maradjon elindítva):
+4. Fordítsuk a csomagot, majd futtassuk az új node-ot (a Turtlesim maradjon elindítva):
 
-```bash
-cd ~/ros2_ws
-colcon build --symlink-install
-ros2 run ros2_course position_checker
-```
+    ```bash
+    cd ~/ros2_ws
+    colcon build --symlink-install
+    ros2 run ros2_course position_checker
+    ```
 
-Egy másik terminálban vizsgáljuk meg a Service-t, majd hívjuk meg:
+    Egy másik terminálban vizsgáljuk meg a Service-t, majd hívjuk meg:
 
-```bash
-ros2 service list -t
-ros2 service type /check_position
-ros2 interface show std_srvs/srv/Trigger
-ros2 service call /check_position std_srvs/srv/Trigger "{}"
-```
+    ```bash
+    ros2 service list -t
+    ros2 service type /check_position
+    ros2 interface show std_srvs/srv/Trigger
+    ros2 service call /check_position std_srvs/srv/Trigger "{}"
+    ```
 
-Mozgassuk el a teknőst a billentyűzetes vezérléssel, és ismételjük meg a hívást. Figyeljük meg, hogyan változik a `success` érték és a távolság!
+    Mozgassuk el a teknőst a billentyűzetes vezérléssel, és ismételjük meg a hívást. Figyeljük meg, hogyan változik a `success` érték és a távolság!
 
----
+
 
 
 ---
@@ -244,51 +245,32 @@ Mozgassuk el a teknőst a billentyűzetes vezérléssel, és ismételjük meg a 
 
 Az Action működését most parancssorból vizsgáljuk meg. Saját Action Server és Action Client implementálása nem szükséges.
 
-**1.** Indítsuk el a Turtlesim és a billentyűzetes vezérlés node-jait, ha még nem futnak:
+1. Indítsuk el a Turtlesim és a billentyűzetes vezérlés node-jait, ha még nem futnak:
 
-```bash
-ros2 run turtlesim turtlesim_node
-```
+    ```bash
+    ros2 run turtlesim turtlesim_node
+    ```
 
-```bash
-ros2 run turtlesim turtle_teleop_key
-```
+    ```bash
+    ros2 run turtlesim turtle_teleop_key
+    ```
 
-**2.** Vizsgáljuk meg az Action-öket:
+2. Vizsgáljuk meg az Action-öket:
 
-```bash
-ros2 action list -t
-ros2 action info /turtle1/rotate_absolute
-ros2 interface show turtlesim/action/RotateAbsolute
-```
+    ```bash
+    ros2 action list -t
+    ros2 action info /turtle1/rotate_absolute
+    ros2 interface show turtlesim/action/RotateAbsolute
+    ```
 
-**3.** Küldjünk célszöget az Action Servernek, és kérjük a feedback megjelenítését:
+3. Küldjünk célszöget az Action Servernek, és kérjük a feedback megjelenítését:
 
-```bash
-ros2 action send_goal /turtle1/rotate_absolute \
-  turtlesim/action/RotateAbsolute "{theta: 3.14}" --feedback
-```
+    ```bash
+    ros2 action send_goal /turtle1/rotate_absolute turtlesim/action/RotateAbsolute "{theta: 3.14}" --feedback
+    ```
 
-Próbáljunk ki más célszöget is, például `1.57` radiánt. A `turtle_teleop_key` termináljában használható abszolút forgatási billentyűk hatását is megfigyelhetjük.
+    Próbáljunk ki más célszöget is, például `1.57` radiánt. A `turtle_teleop_key` termináljában használható abszolút forgatási billentyűk hatását is megfigyelhetjük.
 
-
----
-
-### 5. Önálló feladat
-
-1. Hozzunk létre egy `turtle2` nevű teknőst a `(2.0, 2.0)` pozícióban a `/spawn` Service segítségével.
-2. Fordítsuk el a `turtle1` teknőst a `/turtle1/rotate_absolute` Action használatával.
-3. Helyezzük át a `turtle2` teknőst az alábbi Service meghívásával:
-
-   ```bash
-   ros2 service call /turtle2/teleport_absolute turtlesim/srv/TeleportAbsolute \
-     "{x: 5.5, y: 5.5, theta: 0.0}"
-   ```
-
-4. Mozgassuk a `turtle1` teknőst a billentyűzetekkel, és ellenőrizzük a saját `/check_position` Service-ünk válaszát a középpont közelében és attól távol.
-
-!!! question "Összefoglaló kérdés"
-    A fenti feladatban mely műveletek használtak Topicot, melyek Service-t és melyik Actiont?
 
 
 
