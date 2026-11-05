@@ -829,7 +829,6 @@ ahol a launch fájlokat tárolhatjuk majd:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/ros2_ws/src/ros2_course
 mkdir<span class="w"> </span>launch
 </code></pre></div>
-<hr />
 </li>
 <li>
 <p>Az új <code>launch</code> mappában hozzuk létre a <code>turtlesim_mimic_launch.py</code> fájlt a
@@ -862,7 +861,6 @@ következő taralommal:</p>
         <span class="p">)</span>
     <span class="p">])</span>
 </code></pre></div>
-<hr />
 </li>
 <li>
 <p>Egészítsük ki a <code>setup.py</code> fájlt az alábbiakkal:</p>
@@ -880,32 +878,27 @@ from<span class="w"> </span>glob<span class="w"> </span>import<span class="w"> <
 <span class="w">        </span>glob<span class="o">(</span><span class="s1">&#39;launch/*launch.[pxy][yma]*&#39;</span><span class="o">))</span>
 <span class="o">]</span>,
 </code></pre></div>
-<hr />
 </li>
 <li>
 <p>Adjuk hozzá a <code>ros2launch</code> dependency-t a <code>package.xml</code> fájlhoz:</p>
 <div class="highlight"><pre><span></span><code>&lt;exec_depend&gt;ros2launch&lt;/exec_depend&gt;
 </code></pre></div>
-<hr />
 </li>
 <li>
 <p>Build-eljük a workspace-t:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>ros2_ws
 colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
 </code></pre></div>
-<hr />
 </li>
 <li>
 <p>Indítsuk el a launch fájlt:</p>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>ros2_course<span class="w"> </span>turtlesim_mimic_launch.py
 </code></pre></div>
-<hr />
 </li>
 <li>
 <p>Publikáljunk a topic-ba a parancssorból, új teminál ablakban:</p>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>-r<span class="w"> </span><span class="m">1</span><span class="w"> </span>/turtlesim1/turtle1/cmd_vel<span class="w"> </span>geometry_msgs/msg/Twist<span class="w"> </span><span class="s2">&quot;{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: -1.8}}&quot;</span>
 </code></pre></div>
-<hr />
 </li>
 <li>
 <p>Vizsgáljuk a rendszer működését <code>rqt_gui</code> segítségével:</p>
@@ -920,25 +913,21 @@ colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
 <li>
 <p>Készítsünk másolatot a <code>turtlesim_mimic_launch.py</code>
 fájlról <code>turtlesim_controller_launch.py</code> névvel.</p>
-<hr />
 </li>
 <li>
 <p>Adjuk hozzá az előző órán megírt <code>turtlesim_controller</code> node-ot a launch fájlhoz.
 Az írányítandó teknőst a <code>namespace</code> vagy a <code>remappings</code> segítségével tudjuk beállítani.</p>
-<hr />
 </li>
 <li>
 <p>Build-eljük a workspace-t:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>ros2_ws
 colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
 </code></pre></div>
-<hr />
 </li>
 <li>
 <p>Indítsuk el az új launch fájlt:</p>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>ros2_course<span class="w"> </span>turtlesim_controller_launch.py
 </code></pre></div>
-<hr />
 </li>
 </ol>
 <hr />
@@ -972,7 +961,6 @@ ROS paramétereken keresztül legyen állítható. API példa a paraméterekhez:
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
-<hr />
 </li>
 <li>
 <p>Futtassuk a <code>turtlesim_controller.py</code>-t a korábban megírt launch file segítségével.
@@ -981,7 +969,6 @@ Listázzuk ki a paramétereket. </p>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>param<span class="w"> </span>list
 </code></pre></div>
-<hr />
 </li>
 <li>
 <p>Módosítsuk a sebesség és szögsebesség paramétereket parancssorból az alábbi parancs segítségével:</p>
@@ -1097,7 +1084,6 @@ fájl argumentumaiként legyenek megadhatóak.</p>
         <span class="p">)</span>
     <span class="p">])</span>
 </code></pre></div>
-<hr />
 </li>
 <li>
 <p>Build-eljük a workspace-t és futtassuk a <code>turtlesim_controller_param_launch.py</code>-t:</p>
@@ -1105,19 +1091,16 @@ fájl argumentumaiként legyenek megadhatóak.</p>
 colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
 ros2<span class="w"> </span>launch<span class="w"> </span>ros2_course<span class="w"> </span>turtlesim_controller_param_launch.py
 </code></pre></div>
-<hr />
 </li>
 <li>
 <p>Listázzuk ki az új launch fájl argumentumait:</p>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>ros2_course<span class="w"> </span>turtlesim_controller_param_launch.py<span class="w"> </span>--show-args
 </code></pre></div>
-<hr />
 </li>
 <li>
 <p>Futtassuk a launch fájlt az argumentumok beállításával:</p>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>ros2_course<span class="w"> </span>turtlesim_controller_param_launch.py<span class="w"> </span>speed:<span class="o">=</span><span class="m">100</span>.0<span class="w"> </span>omega:<span class="o">=</span><span class="m">60</span>.0
 </code></pre></div>
-<hr />
 </li>
 <li>
 <p>A fenti példa segítségével állítsuk a háttér színét szintén parancssori argumentum(ok) felhasználásával.</p>
@@ -1137,13 +1120,11 @@ ros2<span class="w"> </span>launch<span class="w"> </span>ros2_course<span class
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>bag<span class="w"> </span>record<span class="w"> </span>-o<span class="w"> </span>turtle_bagfile_1<span class="w"> </span>/turtle1/cmd_vel<span class="w"> </span>/turtle1/pose
 </code></pre></div></p>
 </div>
-<hr />
 </li>
 <li>
 <p>Használjuk az alábbi parancsot a bag fájl tulajdonságainak lekérdezésére:</p>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>bag<span class="w"> </span>info<span class="w"> </span>&lt;PATH_TO_BAGFILE&gt;
 </code></pre></div>
-<hr />
 </li>
 <li>
 <p>Játsszuk vissza a bag fájlt és jelenítsük meg az egyik teknőc  <code>pose/x</code> értékét grafikonon  <code>rqt_gui</code> segítségével.</p>
