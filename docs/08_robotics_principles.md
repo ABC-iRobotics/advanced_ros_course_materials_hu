@@ -7,6 +7,9 @@ author: Levendovics Tamás
 
 ---
 
+!!! warning
+    **ZH2** **december 4.** **10:45** **F.04 terem**
+
 ## Ismétlés
 
 ---

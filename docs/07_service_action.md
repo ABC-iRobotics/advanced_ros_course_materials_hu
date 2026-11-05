@@ -11,8 +11,7 @@ author: Levendovics Tamás
 
 --- 
 
-!!! warning
-	**ZH2** **december 5.** **12:35** **BA.1.10 terem**
+
 
 
 ### ROS Service
@@ -52,7 +51,7 @@ uint32 an_integer
 
 ### ROS Action
 
-![](https://docs.ros.org/en/foxy/_images/Action-SingleActionClient.gif){:style="width:800px"}
+![](https://docs.ros.org/en/jazzy/_images/Action-SingleActionClient.gif){:style="width:800px"}
 
 <!--suppress XmlDeprecatedElement -->
 <font size="1"> Image source: https://docs.ros.org/ </font>
@@ -180,19 +179,8 @@ dvrk_PSM1->grasp_server [label="   measured_cp\n    jaw/measured_js"]
 
 
     ```bash
-    # dVRK main console
-    ros2 run dvrk_robot dvrk_console_json -j ~/dvrk2_ws/install/sawIntuitiveResearchKitAll/share/sawIntuitiveResearchKit/share/console/console-PSM1_KIN_SIMULATED.json
-    ```
-
-    ```bash
-    # ROS 2 joint and robot state publishers
-    ros2 launch dvrk_model dvrk_state_publisher.launch.py arm:=PSM1
-    ```
-   
-
-    ```bash
-    # RViz
-    ros2 run rviz2 rviz2 -d ~/dvrk2_ws/install/dvrk_model/share/dvrk_model/rviz/PSM1.rviz
+    # PSM1 Classic
+    ros2 launch dvrk_model arm.launch.py arm:=PSM1 generation:=Classic
     ```
 
     ```bash
@@ -277,7 +265,7 @@ dvrk_PSM1->grasp_server [label="   measured_cp\n    jaw/measured_js"]
 
     ```bash
     cd ~/ros2_ws
-    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
+    colcon build --symlink-install
     ```
 
     ---
