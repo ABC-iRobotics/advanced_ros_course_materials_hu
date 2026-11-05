@@ -673,17 +673,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#5-onallo-feladat" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Önálló feladat
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -848,28 +837,40 @@ float32<span class="w"> </span>percent_complete
 <hr />
 <h2 id="gyakorlat">Gyakorlat</h2>
 <h3 id="1-ros-service-ek-hasznalata-turtlesimben">1. ROS Service-ek használata Turtlesimben</h3>
-<p><strong>1.</strong> Indítsunk el egy Turtlesim szimulátort, majd külön terminálban a billentyűzetes vezérlést:</p>
+<ol>
+<li>
+<p>Indítsunk el egy Turtlesim szimulátort, majd külön terminálban a billentyűzetes vezérlést:</p>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>run<span class="w"> </span>turtlesim<span class="w"> </span>turtlesim_node
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>run<span class="w"> </span>turtlesim<span class="w"> </span>turtle_teleop_key
 </code></pre></div>
-<p><strong>2.</strong> Vizsgáljuk meg az elérhető Service-eket és a hozzájuk tartozó interfészeket:</p>
+</li>
+<li>
+<p>Vizsgáljuk meg az elérhető Service-eket és a hozzájuk tartozó interfészeket:</p>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>service<span class="w"> </span>list<span class="w"> </span>-t
 ros2<span class="w"> </span>service<span class="w"> </span><span class="nb">type</span><span class="w"> </span>/spawn
 ros2<span class="w"> </span>interface<span class="w"> </span>show<span class="w"> </span>turtlesim/srv/Spawn
 ros2<span class="w"> </span>node<span class="w"> </span>info<span class="w"> </span>/turtlesim
 </code></pre></div>
-<p><strong>3.</strong> Hozzunk létre egy második teknőst a <code>(2.0, 2.0)</code> pozícióban:</p>
+</li>
+<li>
+<p>Hozzunk létre egy második teknőst a <code>(2.0, 2.0)</code> pozícióban:</p>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>service<span class="w"> </span>call<span class="w"> </span>/spawn<span class="w"> </span>turtlesim/srv/Spawn<span class="w"> </span><span class="s2">&quot;{x: 2.0, y: 2.0, theta: 0.0, name: &#39;turtle2&#39;}&quot;</span>
 </code></pre></div>
+</li>
+<li>
 <p>Figyeljük meg a választ, majd töröljük a második teknőst:</p>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>service<span class="w"> </span>call<span class="w"> </span>/kill<span class="w"> </span>turtlesim/srv/Kill<span class="w"> </span><span class="s2">&quot;{name: &#39;turtle2&#39;}&quot;</span>
 </code></pre></div>
+</li>
+</ol>
 <hr />
 <h3 id="2-sajat-python-service-server-a-teknos-poziciojanak-ellenorzese">2. Saját Python Service Server: a teknős pozíciójának ellenőrzése</h3>
 <p>Készítsünk olyan ROS node-ot, amely a <code>/turtle1/pose</code> topicról olvassa a teknős pozícióját, és a <code>/check_position</code> Service-en keresztül megállapítja, hogy a teknős a <code>(5.5, 5.5)</code> középponttól legfeljebb <code>2.0</code> egységre van-e.</p>
 <p>A szerver a <code>std_srvs/srv/Trigger</code> típust használja: a kérés üres, a válasz <code>success</code> mezője jelzi a feltétel teljesülését, a <code>message</code> pedig a mért távolságot tartalmazza.</p>
-<p><strong>1.</strong> Hozzuk létre a <code>position_checker.py</code> fájlt a meglévő <code>ros2_course</code> Python-csomagban. Adjuk hozzá az új entry point-ot a <code>setup.py</code>-hoz.</p>
+<ol>
+<li>
+<p>Hozzuk létre a <code>position_checker.py</code> fájlt a meglévő <code>ros2_course</code> Python-csomagban. Adjuk hozzá az új entry point-ot a <code>setup.py</code>-hoz.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">rclpy</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">rclpy.node</span><span class="w"> </span><span class="kn">import</span> <span class="n">Node</span>
@@ -935,13 +936,19 @@ ros2<span class="w"> </span>node<span class="w"> </span>info<span class="w"> </s
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
-<p><strong>2.</strong> Egészítsük ki a két <code>TODO</code> sort! </p>
-<p><strong>3.</strong> Győződjünk meg róla, hogy a <code>package.xml</code> tartalmazza a futásidejű függőségeket:</p>
+</li>
+<li>
+<p>Egészítsük ki a két <code>TODO</code> sort! </p>
+</li>
+<li>
+<p>Győződjünk meg róla, hogy a <code>package.xml</code> tartalmazza a futásidejű függőségeket:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;exec_depend&gt;</span>rclpy<span class="nt">&lt;/exec_depend&gt;</span>
 <span class="nt">&lt;exec_depend&gt;</span>turtlesim<span class="nt">&lt;/exec_depend&gt;</span>
 <span class="nt">&lt;exec_depend&gt;</span>std_srvs<span class="nt">&lt;/exec_depend&gt;</span>
 </code></pre></div>
-<p><strong>4.</strong> Fordítsuk a csomagot, majd futtassuk az új node-ot (a Turtlesim maradjon elindítva):</p>
+</li>
+<li>
+<p>Fordítsuk a csomagot, majd futtassuk az új node-ot (a Turtlesim maradjon elindítva):</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/ros2_ws
 colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
 ros2<span class="w"> </span>run<span class="w"> </span>ros2_course<span class="w"> </span>position_checker
@@ -953,42 +960,33 @@ ros2<span class="w"> </span>interface<span class="w"> </span>show<span class="w"
 ros2<span class="w"> </span>service<span class="w"> </span>call<span class="w"> </span>/check_position<span class="w"> </span>std_srvs/srv/Trigger<span class="w"> </span><span class="s2">&quot;{}&quot;</span>
 </code></pre></div>
 <p>Mozgassuk el a teknőst a billentyűzetes vezérléssel, és ismételjük meg a hívást. Figyeljük meg, hogyan változik a <code>success</code> érték és a távolság!</p>
-<hr />
+</li>
+</ol>
 <hr />
 <h3 id="3-ros-action-kiprobalasa-turtlesimben">3. ROS Action kipróbálása Turtlesimben</h3>
 <p>Az Action működését most parancssorból vizsgáljuk meg. Saját Action Server és Action Client implementálása nem szükséges.</p>
-<p><strong>1.</strong> Indítsuk el a Turtlesim és a billentyűzetes vezérlés node-jait, ha még nem futnak:</p>
+<ol>
+<li>
+<p>Indítsuk el a Turtlesim és a billentyűzetes vezérlés node-jait, ha még nem futnak:</p>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>run<span class="w"> </span>turtlesim<span class="w"> </span>turtlesim_node
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>run<span class="w"> </span>turtlesim<span class="w"> </span>turtle_teleop_key
 </code></pre></div>
-<p><strong>2.</strong> Vizsgáljuk meg az Action-öket:</p>
+</li>
+<li>
+<p>Vizsgáljuk meg az Action-öket:</p>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>action<span class="w"> </span>list<span class="w"> </span>-t
 ros2<span class="w"> </span>action<span class="w"> </span>info<span class="w"> </span>/turtle1/rotate_absolute
 ros2<span class="w"> </span>interface<span class="w"> </span>show<span class="w"> </span>turtlesim/action/RotateAbsolute
 </code></pre></div>
-<p><strong>3.</strong> Küldjünk célszöget az Action Servernek, és kérjük a feedback megjelenítését:</p>
-<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>action<span class="w"> </span>send_goal<span class="w"> </span>/turtle1/rotate_absolute<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>turtlesim/action/RotateAbsolute<span class="w"> </span><span class="s2">&quot;{theta: 3.14}&quot;</span><span class="w"> </span>--feedback
+</li>
+<li>
+<p>Küldjünk célszöget az Action Servernek, és kérjük a feedback megjelenítését:</p>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>action<span class="w"> </span>send_goal<span class="w"> </span>/turtle1/rotate_absolute<span class="w"> </span>turtlesim/action/RotateAbsolute<span class="w"> </span><span class="s2">&quot;{theta: 3.14}&quot;</span><span class="w"> </span>--feedback
 </code></pre></div>
 <p>Próbáljunk ki más célszöget is, például <code>1.57</code> radiánt. A <code>turtle_teleop_key</code> termináljában használható abszolút forgatási billentyűk hatását is megfigyelhetjük.</p>
-<hr />
-<h3 id="5-onallo-feladat">5. Önálló feladat</h3>
-<ol>
-<li>Hozzunk létre egy <code>turtle2</code> nevű teknőst a <code>(2.0, 2.0)</code> pozícióban a <code>/spawn</code> Service segítségével.</li>
-<li>Fordítsuk el a <code>turtle1</code> teknőst a <code>/turtle1/rotate_absolute</code> Action használatával.</li>
-<li>Helyezzük át a <code>turtle2</code> teknőst az alábbi Service meghívásával:</li>
+</li>
 </ol>
-<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>service<span class="w"> </span>call<span class="w"> </span>/turtle2/teleport_absolute<span class="w"> </span>turtlesim/srv/TeleportAbsolute<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span><span class="s2">&quot;{x: 5.5, y: 5.5, theta: 0.0}&quot;</span>
-</code></pre></div>
-<ol>
-<li>Mozgassuk a <code>turtle1</code> teknőst a billentyűzetekkel, és ellenőrizzük a saját <code>/check_position</code> Service-ünk válaszát a középpont közelében és attól távol.</li>
-</ol>
-<div class="admonition question">
-<p class="admonition-title">Összefoglaló kérdés</p>
-<p>A fenti feladatban mely műveletek használtak Topicot, melyek Service-t és melyik Actiont?</p>
-</div>
 <hr />
 <h2 id="hasznos-linkek">Hasznos linkek</h2>
 <ul>
