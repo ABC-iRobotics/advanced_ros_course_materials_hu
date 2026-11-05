@@ -52,10 +52,12 @@ uint32 an_integer
 
 ### ROS Action
 
-![](https://docs.ros.org/en/jazzy/_images/Action-SingleActionClient.gif){:style="width:800px"}
+![ROS 2 Action működése](img/Action-SingleActionClient.gif){ width="800" }
 
-<!--suppress XmlDeprecatedElement -->
-<font size="1"> Image source: https://docs.ros.org/ </font>
+<small>
+Forrás: [ROS 2 Documentation](https://docs.ros.org/en/jazzy/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.html).
+Licenc: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+</small>
 
 - Ideal for communication with slower processes, e.g. environmental inetarcion
 - Asynchronous communication (non-blocking)
