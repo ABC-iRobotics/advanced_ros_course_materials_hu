@@ -7,6 +7,31 @@ author: Levendovics Tamás
 
 ---
 
+## *GitHub jelentkezés és kötelező program beadása*
+
+A kötelező programok fejlesztése és beadása az
+[OE-FRP GitHub organization](https://github.com/OE-FRP)
+keretében történik.
+
+A hallgatóknak az organizationhöz való csatlakozás
+kötelező.
+
+**[Jelentkezés az OE-FRP GitHub organizationbe](https://github.com/OE-FRP/jelentkezes/issues/new/choose)**
+
+A jelentkezés menete:
+
+1. Jelentkezz be a saját GitHub-fiókoddal.
+2. Töltsd ki a jelentkezési űrlapot, és válaszd ki a gyakorlati csoportodat.
+3. Az oktatói jóváhagyás után fogadd el a GitHub-meghívót.
+4. Hozz létre egy **private repositoryt** az `OE-FRP` organizationön belül a kötelező programodhoz.
+
+!!! warning "Fontos"
+    A kötelező programok repositoryjainak **private** láthatóságúnak kell lenniük.
+    A repositorykat az `OE-FRP` organizationön belül kell létrehozni.
+    A jelentkezési űrlap nyilvános, ezért Neptun-kódot vagy más személyes adatot ne adj meg!
+
+---
+
 ## Ütemezés
 
 ---
@@ -40,7 +65,7 @@ A kötelező programok a következő szempontok szerint kerülnek értékelésre
 
 - Bizonyítottan saját munka
 - Értékelhető eredményeket produkáljon
-- Verziókövetés használata, feltöltés GitHub/GitLab/egyéb repoba
+- Verziókövetés használata, a forráskód feltöltése az OE-FRP GitHub organizationön belül létrehozott private repositoryba
 - Launch fájlok
 - Megoldás teljessége
 - Megfelelő ROS kommunikáció alkalmazása
