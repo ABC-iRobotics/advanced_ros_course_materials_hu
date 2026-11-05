@@ -12,13 +12,13 @@
         <meta name="author" content="Levendovics Tamás">
       
       
-        <link rel="canonical" href="https://abc-irobotics.github.io/advanced_ros_course_materials_hu/08_service_action/">
+        <link rel="canonical" href="https://abc-irobotics.github.io/advanced_ros_course_materials_hu/07_service_action/">
       
       
-        <link rel="prev" href="../07_robotics_principles/">
+        <link rel="prev" href="../06_roslaunch/">
       
       
-        <link rel="next" href="../projects/">
+        <link rel="next" href="../08_robotics_principles/">
       
       
         
@@ -86,7 +86,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#08-ros-service-ros-action-fogalma-felhasznalasa" class="md-skip">
+        <a href="#07-ros-service-ros-action-fogalma-felhasznalasa" class="md-skip">
           Kihagyás
         </a>
       
@@ -482,33 +482,6 @@
       
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../07_robotics_principles/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    7. Kinematika, inverz kinematika
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
     
   
   
@@ -528,7 +501,7 @@
   <span class="md-ellipsis">
     
   
-    8. ROS 2 Service, ROS 2 Action
+    7. ROS 2 Service, ROS 2 Action
   
 
     
@@ -546,7 +519,7 @@
   <span class="md-ellipsis">
     
   
-    8. ROS 2 Service, ROS 2 Action
+    7. ROS 2 Service, ROS 2 Action
   
 
     
@@ -781,6 +754,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../08_robotics_principles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Kinematika, inverz kinematika
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../projects/" class="md-nav__link">
         
   
@@ -812,7 +812,7 @@
           
             <div class="md-content" data-md-component="content">
               
-              <article class="md-content__inner md-typeset"><a class="md-content__button md-icon" download href="08_service_action.pdf" title="PDF Export"><svg style="height: 1.2rem; width: 1.2rem;" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm76.45 211.36l-96.42 95.7c-6.65 6.61-17.39 6.61-24.04 0l-96.42-95.7C73.42 337.29 80.54 320 94.82 320H160v-80c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v80h65.18c14.28 0 21.4 17.29 11.27 27.36zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"></path></svg></a>
+              <article class="md-content__inner md-typeset"><a class="md-content__button md-icon" download href="07_service_action.pdf" title="PDF Export"><svg style="height: 1.2rem; width: 1.2rem;" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm76.45 211.36l-96.42 95.7c-6.65 6.61-17.39 6.61-24.04 0l-96.42-95.7C73.42 337.29 80.54 320 94.82 320H160v-80c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v80h65.18c14.28 0 21.4 17.29 11.27 27.36zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"></path></svg></a>
                 
                   
 
@@ -821,14 +821,10 @@
   
 
 
-<h1 id="08-ros-service-ros-action-fogalma-felhasznalasa">08. ROS service, ROS action fogalma, felhasználása</h1>
+<h1 id="07-ros-service-ros-action-fogalma-felhasznalasa">07. ROS service, ROS action fogalma, felhasználása</h1>
 <hr />
 <h2 id="elmelet">Elmélet</h2>
 <hr />
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p><strong>ZH2</strong> <strong>december 5.</strong> <strong>12:35</strong> <strong>BA.1.10 terem</strong></p>
-</div>
 <h3 id="ros-service">ROS Service</h3>
 <ul>
 <li>Request/reply communication</li>
@@ -858,7 +854,7 @@ uint32<span class="w"> </span>an_integer
 </code></pre></div>
 <hr />
 <h3 id="ros-action">ROS Action</h3>
-<p><img alt="" src="https://docs.ros.org/en/foxy/_images/Action-SingleActionClient.gif" style="width:800px" /></p>
+<p><img alt="" src="https://docs.ros.org/en/jazzy/_images/Action-SingleActionClient.gif" style="width:800px" /></p>
 <!--suppress XmlDeprecatedElement -->
 <p><font size="1"> Image source: https://docs.ros.org/ </font></p>
 <ul>
@@ -932,14 +928,8 @@ bontani az alább ábra szerint.</p>
 <ol>
 <li>
 <p>Indítsuk el a PSM1 RViz szimulációját és a dummy markert. A dVRK konzolon ne felejtsünk el HOME-olni.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># dVRK main console</span>
-ros2<span class="w"> </span>run<span class="w"> </span>dvrk_robot<span class="w"> </span>dvrk_console_json<span class="w"> </span>-j<span class="w"> </span>~/dvrk2_ws/install/sawIntuitiveResearchKitAll/share/sawIntuitiveResearchKit/share/console/console-PSM1_KIN_SIMULATED.json
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="c1"># ROS 2 joint and robot state publishers</span>
-ros2<span class="w"> </span>launch<span class="w"> </span>dvrk_model<span class="w"> </span>dvrk_state_publisher.launch.py<span class="w"> </span>arm:<span class="o">=</span>PSM1
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="c1"># RViz</span>
-ros2<span class="w"> </span>run<span class="w"> </span>rviz2<span class="w"> </span>rviz2<span class="w"> </span>-d<span class="w"> </span>~/dvrk2_ws/install/dvrk_model/share/dvrk_model/rviz/PSM1.rviz
+<div class="highlight"><pre><span></span><code><span class="c1"># PSM1 Classic</span>
+ros2<span class="w"> </span>launch<span class="w"> </span>dvrk_model<span class="w"> </span>arm.launch.py<span class="w"> </span>arm:<span class="o">=</span>PSM1<span class="w"> </span>generation:<span class="o">=</span>Classic
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>run<span class="w"> </span>tf2_ros<span class="w"> </span>static_transform_publisher<span class="w"> </span>--frame-id<span class="w"> </span>PSM1_psm_base_link<span class="w"> </span>--child-frame-id<span class="w"> </span>camera<span class="w"> </span>--x<span class="w"> </span><span class="m">0</span>.18<span class="w"> </span>--y<span class="w"> </span><span class="m">0</span>.03<span class="w"> </span>--z<span class="w"> </span><span class="m">0</span>.01<span class="w"> </span>--roll<span class="w"> </span><span class="m">2</span>.70526034<span class="w"> </span>--pitch<span class="w"> </span>-0.78539816<span class="w"> </span>--yaw<span class="w"> </span>-2.53072742
 </code></pre></div>
@@ -1008,7 +998,7 @@ string<span class="w"> </span>status
 <li>
 <p>Build-eljük a workspace-t:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/ros2_ws
-colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release
+colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
 </code></pre></div>
 <hr />
 </li>
