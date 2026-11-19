@@ -711,6 +711,23 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ---
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="---">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
   <a href="#2-robot-mozgatasa-csukloterben" class="md-nav__link">
     <span class="md-ellipsis">
@@ -991,8 +1008,44 @@ pip3<span class="w"> </span>install<span class="w"> </span>kinpy<span class="w">
 <hr />
 </li>
 <li>
+<p>Moodle-ről töltsük le a <code>view_ur_launch.py</code> fált. Másoljuk a <code>ros2_course/launch</code> mappába.</p>
+</li>
+<li>
+<p>Adjuk hozzá az alábbi sorokat a <code>setup.py</code> fájlhoz:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">glob</span><span class="w"> </span><span class="kn">import</span> <span class="n">glob</span>
+
+<span class="c1"># ...</span>
+
+<span class="n">data_files</span><span class="o">=</span><span class="p">[</span>
+    <span class="p">(</span><span class="s1">&#39;share/ament_index/resource_index/packages&#39;</span><span class="p">,</span>
+        <span class="p">[</span><span class="s1">&#39;resource/&#39;</span> <span class="o">+</span> <span class="n">package_name</span><span class="p">]),</span>
+    <span class="p">(</span><span class="s1">&#39;share/&#39;</span> <span class="o">+</span> <span class="n">package_name</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;package.xml&#39;</span><span class="p">]),</span>
+    <span class="c1"># Include all launch files.</span>
+    <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;share&#39;</span><span class="p">,</span> <span class="n">package_name</span><span class="p">),</span>
+        <span class="n">glob</span><span class="p">(</span><span class="s1">&#39;launch/*launch.[pxy][yma]*&#39;</span><span class="p">))</span>
+<span class="p">],</span>
+</code></pre></div>
+<hr />
+</li>
+<li>
+<p>Adjuk hozzá <code>ros2launch</code> dependency-t a <code>package.xml</code> fájlhoz:</p>
+<div class="highlight"><pre><span></span><code>&lt;exec_depend&gt;ros2launch&lt;/exec_depend&gt;
+</code></pre></div>
+<h2 id="-">---</h2>
+</li>
+<li>
+<p>Build-eljük a workspace-t.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/ros2_ws
+colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
+</code></pre></div>
+</li>
+</ol>
+<hr />
+<ol>
+<li>
 <p>Indítsuk el a robot vizualizációját, majd mozgassuk a csuklókat a Joint State Publisher GUI segítségével.</p>
-<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>ur_description<span class="w"> </span>view_ur.launch.py<span class="w"> </span>ur_type:<span class="o">=</span>ur5e
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>ros2_course<span class="w"> </span>view_ur_launch.py<span class="w"> </span>ur_type:<span class="o">=</span>ur5e<span class="w"> </span>
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
