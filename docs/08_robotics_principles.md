@@ -168,10 +168,56 @@ $$
 
     ---
 
-2. Indítsuk el a robot vizualizációját, majd mozgassuk a csuklókat a Joint State Publisher GUI segítségével.
+
+2. Moodle-ről töltsük le a `view_ur_launch.py` fált. Másoljuk a `ros2_course/launch` mappába.
+
+3. Adjuk hozzá az alábbi sorokat a `setup.py` fájlhoz:
+
+
+    ```python
+    import os
+    from glob import glob
+   
+    # ...
+   
+    data_files=[
+        ('share/ament_index/resource_index/packages',
+            ['resource/' + package_name]),
+        ('share/' + package_name, ['package.xml']),
+        # Include all launch files.
+        (os.path.join('share', package_name),
+            glob('launch/*launch.[pxy][yma]*'))
+    ],
+
+    ```
+
+    ---
+
+
+4. Adjuk hozzá `ros2launch` dependency-t a `package.xml` fájlhoz:
 
     ```bash
-    ros2 launch ur_description view_ur.launch.py ur_type:=ur5e
+    <exec_depend>ros2launch</exec_depend>
+    ```
+
+
+    ---
+    ---
+
+5. Build-eljük a workspace-t.
+
+    ```bash
+    cd ~/ros2_ws
+    colcon build --symlink-install
+    ```
+
+   ---
+
+
+6. Indítsuk el a robot vizualizációját, majd mozgassuk a csuklókat a Joint State Publisher GUI segítségével.
+
+    ```bash
+    ros2 launch ros2_course view_ur_launch.py ur_type:=ur5e 
     ```
 
     !!! tip
