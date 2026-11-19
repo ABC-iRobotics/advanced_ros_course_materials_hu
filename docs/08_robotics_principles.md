@@ -154,45 +154,45 @@ $$
 
 1. Telepítsük a dependency-ket és a UR drivert.
 
-   ![](img/ur_rviz.png){:style="width:280px" align=right}
+    ![](img/ur_rviz.png){:style="width:280px" align=right}
 
-   ```bash
-   sudo apt update
-   sudo apt upgrade
-   sudo apt-get install ros-jazzy-ur python3-pip
-   pip3 install kinpy
-   ```
+    ```bash
+    sudo apt update
+    sudo apt upgrade
+    sudo apt-get install ros-jazzy-ur python3-pip
+    pip3 install kinpy --break-system-packages
+    ```
 
-   !!! tip
-       A `kinpy` csomag forrását is töltsük le, hasznos lehet az API megértése szempontjából: [https://pypi.org/project/kinpy/](https://pypi.org/project/kinpy/)
+    !!! tip
+    A `kinpy` csomag forrását is töltsük le, hasznos lehet az API megértése szempontjából: [https://pypi.org/project/kinpy/](https://pypi.org/project/kinpy/)
 
-   ---
+    ---
 
 2. Moodle-ről töltsük le a forrásfájlokat tartalmazó zip-et (`ur_ros2_course.zip`).
 
-   A gyakorlat során a saját `ros2_course` csomagunkban fogunk ROS 2 node-okat készíteni. A korábbi, külön `view_ur.launch.py` és `topic_latcher.py` fájlokra már nincs szükség, mivel a jelenlegi UR csomag saját launch fájlt biztosít, a `/robot_description` topic pedig ROS 2 QoS segítségével kezeli a később csatlakozó subscribereket.
+    A gyakorlat során a saját `ros2_course` csomagunkban fogunk ROS 2 node-okat készíteni. A korábbi, külön `view_ur.launch.py` és `topic_latcher.py` fájlokra már nincs szükség, mivel a jelenlegi UR csomag saját launch fájlt biztosít, a `/robot_description` topic pedig ROS 2 QoS segítségével kezeli a később csatlakozó subscribereket.
 
-   ---
+    ---
 
 3. Build-eljük a workspace-t.
 
-   ```bash
-   cd ~/ros2_ws
-   colcon build --symlink-install
-   ```
+    ```bash
+    cd ~/ros2_ws
+    colcon build --symlink-install
+    ```
 
-   ---
+    ---
 
 4. Indítsuk el a robot vizualizációját, majd mozgassuk a csuklókat a Joint State Publisher GUI segítségével.
 
-   ```bash
-   ros2 launch ur_description view_ur.launch.py ur_type:=ur5e
-   ```
+    ```bash
+    ros2 launch ur_description view_ur.launch.py ur_type:=ur5e
+    ```
 
-   !!! tip
-       Próbáljunk ki más robotokat is a `ur_type` argumentum beállításával, például:
+    !!! tip
+        Próbáljunk ki más robotokat is a `ur_type` argumentum beállításával, például:
 
-       `ur3`, `ur3e`, `ur5`, `ur5e`, `ur10`, `ur10e`, `ur16e`, `ur20`
+        `ur3`, `ur3e`, `ur5`, `ur5e`, `ur10`, `ur10e`, `ur16e`, `ur20`
 
 ---
 
@@ -200,30 +200,26 @@ $$
 
 ---
 
-1. Hozzunk létre új Python forrásfájlt `ur_controller.py` névvel a
+1. Hozzunk létre új Python forrásfájlt `ur_controller.py` névvel a     `~/ros2_ws/src/ros2_course/ros2_course` mappában.
 
-   `~/ros2_ws/src/ros2_course/ros2_course`
+    Adjuk meg az új entry pointot a `setup.py`-ban a megszokott módon.
 
-   mappában.
+    Iratkozzunk fel a robot csuklószögeit (konfigurációját) publikáló topicra, majd hozzunk létre publishert a csuklók szögeinek beállítására használható topichoz.
 
-   Adjuk meg az új entry pointot a `setup.py`-ban a megszokott módon.
+    ```text
+    /joint_states
+    /set_joint_states
+    ```
 
-   Iratkozzunk fel a robot csuklószögeit (konfigurációját) publikáló topicra, majd hozzunk létre publishert a csuklók szögeinek beállítására használható topichoz.
-
-   ```text
-   /joint_states
-   /set_joint_states
-   ```
-
-   ---
+    ---
 
 2. Mozgassuk a robotot
 
-   ```text
-   q = [-1.28, 4.41, 1.54, -1.16, -1.56, 0.0]
-   ```
+    ```text
+    q = [-1.28, 4.41, 1.54, -1.16, -1.56, 0.0]
+    ```
 
-   konfigurációba.
+    konfigurációba.
 
 ---
 
@@ -233,130 +229,130 @@ $$
 
 1. A robotot leíró URDF-et a `robot_state_publisher` a
 
-   ```text
-   /robot_description
-   ```
+    ```text
+    /robot_description
+    ```
 
-   topicon publikálja.
+    topicon publikálja.
 
-   Ellenőrizzük a topic tulajdonságait:
+    Ellenőrizzük a topic tulajdonságait:
 
-   ```bash
-   ros2 topic info /robot_description --verbose
-   ```
+    ```bash
+    ros2 topic info /robot_description --verbose
+    ```
 
-   Figyeljük meg a publisher QoS-beállításait, különösen a `Durability` értékét.
+    Figyeljük meg a publisher QoS-beállításait, különösen a `Durability` értékét.
 
-   A `robot_state_publisher` a `/robot_description` topicot **TRANSIENT_LOCAL** durabilityvel publikálja. Ez azt jelenti, hogy a publisher megőrzi az utolsó üzenetet, így egy később elinduló, megfelelő QoS-beállítású subscriber is megkaphatja az URDF-et.
+    A `robot_state_publisher` a `/robot_description` topicot **TRANSIENT_LOCAL** durabilityvel publikálja. Ez azt jelenti, hogy a publisher megőrzi az utolsó üzenetet, így egy később elinduló, megfelelő QoS-beállítású subscriber is megkaphatja az URDF-et.
 
-   ---
+    ---
 
 2. Próbáljuk ki az alábbi egyszerű subscribert:
 
-   ```python
-   self.subscription = self.create_subscription(
-       String,
-       '/robot_description',
-       self.robot_description_callback,
-       10
-   )
-   ```
+    ```python
+    self.subscription = self.create_subscription(
+        String,
+        '/robot_description',
+        self.robot_description_callback,
+        10
+    )
+    ```
 
-   Indítsuk el a node-ot úgy, hogy a `robot_state_publisher` már fut.
+    Indítsuk el a node-ot úgy, hogy a `robot_state_publisher` már fut.
 
-   Figyeljük meg, hogy a callback nem feltétlenül kapja meg a korábban publikált URDF-et.
+    Figyeljük meg, hogy a callback nem feltétlenül kapja meg a korábban publikált URDF-et.
 
-   !!! tip
-       A `10` nem maga a teljes QoS-beállítás. Ez a QoS history queue mélységét adja meg. A többi QoS tulajdonság alapértelmezett értéket kap.
+    !!! tip
+        A `10` nem maga a teljes QoS-beállítás. Ez a QoS history queue mélységét adja meg. A többi QoS tulajdonság alapértelmezett értéket kap.
 
-   ---
+    ---
 
 3. Állítsunk be explicit QoS profilt a `/robot_description` topichoz.
 
-   ```python
-   from rclpy.qos import QoSProfile
-   from rclpy.qos import ReliabilityPolicy
-   from rclpy.qos import DurabilityPolicy
-   ```
+    ```python
+    from rclpy.qos import QoSProfile
+    from rclpy.qos import ReliabilityPolicy
+    from rclpy.qos import DurabilityPolicy
+    ```
 
-   Hozzunk létre egy QoS profilt:
+    Hozzunk létre egy QoS profilt:
 
-   ```python
-   robot_description_qos = QoSProfile(
-       depth=1,
-       reliability=ReliabilityPolicy.RELIABLE,
-       durability=DurabilityPolicy.TRANSIENT_LOCAL,
-   )
-   ```
+    ```python
+    robot_description_qos = QoSProfile(
+        depth=1,
+        reliability=ReliabilityPolicy.RELIABLE,
+        durability=DurabilityPolicy.TRANSIENT_LOCAL,
+    )
+    ```
 
-   és használjuk ezt a subscriber létrehozásakor:
+    és használjuk ezt a subscriber létrehozásakor:
 
-   ```python
-   self.subscription = self.create_subscription(
-       String,
-       '/robot_description',
-       self.robot_description_callback,
-       robot_description_qos
-   )
-   ```
+    ```python
+    self.subscription = self.create_subscription(
+        String,
+        '/robot_description',
+        self.robot_description_callback,
+        robot_description_qos
+    )
+    ```
 
-   ---
+    ---
 
 4. Magyarázzuk meg a QoS-beállításokat.
 
-   A legfontosabb QoS tulajdonságok ebben a példában:
+    A legfontosabb QoS tulajdonságok ebben a példában:
 
-   | QoS beállítás | Jelentése |
-   |---|---|
-   | `RELIABLE` | Az üzenetek megbízható kézbesítésére törekszik. |
-   | `VOLATILE` | A subscriber csak a csatlakozása után publikált üzeneteket kapja meg. |
-   | `TRANSIENT_LOCAL` | A publisher megőrzi az utolsó üzenetet, amit egy később csatlakozó, megfelelő subscriber is megkaphat. |
-   | `depth` | A history queue-ban tárolt üzenetek száma. |
+    | QoS beállítás | Jelentése |
+    |---|---|
+    | `RELIABLE` | Az üzenetek megbízható kézbesítésére törekszik. |
+    | `VOLATILE` | A subscriber csak a csatlakozása után publikált üzeneteket kapja meg. |
+    | `TRANSIENT_LOCAL` | A publisher megőrzi az utolsó üzenetet, amit egy később csatlakozó, megfelelő subscriber is megkaphat. |
+    | `depth` | A history queue-ban tárolt üzenetek száma. |
 
-   A `/robot_description` esetében a `TRANSIENT_LOCAL` azért hasznos, mert az URDF nem folyamatos adatfolyam: a robot leírása általában egyszer kerül publikálásra, de az azt feldolgozó node-ok később is elindulhatnak.
+    A `/robot_description` esetében a `TRANSIENT_LOCAL` azért hasznos, mert az URDF nem folyamatos adatfolyam: a robot leírása általában egyszer kerül publikálásra, de az azt feldolgozó node-ok később is elindulhatnak.
 
-   ---
+    ---
 
 5. Ellenőrizzük a működést.
 
-   Az URDF-et tartalmazó topic lekérdezése explicit QoS-beállítással:
+    Az URDF-et tartalmazó topic lekérdezése explicit QoS-beállítással:
 
-   ```bash
-   ros2 topic echo /robot_description \
-       --qos-durability transient_local \
-       --qos-reliability reliable \
-       --once
-   ```
+    ```bash
+    ros2 topic echo /robot_description \
+        --qos-durability transient_local \
+        --qos-reliability reliable \
+        --once
+    ```
 
-   A saját node-unkat akár az UR vizualizáció elindítása után is elindíthatjuk. A megfelelő `TRANSIENT_LOCAL` QoS miatt a subscriber megkapja a korábban publikált URDF-et.
+    A saját node-unkat akár az UR vizualizáció elindítása után is elindíthatjuk. A megfelelő `TRANSIENT_LOCAL` QoS miatt a subscriber megkapja a korábban publikált URDF-et.
 
-   ---
+    ---
 
 6. Importáljuk a `kinpy` csomagot, és hozzuk létre a kinematikai láncot a robotot leíró URDF alapján az előbb implementált callback függvényben:
 
-   ```python
-   import kinpy as kp
+    ```python
+    import kinpy as kp
 
-   # ...
+    # ...
 
-   self.chain = kp.build_serial_chain_from_urdf(
-       self.desc,
-       'tool0'
-   )
+    self.chain = kp.build_serial_chain_from_urdf(
+        self.desc,
+        'tool0'
+    )
 
-   print(self.chain.get_joint_parameter_names())
-   print(self.chain)
-   ```
+    print(self.chain.get_joint_parameter_names())
+    print(self.chain)
+    ```
 
-   ---
+    ---
 
 7. Számítsuk ki, majd írassuk ki a TCP pozícióját az adott konfigurációban a `kinpy` csomag segítségével.
 
-   ```python
-   p = chain.forward_kinematics(q)
-   ```
+    ```python
+    p = chain.forward_kinematics(q)
+    ```
 
-   Vizsgáljuk meg a kapott transzformációt, és keressük meg benne a TCP pozícióját és orientációját.
+    Vizsgáljuk meg a kapott transzformációt, és keressük meg benne a TCP pozícióját és orientációját.
 ---
 
 ### 4: Inverz kinematika Jacobi inverz módszerrel
