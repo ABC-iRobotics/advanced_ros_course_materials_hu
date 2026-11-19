@@ -723,10 +723,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-a-robot-leirasa-es-ros-2-qos" class="md-nav__link">
+  <a href="#3-kinematika-ros-2-qos" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3: A robot leírása és ROS 2 QoS
+        3. Kinematika ROS 2 QoS
       
     </span>
   </a>
@@ -991,18 +991,6 @@ pip3<span class="w"> </span>install<span class="w"> </span>kinpy<span class="w">
 <hr />
 </li>
 <li>
-<p>Moodle-ről töltsük le a forrásfájlokat tartalmazó zip-et (<code>ur_ros2_course.zip</code>).</p>
-<p>A gyakorlat során a saját <code>ros2_course</code> csomagunkban fogunk ROS 2 node-okat készíteni. A korábbi, külön <code>view_ur.launch.py</code> és <code>topic_latcher.py</code> fájlokra már nincs szükség, mivel a jelenlegi UR csomag saját launch fájlt biztosít, a <code>/robot_description</code> topic pedig ROS 2 QoS segítségével kezeli a később csatlakozó subscribereket.</p>
-<hr />
-</li>
-<li>
-<p>Build-eljük a workspace-t.</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/ros2_ws
-colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
-</code></pre></div>
-<hr />
-</li>
-<li>
 <p>Indítsuk el a robot vizualizációját, majd mozgassuk a csuklókat a Joint State Publisher GUI segítségével.</p>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>ur_description<span class="w"> </span>view_ur.launch.py<span class="w"> </span>ur_type:<span class="o">=</span>ur5e
 </code></pre></div>
@@ -1014,7 +1002,7 @@ colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
 </li>
 </ol>
 <hr />
-<h3 id="2-robot-mozgatasa-csukloterben"><em>2: Robot mozgatása csuklótérben</em></h3>
+<h3 id="2-robot-mozgatasa-csukloterben">2: Robot mozgatása csuklótérben</h3>
 <hr />
 <ol>
 <li>
@@ -1034,7 +1022,7 @@ colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
 </li>
 </ol>
 <hr />
-<h3 id="3-a-robot-leirasa-es-ros-2-qos"><em>3: A robot leírása és ROS 2 QoS</em></h3>
+<h3 id="3-kinematika-ros-2-qos">3. Kinematika ROS 2 QoS</h3>
 <hr />
 <ol>
 <li>
