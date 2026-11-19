@@ -168,22 +168,7 @@ $$
 
     ---
 
-2. Moodle-ről töltsük le a forrásfájlokat tartalmazó zip-et (`ur_ros2_course.zip`).
-
-    A gyakorlat során a saját `ros2_course` csomagunkban fogunk ROS 2 node-okat készíteni. A korábbi, külön `view_ur.launch.py` és `topic_latcher.py` fájlokra már nincs szükség, mivel a jelenlegi UR csomag saját launch fájlt biztosít, a `/robot_description` topic pedig ROS 2 QoS segítségével kezeli a később csatlakozó subscribereket.
-
-    ---
-
-3. Build-eljük a workspace-t.
-
-    ```bash
-    cd ~/ros2_ws
-    colcon build --symlink-install
-    ```
-
-    ---
-
-4. Indítsuk el a robot vizualizációját, majd mozgassuk a csuklókat a Joint State Publisher GUI segítségével.
+2. Indítsuk el a robot vizualizációját, majd mozgassuk a csuklókat a Joint State Publisher GUI segítségével.
 
     ```bash
     ros2 launch ur_description view_ur.launch.py ur_type:=ur5e
@@ -196,7 +181,7 @@ $$
 
 ---
 
-### *2: Robot mozgatása csuklótérben*
+### 2: Robot mozgatása csuklótérben
 
 ---
 
@@ -223,7 +208,7 @@ $$
 
 ---
 
-### *3: A robot leírása és ROS 2 QoS*
+### 3. Kinematika ROS 2 QoS
 
 ---
 
