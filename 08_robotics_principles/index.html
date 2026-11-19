@@ -976,64 +976,69 @@
 <h3 id="1-ur-install"><em>1: UR install</em></h3>
 <hr />
 <ol>
-<li>Telepítsük a dependency-ket és a UR drivert.</li>
-</ol>
+<li>
+<p>Telepítsük a dependency-ket és a UR drivert.</p>
 <p><img align="right" alt="" src="../img/ur_rviz.png" style="width:280px" /></p>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
 sudo<span class="w"> </span>apt<span class="w"> </span>upgrade
 sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>ros-jazzy-ur<span class="w"> </span>python3-pip
-pip3<span class="w"> </span>install<span class="w"> </span>kinpy
+pip3<span class="w"> </span>install<span class="w"> </span>kinpy<span class="w"> </span>--break-system-packages
 </code></pre></div>
-<p>!!! tip
-       A <code>kinpy</code> csomag forrását is töltsük le, hasznos lehet az API megértése szempontjából: <a href="https://pypi.org/project/kinpy/">https://pypi.org/project/kinpy/</a></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+</div>
+<p>A <code>kinpy</code> csomag forrását is töltsük le, hasznos lehet az API megértése szempontjából: <a href="https://pypi.org/project/kinpy/">https://pypi.org/project/kinpy/</a></p>
 <hr />
-<ol>
-<li>Moodle-ről töltsük le a forrásfájlokat tartalmazó zip-et (<code>ur_ros2_course.zip</code>).</li>
-</ol>
+</li>
+<li>
+<p>Moodle-ről töltsük le a forrásfájlokat tartalmazó zip-et (<code>ur_ros2_course.zip</code>).</p>
 <p>A gyakorlat során a saját <code>ros2_course</code> csomagunkban fogunk ROS 2 node-okat készíteni. A korábbi, külön <code>view_ur.launch.py</code> és <code>topic_latcher.py</code> fájlokra már nincs szükség, mivel a jelenlegi UR csomag saját launch fájlt biztosít, a <code>/robot_description</code> topic pedig ROS 2 QoS segítségével kezeli a később csatlakozó subscribereket.</p>
 <hr />
-<ol>
-<li>Build-eljük a workspace-t.</li>
-</ol>
+</li>
+<li>
+<p>Build-eljük a workspace-t.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/ros2_ws
 colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
 </code></pre></div>
 <hr />
-<ol>
-<li>Indítsuk el a robot vizualizációját, majd mozgassuk a csuklókat a Joint State Publisher GUI segítségével.</li>
-</ol>
+</li>
+<li>
+<p>Indítsuk el a robot vizualizációját, majd mozgassuk a csuklókat a Joint State Publisher GUI segítségével.</p>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>ur_description<span class="w"> </span>view_ur.launch.py<span class="w"> </span>ur_type:<span class="o">=</span>ur5e
 </code></pre></div>
-<p>!!! tip
-       Próbáljunk ki más robotokat is a <code>ur_type</code> argumentum beállításával, például:</p>
-<pre><code>   `ur3`, `ur3e`, `ur5`, `ur5e`, `ur10`, `ur10e`, `ur16e`, `ur20`
-</code></pre>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Próbáljunk ki más robotokat is a <code>ur_type</code> argumentum beállításával, például:</p>
+<p><code>ur3</code>, <code>ur3e</code>, <code>ur5</code>, <code>ur5e</code>, <code>ur10</code>, <code>ur10e</code>, <code>ur16e</code>, <code>ur20</code></p>
+</div>
+</li>
+</ol>
 <hr />
 <h3 id="2-robot-mozgatasa-csukloterben"><em>2: Robot mozgatása csuklótérben</em></h3>
 <hr />
 <ol>
-<li>Hozzunk létre új Python forrásfájlt <code>ur_controller.py</code> névvel a</li>
-</ol>
-<p><code>~/ros2_ws/src/ros2_course/ros2_course</code></p>
-<p>mappában.</p>
+<li>
+<p>Hozzunk létre új Python forrásfájlt <code>ur_controller.py</code> névvel a     <code>~/ros2_ws/src/ros2_course/ros2_course</code> mappában.</p>
 <p>Adjuk meg az új entry pointot a <code>setup.py</code>-ban a megszokott módon.</p>
 <p>Iratkozzunk fel a robot csuklószögeit (konfigurációját) publikáló topicra, majd hozzunk létre publishert a csuklók szögeinek beállítására használható topichoz.</p>
 <div class="highlight"><pre><span></span><code>/joint_states
 /set_joint_states
 </code></pre></div>
 <hr />
-<ol>
-<li>Mozgassuk a robotot</li>
-</ol>
+</li>
+<li>
+<p>Mozgassuk a robotot</p>
 <div class="highlight"><pre><span></span><code>q = [-1.28, 4.41, 1.54, -1.16, -1.56, 0.0]
 </code></pre></div>
 <p>konfigurációba.</p>
+</li>
+</ol>
 <hr />
 <h3 id="3-a-robot-leirasa-es-ros-2-qos"><em>3: A robot leírása és ROS 2 QoS</em></h3>
 <hr />
 <ol>
-<li>A robotot leíró URDF-et a <code>robot_state_publisher</code> a</li>
-</ol>
+<li>
+<p>A robotot leíró URDF-et a <code>robot_state_publisher</code> a</p>
 <div class="highlight"><pre><span></span><code>/robot_description
 </code></pre></div>
 <p>topicon publikálja.</p>
@@ -1043,9 +1048,9 @@ colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
 <p>Figyeljük meg a publisher QoS-beállításait, különösen a <code>Durability</code> értékét.</p>
 <p>A <code>robot_state_publisher</code> a <code>/robot_description</code> topicot <strong>TRANSIENT_LOCAL</strong> durabilityvel publikálja. Ez azt jelenti, hogy a publisher megőrzi az utolsó üzenetet, így egy később elinduló, megfelelő QoS-beállítású subscriber is megkaphatja az URDF-et.</p>
 <hr />
-<ol>
-<li>Próbáljuk ki az alábbi egyszerű subscribert:</li>
-</ol>
+</li>
+<li>
+<p>Próbáljuk ki az alábbi egyszerű subscribert:</p>
 <div class="highlight"><pre><span></span><code><span class="bp">self</span><span class="o">.</span><span class="n">subscription</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_subscription</span><span class="p">(</span>
     <span class="n">String</span><span class="p">,</span>
     <span class="s1">&#39;/robot_description&#39;</span><span class="p">,</span>
@@ -1055,12 +1060,14 @@ colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
 </code></pre></div>
 <p>Indítsuk el a node-ot úgy, hogy a <code>robot_state_publisher</code> már fut.</p>
 <p>Figyeljük meg, hogy a callback nem feltétlenül kapja meg a korábban publikált URDF-et.</p>
-<p>!!! tip
-       A <code>10</code> nem maga a teljes QoS-beállítás. Ez a QoS history queue mélységét adja meg. A többi QoS tulajdonság alapértelmezett értéket kap.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>A <code>10</code> nem maga a teljes QoS-beállítás. Ez a QoS history queue mélységét adja meg. A többi QoS tulajdonság alapértelmezett értéket kap.</p>
+</div>
 <hr />
-<ol>
-<li>Állítsunk be explicit QoS profilt a <code>/robot_description</code> topichoz.</li>
-</ol>
+</li>
+<li>
+<p>Állítsunk be explicit QoS profilt a <code>/robot_description</code> topichoz.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">rclpy.qos</span><span class="w"> </span><span class="kn">import</span> <span class="n">QoSProfile</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">rclpy.qos</span><span class="w"> </span><span class="kn">import</span> <span class="n">ReliabilityPolicy</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">rclpy.qos</span><span class="w"> </span><span class="kn">import</span> <span class="n">DurabilityPolicy</span>
@@ -1081,9 +1088,9 @@ colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
 <span class="p">)</span>
 </code></pre></div>
 <hr />
-<ol>
-<li>Magyarázzuk meg a QoS-beállításokat.</li>
-</ol>
+</li>
+<li>
+<p>Magyarázzuk meg a QoS-beállításokat.</p>
 <p>A legfontosabb QoS tulajdonságok ebben a példában:</p>
 <table>
 <thead>
@@ -1113,9 +1120,9 @@ colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
 </table>
 <p>A <code>/robot_description</code> esetében a <code>TRANSIENT_LOCAL</code> azért hasznos, mert az URDF nem folyamatos adatfolyam: a robot leírása általában egyszer kerül publikálásra, de az azt feldolgozó node-ok később is elindulhatnak.</p>
 <hr />
-<ol>
-<li>Ellenőrizzük a működést.</li>
-</ol>
+</li>
+<li>
+<p>Ellenőrizzük a működést.</p>
 <p>Az URDF-et tartalmazó topic lekérdezése explicit QoS-beállítással:</p>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/robot_description<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--qos-durability<span class="w"> </span>transient_local<span class="w"> </span><span class="se">\</span>
@@ -1124,9 +1131,9 @@ colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
 </code></pre></div>
 <p>A saját node-unkat akár az UR vizualizáció elindítása után is elindíthatjuk. A megfelelő <code>TRANSIENT_LOCAL</code> QoS miatt a subscriber megkapja a korábban publikált URDF-et.</p>
 <hr />
-<ol>
-<li>Importáljuk a <code>kinpy</code> csomagot, és hozzuk létre a kinematikai láncot a robotot leíró URDF alapján az előbb implementált callback függvényben:</li>
-</ol>
+</li>
+<li>
+<p>Importáljuk a <code>kinpy</code> csomagot, és hozzuk létre a kinematikai láncot a robotot leíró URDF alapján az előbb implementált callback függvényben:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">kinpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">kp</span>
 
 <span class="c1"># ...</span>
@@ -1140,12 +1147,14 @@ colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
 <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chain</span><span class="p">)</span>
 </code></pre></div>
 <hr />
-<ol>
-<li>Számítsuk ki, majd írassuk ki a TCP pozícióját az adott konfigurációban a <code>kinpy</code> csomag segítségével.</li>
-</ol>
+</li>
+<li>
+<p>Számítsuk ki, majd írassuk ki a TCP pozícióját az adott konfigurációban a <code>kinpy</code> csomag segítségével.</p>
 <div class="highlight"><pre><span></span><code><span class="n">p</span> <span class="o">=</span> <span class="n">chain</span><span class="o">.</span><span class="n">forward_kinematics</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="vizsgaljuk-meg-a-kapott-transzformaciot-es-keressuk-meg-benne-a-tcp-poziciojat-es-orientaciojat">Vizsgáljuk meg a kapott transzformációt, és keressük meg benne a TCP pozícióját és orientációját.</h2>
+</li>
+</ol>
 <h3 id="4-inverz-kinematika-jacobi-inverz-modszerrel">4: Inverz kinematika Jacobi inverz módszerrel</h3>
 <hr />
 <p>Írjunk metódust, amely az előadásban bemutatott Jakobi inverz módszerrel valósítja meg az inverz kinematikai feladatot a roboton. 
