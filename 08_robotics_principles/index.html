@@ -711,23 +711,6 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#-" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ---
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="---">
-      <ul class="md-nav__list">
-        
           <li class="md-nav__item">
   <a href="#2-robot-mozgatasa-csukloterben" class="md-nav__link">
     <span class="md-ellipsis">
@@ -740,32 +723,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-kinematika-ros-2-qos" class="md-nav__link">
+  <a href="#3-kinematika-es-ros-2-qos" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Kinematika ROS 2 QoS
+        3. Kinematika és ROS 2 QoS
       
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#vizsgaljuk-meg-a-kapott-transzformaciot-es-keressuk-meg-benne-a-tcp-poziciojat-es-orientaciojat" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vizsgáljuk meg a kapott transzformációt, és keressük meg benne a TCP pozícióját és orientációját.
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Vizsgáljuk meg a kapott transzformációt, és keressük meg benne a TCP pozícióját és orientációját.">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#4-inverz-kinematika-jacobi-inverz-modszerrel" class="md-nav__link">
@@ -1003,8 +969,8 @@ pip3<span class="w"> </span>install<span class="w"> </span>kinpy<span class="w">
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-</div>
 <p>A <code>kinpy</code> csomag forrását is töltsük le, hasznos lehet az API megértése szempontjából: <a href="https://pypi.org/project/kinpy/">https://pypi.org/project/kinpy/</a></p>
+</div>
 <hr />
 </li>
 <li>
@@ -1032,7 +998,7 @@ pip3<span class="w"> </span>install<span class="w"> </span>kinpy<span class="w">
 <p>Adjuk hozzá <code>ros2launch</code> dependency-t a <code>package.xml</code> fájlhoz:</p>
 <div class="highlight"><pre><span></span><code>&lt;exec_depend&gt;ros2launch&lt;/exec_depend&gt;
 </code></pre></div>
-<h2 id="-">---</h2>
+<hr />
 </li>
 <li>
 <p>Build-eljük a workspace-t.</p>
@@ -1075,7 +1041,7 @@ colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
 </li>
 </ol>
 <hr />
-<h3 id="3-kinematika-ros-2-qos">3. Kinematika ROS 2 QoS</h3>
+<h3 id="3-kinematika-es-ros-2-qos">3. Kinematika és ROS 2 QoS</h3>
 <hr />
 <ol>
 <li>
@@ -1193,9 +1159,9 @@ colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
 <p>Számítsuk ki, majd írassuk ki a TCP pozícióját az adott konfigurációban a <code>kinpy</code> csomag segítségével.</p>
 <div class="highlight"><pre><span></span><code><span class="n">p</span> <span class="o">=</span> <span class="n">chain</span><span class="o">.</span><span class="n">forward_kinematics</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
 </code></pre></div>
-<h2 id="vizsgaljuk-meg-a-kapott-transzformaciot-es-keressuk-meg-benne-a-tcp-poziciojat-es-orientaciojat">Vizsgáljuk meg a kapott transzformációt, és keressük meg benne a TCP pozícióját és orientációját.</h2>
 </li>
 </ol>
+<hr />
 <h3 id="4-inverz-kinematika-jacobi-inverz-modszerrel">4: Inverz kinematika Jacobi inverz módszerrel</h3>
 <hr />
 <p>Írjunk metódust, amely az előadásban bemutatott Jakobi inverz módszerrel valósítja meg az inverz kinematikai feladatot a roboton. 
