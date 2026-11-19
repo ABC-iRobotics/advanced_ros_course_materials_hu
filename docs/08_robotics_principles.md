@@ -164,7 +164,7 @@ $$
     ```
 
     !!! tip
-    A `kinpy` csomag forrását is töltsük le, hasznos lehet az API megértése szempontjából: [https://pypi.org/project/kinpy/](https://pypi.org/project/kinpy/)
+        A `kinpy` csomag forrását is töltsük le, hasznos lehet az API megértése szempontjából: [https://pypi.org/project/kinpy/](https://pypi.org/project/kinpy/)
 
     ---
 
@@ -202,7 +202,8 @@ $$
 
 
     ---
-    ---
+ 
+
 
 5. Build-eljük a workspace-t.
 
@@ -254,7 +255,7 @@ $$
 
 ---
 
-### 3. Kinematika ROS 2 QoS
+### 3. Kinematika és ROS 2 QoS
 
 ---
 
@@ -383,7 +384,7 @@ $$
     p = chain.forward_kinematics(q)
     ```
 
-    Vizsgáljuk meg a kapott transzformációt, és keressük meg benne a TCP pozícióját és orientációját.
+
 ---
 
 ### 4: Inverz kinematika Jacobi inverz módszerrel
